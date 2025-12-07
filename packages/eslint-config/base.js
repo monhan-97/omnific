@@ -6,7 +6,6 @@ import { flatConfigs as importXFlagConfigs } from 'eslint-plugin-import-x';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
-
 // 'tsc' already handles this
 const conflictRules = (type = 'off') => {
   return {
@@ -192,6 +191,10 @@ const commonConfig = {
 
     ...eslintPluginUnicorn.configs.recommended.rules,
     'unicorn/better-regex': 'warn',
+    'unicorn/no-array-reduce': 'warn',
+    'unicorn/no-array-sort': 'warn',
+    'unicorn/filename-case': 'off',
+    'unicorn/no-for-loop': 'warn',
 
     // other
     'sort-imports': [
