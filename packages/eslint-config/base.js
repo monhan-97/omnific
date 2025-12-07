@@ -6,6 +6,7 @@ import { flatConfigs as importXFlagConfigs } from 'eslint-plugin-import-x';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
+
 // 'tsc' already handles this
 const conflictRules = (type = 'off') => {
   return {
@@ -184,43 +185,13 @@ const commonConfig = {
     'import-x/no-extraneous-dependencies': 'off',
     'import-x/no-rename-default': 'off',
     'import-x/default': 'off',
-    'import-x/no-nodejs-modules': ['error', { allow: builtinModules.map(mod => `node:${mod}`) }],
+    'import-x/no-nodejs-modules': [
+      'error',
+      { allow: builtinModules.map(module_ => `node:${module_}`) },
+    ],
 
-    // unicorn
-    'unicorn/custom-error-definition': 'error',
-    'unicorn/error-message': 'error',
-    'unicorn/escape-case': 'error',
-    'unicorn/new-for-builtins': 'error',
-    'unicorn/no-array-method-this-argument': 'error',
-    'unicorn/no-array-push-push': 'error',
-    'unicorn/no-console-spaces': 'error',
-    'unicorn/no-hex-escape': 'error',
-    'unicorn/no-instanceof-array': 'error',
-    'unicorn/no-invalid-remove-event-listener': 'error',
-    'unicorn/no-new-array': 'error',
-    'unicorn/no-new-buffer': 'error',
-    'unicorn/no-unsafe-regex': 'off',
-    'unicorn/number-literal-case': 'error',
-    'unicorn/prefer-array-find': 'error',
-    'unicorn/prefer-array-flat-map': 'error',
-    'unicorn/prefer-array-index-of': 'error',
-    'unicorn/prefer-array-some': 'error',
-    'unicorn/prefer-date-now': 'error',
-    'unicorn/prefer-dom-node-dataset': 'error',
-    'unicorn/prefer-keyboard-event-key': 'error',
-    'unicorn/prefer-math-trunc': 'error',
-    'unicorn/prefer-modern-dom-apis': 'error',
-    'unicorn/prefer-negative-index': 'error',
-    'unicorn/prefer-number-properties': 'error',
-    'unicorn/prefer-optional-catch-binding': 'error',
-    'unicorn/prefer-prototype-methods': 'error',
-    'unicorn/prefer-reflect-apply': 'error',
-    'unicorn/prefer-string-slice': 'error',
-    'unicorn/prefer-string-starts-ends-with': 'error',
-    'unicorn/prefer-string-trim-start-end': 'error',
-    'unicorn/prefer-type-error': 'error',
-    'unicorn/throw-new-error': 'error',
-    'unicorn/expiring-todo-comments': 2,
+    ...eslintPluginUnicorn.configs.recommended.rules,
+    'unicorn/better-regex': 'warn',
 
     // other
     'sort-imports': [
