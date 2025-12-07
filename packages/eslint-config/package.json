@@ -1,7 +1,7 @@
 {
   "name": "@refer-utils/eslint-config",
   "description": "Shared eslint config for your project",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "license": "MIT",
   "type": "module",
   "keywords": [
