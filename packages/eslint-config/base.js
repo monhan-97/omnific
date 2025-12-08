@@ -192,9 +192,10 @@ const commonConfig = {
     ...eslintPluginUnicorn.configs.recommended.rules,
     'unicorn/better-regex': 'warn',
     'unicorn/no-array-reduce': 'warn',
-    'unicorn/no-array-sort': 'warn',
-    'unicorn/filename-case': 'off',
     'unicorn/no-for-loop': 'warn',
+    'unicorn/no-array-sort': 'off',
+    'unicorn/filename-case': 'off',
+    'unicorn/prevent-abbreviations': 'off',
 
     // other
     'sort-imports': [
