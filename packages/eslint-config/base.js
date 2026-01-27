@@ -14,6 +14,7 @@ const conflictRules = (type = 'off') => {
     'no-dupe-class-members': type,
     'no-undef': type,
     'no-unused-expressions': type,
+    'no-redeclare': type,
   };
 };
 
