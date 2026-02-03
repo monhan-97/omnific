@@ -1,3 +1,3 @@
 export { AwaitedType, Nullable, Override, Thenable } from './utils';
 
-export { ResponseDataType, ResponseErrorModel } from './request';
+export { ResponseDataType, ResponseErrorType } from './request';
