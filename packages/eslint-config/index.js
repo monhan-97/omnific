@@ -1,4 +1,2 @@
-import base from './base.js';
-import react from './react.js';
-
-export { base, react };
+export { default as base } from './base.js';
+export { default as react } from './react.js';
