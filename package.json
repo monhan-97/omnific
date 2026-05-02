@@ -1,5 +1,5 @@
 {
-  "name": "refer-utils",
+  "name": "omnific",
   "version": "1.0.0",
   "type": "module",
   "description": "",
@@ -15,9 +15,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@refer-utils/eslint-config": "workspace:*",
-    "@refer-utils/prettier-config": "workspace:*",
-    "@refer-utils/types": "workspace:*",
+    "@omnific/eslint-config": "workspace:*",
+    "@omnific/prettier-config": "workspace:*",
+    "@omnific/types": "workspace:*",
     "@types/node": "^24.6.2",
     "eslint": "^9.37.0",
     "prettier": "^3.6.2",

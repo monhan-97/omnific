@@ -1,4 +1,4 @@
-import prettierConfig from '@refer-utils/prettier-config';
+import prettierConfig from '@omnific/prettier-config';
 
 /**
  * @see https://prettier.io/docs/configuration

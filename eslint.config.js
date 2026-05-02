@@ -1,4 +1,4 @@
-import { base } from '@refer-utils/eslint-config';
+import { base } from '@omnific/eslint-config';
 
 const eslintConfig = [...base];
 

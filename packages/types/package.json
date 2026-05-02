@@ -1,5 +1,5 @@
 {
-  "name": "@refer-utils/types",
+  "name": "@omnific/types",
   "description": "Shared typescript  utils for your project",
   "version": "0.0.5",
   "license": "MIT",
@@ -17,14 +17,15 @@
   "files": [
     "utils.ts",
     "index.d.ts",
-    "module.d.ts"
+    "module.d.ts",
+    "request.ts"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/monhan-97/refer.git"
+    "url": "git+https://github.com/monhan-97/omnific.git"
   },
   "bugs": {
-    "url": "https://github.com/monhan-97/refer.git/issues"
+    "url": "https://github.com/monhan-97/omnific.git/issues"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
