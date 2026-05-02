@@ -1,0 +1,68 @@
+{
+  "name": "@omnific/react-scripts",
+  "version": "0.1.0",
+  "description": "React app scripts based on Rspack",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "react",
+    "rspack",
+    "scripts"
+  ],
+  "author": "monhan-97",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monhan-97/omnific.git",
+    "directory": "packages/react-scripts"
+  },
+  "bugs": {
+    "url": "https://github.com/monhan-97/omnific.git/issues"
+  },
+  "bin": {
+    "react-scripts": "./dist/index.js"
+  },
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "require": "./dist/main.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsdown -c tsdown.config.mjs",
+    "release": "pnpm publish --access public",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "@omnific/types": "workspace:*",
+    "@rspack/cli": "^2.0.1",
+    "@rspack/core": "^2.0.1",
+    "@rspack/dev-server": "^2.0.1",
+    "@rspack/plugin-react-refresh": "^2.0.0",
+    "@tailwindcss/postcss": "^4.2.4",
+    "get-port": "^7.2.0",
+    "less": "^4.6.4",
+    "less-loader": "^12.3.2",
+    "postcss": "^8.5.13",
+    "postcss-loader": "^8.2.0",
+    "pretty-bytes": "^7.1.0",
+    "prompts": "^2.4.2",
+    "react-refresh": "^0.18.0",
+    "sass-embedded": "^1.93.2",
+    "sass-loader": "^16.0.6"
+  },
+  "devDependencies": {
+    "@types/prompts": "^2.4.9",
+    "tsdown": "^0.21.10"
+  }
+}
