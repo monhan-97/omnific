@@ -1,7 +1,7 @@
 {
   "name": "@omnific/eslint-config",
   "description": "Shared eslint config for your project",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "type": "module",
   "keywords": [
@@ -16,7 +16,7 @@
   ],
   "author": "monhan-97",
   "engines": {
-    "node": "^20.10.0 || >=21.0.0"
+    "node": "^22.13.0 || >=24.0.0"
   },
   "repository": {
     "type": "git",
@@ -26,18 +26,17 @@
     "url": "https://github.com/monhan-97/omnific.git/issues"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.56.0",
-    "@typescript-eslint/parser": "^8.56.0",
-    "eslint-config-prettier": "^10.1.5",
+    "@eslint-react/eslint-plugin": "^5.7.1",
+    "@typescript-eslint/eslint-plugin": "^8.59.1",
+    "@typescript-eslint/parser": "^8.59.1",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
-    "eslint-plugin-import-x": "^4.16.1",
+    "eslint-plugin-import-x": "^4.16.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-unicorn": "^63.0.0",
-    "globals": "^17.3.0"
+    "eslint-plugin-unicorn": "^64.0.0",
+    "globals": "^17.6.0"
   },
   "peerDependencies": {
-    "eslint": ">=9.38.0"
+    "eslint": "^10.3.0"
   }
 }

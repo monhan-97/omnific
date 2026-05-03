@@ -1,5 +1,6 @@
-import { base } from '@omnific/eslint-config';
+import { defineConfig } from 'eslint/config';
+import omnificEslintConfig from '@omnific/eslint-config';
 
-const eslintConfig = [...base];
-
-export default eslintConfig;
+export default defineConfig({
+  extends: [omnificEslintConfig],
+});

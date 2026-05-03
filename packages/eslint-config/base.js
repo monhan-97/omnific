@@ -1,11 +1,14 @@
 import { builtinModules } from 'node:module';
 
+import { createNodeResolver, flatConfigs as importXFlagConfigs } from 'eslint-plugin-import-x';
 import tsEslintParser from '@typescript-eslint/parser';
 import tsEslintPlugin from '@typescript-eslint/eslint-plugin';
-import { flatConfigs as importXFlagConfigs } from 'eslint-plugin-import-x';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import { defineConfig } from 'eslint/config';
 import globals from 'globals';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+
 // 'tsc' already handles this
 const conflictRules = (type = 'off') => {
   return {
@@ -214,6 +217,14 @@ const tsEslintConfig = {
   plugins: {
     '@typescript-eslint': tsEslintPlugin,
   },
+  settings: {
+    'import-x/resolver-next': [
+      createTypeScriptImportResolver({
+        alwaysTryTypes: true,
+      }),
+      createNodeResolver(),
+    ],
+  },
   languageOptions: {
     parser: tsEslintParser,
     globals: { ...globals.node, ...globals.browser },
@@ -262,13 +273,13 @@ const tsEslintConfig = {
   },
 };
 
-const eslintBaseJSConfig = [
+const eslintBaseJSConfig = defineConfig([
   eslintConfigPrettier,
   importXFlagConfigs.warnings,
   importXFlagConfigs.errors,
   importXFlagConfigs.typescript,
   commonConfig,
   tsEslintConfig,
-];
+]);
 
 export default eslintBaseJSConfig;

@@ -1,50 +1,15 @@
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactESLintPlugin from 'eslint-plugin-react';
+import eslintReact from '@eslint-react/eslint-plugin';
 import jsxA11yESLintPlugin from 'eslint-plugin-jsx-a11y';
+import { defineConfig } from 'eslint/config';
 
-const reactRecommendedFlatConfig = reactESLintPlugin.configs.flat.recommended;
-
-const reactHooksRecommendedFlatConfig = reactHooks.configs.flat.recommended;
-
-const reactJsxRuntimeFlatConfig = reactESLintPlugin.configs.flat['jsx-runtime'];
-
-const reactESLintConfig = [
+const reactESLintConfig = defineConfig([
   {
     files: ['**/*.{ts,tsx}'],
     plugins: {
       'jsx-a11y': jsxA11yESLintPlugin,
-      'react-hooks': reactHooks,
-      react: reactESLintPlugin,
     },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
+    extends: [eslintReact.configs['recommended-typescript']],
     rules: {
-      //react
-      'react/jsx-uses-vars': 'error',
-      'react/jsx-uses-react': 'error',
-      'react/forbid-foreign-prop-types': ['error', { allowInPropTypes: true }],
-      'react/jsx-no-comment-textnodes': 'error',
-      'react/jsx-no-duplicate-props': 'error',
-      'react/jsx-no-target-blank': 'error',
-      'react/jsx-no-undef': 'error',
-      'react/jsx-pascal-case': [
-        'error',
-        {
-          allowAllCaps: true,
-          ignore: [],
-        },
-      ],
-      'react/no-danger-with-children': 'error',
-      'react/no-deprecated': 'warn',
-      'react/no-direct-mutation-state': 'error',
-      'react/no-is-mounted': 'error',
-      'react/no-typos': 'error',
-      'react/require-render-return': 'error',
-      'react/style-prop-object': 'error',
-
       //jsx-ally
       'jsx-a11y/alt-text': 'error',
       'jsx-a11y/anchor-has-content': 'error',
@@ -68,12 +33,8 @@ const reactESLintConfig = [
       'jsx-a11y/role-has-required-aria-props': 'error',
       'jsx-a11y/role-supports-aria-props': 'error',
       'jsx-a11y/scope': 'error',
-
-      ...reactRecommendedFlatConfig.rules,
-      ...reactJsxRuntimeFlatConfig.rules,
-      ...reactHooksRecommendedFlatConfig.rules,
     },
   },
-];
+]);
 
 export default reactESLintConfig;

@@ -10,19 +10,21 @@ npm install @omnific/eslint-config -D
 Create `eslint.config.js`:
 
 ```js
-import { base } from '@omnific/eslint-config';
+import { defineConfig } from 'eslint/config';
+import omnificEslintConfig from '@omnific/eslint-config';
 
-const eslintConfig = [...base];
-
-export default eslintConfig;
+export default defineConfig({
+  extends: [omnificEslintConfig],
+});
 ```
 
 If you're using `React`,like this
 
 ```js
-import { base,react } from '@omnific/eslint-config';
+import { defineConfig } from 'eslint/config';
+import omnificEslintConfig, { react } from '@omnific/eslint-config';
 
-const eslintConfig = [...base,...react];
-
-export default eslintConfig;
+export default defineConfig({
+  extends: [omnificEslintConfig, react],
+});
 ```
