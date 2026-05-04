@@ -1,36 +1,33 @@
 #!/usr/bin/env node
-import { styleText } from 'node:util';
+import { parseArgs, styleText } from 'node:util';
 
-import { DEVELOPMENT, PRODUCTION, setEnv } from './utils/env';
+import { Service } from './Service';
 
-process.on('unhandledRejection', error => {
-  if (error instanceof Error) {
-    console.log(styleText('red', error.message));
-    process.exit(1);
-  } else {
-    throw error;
-  }
+process.on('unhandledRejection', consoleError);
+
+const rawArgs = process.argv.slice(2);
+
+const args = parseArgs({
+  args: rawArgs,
+  strict: false,
+  allowPositionals: true,
 });
 
-const args = process.argv.slice(2);
+const service = new Service();
 
-const scriptLoaders = {
-  build: () => import('./scripts/build.js'),
-  dev: () => import('./scripts/dev.js'),
-} as const;
+const command = args.positionals[0];
 
-const scriptIndex = args.findIndex(script => script === 'build' || script === 'dev');
+try {
+  await service.run(command);
+} catch (error) {
+  consoleError(error);
+}
 
-if (scriptIndex === -1) {
-  console.log('Unknown script "' + args[0] + '".');
+function consoleError(value: any) {
+  if (value instanceof Error) {
+    console.log(styleText('red', value.message));
+  } else {
+    console.log(styleText('red', String(value)));
+  }
   process.exit(1);
-} else {
-  const script = args[scriptIndex];
-
-  setEnv({
-    NODE_ENV: script === 'dev' ? DEVELOPMENT : PRODUCTION,
-    SCRIPT: script,
-  });
-
-  await scriptLoaders[script as keyof typeof scriptLoaders]();
 }

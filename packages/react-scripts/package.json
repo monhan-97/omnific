@@ -1,6 +1,6 @@
 {
   "name": "@omnific/react-scripts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React app scripts based on Rspack",
   "license": "MIT",
   "type": "module",
@@ -21,14 +21,14 @@
   "bin": {
     "react-scripts": "./dist/index.js"
   },
-  "main": "./dist/main.cjs",
+  "main": "./dist/main.js",
   "module": "./dist/main.js",
   "types": "./dist/main.d.ts",
   "exports": {
     ".": {
       "types": "./dist/main.d.ts",
-      "import": "./dist/main.js",
-      "require": "./dist/main.cjs"
+      "default": "./dist/main.js",
+      "import": "./dist/main.js"
     }
   },
   "files": [
@@ -59,7 +59,8 @@
     "prompts": "^2.4.2",
     "react-refresh": "^0.18.0",
     "sass-embedded": "^1.93.2",
-    "sass-loader": "^16.0.6"
+    "sass-loader": "^16.0.6",
+    "webpack-merge": "^6.0.1"
   },
   "devDependencies": {
     "@types/prompts": "^2.4.9",

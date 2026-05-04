@@ -4,10 +4,10 @@ import { styleText } from 'node:util';
 
 import { RspackDevServer } from '@rspack/dev-server';
 
+import type { ScriptContext } from '../Service';
 import { choosePort, createCompiler, prepareUrls } from '../utils/dev-server-utils';
 import clearConsole from '../utils/clear-console';
 import paths from '../paths';
-import createRspackConfig from '../rspack.config';
 import createDevelopmentServerConfig from '../rspack-dev-server';
 
 const require = createRequire(import.meta.url);
@@ -21,7 +21,9 @@ const developmentServerConfig = {
   PROTOCOL: 'http',
 };
 
-async function startDevelopment() {
+export async function startDev(context: ScriptContext) {
+  const { rspackConfig } = context;
+
   try {
     const port = await choosePort({
       port: developmentServerConfig.PORT,
@@ -30,8 +32,6 @@ async function startDevelopment() {
     if (port === undefined) {
       return;
     }
-
-    const config = await createRspackConfig();
 
     const appName = require(paths.appPackageJson).name;
 
@@ -47,7 +47,7 @@ async function startDevelopment() {
     // Create a webpack compiler that is configured with custom messages.
     const compiler = createCompiler({
       appName,
-      config,
+      config: rspackConfig,
       urls,
     });
 
@@ -95,5 +95,3 @@ async function startDevelopment() {
     exit(1);
   }
 }
-
-await startDevelopment();

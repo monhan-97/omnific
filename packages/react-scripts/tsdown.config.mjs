@@ -29,7 +29,7 @@ export default defineConfig([
     entry: {
       main: './main.ts',
     },
-    format: ['esm', 'cjs'],
+    format: ['esm'],
     clean: false,
   },
 ]);

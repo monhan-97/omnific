@@ -5,12 +5,14 @@ import { styleText } from 'node:util';
 import type { Stats } from '@rspack/core';
 import { rspack } from '@rspack/core';
 
+import type { ScriptContext } from '../Service';
 import { emptyDirectory } from '../utils/fs-extra';
 import { measureFileSizesBeforeBuild, printFileSizesAfterBuild } from '../utils/file-size-reporter';
 import paths from '../paths';
-import createRspackConfig from '../rspack.config';
 
-async function startBuild() {
+export async function startBuild(context: ScriptContext) {
+  const { rspackConfig } = context;
+
   try {
     const previousFileSizes = await measureFileSizesBeforeBuild(paths.appBuild);
 
@@ -18,7 +20,7 @@ async function startBuild() {
 
     await copyPublicFolder();
 
-    const stats = await build();
+    const stats = await build(rspackConfig);
 
     console.log(styleText('green', 'Compiled successfully.\n'));
 
@@ -50,12 +52,10 @@ function copyPublicFolder() {
  * Create the production build and print the deployment instructions.
  * @returns
  */
-async function build() {
+async function build(rspackConfig: ScriptContext['rspackConfig']) {
   console.log('Creating an optimized production build...');
 
-  const config = await createRspackConfig();
-
-  const compiler = rspack(config);
+  const compiler = rspack(rspackConfig);
 
   return new Promise<Stats | undefined>((resolve, reject) => {
     compiler.run((error, stats) => {
@@ -67,5 +67,3 @@ async function build() {
     });
   });
 }
-
-await startBuild();

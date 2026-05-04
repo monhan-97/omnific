@@ -6,7 +6,6 @@ import { rspack } from '@rspack/core';
 import { ReactRefreshRspackPlugin } from '@rspack/plugin-react-refresh';
 
 import paths from './paths';
-import { loadReactScriptsConfig } from './config';
 import { detectPackage } from './utils/detect-package';
 import { alias, moduleFileExtensions } from './alias';
 import { getEnv, isDevelopment, isProduction } from './utils/env';
@@ -32,7 +31,7 @@ function resolvePackage(packageName: string) {
 }
 
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
-async function createRspackConfig() {
+function createRspackConfig() {
   const isEnvironmentDevelopment = isDevelopment();
 
   const isEnvironmentProduction = isProduction();
@@ -247,12 +246,6 @@ async function createRspackConfig() {
 
     performance: false,
   };
-
-  const reactScriptsConfig = await loadReactScriptsConfig();
-
-  if (reactScriptsConfig.configureRspack) {
-    reactScriptsConfig.configureRspack(config);
-  }
 
   return config;
 }
