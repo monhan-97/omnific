@@ -63,7 +63,6 @@
     "webpack-merge": "^6.0.1"
   },
   "devDependencies": {
-    "@types/prompts": "^2.4.9",
-    "tsdown": "^0.21.10"
+    "@types/prompts": "^2.4.9"
   }
 }
