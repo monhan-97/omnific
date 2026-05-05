@@ -1,0 +1,40 @@
+{
+  "name": "@omnific/utils",
+  "version": "0.0.2",
+  "description": "Shared utility predicates for Omnific packages",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "utils",
+    "type-guards",
+    "predicates"
+  ],
+  "author": "monhan-97",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monhan-97/omnific.git",
+    "directory": "packages/utils"
+  },
+  "bugs": {
+    "url": "https://github.com/monhan-97/omnific.git/issues"
+  },
+  "main": "./dist/main.js",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "default": "./dist/main.js",
+      "import": "./dist/main.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsdown -c tsdown.config.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}
