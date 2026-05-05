@@ -1,11 +1,14 @@
-# eslint-config
+# @omnific/eslint-config
 
+Base ESLint flat config for JavaScript and TypeScript projects.
 
-Usage
+## Install
 
 ```sh
-npm install @omnific/eslint-config -D
+npm install -D @omnific/eslint-config eslint
 ```
+
+## Usage
 
 Create `eslint.config.js`:
 
@@ -18,13 +21,6 @@ export default defineConfig({
 });
 ```
 
-If you're using `React`,like this
+## React projects
 
-```js
-import { defineConfig } from 'eslint/config';
-import omnificEslintConfig, { react } from '@omnific/eslint-config';
-
-export default defineConfig({
-  extends: [omnificEslintConfig, react],
-});
-```
+React rules are published separately in `@omnific/eslint-config-react`, so non-React projects do not install React-specific plugins.

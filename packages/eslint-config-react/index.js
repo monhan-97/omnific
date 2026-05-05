@@ -1,6 +1,6 @@
 import eslintReact from '@eslint-react/eslint-plugin';
-import jsxA11yESLintPlugin from 'eslint-plugin-jsx-a11y';
 import { defineConfig } from 'eslint/config';
+import jsxA11yESLintPlugin from 'eslint-plugin-jsx-a11y';
 
 const reactESLintConfig = defineConfig([
   {
@@ -10,7 +10,7 @@ const reactESLintConfig = defineConfig([
     },
     extends: [eslintReact.configs['recommended-typescript']],
     rules: {
-      //jsx-ally
+      // jsx-a11y
       'jsx-a11y/alt-text': 'error',
       'jsx-a11y/anchor-has-content': 'error',
       'jsx-a11y/anchor-is-valid': [

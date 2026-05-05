@@ -1,12 +1,13 @@
 {
-  "name": "@omnific/eslint-config",
-  "description": "Shared eslint config for your project",
-  "version": "2.0.0",
+  "name": "@omnific/eslint-config-react",
+  "description": "Shared React eslint config for your project",
+  "version": "1.0.0",
   "license": "MIT",
   "type": "module",
   "keywords": [
     "eslint",
-    "eslintconfig"
+    "eslintconfig",
+    "react"
   ],
   "main": "index.js",
   "exports": {
@@ -23,19 +24,14 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/monhan-97/omnific.git",
-    "directory": "packages/eslint-config"
+    "directory": "packages/eslint-config-react"
   },
   "bugs": {
     "url": "https://github.com/monhan-97/omnific.git/issues"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.59.1",
-    "@typescript-eslint/parser": "^8.59.1",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-import-resolver-typescript": "^4.4.4",
-    "eslint-plugin-import-x": "^4.16.2",
-    "eslint-plugin-unicorn": "^64.0.0",
-    "globals": "^17.6.0"
+    "@eslint-react/eslint-plugin": "^5.7.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2"
   },
   "peerDependencies": {
     "eslint": "^10.3.0"
