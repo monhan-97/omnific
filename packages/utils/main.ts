@@ -5,3 +5,8 @@ export { isNil } from './isNil';
 export { isNumber } from './isNumber';
 export { isString } from './isString';
 export { isUndefined } from './isUndefined';
+export { isNull } from './isNull';
+export { isPromise } from './isPromise';
+export { isObject } from './isObject';
+export { get } from './get';
+export { isSymbol } from './isSymbol';

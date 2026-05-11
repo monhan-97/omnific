@@ -1,6 +1,6 @@
 {
   "name": "@omnific/utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Shared utility predicates for Omnific packages",
   "license": "MIT",
   "type": "module",
@@ -24,8 +24,13 @@
   "exports": {
     ".": {
       "types": "./dist/main.d.ts",
-      "default": "./dist/main.js",
-      "import": "./dist/main.js"
+      "import": "./dist/main.js",
+      "default": "./dist/main.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "default": "./dist/*.js"
     }
   },
   "sideEffects": false,

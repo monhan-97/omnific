@@ -1,17 +1,16 @@
 import { defineConfig } from 'tsdown';
+import { createRequire } from 'node:module';
 
 export default defineConfig({
-  clean: true,
-  dts: true,
-  entry: {
-    main: './main.ts',
-  },
-  format: ['esm'],
+  entry: [{ main: './main.ts' }, { '*': ['./*.ts', '!./main.ts'] }],
   outDir: 'dist',
   platform: 'neutral',
-  sourcemap: false,
+  unbundle: true,
   fixedExtension: false,
-  deps: {
-    skipNodeModulesBundle: true,
-  },
+  dts: true,
+  sourcemap: false,
+  clean: true,
+  exports: false,
+  attw: false,
+  publint: false,
 });
