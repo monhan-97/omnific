@@ -1,6 +1,6 @@
 import { createRequire } from 'node:module';
 import path from 'node:path';
-
+import { TsCheckerRspackPlugin } from 'ts-checker-rspack-plugin';
 import type { Configuration, Mode, RuleSetUseItem, SwcLoaderOptions } from '@rspack/core';
 import { rspack } from '@rspack/core';
 import { ReactRefreshRspackPlugin } from '@rspack/plugin-react-refresh';
@@ -172,7 +172,6 @@ function createRspackConfig() {
                 options: {
                   jsc: {
                     externalHelpers: hasSwcHelper,
-                    loose: true,
                     parser: {
                       syntax: 'typescript',
                       tsx: true,
@@ -242,6 +241,29 @@ function createRspackConfig() {
       isEnvironmentDevelopment && new rspack.CaseSensitivePlugin(),
 
       isEnvironmentDevelopment && new ReactRefreshRspackPlugin(),
+
+      isEnvironmentDevelopment &&
+        new TsCheckerRspackPlugin({
+          async: true,
+          formatter: 'basic',
+          devServer: false,
+          typescript: {
+            mode: 'write-tsbuildinfo',
+            diagnosticOptions: {
+              semantic: true,
+              syntactic: false,
+              declaration: false,
+              global: false,
+            },
+            configOverwrite: {
+              compilerOptions: {
+                incremental: true,
+                skipLibCheck: true,
+                noEmit: true,
+              },
+            },
+          },
+        }),
     ],
 
     performance: false,
