@@ -17,6 +17,7 @@
   "devDependencies": {
     "@omnific/eslint-config": "workspace:*",
     "@omnific/prettier-config": "workspace:*",
+    "@omnific/tsconfig": "workspace:*",
     "@omnific/types": "workspace:*",
     "@types/node": "^24.6.2",
     "eslint": "^10.3.0",

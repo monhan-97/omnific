@@ -1,0 +1,33 @@
+{
+  "name": "@omnific/tsconfig",
+  "version": "0.0.1",
+  "description": "Shared TypeScript configuration presets for Omnific packages",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "typescript",
+    "tsconfig"
+  ],
+  "author": "monhan-97",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monhan-97/omnific.git",
+    "directory": "packages/tsconfig"
+  },
+  "bugs": {
+    "url": "https://github.com/monhan-97/omnific.git/issues"
+  },
+  "files": [
+    "base.json",
+    "browser.json",
+    "node.json",
+    "README.md"
+  ],
+  "exports": {
+    "./browser.json": "./browser.json",
+    "./node.json": "./node.json"
+  },
+  "peerDependencies": {
+    "typescript": ">=6.0.0"
+  }
+}

@@ -1,27 +1,5 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "lib": ["esnext"],
-    "moduleResolution": "bundler",
-    "strict": true,
-    "allowJs": true,
-    "removeComments": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "types": ["node"],
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  },
+  "extends": "@omnific/tsconfig/node.json",
   "include": ["packages/**/*.ts"],
   "exclude": ["node_modules"]
 }

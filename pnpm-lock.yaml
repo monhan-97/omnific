@@ -14,6 +14,9 @@ importers:
       '@omnific/prettier-config':
         specifier: workspace:*
         version: link:packages/prettier-config
+      '@omnific/tsconfig':
+        specifier: workspace:*
+        version: link:packages/tsconfig
       '@omnific/types':
         specifier: workspace:*
         version: link:packages/types
@@ -131,9 +134,24 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
     devDependencies:
+      '@omnific/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
       '@types/prompts':
         specifier: ^2.4.9
         version: 2.4.9
+
+  packages/request:
+    devDependencies:
+      '@omnific/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+
+  packages/tsconfig:
+    dependencies:
+      typescript:
+        specifier: '>=6.0.0'
+        version: 6.0.3
 
   packages/types: {}
 
