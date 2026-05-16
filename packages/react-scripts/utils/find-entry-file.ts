@@ -14,4 +14,5 @@ export function findEntryFile(basePath: string) {
       return filePath;
     }
   }
+  return;
 }

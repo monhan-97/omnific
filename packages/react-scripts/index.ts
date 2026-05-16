@@ -18,7 +18,7 @@ const service = new Service();
 const command = args.positionals[0];
 
 try {
-  await service.run(command);
+  command && (await service.run(command));
 } catch (error) {
   consoleError(error);
 }

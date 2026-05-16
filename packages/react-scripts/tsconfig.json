@@ -1,23 +1,7 @@
 {
+  "extends": "@omnific/tsconfig/node.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "lib": ["esnext"],
-    "moduleResolution": "bundler",
-    "strict": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "types": ["node", "@rspack/core/module"],
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "verbatimModuleSyntax": true
+    "types": ["node", "@rspack/core/module"]
   },
-  "include": ["./**/*.ts"],
-  "exclude": ["../node_modules", "./dist"]
+  "exclude": ["./dist"]
 }

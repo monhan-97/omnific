@@ -73,7 +73,9 @@ export async function measureFileSizesBeforeBuild(buildFolder: string) {
 
 // 1024, 2048;
 // ('(+1 KB)');
-function getDifferenceLabel(currentSize: number, previousSize: number) {
+function getDifferenceLabel(currentSize: number, previousSize?: number) {
+  if (!previousSize) return '';
+
   const FIFTY_KILOBYTES = 1024 * 50;
 
   const difference = currentSize - previousSize;
