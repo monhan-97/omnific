@@ -1,7 +1,7 @@
 {
   "name": "@omnific/types",
   "description": "Shared typescript  utils for your project",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "license": "MIT",
   "type": "module",
   "keywords": [
@@ -11,13 +11,11 @@
   "exports": {
     ".": {
       "types": "./index.d.ts"
-    },
-    "./module": "./module.d.ts"
+    }
   },
   "files": [
     "utils.ts",
     "index.d.ts",
-    "module.d.ts",
     "request.ts"
   ],
   "repository": {

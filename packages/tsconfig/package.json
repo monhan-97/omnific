@@ -1,6 +1,6 @@
 {
   "name": "@omnific/tsconfig",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Shared TypeScript configuration presets for Omnific packages",
   "license": "MIT",
   "type": "module",
@@ -19,13 +19,16 @@
   },
   "files": [
     "base.json",
-    "browser.json",
+    "bundler.d.ts",
+    "bundler.json",
     "node.json",
+    "web.json",
     "README.md"
   ],
   "exports": {
-    "./browser.json": "./browser.json",
-    "./node.json": "./node.json"
+    "./bundler.json": "./bundler.json",
+    "./node.json": "./node.json",
+    "./web.json": "./web.json"
   },
   "peerDependencies": {
     "typescript": ">=6.0.0"
