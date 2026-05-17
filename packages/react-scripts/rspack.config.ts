@@ -1,5 +1,6 @@
 import { createRequire } from 'node:module';
 import path from 'node:path';
+
 import { TsCheckerRspackPlugin } from 'ts-checker-rspack-plugin';
 import type { Configuration, Mode, RuleSetUseItem, SwcLoaderOptions } from '@rspack/core';
 import { rspack } from '@rspack/core';
@@ -260,6 +261,7 @@ function createRspackConfig() {
                 incremental: true,
                 skipLibCheck: true,
                 noEmit: true,
+                tsBuildInfoFile: paths.tsBuildInfoFile,
               },
             },
           },

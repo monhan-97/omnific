@@ -21,4 +21,5 @@ export default {
   appPackageJson: resolveApp('package.json'),
   appPublic: resolveApp('public'),
   config: resolveApp('react-scripts.config'),
+  tsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
 };
