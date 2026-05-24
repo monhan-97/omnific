@@ -1,17 +1,27 @@
 export { isArray } from './isArray';
 export { isBoolean } from './isBoolean';
+export { isBlob } from './isBlob';
 export { createChainedFunction } from './createChainedFunction';
+export { debounce } from './debounce';
 export { isFunction } from './isFunction';
 export { hasValue } from './hasValue';
+export { isFormData } from './isFormData';
 export { isNil } from './isNil';
 export { isNumber } from './isNumber';
+export { isPlainObject } from './isPlainObject';
 export { isString } from './isString';
 export { isUndefined } from './isUndefined';
 export { isNull } from './isNull';
 export { isPromise } from './isPromise';
 export { isObject } from './isObject';
+export { isArrayBuffer } from './isArrayBuffer';
+export { isURLSearchParams } from './isURLSearchParams';
+export { parseJson } from './parseJson';
 export { get } from './get';
 export { isSymbol } from './isSymbol';
+export { throttle } from './throttle';
 export { resolveValue } from './resolveValue';
 
 export type { ChainedFunction } from './createChainedFunction';
+export type { DebouncedFunction, DebounceOptions } from './debounce';
+export type { ThrottledFunction, ThrottleOptions } from './throttle';
