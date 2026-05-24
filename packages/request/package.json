@@ -1,0 +1,49 @@
+{
+  "name": "@omnific/request",
+  "version": "0.0.2",
+  "description": "Web request utilities for fetch and XHR",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "request",
+    "fetch",
+    "xhr",
+    "web"
+  ],
+  "author": "monhan-97",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monhan-97/omnific.git",
+    "directory": "packages/request"
+  },
+  "bugs": {
+    "url": "https://github.com/monhan-97/omnific.git/issues"
+  },
+  "main": "./dist/main.js",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "default": "./dist/main.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsdown -c tsdown.config.mjs",
+    "release": "pnpm publish --access public",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@omnific/types": "workspace:*",
+    "@omnific/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@omnific/tsconfig": "workspace:*"
+  }
+}

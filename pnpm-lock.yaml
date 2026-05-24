@@ -142,6 +142,13 @@ importers:
         version: 2.4.9
 
   packages/request:
+    dependencies:
+      '@omnific/types':
+        specifier: workspace:*
+        version: link:../types
+      '@omnific/utils':
+        specifier: workspace:*
+        version: link:../utils
     devDependencies:
       '@omnific/tsconfig':
         specifier: workspace:*
