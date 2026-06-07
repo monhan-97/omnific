@@ -1,13 +1,16 @@
 import FetchError from './FetchError';
 
-import type { Response } from '../types';
+import type { RequestConfig, Response } from '../types';
 
 const validateStatus = (status: number) => {
   return status >= 200 && status < 300;
 };
 
-const settle = <TData = unknown, TRequest = unknown>(response: Response<TData, TRequest>) => {
-  if (!response.status || validateStatus(response.status)) {
+const settle = <TData = unknown, TRequest = unknown>(
+  response: Response<TData, TRequest>,
+  config?: RequestConfig,
+) => {
+  if (validateStatus(response.status)) {
     return response;
   }
 
@@ -16,7 +19,7 @@ const settle = <TData = unknown, TRequest = unknown>(response: Response<TData, T
   throw new FetchError(
     `Request failed with status code ${response.status}`,
     code,
-    undefined,
+    config,
     response,
   );
 };

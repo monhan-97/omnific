@@ -71,3 +71,5 @@ typings/
 
 /**/node_modules
 /**/dist
+
+graphify-out/

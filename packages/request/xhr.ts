@@ -4,20 +4,34 @@ import CanceledError from './cancel/CanceledError';
 import FetchError from './core/FetchError';
 import settle from './core/settle';
 import transformRequest from './core/transformRequest';
-import type { RequestConfig, Response } from './types';
+import type { RequestConfig, Response, ResponseType } from './types';
 import parseHeader from './utils/parseHeaders';
-import { type UploadProgressEvent, progressEventReducer } from './utils/progressEventReducer';
+import { progressEventReducer } from './utils/progressEventReducer';
 import resolveConfig from './utils/resolveConfig';
 
 export type XhrResponse<T = unknown> = Response<T, XMLHttpRequest>;
 
-export type XhrRequestConfig<D = unknown> = RequestConfig<D> & {
-  withCredentials?: boolean;
-  responseType?: XMLHttpRequestResponseType;
-  onUploadProgress?: (e: UploadProgressEvent) => void;
-};
+type SupportedXhrResponseType = Exclude<ResponseType, 'formdata'>;
 
-function xhr<T = unknown>(config: XhrRequestConfig): Promise<XhrResponse<T>> {
+export type XhrRequestConfig<D = unknown> = RequestConfig<D>;
+
+const unSupportedResponseType = new Set<ResponseType>(['formdata']);
+
+function validateResponseType(
+  responseType: ResponseType,
+  config: XhrRequestConfig,
+): asserts responseType is SupportedXhrResponseType {
+  if (!unSupportedResponseType.has(responseType)) {
+    return;
+  }
+  throw new FetchError(
+    `Response type '${responseType}' is not supported by XMLHttpRequest`,
+    FetchError.ERR_NOT_SUPPORT,
+    config,
+  );
+}
+
+function xhr<T = unknown, R = XhrResponse<T>>(config: XhrRequestConfig): Promise<R> {
   return new Promise((resolve, reject) => {
     const { withCredentials, responseType = 'json', signal, onUploadProgress } = config;
 
@@ -49,7 +63,7 @@ function xhr<T = unknown>(config: XhrRequestConfig): Promise<XhrResponse<T>> {
 
     function onloadend() {
       try {
-        resolve(settle(createResponse()));
+        resolve(settle(createResponse(), config) as unknown as R);
       } catch (error) {
         reject(error);
       } finally {
@@ -60,18 +74,30 @@ function xhr<T = unknown>(config: XhrRequestConfig): Promise<XhrResponse<T>> {
     request.onloadend = onloadend;
 
     request.addEventListener('abort', () => {
-      reject(new FetchError('Request aborted', FetchError.ECONNABORTED, config, createResponse()));
+      try {
+        reject(new FetchError('Request aborted', FetchError.ECONNABORTED, config, createResponse()));
+      } finally {
+        done();
+      }
     });
 
     request.addEventListener('error', () => {
-      reject(new FetchError('Network Error', FetchError.ERR_NETWORK, config, createResponse()));
+      try {
+        reject(new FetchError('Network Error', FetchError.ERR_NETWORK, config, createResponse()));
+      } finally {
+        done();
+      }
     });
 
     request.addEventListener('timeout', () => {
       const timeoutErrorMessage = timeout
         ? `timeout of ${timeout} ms exceeded`
         : 'timeout exceeded';
-      reject(new FetchError(timeoutErrorMessage, FetchError.ETIMEDOUT, config, createResponse()));
+      try {
+        reject(new FetchError(timeoutErrorMessage, FetchError.ETIMEDOUT, config, createResponse()));
+      } finally {
+        done();
+      }
     });
 
     isNil(data) && headers.delete('content-type');
@@ -84,9 +110,8 @@ function xhr<T = unknown>(config: XhrRequestConfig): Promise<XhrResponse<T>> {
       request.withCredentials = withCredentials;
     }
 
-    if (responseType) {
-      request.responseType = responseType;
-    }
+    validateResponseType(responseType, config);
+    request.responseType = responseType as XMLHttpRequestResponseType;
 
     if (onUploadProgress && request.upload) {
       const uploadThrottled = progressEventReducer(onUploadProgress);

@@ -1,7 +1,12 @@
 import CanceledError from '../cancel/CanceledError';
 import FetchError from '../core/FetchError';
+import type { RequestConfig } from '../types';
 
-const composeSignals = (timeout: number = 0, signals: (AbortSignal | undefined)[] = []) => {
+const composeSignals = (
+  timeout: number = 0,
+  signals: (AbortSignal | undefined)[] = [],
+  config?: RequestConfig,
+) => {
   const newSignals = signals.filter(Boolean) as AbortSignal[];
 
   if (timeout || newSignals.length > 0) {
@@ -10,18 +15,23 @@ const composeSignals = (timeout: number = 0, signals: (AbortSignal | undefined)[
     let aborted = false;
 
     let timer: ReturnType<typeof globalThis.setTimeout> | undefined;
+    let abortReason: Error | undefined;
 
     if (timeout) {
       timer = globalThis.setTimeout(() => {
-        abortController.abort(
-          new FetchError(`timeout of ${timeout} ms exceeded`, FetchError.ETIMEDOUT),
+        abortReason = new FetchError(
+          `timeout of ${timeout} ms exceeded`,
+          FetchError.ETIMEDOUT,
+          config,
         );
+        abortController.abort(abortReason);
         clean();
       }, timeout);
     }
 
     function abort(reason?: unknown) {
-      abortController.abort(reason instanceof Error ? reason : new CanceledError(undefined));
+      abortReason = reason instanceof Error ? reason : new CanceledError(undefined);
+      abortController.abort(abortReason);
       clean();
     }
 
@@ -52,6 +62,9 @@ const composeSignals = (timeout: number = 0, signals: (AbortSignal | undefined)[
 
     return {
       signal: abortController.signal,
+      get reason() {
+        return abortReason;
+      },
       clean,
     };
   }

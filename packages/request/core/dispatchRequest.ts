@@ -1,30 +1,60 @@
 import throwIfAborted from './throwIfAborted';
+import buildFullPath from './buildFullPath';
 
 import isCancel from '../cancel/isCancel';
-import fetch from '../fetch';
-import xhr from '../xhr';
+import type { RequestConfig, Response } from '../types';
 
 interface RequestFunction {
   (config: any): Promise<any>;
 }
 
-const createRequest = (request: RequestFunction) => {
-  function wrapper(config: any) {
-    return request(config)
+export type DispatchRequestConfig = {
+  /**
+   * 请求基础地址
+   */
+  baseURL?: string;
+  /**
+   *
+   * @param config
+   * @returns
+   */
+  transformRequest?: (config: RequestConfig) => RequestConfig;
+  /**
+   *
+   * @param config
+   * @returns
+   */
+  transformResponse?: (config: Response<any, any>) => any;
+};
+
+export const dispatchRequest = (
+  request: RequestFunction,
+  defaultConfig: DispatchRequestConfig = {},
+) => {
+  const { baseURL, transformRequest, transformResponse } = defaultConfig;
+
+  function wrapper(config: RequestConfig) {
+    let requestConfig = { ...config };
+
+    if (transformRequest) {
+      requestConfig = transformRequest(requestConfig);
+    }
+
+    if (baseURL && requestConfig.url) {
+      requestConfig.url = buildFullPath(baseURL, requestConfig.url);
+    }
+
+    return request(requestConfig)
       .then(response => {
-        throwIfAborted(config);
-        return response;
+        throwIfAborted(requestConfig);
+        return transformResponse ? transformResponse(response) : response;
       })
       .catch(error => {
         if (!isCancel(error)) {
-          throwIfAborted(config);
+          throwIfAborted(requestConfig);
         }
         throw error;
       });
   }
   return wrapper;
 };
-
-export const dispatchFetchRequest: typeof fetch = createRequest(fetch);
-
-export const dispatchXhrRequest: typeof xhr = createRequest(xhr);

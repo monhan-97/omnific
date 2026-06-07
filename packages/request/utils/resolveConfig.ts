@@ -3,7 +3,6 @@ import { isNil } from '@omnific/utils';
 import buildURL from './buildURL';
 
 import FetchError from '../core/FetchError';
-import buildFullPath from '../core/buildFullPath';
 import type { RequestConfig } from '../types';
 
 const resolveConfig = (config: RequestConfig) => {
@@ -20,7 +19,7 @@ const resolveConfig = (config: RequestConfig) => {
   return {
     method,
     timeout: config.timeout || 0,
-    url: buildURL(buildFullPath(config.baseURL, config.url), config.params),
+    url: buildURL(config.url, config.params),
   };
 };
 

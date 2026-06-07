@@ -1,3 +1,5 @@
+import type { UploadProgressEvent } from '../utils/progressEventReducer';
+
 export type Method =
   | 'GET'
   | 'POST'
@@ -33,10 +35,6 @@ export type RequestConfig<D = unknown, P extends QueryParams = QueryParams> = {
    */
   method?: Method;
   /**
-   * 请求基础地址
-   */
-  baseURL?: string;
-  /**
    * 设置请求超时时间
    * @default 0 没有超时
    */
@@ -55,4 +53,37 @@ export type RequestConfig<D = unknown, P extends QueryParams = QueryParams> = {
   headers?: HeadersInit;
 
   signal?: AbortSignal;
+  /**
+   * 是否携带跨站点凭据。
+   *
+   * - fetch: `true` 映射为 `credentials: 'include'`，`false` 映射为 `credentials: 'omit'`
+   * - XMLHttpRequest: 映射为 `XMLHttpRequest.withCredentials`
+   *
+   * @default false
+   */
+  withCredentials?: boolean;
+  /**
+   * 上传进度回调，仅 XMLHttpRequest 上传通道支持。
+   *
+   * fetch 当前不支持上传进度；普通 fetch 请求会忽略该配置。
+   */
+  onUploadProgress?: (e: UploadProgressEvent) => void;
+  /**
+   * 响应数据类型。
+   *
+   * - fetch 支持：`arraybuffer`、`blob`、`formdata`、`json`、`text`
+   * - XMLHttpRequest 支持：`arraybuffer`、`blob`、`document`、`json`、`text`
+   *
+   * @default json
+   */
+  responseType?: ResponseType;
 };
+
+/**
+ * 响应数据类型全集。
+ *
+ * 不同传输方式支持范围不同：
+ * - fetch 不支持 `document`
+ * - XMLHttpRequest 不支持 `formdata`
+ */
+export type ResponseType = 'arraybuffer' | 'blob' | 'document' | 'json' | 'text' | 'formdata';

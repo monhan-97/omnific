@@ -1,15 +1,17 @@
-import { dispatchFetchRequest, dispatchXhrRequest } from './core/dispatchRequest';
 import type { FetchRequestConfig, FetchResponse } from './fetch';
 import type { XhrRequestConfig, XhrResponse } from './xhr';
+import xhr from './xhr';
+import fetch from './fetch';
+import { type DispatchRequestConfig, dispatchRequest } from './core/dispatchRequest';
 
-export type FetchRequest = <T>(
+export type FetchRequest = <T, R = FetchResponse<T>>(
   url: string,
-  config: FetchRequestConfig,
-) => Promise<FetchResponse<T>>;
+  config?: FetchRequestConfig,
+) => Promise<R>;
 
-export type XhrRequest = <T>(url: string, config: XhrRequestConfig) => Promise<XhrResponse<T>>;
+export type XhrRequest = <T, R = XhrResponse<T>>(url: string, config?: XhrRequestConfig) => Promise<R>;
 
-export type ApiRequest = typeof dispatchFetchRequest & {
+export type ApiRequest = typeof fetch & {
   get: FetchRequest;
   delete: FetchRequest;
   head: FetchRequest;
@@ -20,33 +22,21 @@ export type ApiRequest = typeof dispatchFetchRequest & {
   upload: XhrRequest;
 };
 
-const request = dispatchFetchRequest as ApiRequest;
+export function createRequest(config?: DispatchRequestConfig) {
+  const request = dispatchRequest(fetch, config) as ApiRequest;
 
-Object.assign(request, {
-  get(url, config) {
-    return dispatchFetchRequest({ ...config, method: 'GET', url });
-  },
-  delete(url, config) {
-    return dispatchFetchRequest({ ...config, method: 'DELETE', url });
-  },
-  head(url, config) {
-    return dispatchFetchRequest({ ...config, method: 'HEAD', url });
-  },
-  options(url, config) {
-    return dispatchFetchRequest({ ...config, method: 'OPTIONS', url });
-  },
-  post(url, config) {
-    return dispatchFetchRequest({ ...config, method: 'POST', url });
-  },
-  put(url, config) {
-    return dispatchFetchRequest({ ...config, method: 'PUT', url });
-  },
-  patch(url, config) {
-    return dispatchFetchRequest({ ...config, method: 'PATCH', url });
-  },
-  upload(url, config) {
-    return dispatchXhrRequest({ ...config, method: 'POST', url });
-  },
-} as ApiRequest);
+  const xhrRequest: typeof xhr = dispatchRequest(xhr, config);
 
-export default request;
+  request.get = (url, config) => request({ ...config, method: 'GET', url });
+  request.delete = (url, config) => request({ ...config, method: 'DELETE', url });
+  request.head = (url, config) => request({ ...config, method: 'HEAD', url });
+  request.options = (url, config) => request({ ...config, method: 'OPTIONS', url });
+  request.post = (url, config) => request({ ...config, method: 'POST', url });
+  request.put = (url, config) => request({ ...config, method: 'PUT', url });
+  request.patch = (url, config) => request({ ...config, method: 'PATCH', url });
+  request.upload = (url, config) => xhrRequest({ ...config, method: 'POST', url });
+
+  return request;
+}
+
+export const request = createRequest();
