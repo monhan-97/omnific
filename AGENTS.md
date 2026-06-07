@@ -15,12 +15,12 @@ Rules:
 
 When the user types `/cm`, `cm`, or `commit msg`, treat it as:
 
-> Generate a Conventional Commit message from the current staged changes.
+> Generate a Conventional Commit message from the current staged changes, then commit the staged changes with that message. Do not push.
 
 Rules:
 - Inspect `git diff --cached` and `git diff --cached --stat`.
 - If there are no staged changes, inspect `git status --short` and ask the user to stage files or say whether unstaged changes should be used.
-- Return one recommended commit message first.
+- Return one recommended commit message first, then run `git commit` with that message.
 - Prefer English Conventional Commits, for example `feat(request): add abort signal composition`.
 - Include a short Chinese explanation only when it helps clarify the choice.
-- Do not run `git commit` unless the user explicitly asks to submit/commit.
+- Do not run `git push` unless the user explicitly asks to push.

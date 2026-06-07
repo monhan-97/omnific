@@ -9,12 +9,15 @@
   ],
   "scripts": {
     "build": "pnpm run --filter=\"./packages/**/*\" build",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "upgrade-workspace": "pnpm --filter=\"./packages/**/*\" update --interactive --latest"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
     "@omnific/eslint-config": "workspace:*",
     "@omnific/prettier-config": "workspace:*",
     "@omnific/tsconfig": "workspace:*",
@@ -23,6 +26,7 @@
     "eslint": "^10.3.0",
     "prettier": "^3.6.2",
     "tsdown": "^0.21.10",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
   }
 }
