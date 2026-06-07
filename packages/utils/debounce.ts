@@ -1,3 +1,4 @@
+import hasValue from './hasValue';
 import { isUndefined } from './isUndefined';
 
 export interface DebounceOptions {
@@ -80,11 +81,11 @@ export function debounce<F extends (...args: any[]) => void>(
   { signal, edges }: DebounceOptions = {},
 ): DebouncedFunction<F> {
   let pendingInvoke: (() => void) | undefined;
-  const leading = !isUndefined(edges) && edges.includes('leading');
+  const leading = hasValue(edges) && edges.includes('leading');
   const trailing = isUndefined(edges) || edges.includes('trailing');
 
   const invoke = () => {
-    if (!isUndefined(pendingInvoke)) {
+    if (hasValue(pendingInvoke)) {
       pendingInvoke();
       pendingInvoke = undefined;
     }
@@ -101,7 +102,7 @@ export function debounce<F extends (...args: any[]) => void>(
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
   const schedule = () => {
-    if (!isUndefined(timeoutId)) {
+    if (hasValue(timeoutId)) {
       clearTimeout(timeoutId);
     }
 
@@ -112,7 +113,7 @@ export function debounce<F extends (...args: any[]) => void>(
   };
 
   const cancelTimer = () => {
-    if (!isUndefined(timeoutId)) {
+    if (hasValue(timeoutId)) {
       clearTimeout(timeoutId);
       timeoutId = undefined;
     }

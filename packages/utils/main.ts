@@ -21,6 +21,7 @@ export { get } from './get';
 export { isSymbol } from './isSymbol';
 export { throttle } from './throttle';
 export { resolveValue } from './resolveValue';
+export { uniqueId } from './uniqueId';
 
 export type { ChainedFunction } from './createChainedFunction';
 export type { DebouncedFunction, DebounceOptions } from './debounce';
