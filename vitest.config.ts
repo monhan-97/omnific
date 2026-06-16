@@ -3,7 +3,7 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   resolve: {
     alias: {
-      '@omnific/utils': new URL('./packages/utils/main.ts', import.meta.url).pathname,
+      '@omnific/utils': new URL('packages/utils/main.ts', import.meta.url).pathname,
     },
   },
   test: {
