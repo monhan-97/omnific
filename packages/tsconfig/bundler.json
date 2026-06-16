@@ -3,8 +3,8 @@
   "extends": "./web.json",
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"],
-      "@app/*": ["./*"]
+      "@/*": ["${configDir}/src/*"],
+      "@app/*": ["${configDir}/*"]
     }
   },
   "files": ["./bundler.d.ts"]
