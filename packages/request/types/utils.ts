@@ -74,7 +74,7 @@ export type RequestConfig<D = unknown, P extends QueryParams = QueryParams> = {
    * - fetch 支持：`arraybuffer`、`blob`、`formdata`、`json`、`text`
    * - XMLHttpRequest 支持：`arraybuffer`、`blob`、`document`、`json`、`text`
    *
-   * @default json
+   * @default JSON
    */
   responseType?: ResponseType;
 };

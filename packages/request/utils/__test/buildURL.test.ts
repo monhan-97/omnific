@@ -8,9 +8,9 @@ describe('buildURL', () => {
       buildURL('/users', {
         active: true,
         page: 2,
-        empty: null,
+        empty: undefined,
         missing: undefined,
-        tag: ['admin', null, 'owner', undefined],
+        tag: ['admin', undefined, 'owner', undefined],
       }),
     ).toBe('/users?active=true&page=2&tag=admin&tag=owner');
   });

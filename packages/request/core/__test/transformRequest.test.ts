@@ -28,6 +28,6 @@ describe('transformRequest', () => {
     const { data, headers } = transformRequest({ data: blob });
 
     expect(data).toBe(blob);
-    expect(headers.get('content-type')).toBe(null);
+    expect(headers.has('content-type')).toBe(false);
   });
 });

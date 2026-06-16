@@ -50,7 +50,7 @@ class FakeXMLHttpRequest {
   statusText = '';
   body: XMLHttpRequestBodyInit | undefined;
   aborted = false;
-  onloadend: ((event: Event) => void) | null = null;
+  onloadend: ((event: Event) => void) | undefined;
 
   private rawHeaders = '';
   private listeners = new Map<string, Listener[]>();

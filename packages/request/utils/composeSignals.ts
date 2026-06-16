@@ -51,12 +51,14 @@ const composeSignals = (
     }
 
     function clean() {
-      if (!aborted) {
-        aborted = true;
-        timer && globalThis.clearTimeout(timer);
-        for (const signal of newSignals) {
-          signal.removeEventListener('abort', onabort);
-        }
+      if (aborted) {
+        return;
+      }
+
+      aborted = true;
+      timer && globalThis.clearTimeout(timer);
+      for (const signal of newSignals) {
+        signal.removeEventListener('abort', onabort);
       }
     }
 
