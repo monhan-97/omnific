@@ -1,5 +1,3 @@
-import { isNil } from './isNil';
-
 /**
  * Checks whether a value is neither `null` nor `undefined`.
  *
@@ -17,7 +15,7 @@ import { isNil } from './isNil';
  * }
  */
 export function hasValue<T>(value: T): value is NonNullable<T> {
-  return !isNil(value);
+  return value !== null && value !== undefined;
 }
 
 export default hasValue;

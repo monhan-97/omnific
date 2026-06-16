@@ -1,4 +1,5 @@
 import hasValue from './hasValue';
+import { isNil } from './isNil';
 import { isUndefined } from './isUndefined';
 
 export interface DebounceOptions {
@@ -85,10 +86,12 @@ export function debounce<F extends (...args: any[]) => void>(
   const trailing = isUndefined(edges) || edges.includes('trailing');
 
   const invoke = () => {
-    if (hasValue(pendingInvoke)) {
-      pendingInvoke();
-      pendingInvoke = undefined;
+    if (isNil(pendingInvoke)) {
+      return;
     }
+
+    pendingInvoke();
+    pendingInvoke = undefined;
   };
 
   const onTimerEnd = () => {
@@ -113,10 +116,12 @@ export function debounce<F extends (...args: any[]) => void>(
   };
 
   const cancelTimer = () => {
-    if (hasValue(timeoutId)) {
-      clearTimeout(timeoutId);
-      timeoutId = undefined;
+    if (isNil(timeoutId)) {
+      return;
     }
+
+    clearTimeout(timeoutId);
+    timeoutId = undefined;
   };
 
   const cancel = () => {
