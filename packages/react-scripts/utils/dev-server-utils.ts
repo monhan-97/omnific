@@ -32,7 +32,7 @@ function printInstructions(appName: string, urls: ReturnType<typeof prepareUrls>
 }
 
 /**
- * 准备Url 数据
+ * 准备URL 数据
  */
 export function prepareUrls(options: {
   protocol: string;
@@ -129,10 +129,9 @@ export async function choosePort(options: Options) {
         initial: true,
       });
       return answer.shouldChangePort ? port : undefined;
-    } else {
-      console.log(styleText('red', message));
-      return;
     }
+    console.log(styleText('red', message));
+    return;
   } catch (error: any) {
     throw new Error(
       styleText('red', `Could not find an open port at ${styleText('bold', options.host!)}.`) +

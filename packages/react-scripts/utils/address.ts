@@ -86,7 +86,7 @@ export function getInterfaceAddress(family?: string, name?: string) {
 /**
  * Get current machine IPv4
  *
- * interfaceName: interface name, default is 'eth' on linux, 'en' on mac os.
+ * interfaceName: interface name, default is 'eth' on Linux, 'en' on macOS.
  */
 export function ip(interfaceName?: string) {
   const item = getInterfaceAddress('IPv4', interfaceName);
@@ -96,7 +96,7 @@ export function ip(interfaceName?: string) {
 /**
  * Get current machine IPv6
  *
- * interfaceName: interface name, default is 'eth' on linux, 'en' on mac os.
+ * interfaceName: interface name, default is 'eth' on Linux, 'en' on macOS.
  */
 export function ipv6(interfaceName?: string) {
   const item = getInterfaceAddress('IPv6', interfaceName);

@@ -41,7 +41,7 @@ function createRspackConfig() {
     const loaders = [
       isEnvironmentProduction && {
         loader: rspack.CssExtractRspackPlugin.loader,
-        // css is located in `static/css`, use '../../' to locate index.html folder
+        // CSS is located in `static/css`, use '../../' to locate index.html folder
         // in production `paths.publicUrlOrPath` can be a relative path
         options: paths.publicUrlOrPath.startsWith('.') ? { publicPath: '../../' } : {},
       },

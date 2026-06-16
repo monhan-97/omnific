@@ -84,13 +84,11 @@ function getDifferenceLabel(currentSize: number, previousSize?: number) {
 
   if (difference >= FIFTY_KILOBYTES) {
     return styleText('red', '+' + fileSize);
-  } else if (difference < FIFTY_KILOBYTES && difference > 0) {
-    return styleText('yellow', '+' + fileSize);
-  } else if (difference < 0) {
-    return styleText('green', fileSize);
-  } else {
-    return '';
   }
+  if (difference < FIFTY_KILOBYTES && difference > 0) {
+    return styleText('yellow', '+' + fileSize);
+  }
+  return difference < 0 ? styleText('green', fileSize) : '';
 }
 
 // 打印构建文件的详细信息。
@@ -187,7 +185,7 @@ export function printFileSizesAfterBuild(
       }
 
       console.log(
-        '  ' + (isLarge ? styleText('yellow', sizeLabel) : sizeLabel) + '   ' + gzipLabel,
+        '  ' + (isLarge ? styleText('yellow', sizeLabel) : sizeLabel) + ' '.repeat(3) + gzipLabel,
         '  ' + styleText('dim', asset.folder + path.sep) + styleText('cyan', asset.name),
       );
     }
