@@ -193,8 +193,17 @@ const commonConfig = {
     'unicorn/no-array-reduce': 'warn',
     'unicorn/no-for-loop': 'warn',
     'unicorn/no-array-sort': 'off',
+    'unicorn/consistent-class-member-order': 'off',
     'unicorn/filename-case': 'off',
+    'unicorn/no-declarations-before-early-exit': 'off',
+    'unicorn/no-this-outside-of-class': 'off',
+    'unicorn/no-unnecessary-global-this': 'off',
+    'unicorn/no-unreadable-new-expression': 'off',
+    'unicorn/no-unsafe-property-key': 'off',
     'unicorn/prevent-abbreviations': 'off',
+    'unicorn/prefer-await': 'off',
+    'unicorn/prefer-minimal-ternary': 'off',
+    'unicorn/prefer-private-class-fields': 'off',
     'sort-imports': [
       'error',
       {
