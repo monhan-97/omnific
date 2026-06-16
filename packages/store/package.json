@@ -1,0 +1,63 @@
+{
+  "name": "@omnific/store",
+  "version": "0.1.0",
+  "description": "Jotai store helpers for Omnific applications",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "store",
+    "jotai",
+    "react"
+  ],
+  "author": "monhan-97",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monhan-97/omnific.git",
+    "directory": "packages/store"
+  },
+  "bugs": {
+    "url": "https://github.com/monhan-97/omnific.git/issues"
+  },
+  "main": "./dist/main.js",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "default": "./dist/main.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "default": "./dist/*.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsdown -c tsdown.config.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@omnific/hooks": "workspace:*",
+    "@omnific/utils": "workspace:*"
+  },
+  "peerDependencies": {
+    "immer": "^11.0.0",
+    "jotai": "^2.0.0",
+    "jotai-immer": "^0.4.0",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@omnific/tsconfig": "workspace:*",
+    "@types/react": "^19.2.17",
+    "immer": "^11.1.8",
+    "jotai": "^2.20.0",
+    "jotai-immer": "^0.4.3",
+    "react": "^19.2.7"
+  }
+}
