@@ -9,15 +9,13 @@ import { ReactRefreshRspackPlugin } from '@rspack/plugin-react-refresh';
 import paths from './paths';
 import { detectPackage } from './utils/detect-package';
 import { alias, moduleFileExtensions } from './alias';
-import { getEnv, isDevelopment, isProduction } from './utils/env';
+import { getEnv as getEnvironment, isDevelopment, isProduction } from './utils/env';
 
 const hasJsxRuntime = detectPackage('react/jsx-runtime');
 
 const hasTailwind = detectPackage('tailwindcss');
 
 const hasSwcHelper = detectPackage('@swc/helpers');
-
-const lessRegex = /\.less$/;
 
 const sassRegex = /\.(scss|sass)$/;
 
@@ -76,7 +74,7 @@ function createRspackConfig() {
   const config: Configuration = {
     target: ['browserslist'],
     stats: 'errors-warnings',
-    mode: getEnv() as Mode,
+    mode: getEnvironment() as Mode,
     bail: isEnvironmentProduction,
     devtool: isEnvironmentDevelopment && 'cheap-module-source-map',
     entry: paths.appIndexJs,
@@ -192,14 +190,6 @@ function createRspackConfig() {
                   },
                 } satisfies SwcLoaderOptions,
               },
-            },
-            {
-              test: lessRegex,
-              use: getStyleLoaders({
-                loader: resolvePackage('less-loader'),
-              }),
-              sideEffects: true,
-              type: 'css/auto',
             },
             {
               test: sassRegex,
