@@ -18,6 +18,9 @@ const ignoreDuplicateSet = new Set([
   'user-agent',
 ]);
 
+/**
+ * 将原始 XMLHttpRequest 响应头解析为 Headers 对象。
+ */
 const parseHeader = (rawHeaders: string) => {
   const headers = new Headers();
 

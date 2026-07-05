@@ -5,6 +5,9 @@ import buildURL from './buildURL';
 import FetchError from '../core/FetchError';
 import type { RequestConfig } from '../types';
 
+/**
+ * 将请求配置解析为方法、超时时间和最终 URL。
+ */
 const resolveConfig = (config: RequestConfig) => {
   if (isNil(config.url)) {
     throw new FetchError(

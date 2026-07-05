@@ -3,6 +3,9 @@ import { isUndefined } from '@omnific/utils';
 import FetchError from '../core/FetchError';
 import type { RequestConfig } from '../types';
 
+/**
+ * 请求被取消时使用的错误类型。
+ */
 class CanceledError extends FetchError {
   __CANCEL__ = true;
 

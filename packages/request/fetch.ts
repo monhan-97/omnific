@@ -7,10 +7,16 @@ import type { RequestConfig, Response, ResponseType } from './types';
 import composeSignals from './utils/composeSignals';
 import resolveConfig from './utils/resolveConfig';
 
+/**
+ * fetch 传输层返回的响应类型。
+ */
 export type FetchResponse<T = unknown> = Response<T, Request>;
 
 type SupportedResponseType = Exclude<ResponseType, 'document'>;
 
+/**
+ * fetch 传输层接受的请求配置。
+ */
 export type FetchRequestConfig<D = unknown> = RequestConfig<D>;
 
 const unSupportedResponseType = new Set<ResponseType>(['document']);
@@ -65,6 +71,9 @@ const createFetchResponse = <T>(
   request,
 });
 
+/**
+ * 通过 Fetch API 传输层发送请求。
+ */
 async function fetch<T = unknown, R = FetchResponse<T>>(config: FetchRequestConfig) {
   const { responseType = 'json', signal, withCredentials } = config;
 

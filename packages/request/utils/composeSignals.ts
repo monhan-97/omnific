@@ -2,6 +2,9 @@ import CanceledError from '../cancel/CanceledError';
 import FetchError from '../core/FetchError';
 import type { RequestConfig } from '../types';
 
+/**
+ * 将超时和中止信号组合成一个带清理能力的信号。
+ */
 const composeSignals = (
   timeout: number = 0,
   signals: (AbortSignal | undefined)[] = [],
@@ -12,7 +15,7 @@ const composeSignals = (
   if (timeout || newSignals.length > 0) {
     const abortController = new AbortController();
 
-    let aborted = false;
+    let isAborted = false;
 
     let timer: ReturnType<typeof globalThis.setTimeout> | undefined;
     let abortReason: Error | undefined;
@@ -39,8 +42,8 @@ const composeSignals = (
       signal.addEventListener('abort', onabort);
     }
 
-    function onabort(e: Event) {
-      abort((e.target as AbortSignal | null)?.reason);
+    function onabort(event: Event) {
+      abort((event.target as AbortSignal | null)?.reason);
     }
 
     for (const signal of newSignals) {
@@ -51,11 +54,11 @@ const composeSignals = (
     }
 
     function clean() {
-      if (aborted) {
+      if (isAborted) {
         return;
       }
 
-      aborted = true;
+      isAborted = true;
       timer && globalThis.clearTimeout(timer);
       for (const signal of newSignals) {
         signal.removeEventListener('abort', onabort);

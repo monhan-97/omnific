@@ -83,4 +83,46 @@ describe('createRequest', () => {
       }),
     );
   });
+
+  it('applies default withCredentials to fetch and upload helpers', async () => {
+    const { createRequest } = await import('../request');
+    const request = createRequest({
+      withCredentials: true,
+    });
+
+    await request.get('/users');
+    await request.upload('/files');
+
+    expect(mocks.fetch).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        method: 'GET',
+        url: '/users',
+        withCredentials: true,
+      }),
+    );
+    expect(mocks.xhr).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        method: 'POST',
+        url: '/files',
+        withCredentials: true,
+      }),
+    );
+  });
+
+  it('allows request config to override default withCredentials', async () => {
+    const { createRequest } = await import('../request');
+    const request = createRequest({
+      withCredentials: true,
+    });
+
+    await request.get('/users', { withCredentials: false });
+
+    expect(mocks.fetch).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        method: 'GET',
+        url: '/users',
+        withCredentials: false,
+      }),
+    );
+  });
 });

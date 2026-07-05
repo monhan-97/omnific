@@ -2,15 +2,18 @@ import FetchError from './FetchError';
 
 import type { RequestConfig, Response } from '../types';
 
-const validateStatus = (status: number) => {
+const isStatusValid = (status: number) => {
   return status >= 200 && status < 300;
 };
 
+/**
+ * 返回成功响应，或在状态码失败时抛出 FetchError。
+ */
 const settle = <TData = unknown, TRequest = unknown>(
   response: Response<TData, TRequest>,
   config?: RequestConfig,
 ) => {
-  if (validateStatus(response.status)) {
+  if (isStatusValid(response.status)) {
     return response;
   }
 

@@ -9,10 +9,16 @@ import parseHeader from './utils/parseHeaders';
 import { progressEventReducer } from './utils/progressEventReducer';
 import resolveConfig from './utils/resolveConfig';
 
+/**
+ * XMLHttpRequest 传输层返回的响应类型。
+ */
 export type XhrResponse<T = unknown> = Response<T, XMLHttpRequest>;
 
 type SupportedXhrResponseType = Exclude<ResponseType, 'formdata'>;
 
+/**
+ * XMLHttpRequest 传输层接受的请求配置。
+ */
 export type XhrRequestConfig<D = unknown> = RequestConfig<D>;
 
 const unSupportedResponseType = new Set<ResponseType>(['formdata']);
@@ -31,6 +37,9 @@ function validateResponseType(
   );
 }
 
+/**
+ * 通过 XMLHttpRequest 传输层发送请求。
+ */
 function xhr<T = unknown, R = XhrResponse<T>>(config: XhrRequestConfig): Promise<R> {
   return new Promise((resolve, reject) => {
     const { withCredentials, responseType = 'json', signal, onUploadProgress } = config;
@@ -39,7 +48,7 @@ function xhr<T = unknown, R = XhrResponse<T>>(config: XhrRequestConfig): Promise
 
     const { data, headers } = transformRequest(config);
 
-    let onCanceled: ((e?: Event) => void) | undefined;
+    let onCanceled: ((event?: Event) => void) | undefined;
 
     let request = new XMLHttpRequest();
 

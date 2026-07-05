@@ -141,10 +141,12 @@ This helper always uses `XMLHttpRequest` and always sends `POST`.
 ```ts
 createRequest(config?: {
   baseURL?: string;
+  withCredentials?: boolean;
 }): ApiRequest
 ```
 
 `baseURL` is prepended to relative request URLs. Absolute request URLs are left untouched.
+`withCredentials` sets the default credential behavior for created request helpers and can be overridden per request.
 
 ## Request Config
 

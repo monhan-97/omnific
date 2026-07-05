@@ -12,9 +12,9 @@ describe('transformRequest', () => {
   });
 
   it('serializes URLSearchParams as form data without overriding provided accept', () => {
-    const params = new URLSearchParams({ q: 'name' });
+    const parameters = new URLSearchParams({ q: 'name' });
     const { data, headers } = transformRequest({
-      data: params,
+      data: parameters,
       headers: { accept: 'text/plain' },
     });
 

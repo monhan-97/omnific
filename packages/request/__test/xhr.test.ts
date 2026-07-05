@@ -28,7 +28,8 @@ class FakeUpload {
   }
 
   private emit(type: string, event: Event) {
-    for (const listener of this.listeners.get(type) ?? []) {
+    const listeners = this.listeners.get(type) ?? [];
+    for (const listener of listeners) {
       listener(event);
     }
   }
@@ -41,7 +42,7 @@ class FakeXMLHttpRequest {
   requestHeaders: Array<[string, string]> = [];
   method = '';
   url = '';
-  async = true;
+  isAsync = true;
   timeout = 0;
   withCredentials = false;
   responseType: XMLHttpRequestResponseType = '';
@@ -59,10 +60,10 @@ class FakeXMLHttpRequest {
     FakeXMLHttpRequest.instances.push(this);
   }
 
-  open(method: string, url: string, async = true) {
+  open(method: string, url: string, isAsync = true) {
     this.method = method;
     this.url = url;
-    this.async = async;
+    this.isAsync = isAsync;
   }
 
   setRequestHeader(name: string, value: string) {
@@ -115,7 +116,8 @@ class FakeXMLHttpRequest {
   }
 
   private emit(type: string, event: Event) {
-    for (const listener of this.listeners.get(type) ?? []) {
+    const listeners = this.listeners.get(type) ?? [];
+    for (const listener of listeners) {
       listener(event);
     }
   }
@@ -164,7 +166,7 @@ describe('xhr adapter', () => {
     });
     expect(request.method).toBe('POST');
     expect(request.url).toBe('https://api.example.com/users');
-    expect(request.async).toBe(true);
+    expect(request.isAsync).toBe(true);
     expect(request.timeout).toBe(0);
     expect(request.withCredentials).toBe(true);
     expect(request.responseType).toBe('json');

@@ -1,5 +1,8 @@
 import type { UploadProgressEvent } from '../utils/progressEventReducer';
 
+/**
+ * 请求工具支持的 HTTP 方法。
+ */
 export type Method =
   | 'GET'
   | 'POST'
@@ -12,10 +15,19 @@ export type Method =
   | 'UNLINK'
   | 'OPTIONS';
 
+/**
+ * 查询参数序列化时接受的基础值类型。
+ */
 export type QueryValue = string | number | boolean | null | undefined;
 
-export type QueryParams = Record<string, QueryValue | QueryValue[]>;
+/**
+ * 请求配置接受的查询参数映射。
+ */
+export type QueryParameters = Record<string, QueryValue | QueryValue[]>;
 
+/**
+ * 请求传输层返回的标准化响应结构。
+ */
 export type Response<T = unknown, R = unknown> = {
   data: T;
   status: number;
@@ -24,7 +36,10 @@ export type Response<T = unknown, R = unknown> = {
   request: R;
 };
 
-export type RequestConfig<D = unknown, P extends QueryParams = QueryParams> = {
+/**
+ * fetch 和 XMLHttpRequest 传输层共享的请求配置。
+ */
+export type RequestConfig<D = unknown, P extends QueryParameters = QueryParameters> = {
   /**
    * 请求地址
    */
@@ -52,6 +67,9 @@ export type RequestConfig<D = unknown, P extends QueryParams = QueryParams> = {
    */
   headers?: HeadersInit;
 
+  /**
+   * 用于取消请求的信号。
+   */
   signal?: AbortSignal;
   /**
    * 是否携带跨站点凭据。
@@ -67,7 +85,7 @@ export type RequestConfig<D = unknown, P extends QueryParams = QueryParams> = {
    *
    * fetch 当前不支持上传进度；普通 fetch 请求会忽略该配置。
    */
-  onUploadProgress?: (e: UploadProgressEvent) => void;
+  onUploadProgress?: (event: UploadProgressEvent) => void;
   /**
    * 响应数据类型。
    *

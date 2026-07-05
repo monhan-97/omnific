@@ -1,50 +1,53 @@
 import { hasValue, isNil } from '@omnific/utils';
 
-import type { QueryParams } from '../types';
+import type { QueryParameters } from '../types';
 
-const appendParam = (
-  searchParams: URLSearchParams,
+const appendParameter = (
+  searchParameters: URLSearchParams,
   key: string,
   value: string | number | boolean,
 ) => {
-  searchParams.append(key, String(value));
+  searchParameters.append(key, String(value));
 };
 
-const serializeParams = (params: QueryParams | URLSearchParams) => {
-  if (params instanceof URLSearchParams) {
-    return params.toString();
+const serializeParameters = (parameters: QueryParameters | URLSearchParams) => {
+  if (parameters instanceof URLSearchParams) {
+    return parameters.toString();
   }
 
-  const searchParams = new URLSearchParams();
+  const searchParameters = new URLSearchParams();
 
-  for (const [key, value] of Object.entries(params)) {
+  for (const [key, value] of Object.entries(parameters)) {
     if (isNil(value)) {
       continue;
     }
 
     if (!Array.isArray(value)) {
-      appendParam(searchParams, key, value);
+      appendParameter(searchParameters, key, value);
       continue;
     }
 
     for (const item of value) {
       if (hasValue(item)) {
-        appendParam(searchParams, key, item);
+        appendParameter(searchParameters, key, item);
       }
     }
   }
 
-  return searchParams.toString();
+  return searchParameters.toString();
 };
 
-const buildURL = (url: string, params?: QueryParams | URLSearchParams) => {
-  if (isNil(params)) {
+/**
+ * 将序列化后的查询参数追加到 URL，并保留 hash 处理。
+ */
+const buildURL = (url: string, parameters?: QueryParameters | URLSearchParams) => {
+  if (isNil(parameters)) {
     return url;
   }
 
-  const serializedParams = serializeParams(params);
+  const serializedParameters = serializeParameters(parameters);
 
-  if (!serializedParams) {
+  if (!serializedParameters) {
     return url;
   }
 
@@ -52,7 +55,7 @@ const buildURL = (url: string, params?: QueryParams | URLSearchParams) => {
 
   const nextURL = hashMarkIndex === -1 ? url : url.slice(0, hashMarkIndex);
 
-  return nextURL + (nextURL.includes('?') ? '&' : '?') + serializedParams;
+  return nextURL + (nextURL.includes('?') ? '&' : '?') + serializedParameters;
 };
 
 export default buildURL;

@@ -8,33 +8,39 @@ interface RequestFunction {
   (config: any): Promise<any>;
 }
 
+/**
+ * 请求分发前后应用的默认配置和转换函数。
+ */
 export type DispatchRequestConfig = {
   /**
    * 请求基础地址
    */
   baseURL?: string;
   /**
-   *
-   * @param config
-   * @returns
+   * 默认是否携带跨站点凭据，可被单次请求配置覆盖。
+   */
+  withCredentials?: RequestConfig['withCredentials'];
+  /**
+   * 在分发前转换请求配置。
    */
   transformRequest?: (config: RequestConfig) => RequestConfig;
   /**
-   *
-   * @param config
-   * @returns
+   * 在返回前转换标准化响应。
    */
   transformResponse?: (config: Response<any, any>) => any;
 };
 
+/**
+ * 使用基础 URL 处理和请求/响应转换包装传输函数。
+ */
 export const dispatchRequest = (
   request: RequestFunction,
   defaultConfig: DispatchRequestConfig = {},
 ) => {
-  const { baseURL, transformRequest, transformResponse } = defaultConfig;
+  const { baseURL, transformRequest, transformResponse, withCredentials } = defaultConfig;
 
   function wrapper(config: RequestConfig) {
-    let requestConfig = { ...config };
+    let requestConfig: RequestConfig = { withCredentials, ...config };
 
     if (transformRequest) {
       requestConfig = transformRequest(requestConfig);

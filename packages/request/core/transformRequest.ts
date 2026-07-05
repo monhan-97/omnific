@@ -3,7 +3,7 @@ import {
   isBlob,
   isFormData,
   isPlainObject,
-  isURLSearchParams,
+  isURLSearchParams as isURLSearchParameters,
 } from '@omnific/utils';
 
 import type { RequestConfig } from '../types';
@@ -18,6 +18,9 @@ const setHeaderValue = (headers: Headers, name: string, value: string) => {
   }
 };
 
+/**
+ * 在传输分发前标准化请求体数据和请求头。
+ */
 const transformRequest = <T extends RequestConfig>(config: T) => {
   let { data } = config;
 
@@ -34,7 +37,7 @@ const transformRequest = <T extends RequestConfig>(config: T) => {
     return { data, headers };
   }
 
-  if (isURLSearchParams(data)) {
+  if (isURLSearchParameters(data)) {
     setHeaderValue(headers, 'content-type', 'application/x-www-form-urlencoded;charset=utf-8');
     data = data.toString();
   } else if (isPlainObject(data) || hasJSONContentType) {
