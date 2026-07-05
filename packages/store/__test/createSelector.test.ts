@@ -9,7 +9,7 @@ const { selectAtom, useAtomValue, useEventCallback, useMemo } = vi.hoisted(() =>
     targetAtom,
   })),
   useAtomValue: vi.fn((selectedAtom: { read: () => unknown }) => selectedAtom.read()),
-  useEventCallback: vi.fn(<T extends (...args: any[]) => any>(fn: T) => fn),
+  useEventCallback: vi.fn(<T extends (...arguments_: any[]) => any>(function_: T) => function_),
   useMemo: vi.fn(<T>(factory: () => T) => factory()),
 }));
 
