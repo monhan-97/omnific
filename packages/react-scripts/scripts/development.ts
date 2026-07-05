@@ -5,10 +5,10 @@ import { styleText } from 'node:util';
 import { RspackDevServer } from '@rspack/dev-server';
 
 import type { ScriptContext } from '../Service';
-import { choosePort, createCompiler, prepareUrls } from '../utils/dev-server-utils';
+import { choosePort, createCompiler, prepareUrls } from '../utils/development-server-utilities';
 import clearConsole from '../utils/clear-console';
 import paths from '../paths';
-import createDevelopmentServerConfig from '../rspack-dev-server';
+import createDevelopmentServerConfig from '../rspack-development-server';
 
 const require = createRequire(import.meta.url);
 
@@ -21,7 +21,10 @@ const developmentServerConfig = {
   PROTOCOL: 'http',
 };
 
-export async function startDev(context: ScriptContext) {
+/**
+ * 为当前应用启动本地开发服务器。
+ */
+export async function startDevelopment(context: ScriptContext) {
   const { rspackConfig } = context;
 
   try {

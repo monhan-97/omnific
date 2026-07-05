@@ -8,8 +8,8 @@ const fileExtensions = ['ts', 'mts', 'mjs', 'cjs', 'js'];
  * @returns The file path with extension if found, or a default path
  */
 export function findEntryFile(basePath: string) {
-  for (const ext of fileExtensions) {
-    const filePath = `${basePath}.${ext}`;
+  for (const extension of fileExtensions) {
+    const filePath = `${basePath}.${extension}`;
     if (existsSync(filePath)) {
       return filePath;
     }

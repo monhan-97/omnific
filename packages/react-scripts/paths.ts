@@ -1,10 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { isDevelopment } from './utils/env';
+import { isDevelopment } from './utils/environment';
 
 const appDirectory = fs.realpathSync(process.cwd());
 
+/**
+ * 从当前应用目录解析项目相对路径。
+ */
 export function resolveApp(relativePath: string) {
   return path.resolve(appDirectory, relativePath);
 }

@@ -3,6 +3,9 @@ import type { DevServer } from '@rspack/core';
 import paths from './paths';
 import ignoredFiles from './utils/ignored-files';
 
+/**
+ * 创建 Rspack 开发服务器配置。
+ */
 function createDevelopmentServerConfig() {
   const config: DevServer = {
     allowedHosts: 'all',

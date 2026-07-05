@@ -27,33 +27,38 @@ function matchName(actualFamily: string | number, expectedFamily: string | numbe
 function findAddressFromInterface(
   items: os.NetworkInterfaceInfo[],
   expectedFamily: string | number,
-  ignoreLoAddress = false,
+  shouldIgnoreLoopbackAddress = false,
 ) {
   let firstMatchItem;
   for (const item of items) {
-    if (matchName(item.family, expectedFamily)) {
-      if (ignoreLoAddress && item.address.startsWith('127.')) {
-        continue;
+    if (!matchName(item.family, expectedFamily)) {
+      continue;
+    }
+
+    if (shouldIgnoreLoopbackAddress && item.address.startsWith('127.')) {
+      continue;
+    }
+    if (expectedFamily === 'IPv6') {
+      // find the scopeid = 0 item
+      if (item.scopeid === 0) return item;
+      if (!firstMatchItem) {
+        firstMatchItem = item;
       }
-      if (expectedFamily === 'IPv6') {
-        // find the scopeid = 0 item
-        if (item.scopeid === 0) return item;
-        if (!firstMatchItem) {
-          firstMatchItem = item;
-        }
-      } else {
-        return item;
-      }
+    } else {
+      return item;
     }
   }
   return firstMatchItem;
 }
 
+/**
+ * 根据 IP 协议族和网卡名称查找网络接口地址。
+ */
 export function getInterfaceAddress(family?: string, name?: string) {
   const interfaces = os.networkInterfaces();
-  const noName = !name;
-  name = name || getDefaultInterfaceName();
-  family = family || 'IPv4';
+  const isNoName = !name;
+  name ||= getDefaultInterfaceName();
+  family ||= 'IPv4';
   if (name) {
     for (let index = -1; index < 8; index++) {
       const interfaceName = name + (index >= 0 ? index : ''); // support 'lo' and 'lo0'
@@ -67,7 +72,7 @@ export function getInterfaceAddress(family?: string, name?: string) {
     }
   }
 
-  if (noName) {
+  if (isNoName) {
     // filter all loopback or local addresses
     for (const k in interfaces) {
       const items = interfaces[k];

@@ -1,6 +1,6 @@
 import paths from './paths';
 
-export const moduleFileExtensions = ['ts', 'tsx', 'js', 'json', 'mjs', 'jsx'].map(ext => `.${ext}`);
+export const moduleFileExtensions = ['ts', 'tsx', 'js', 'json', 'mjs', 'jsx'].map(extension => `.${extension}`);
 
 export const aliasSymbol = {
   src: '@',

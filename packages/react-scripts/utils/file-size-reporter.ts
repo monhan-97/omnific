@@ -47,6 +47,29 @@ function removeFileNameHash(buildFolder: string, fileName: string) {
     .replace(/\/?(.*)(\.[\da-f]+)(\.chunk)?(\.js|\.css)/, (match, p1, p2, p3, p4) => p1 + p4);
 }
 
+// 1024, 2048;
+// ('(+1 KB)');
+function getDifferenceLabel(currentSize: number, previousSize?: number) {
+  if (!previousSize) return '';
+
+  const FIFTY_KILOBYTES = 1024 * 50;
+
+  const difference = currentSize - previousSize;
+
+  const fileSize = Number.isNaN(difference) ? '0' : prettyBytes(difference);
+
+  if (difference >= FIFTY_KILOBYTES) {
+    return styleText('red', '+' + fileSize);
+  }
+  if (difference < FIFTY_KILOBYTES && difference > 0) {
+    return styleText('yellow', '+' + fileSize);
+  }
+  return difference < 0 ? styleText('green', fileSize) : '';
+}
+
+/**
+ * 在构建前测量可读取构建资源的大小。
+ */
 export async function measureFileSizesBeforeBuild(buildFolder: string) {
   const result = {
     root: buildFolder,
@@ -71,32 +94,14 @@ export async function measureFileSizesBeforeBuild(buildFolder: string) {
   return result;
 }
 
-// 1024, 2048;
-// ('(+1 KB)');
-function getDifferenceLabel(currentSize: number, previousSize?: number) {
-  if (!previousSize) return '';
-
-  const FIFTY_KILOBYTES = 1024 * 50;
-
-  const difference = currentSize - previousSize;
-
-  const fileSize = Number.isNaN(difference) ? '0' : prettyBytes(difference);
-
-  if (difference >= FIFTY_KILOBYTES) {
-    return styleText('red', '+' + fileSize);
-  }
-  if (difference < FIFTY_KILOBYTES && difference > 0) {
-    return styleText('yellow', '+' + fileSize);
-  }
-  return difference < 0 ? styleText('green', fileSize) : '';
-}
-
-// 打印构建文件的详细信息。
+/**
+ * 在构建成功后打印资源大小和 gzip 后大小。
+ */
 export function printFileSizesAfterBuild(
   stats: Stats,
   previousSizeMap: AwaitedType<ReturnType<typeof measureFileSizesBeforeBuild>>,
 ) {
-  let suggestBundleSplitting = false;
+  let isSuggestBundleSplitting = false;
 
   const root = previousSizeMap.root;
 
@@ -181,7 +186,7 @@ export function printFileSizesAfterBuild(
       const isLarge = maxRecommendedSize && asset.size > maxRecommendedSize;
 
       if (isLarge && path.extname(asset.name) === '.js') {
-        suggestBundleSplitting = true;
+        isSuggestBundleSplitting = true;
       }
 
       console.log(
@@ -191,7 +196,7 @@ export function printFileSizesAfterBuild(
     }
   }
 
-  if (suggestBundleSplitting) {
+  if (isSuggestBundleSplitting) {
     console.log();
     console.log(styleText('yellow', 'The bundle size is significantly larger than recommended.'));
     console.log(

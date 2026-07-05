@@ -9,7 +9,7 @@ import { ReactRefreshRspackPlugin } from '@rspack/plugin-react-refresh';
 import paths from './paths';
 import { detectPackage } from './utils/detect-package';
 import { alias, moduleFileExtensions } from './alias';
-import { getEnv as getEnvironment, isDevelopment, isProduction } from './utils/env';
+import { getEnvironment, isDevelopment, isProduction } from './utils/environment';
 
 const hasJsxRuntime = detectPackage('react/jsx-runtime');
 
@@ -29,7 +29,9 @@ function resolvePackage(packageName: string) {
   return require.resolve(packageName);
 }
 
-// It is focused on developer experience, fast rebuilds, and a minimal bundle.
+/**
+ * 创建开发和生产构建共用的基础 Rspack 配置。
+ */
 function createRspackConfig() {
   const isEnvironmentDevelopment = isDevelopment();
 

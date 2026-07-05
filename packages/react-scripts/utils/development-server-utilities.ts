@@ -2,7 +2,7 @@ import url from 'node:url';
 import { exit } from 'node:process';
 import { styleText } from 'node:util';
 
-import prompts from 'prompts';
+import promptUser from 'prompts';
 import type { Compiler, Configuration } from '@rspack/core';
 import { rspack } from '@rspack/core';
 import type { Options } from 'get-port';
@@ -120,7 +120,7 @@ export async function choosePort(options: Options) {
 
     if (isInteractive) {
       clearConsole();
-      const answer = await prompts({
+      const answer = await promptUser({
         type: 'confirm',
         name: 'shouldChangePort',
         message:

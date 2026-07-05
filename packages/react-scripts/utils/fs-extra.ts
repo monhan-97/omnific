@@ -1,11 +1,17 @@
 import pth from 'node:path';
 import fs from 'node:fs/promises';
 
+/**
+ * 删除并重新创建目录。
+ */
 export async function emptyDirectory(directory: string) {
   await fs.rm(directory, { recursive: true, force: true });
   await fs.mkdir(directory, { recursive: true });
 }
 
+/**
+ * 检查文件系统路径是否可访问。
+ */
 export async function fileExists(path: string) {
   try {
     await fs.access(path);

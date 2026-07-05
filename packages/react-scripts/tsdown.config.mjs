@@ -17,7 +17,7 @@ export default defineConfig([
     entry: {
       index: './index.ts',
       'scripts/build': './scripts/build.ts',
-      'scripts/dev': './scripts/dev.ts',
+      'scripts/dev': './scripts/development.ts',
     },
     format: 'esm',
     clean: true,

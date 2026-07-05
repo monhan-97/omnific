@@ -2,26 +2,32 @@ import type { Configuration, Mode } from '@rspack/core';
 import { merge } from 'webpack-merge';
 
 import { startBuild } from './scripts/build';
-import { startDev } from './scripts/dev';
-import { DEVELOPMENT, PRODUCTION } from './utils/env';
+import { startDevelopment } from './scripts/development';
+import { DEVELOPMENT, PRODUCTION } from './utils/environment';
 import { findEntryFile } from './utils/find-entry-file';
 import paths from './paths';
 import createRspackConfig from './rspack.config';
 import type { ConfigureRspack, ReactScriptsConfig } from './main';
 
+/**
+ * 传递给构建和开发命令的运行时上下文。
+ */
 export type ScriptContext = {
   mode: Mode;
   service: Service;
   rspackConfig: Configuration;
 };
 
+/**
+ * 协调命令执行、环境设置和用户配置加载。
+ */
 export class Service {
   initialized: boolean = false;
 
   mode: Mode = DEVELOPMENT;
 
   commands = {
-    dev: startDev,
+    dev: startDevelopment,
     build: startBuild,
   };
 
@@ -62,8 +68,8 @@ export class Service {
     const configPath = findEntryFile(paths.config);
 
     if (configPath) {
-      const res = await import(configPath);
-      this.handleLoadedUserConfig(res.default);
+      const userConfigModule = await import(configPath);
+      this.handleLoadedUserConfig(userConfigModule.default);
     }
   }
 
@@ -74,12 +80,14 @@ export class Service {
 
     let baseConfig = createRspackConfig();
 
-    for (const fn of this.webpackRawConfigFns) {
-      if (typeof fn === 'function') {
-        const res = fn(baseConfig);
-        if (res) {
-          baseConfig = merge(baseConfig, res);
-        }
+    for (const function_ of this.webpackRawConfigFns) {
+      if (typeof function_ !== 'function') {
+        continue;
+      }
+
+      const rspackConfig = function_(baseConfig);
+      if (rspackConfig) {
+        baseConfig = merge(baseConfig, rspackConfig);
       }
     }
 

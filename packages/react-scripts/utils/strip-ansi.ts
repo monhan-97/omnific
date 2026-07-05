@@ -9,6 +9,9 @@ function ansiRegex(options: { onlyFirst?: boolean } = {}) {
   return new RegExp(pattern, onlyFirst ? undefined : 'g');
 }
 
+/**
+ * 移除字符串中的 ANSI 转义序列。
+ */
 function stripAnsi(string: string) {
   const regex = ansiRegex();
 

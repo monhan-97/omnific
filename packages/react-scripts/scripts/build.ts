@@ -10,6 +10,9 @@ import { emptyDirectory } from '../utils/fs-extra';
 import { measureFileSizesBeforeBuild, printFileSizesAfterBuild } from '../utils/file-size-reporter';
 import paths from '../paths';
 
+/**
+ * 为当前应用运行生产构建命令。
+ */
 export async function startBuild(context: ScriptContext) {
   const { rspackConfig } = context;
 

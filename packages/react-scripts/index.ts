@@ -5,17 +5,17 @@ import { Service } from './Service';
 
 process.on('unhandledRejection', consoleError);
 
-const rawArgs = process.argv.slice(2);
+const rawArguments = process.argv.slice(2);
 
-const args = parseArgs({
-  args: rawArgs,
+const arguments_ = parseArgs({
+  args: rawArguments,
   strict: false,
   allowPositionals: true,
 });
 
 const service = new Service();
 
-const command = args.positionals[0];
+const command = arguments_.positionals[0];
 
 try {
   command && (await service.run(command));
