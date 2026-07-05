@@ -4,7 +4,7 @@ import { useEventCallback } from '../useEventCallback';
 
 const { latestRef, useCallback, useRef } = vi.hoisted(() => ({
   latestRef: { current: undefined as unknown },
-  useCallback: vi.fn((fn: (...args: unknown[]) => unknown) => fn),
+  useCallback: vi.fn((function_: (...arguments_: unknown[]) => unknown) => function_),
   useRef: vi.fn(),
 }));
 

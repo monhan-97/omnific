@@ -12,12 +12,12 @@ vi.mock('react', () => ({
 
 describe('useLatest', () => {
   it('returns the ref and keeps current synced to the latest value', () => {
-    const ref = { current: 'initial' };
-    useRef.mockReturnValueOnce(ref);
+    const reference = { current: 'initial' };
+    useRef.mockReturnValueOnce(reference);
 
     const result = useLatest('latest');
 
-    expect(result).toBe(ref);
+    expect(result).toBe(reference);
     expect(result.current).toBe('latest');
     expect(useRef).toHaveBeenCalledWith('latest');
   });
