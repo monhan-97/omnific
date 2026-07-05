@@ -1,6 +1,9 @@
 import { isString } from '../isString';
 import { isSymbol } from '../isSymbol';
 
+/**
+ * 将属性路径片段规范化为字符串键。
+ */
 export function normalizeKey(path: unknown) {
   return Object.is(path?.valueOf?.(), -0) ? '-0' : String(path);
 }

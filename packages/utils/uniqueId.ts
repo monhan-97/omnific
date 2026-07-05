@@ -1,4 +1,6 @@
-let idCounter = 0;
+const uniqueIdCounter = {
+  value: 0,
+};
 
 /**
  * Generates a unique ID.
@@ -14,7 +16,7 @@ let idCounter = 0;
  * uniqueId('contact_'); // 'contact_3'
  */
 export function uniqueId(prefix = ''): string {
-  const id = ++idCounter;
+  const id = ++uniqueIdCounter.value;
 
   return `${prefix}${id}`;
 }

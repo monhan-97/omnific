@@ -46,10 +46,10 @@ import { isObject } from './isObject';
 export function isPlainObject(value: unknown): value is Record<PropertyKey, any> {
   if (!isObject(value)) return false;
 
-  const proto = Object.getPrototypeOf(value);
+  const prototype = Object.getPrototypeOf(value);
 
   const hasObjectPrototype =
-    isNull(proto) || proto === Object.prototype || isNull(Object.getPrototypeOf(proto));
+    isNull(prototype) || prototype === Object.prototype || isNull(Object.getPrototypeOf(prototype));
 
   if (!hasObjectPrototype) return false;
 

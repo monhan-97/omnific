@@ -15,7 +15,10 @@ export { isNull } from './isNull';
 export { isPromise } from './isPromise';
 export { isObject } from './isObject';
 export { isArrayBuffer } from './isArrayBuffer';
-export { isURLSearchParams } from './isURLSearchParams';
+export {
+  isURLSearchParameters,
+  isURLSearchParameters as isURLSearchParams,
+} from './isURLSearchParameters';
 export { parseJson } from './parseJson';
 export { get } from './get';
 export { isSymbol } from './isSymbol';

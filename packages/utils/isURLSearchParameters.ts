@@ -13,10 +13,10 @@ import { hasValue } from './hasValue';
  * const value2 = new FormData();
  * const value3 = 'a=1';
  *
- * console.log(isURLSearchParams(value1)); // true
- * console.log(isURLSearchParams(value2)); // false
- * console.log(isURLSearchParams(value3)); // false
+ * console.log(isURLSearchParameters(value1)); // true
+ * console.log(isURLSearchParameters(value2)); // false
+ * console.log(isURLSearchParameters(value3)); // false
  */
-export function isURLSearchParams(value: unknown): value is URLSearchParams {
+export function isURLSearchParameters(value: unknown): value is URLSearchParams {
   return hasValue(value) && value instanceof URLSearchParams;
 }

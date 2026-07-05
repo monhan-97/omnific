@@ -39,7 +39,7 @@ export function toPath(deepKey: any): string[] {
   let index = 0;
   let key = '';
   let quoteChar = '';
-  let bracket = false;
+  let isBracket = false;
 
   // Leading dot
   if (deepKey.codePointAt(0) === 46) {
@@ -61,13 +61,13 @@ export function toPath(deepKey: any): string[] {
       } else {
         key += char;
       }
-    } else if (bracket) {
+    } else if (isBracket) {
       if (char === '"' || char === "'") {
         // Start of quoted string inside brackets
         quoteChar = char;
       } else if (char === ']') {
         // End of bracketed segment
-        bracket = false;
+        isBracket = false;
         result.push(key);
         key = '';
       } else {
@@ -76,7 +76,7 @@ export function toPath(deepKey: any): string[] {
     } else {
       if (char === '[') {
         // Start of bracketed segment
-        bracket = true;
+        isBracket = true;
         if (key) {
           result.push(key);
           key = '';

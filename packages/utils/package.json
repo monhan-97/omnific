@@ -1,6 +1,6 @@
 {
   "name": "@omnific/utils",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Shared utility predicates for Omnific packages",
   "license": "MIT",
   "type": "module",

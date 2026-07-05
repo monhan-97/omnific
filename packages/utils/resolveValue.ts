@@ -13,12 +13,12 @@ import { isFunction } from './isFunction';
  * resolveValue('ready');
  * resolveValue(status => status === 'error' ? 'retry' : 'ok', 'error');
  */
-export function resolveValue<TValue, TArgs extends any[]>(
-  value: TValue | ((...args: TArgs) => TValue),
-  ...args: TArgs
+export function resolveValue<TValue, TArguments extends any[]>(
+  value: TValue | ((...arguments_: TArguments) => TValue),
+  ...arguments_: TArguments
 ): TValue {
   if (isFunction(value)) {
-    return value(...args);
+    return value(...arguments_);
   }
 
   return value;

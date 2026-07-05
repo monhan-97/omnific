@@ -78,6 +78,9 @@ type GetFieldTypeOfPrimitive<T, X, XT extends 'DotPath' | 'Key' | 'Path'> =
         | (Exclude<T, string> extends never ? never : undefined)
         | GetFieldTypeOfNarrowed<Extract<T, string>, X, XT>;
 
+/**
+ * 解析指定键、点路径或括号路径对应的值类型。
+ */
 export type GetFieldType<T, X, XT extends 'DotPath' | 'Key' | 'Path' = 'Path'> =
   Extract<T, object> extends never
     ? GetFieldTypeOfPrimitive<T, X, XT>

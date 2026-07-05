@@ -1,7 +1,10 @@
-import hasValue from './hasValue';
+import { hasValue } from './hasValue';
 import { isNil } from './isNil';
 import { isUndefined } from './isUndefined';
 
+/**
+ * 控制防抖函数何时调用或取消的选项。
+ */
 export interface DebounceOptions {
   /**
    * An optional AbortSignal to cancel the debounced function.
@@ -18,8 +21,11 @@ export interface DebounceOptions {
   edges?: Array<'leading' | 'trailing'>;
 }
 
-export interface DebouncedFunction<F extends (...args: any[]) => void> {
-  (...args: Parameters<F>): void;
+/**
+ * 带有调度、取消和立即执行控制能力的防抖函数。
+ */
+export interface DebouncedFunction<F extends (...arguments_: any[]) => void> {
+  (...arguments_: Parameters<F>): void;
   /**
    * Schedules the execution of the debounced function after the specified debounce delay.
    * This method resets any existing timer, ensuring that the function is only invoked
@@ -47,7 +53,7 @@ export interface DebouncedFunction<F extends (...args: any[]) => void> {
  * method to cancel any pending execution.
  *
  * @template F - The type of function.
- * @param {F} func - The function to debounce.
+ * @param {F} function_ - The function to debounce.
  * @param {number} debounceMs - The number of milliseconds to delay.
  * @param {DebounceOptions} options - The options object
  * @param {AbortSignal} options.signal - An optional AbortSignal to cancel the debounced function.
@@ -76,8 +82,8 @@ export interface DebouncedFunction<F extends (...args: any[]) => void> {
  * // Will cancel the debounced function call
  * controller.abort();
  */
-export function debounce<F extends (...args: any[]) => void>(
-  func: F,
+export function debounce<F extends (...arguments_: any[]) => void>(
+  function_: F,
   debounceMs: number,
   { signal, edges }: DebounceOptions = {},
 ): DebouncedFunction<F> {
@@ -134,13 +140,13 @@ export function debounce<F extends (...args: any[]) => void>(
     invoke();
   };
 
-  const debounced = function (this: any, ...args: Parameters<F>) {
+  const debounced = function (this: any, ...arguments_: Parameters<F>) {
     if (signal?.aborted) {
       return;
     }
 
     pendingInvoke = () => {
-      func.apply(this, args);
+      function_.apply(this, arguments_);
     };
     const isFirstCall = isUndefined(timeoutId);
     schedule();

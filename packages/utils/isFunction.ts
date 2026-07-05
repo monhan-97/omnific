@@ -11,6 +11,6 @@
  * isFunction(Proxy); // true
  * isFunction(Int8Array); // true
  */
-export function isFunction(value: any): value is (...args: any[]) => any {
+export function isFunction(value: any): value is (...arguments_: any[]) => any {
   return typeof value === 'function';
 }
