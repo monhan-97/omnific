@@ -1,7 +1,7 @@
 {
   "name": "@omnific/types",
   "description": "Shared typescript  utils for your project",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "type": "module",
   "keywords": [
@@ -14,7 +14,7 @@
     }
   },
   "files": [
-    "utils.ts",
+    "utilities.ts",
     "index.d.ts",
     "request.ts"
   ],
