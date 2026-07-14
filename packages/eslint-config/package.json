@@ -1,7 +1,7 @@
 {
   "name": "@omnific/eslint-config",
   "description": "Shared eslint config for your project",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "license": "MIT",
   "type": "module",
   "keywords": [
@@ -29,12 +29,13 @@
     "url": "https://github.com/monhan-97/omnific.git/issues"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.62.1",
-    "@typescript-eslint/parser": "^8.62.1",
+    "@eslint/js": "^10.0.1",
+    "@typescript-eslint/eslint-plugin": "^8.63.0",
+    "@typescript-eslint/parser": "^8.63.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-import-x": "^4.17.1",
-    "eslint-plugin-unicorn": "^70.0.0",
+    "eslint-plugin-unicorn": "^71.1.0",
     "globals": "^17.7.0"
   },
   "peerDependencies": {
