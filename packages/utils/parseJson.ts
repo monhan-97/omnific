@@ -1,3 +1,5 @@
+import { isStringEmpty } from './isStringEmpty';
+
 /**
  * Parses JSON text into a value.
  *
@@ -5,7 +7,7 @@
  * returns the fallback instead of throwing.
  */
 export function parseJson<T>(text: string, fallback?: T): T | undefined {
-  if (!text.trim()) {
+  if (isStringEmpty(text)) {
     return undefined;
   }
 

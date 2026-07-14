@@ -1,3 +1,4 @@
+import { isArrayEmpty } from './isArrayEmpty';
 import { isFunction } from './isFunction';
 
 /**
@@ -23,7 +24,7 @@ export function createChainedFunction<TArguments extends any[], TThis>(
     (function_): function_ is ChainedFunction<TArguments, TThis> => isFunction(function_),
   );
 
-  if (validFuncs.length === 0) {
+  if (isArrayEmpty(validFuncs)) {
     return function () {};
   }
 

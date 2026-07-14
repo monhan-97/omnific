@@ -1,4 +1,5 @@
 import { isFunction } from './isFunction';
+import { hasValue } from './hasValue';
 import { isObject } from './isObject';
 
 /**
@@ -20,8 +21,8 @@ import { isObject } from './isObject';
  */
 export function isPromise(value: unknown): value is Promise<any> {
   return (
-    value !== null &&
+    hasValue(value) &&
     (isObject(value) || isFunction(value)) &&
-    typeof (value as PromiseLike<unknown>).then === 'function'
+    isFunction((value as PromiseLike<unknown>).then)
   );
 }

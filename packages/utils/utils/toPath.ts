@@ -1,5 +1,6 @@
 import { toString } from './toString';
 
+import { isSymbol } from '../isSymbol';
 import { toKey } from '../_internal/toKey';
 
 /**
@@ -24,7 +25,7 @@ export function toPath(deepKey: any): string[] {
     // @types/lodash defines this as string[], but lodash itself returns (string | symbol)[]
     return deepKey.map(item => toKey(item)) as string[];
   }
-  if (typeof deepKey === 'symbol') {
+  if (isSymbol(deepKey)) {
     // @types/lodash defines this as string[], but lodash itself returns [symbol]
     return [deepKey as unknown as string];
   }

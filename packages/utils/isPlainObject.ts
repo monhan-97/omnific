@@ -47,11 +47,9 @@ export function isPlainObject(value: unknown): value is Record<PropertyKey, any>
   if (!isObject(value)) return false;
 
   const prototype = Object.getPrototypeOf(value);
-
   const hasObjectPrototype =
     isNull(prototype) || prototype === Object.prototype || isNull(Object.getPrototypeOf(prototype));
 
   if (!hasObjectPrototype) return false;
-
   return Object.prototype.toString.call(value) === '[object Object]';
 }

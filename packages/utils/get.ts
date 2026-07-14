@@ -1,3 +1,4 @@
+import { isArrayEmpty } from './isArrayEmpty';
 import { isUndefined } from './isUndefined';
 import { isUnsafeProperty } from './_internal/isUnsafeProperty';
 import type { GetFieldType } from './@types/GetFieldType.ts';
@@ -503,7 +504,7 @@ export function get(
 }
 
 function getWithPath(object: any, path: readonly PropertyKey[], defaultValue?: any): any {
-  if (path.length === 0) return defaultValue;
+  if (isArrayEmpty(path)) return defaultValue;
 
   let current = object;
 

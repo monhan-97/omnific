@@ -1,4 +1,5 @@
 export { isArray } from './isArray';
+export { isArrayEmpty } from './isArrayEmpty';
 export { isBoolean } from './isBoolean';
 export { isBlob } from './isBlob';
 export { createChainedFunction } from './createChainedFunction';
@@ -10,15 +11,13 @@ export { isNil } from './isNil';
 export { isNumber } from './isNumber';
 export { isPlainObject } from './isPlainObject';
 export { isString } from './isString';
+export { isStringEmpty } from './isStringEmpty';
 export { isUndefined } from './isUndefined';
 export { isNull } from './isNull';
 export { isPromise } from './isPromise';
 export { isObject } from './isObject';
 export { isArrayBuffer } from './isArrayBuffer';
-export {
-  isURLSearchParameters,
-  isURLSearchParameters as isURLSearchParams,
-} from './isURLSearchParameters';
+export { isURLSearchParameters } from './isURLSearchParameters';
 export { parseJson } from './parseJson';
 export { get } from './get';
 export { isSymbol } from './isSymbol';
