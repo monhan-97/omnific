@@ -1,6 +1,6 @@
 {
   "name": "@omnific/hooks",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shared React hooks for Omnific packages",
   "license": "MIT",
   "type": "module",
@@ -43,6 +43,9 @@
   },
   "peerDependencies": {
     "react": "^19.0.0"
+  },
+  "dependencies": {
+    "@omnific/utils": "workspace:*"
   },
   "devDependencies": {
     "@omnific/tsconfig": "workspace:*",
