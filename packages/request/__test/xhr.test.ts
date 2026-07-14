@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { hasValue, isNil } from '@omnific/utils';
 
 import isCancel from '../cancel/isCancel';
 import FetchError from '../core/FetchError';
@@ -19,7 +20,7 @@ class FakeUpload {
     this.emit('progress', {
       loaded,
       total: total ?? 0,
-      lengthComputable: total !== undefined,
+      lengthComputable: hasValue(total),
     } as ProgressEvent<XMLHttpRequestEventTarget>);
   }
 
@@ -126,7 +127,7 @@ class FakeXMLHttpRequest {
 const latestRequest = () => {
   const request = FakeXMLHttpRequest.instances.at(-1);
 
-  if (!request) {
+  if (isNil(request)) {
     throw new Error('Expected XMLHttpRequest to be created');
   }
 

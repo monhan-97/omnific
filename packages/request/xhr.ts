@@ -27,14 +27,13 @@ function validateResponseType(
   responseType: ResponseType,
   config: XhrRequestConfig,
 ): asserts responseType is SupportedXhrResponseType {
-  if (!unSupportedResponseType.has(responseType)) {
-    return;
+  if (unSupportedResponseType.has(responseType)) {
+    throw new FetchError(
+      `Response type '${responseType}' is not supported by XMLHttpRequest`,
+      FetchError.ERR_NOT_SUPPORT,
+      config,
+    );
   }
-  throw new FetchError(
-    `Response type '${responseType}' is not supported by XMLHttpRequest`,
-    FetchError.ERR_NOT_SUPPORT,
-    config,
-  );
 }
 
 /**
@@ -50,7 +49,7 @@ function xhr<T = unknown, R = XhrResponse<T>>(config: XhrRequestConfig): Promise
 
     let onCanceled: ((event?: Event) => void) | undefined;
 
-    let request = new XMLHttpRequest();
+    const request = new XMLHttpRequest();
 
     request.open(method, url, true);
 
@@ -130,7 +129,7 @@ function xhr<T = unknown, R = XhrResponse<T>>(config: XhrRequestConfig): Promise
 
     if (signal) {
       onCanceled = cancel => {
-        reject(!cancel || cancel.type ? new CanceledError(undefined, config) : cancel);
+        reject(isNil(cancel) || cancel.type ? new CanceledError(undefined, config) : cancel);
         request.abort();
       };
 

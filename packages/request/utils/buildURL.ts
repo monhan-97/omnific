@@ -1,4 +1,4 @@
-import { hasValue, isNil } from '@omnific/utils';
+import { hasValue, isNil, isStringEmpty } from '@omnific/utils';
 
 import type { QueryParameters } from '../types';
 
@@ -22,16 +22,13 @@ const serializeParameters = (parameters: QueryParameters | URLSearchParams) => {
       continue;
     }
 
-    if (!Array.isArray(value)) {
-      appendParameter(searchParameters, key, value);
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        if (hasValue(item)) appendParameter(searchParameters, key, item);
+      }
       continue;
     }
-
-    for (const item of value) {
-      if (hasValue(item)) {
-        appendParameter(searchParameters, key, item);
-      }
-    }
+    appendParameter(searchParameters, key, value);
   }
 
   return searchParameters.toString();
@@ -47,7 +44,7 @@ const buildURL = (url: string, parameters?: QueryParameters | URLSearchParams) =
 
   const serializedParameters = serializeParameters(parameters);
 
-  if (!serializedParameters) {
+  if (isStringEmpty(serializedParameters)) {
     return url;
   }
 

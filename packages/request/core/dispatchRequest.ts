@@ -56,9 +56,8 @@ export const dispatchRequest = (
         return transformResponse ? transformResponse(response) : response;
       })
       .catch(error => {
-        if (!isCancel(error)) {
-          throwIfAborted(requestConfig);
-        }
+        if (isCancel(error)) throw error;
+        throwIfAborted(requestConfig);
         throw error;
       });
   }

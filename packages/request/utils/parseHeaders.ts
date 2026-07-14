@@ -1,3 +1,5 @@
+import { isStringEmpty } from '@omnific/utils';
+
 const ignoreDuplicateSet = new Set([
   'age',
   'authorization',
@@ -29,14 +31,13 @@ const parseHeader = (rawHeaders: string) => {
     const key = line.slice(0, Math.max(0, index)).trim().toLowerCase();
     const value = line.slice(Math.max(0, index + 1)).trim();
 
-    if (!key || (headers.has(key) && ignoreDuplicateSet.has(key))) {
+    if (isStringEmpty(key) || (headers.has(key) && ignoreDuplicateSet.has(key))) {
       continue;
     }
 
     const previous = headers.get(key);
-    if (!previous || !previous.includes(value)) {
-      headers.append(key, value);
-    }
+    if (previous?.includes(value)) continue;
+    headers.append(key, value);
   }
 
   return headers;

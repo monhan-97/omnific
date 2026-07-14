@@ -3,7 +3,7 @@ import {
   isBlob,
   isFormData,
   isPlainObject,
-  isURLSearchParams as isURLSearchParameters,
+  isURLSearchParameters,
 } from '@omnific/utils';
 
 import type { RequestConfig } from '../types';
@@ -13,9 +13,8 @@ const defaultHeaders = {
 };
 
 const setHeaderValue = (headers: Headers, name: string, value: string) => {
-  if (!headers.has(name)) {
-    headers.set(name, value);
-  }
+  if (headers.has(name)) return;
+  headers.set(name, value);
 };
 
 /**
@@ -25,13 +24,11 @@ const transformRequest = <T extends RequestConfig>(config: T) => {
   let { data } = config;
 
   const headers = new Headers(config.headers);
-  if (!headers.has('accept')) {
-    headers.set('accept', defaultHeaders.accept);
-  }
+  setHeaderValue(headers, 'accept', defaultHeaders.accept);
 
   const contentType = headers.get('content-type');
 
-  const hasJSONContentType = !!contentType && contentType.includes('application/json');
+  const hasJSONContentType = contentType ? contentType.includes('application/json') : false;
 
   if (isFormData(data) || isBlob(data) || isArrayBuffer(data)) {
     return { data, headers };

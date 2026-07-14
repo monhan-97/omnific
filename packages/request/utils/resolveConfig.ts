@@ -11,7 +11,7 @@ import type { RequestConfig } from '../types';
 const resolveConfig = (config: RequestConfig) => {
   if (isNil(config.url)) {
     throw new FetchError(
-      `URL is required but got ${typeof config.url}`,
+      `URL is required but got ${String(config.url)}`,
       FetchError.ERR_BAD_REQUEST,
       config,
     );

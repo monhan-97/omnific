@@ -25,14 +25,13 @@ function validateResponseType(
   responseType: ResponseType,
   config: FetchRequestConfig,
 ): asserts responseType is SupportedResponseType {
-  if (!unSupportedResponseType.has(responseType)) {
-    return;
+  if (unSupportedResponseType.has(responseType)) {
+    throw new FetchError(
+      `Response type '${responseType}' is not supported`,
+      FetchError.ERR_NOT_SUPPORT,
+      config,
+    );
   }
-  throw new FetchError(
-    `Response type '${responseType}' is not supported`,
-    FetchError.ERR_NOT_SUPPORT,
-    config,
-  );
 }
 
 const parseResponseData = async <T>(
