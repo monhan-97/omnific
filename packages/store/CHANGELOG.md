@@ -1,5 +1,13 @@
 # @omnific/store
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @omnific/hooks@0.2.0
+  - @omnific/utils@0.3.0
+
 ## 0.2.0
 
 ### Minor Changes
