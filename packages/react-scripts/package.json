@@ -1,6 +1,6 @@
 {
   "name": "@omnific/react-scripts",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "React app scripts based on Rspack",
   "license": "MIT",
   "type": "module",
@@ -45,8 +45,9 @@
   },
   "dependencies": {
     "@omnific/types": "workspace:*",
-    "@rspack/cli": "^2.1.2",
-    "@rspack/core": "^2.1.2",
+    "@omnific/utils": "workspace:*",
+    "@rspack/cli": "^2.1.3",
+    "@rspack/core": "^2.1.3",
     "@rspack/dev-server": "^2.1.0",
     "@rspack/plugin-react-refresh": "^2.0.2",
     "@tailwindcss/postcss": "^4.3.2",
@@ -56,10 +57,10 @@
     "pretty-bytes": "^7.1.0",
     "prompts": "^2.4.2",
     "react-refresh": "^0.18.0",
+    "rspack-merge": "^1.0.1",
     "sass-embedded": "^1.100.0",
     "sass-loader": "^17.0.0",
-    "ts-checker-rspack-plugin": "^1.5.1",
-    "webpack-merge": "^6.0.1"
+    "ts-checker-rspack-plugin": "^1.5.2"
   },
   "devDependencies": {
     "@omnific/tsconfig": "workspace:*",

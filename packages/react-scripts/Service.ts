@@ -1,5 +1,6 @@
 import type { Configuration, Mode } from '@rspack/core';
-import { merge } from 'webpack-merge';
+import { isFunction, isUndefined } from '@omnific/utils';
+import { merge } from 'rspack-merge';
 
 import { startBuild } from './scripts/build';
 import { startDevelopment } from './scripts/development';
@@ -47,13 +48,13 @@ export class Service {
   }
 
   async run(name: string) {
-    let command = this.commands[name as keyof typeof this.commands];
+    const command = this.commands[name as keyof typeof this.commands];
 
-    if (!command && name) {
+    if (isUndefined(command) && name) {
       throw new Error(`command "${name}" does not exist.`);
     }
 
-    let mode = name === 'dev' ? DEVELOPMENT : PRODUCTION;
+    const mode = name === 'dev' ? DEVELOPMENT : PRODUCTION;
 
     await this.init(mode);
 
@@ -77,20 +78,15 @@ export class Service {
     if (!this.initialized) {
       throw new Error('Service must call init() before calling resolveRspackConfig().');
     }
-
     let baseConfig = createRspackConfig();
-
     for (const function_ of this.webpackRawConfigFns) {
-      if (typeof function_ !== 'function') {
+      if (!isFunction(function_)) {
         continue;
       }
 
       const rspackConfig = function_(baseConfig);
-      if (rspackConfig) {
-        baseConfig = merge(baseConfig, rspackConfig);
-      }
+      if (rspackConfig) baseConfig = merge(baseConfig, rspackConfig);
     }
-
     return baseConfig;
   }
 

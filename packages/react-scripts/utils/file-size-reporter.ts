@@ -5,6 +5,7 @@ import { styleText } from 'node:util';
 import prettyBytes from 'pretty-bytes';
 import type { Stats } from '@rspack/core';
 import type { AwaitedType } from '@omnific/types';
+import { hasValue } from '@omnific/utils';
 
 import { gzipSync } from './gzip-size';
 import { readdir } from './fs-extra';
@@ -33,11 +34,9 @@ type PrintAsset = {
  * @returns
  */
 function canReadAsset(asset: string) {
-  return (
-    /\.(js|css)$/.test(asset) &&
-    !/service-worker\.js/.test(asset) &&
-    !/precache-manifest\.[\da-f]+\.js/.test(asset)
-  );
+  if (/service-worker\.js/.test(asset)) return false;
+  if (/precache-manifest\.[\da-f]+\.js/.test(asset)) return false;
+  return /\.(js|css)$/.test(asset);
 }
 
 function removeFileNameHash(buildFolder: string, fileName: string) {
@@ -50,21 +49,15 @@ function removeFileNameHash(buildFolder: string, fileName: string) {
 // 1024, 2048;
 // ('(+1 KB)');
 function getDifferenceLabel(currentSize: number, previousSize?: number) {
-  if (!previousSize) return '';
-
-  const FIFTY_KILOBYTES = 1024 * 50;
-
-  const difference = currentSize - previousSize;
-
-  const fileSize = Number.isNaN(difference) ? '0' : prettyBytes(difference);
-
-  if (difference >= FIFTY_KILOBYTES) {
-    return styleText('red', '+' + fileSize);
+  if (hasValue(previousSize) && previousSize > 0) {
+    const FIFTY_KILOBYTES = 1024 * 50;
+    const difference = currentSize - previousSize;
+    const fileSize = Number.isNaN(difference) ? '0' : prettyBytes(difference);
+    if (difference >= FIFTY_KILOBYTES) return styleText('red', '+' + fileSize);
+    if (difference > 0) return styleText('yellow', '+' + fileSize);
+    return difference < 0 ? styleText('green', fileSize) : '';
   }
-  if (difference < FIFTY_KILOBYTES && difference > 0) {
-    return styleText('yellow', '+' + fileSize);
-  }
-  return difference < 0 ? styleText('green', fileSize) : '';
+  return '';
 }
 
 /**
@@ -149,7 +142,6 @@ export function printFileSizesAfterBuild(
       });
 
       gzipLabelLengthList.push(gzipLabelLength);
-
       sizeLabelLengthList.push(sizeLabelLength);
     }
 

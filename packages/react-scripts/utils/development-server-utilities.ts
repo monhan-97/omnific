@@ -7,6 +7,7 @@ import type { Compiler, Configuration } from '@rspack/core';
 import { rspack } from '@rspack/core';
 import type { Options } from 'get-port';
 import getPort from 'get-port';
+import { isArrayEmpty } from '@omnific/utils';
 
 import { ip } from './address';
 import isRoot from './is-root';
@@ -114,9 +115,9 @@ export async function choosePort(options: Options) {
     // 1. 需要管理员权限才能在低于1024的端口上运行
     // 2. 检测到端口已经被占用
     const message =
-      process.platform !== 'win32' && port < 1024 && !isRoot()
-        ? `Admin permissions are required to run a server on a port below 1024.`
-        : `Something is already running on port ${port}.`;
+      process.platform === 'win32' || port >= 1024 || isRoot()
+        ? `Something is already running on port ${port}.`
+        : `Admin permissions are required to run a server on a port below 1024.`;
 
     if (isInteractive) {
       clearConsole();
@@ -197,7 +198,7 @@ export function createCompiler(options: {
 
     const warnings = statsData.warnings ?? [];
 
-    const isSuccessful = errors.length === 0 && warnings.length === 0;
+    const isSuccessful = isArrayEmpty(errors) && isArrayEmpty(warnings);
 
     if (isSuccessful) {
       console.log(styleText('green', 'Compiled successfully!'));

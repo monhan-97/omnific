@@ -3,6 +3,7 @@ import { exit } from 'node:process';
 import { styleText } from 'node:util';
 
 import { RspackDevServer } from '@rspack/dev-server';
+import { isUndefined } from '@omnific/utils';
 
 import type { ScriptContext } from '../Service';
 import { choosePort, createCompiler, prepareUrls } from '../utils/development-server-utilities';
@@ -32,7 +33,7 @@ export async function startDevelopment(context: ScriptContext) {
       port: developmentServerConfig.PORT,
     });
 
-    if (port === undefined) {
+    if (isUndefined(port)) {
       return;
     }
 

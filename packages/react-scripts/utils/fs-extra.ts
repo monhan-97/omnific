@@ -1,6 +1,8 @@
 import pth from 'node:path';
 import fs from 'node:fs/promises';
 
+import { isArrayEmpty } from '@omnific/utils';
+
 /**
  * 删除并重新创建目录。
  */
@@ -31,7 +33,7 @@ export async function readdir(path: string) {
 
   const files = await fs.readdir(path);
 
-  if (files.length === 0) {
+  if (isArrayEmpty(files)) {
     return [];
   }
 

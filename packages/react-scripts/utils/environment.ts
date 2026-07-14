@@ -1,5 +1,7 @@
+/** 开发环境名称。 */
 export const DEVELOPMENT = 'development' as const;
 
+/** 生产环境名称。 */
 export const PRODUCTION = 'production' as const;
 
 /**

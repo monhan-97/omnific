@@ -21,4 +21,4 @@ export function defineConfig(config: ReactScriptsConfig) {
 
 export { default as paths } from './paths';
 
-export { getEnvironment as getEnv, isDevelopment, isProduction } from './utils/environment';
+export { getEnvironment, isDevelopment, isProduction } from './utils/environment';

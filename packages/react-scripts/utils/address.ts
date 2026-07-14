@@ -1,5 +1,7 @@
 import os from 'node:os';
 
+import { hasValue, isNil, isStringEmpty } from '@omnific/utils';
+
 function getDefaultInterfaceName() {
   let value: string | undefined = 'eth';
   const platform = os.platform();
@@ -32,18 +34,13 @@ function findAddressFromInterface(
   let firstMatchItem;
   for (const item of items) {
     if (!matchName(item.family, expectedFamily)) {
-      continue;
+    	continue;
     }
 
-    if (shouldIgnoreLoopbackAddress && item.address.startsWith('127.')) {
-      continue;
-    }
+    if (shouldIgnoreLoopbackAddress && item.address.startsWith('127.')) continue;
     if (expectedFamily === 'IPv6') {
-      // find the scopeid = 0 item
       if (item.scopeid === 0) return item;
-      if (!firstMatchItem) {
-        firstMatchItem = item;
-      }
+      if (isNil(firstMatchItem)) firstMatchItem = item;
     } else {
       return item;
     }
@@ -56,10 +53,10 @@ function findAddressFromInterface(
  */
 export function getInterfaceAddress(family?: string, name?: string) {
   const interfaces = os.networkInterfaces();
-  const isNoName = !name;
+  const isNoName = isStringEmpty(name);
   name ||= getDefaultInterfaceName();
   family ||= 'IPv4';
-  if (name) {
+  if (hasValue(name) && name.length > 0) {
     for (let index = -1; index < 8; index++) {
       const interfaceName = name + (index >= 0 ? index : ''); // support 'lo' and 'lo0'
       const items = interfaces[interfaceName];
