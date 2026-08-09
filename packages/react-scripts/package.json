@@ -19,7 +19,7 @@
     "url": "https://github.com/monhan-97/omnific.git/issues"
   },
   "bin": {
-    "react-scripts": "./dist/index.js"
+    "react-scripts": "./bin.mjs"
   },
   "main": "./dist/main.js",
   "module": "./dist/main.js",
@@ -32,6 +32,7 @@
     }
   },
   "files": [
+    "bin.mjs",
     "dist",
     "README.md"
   ],

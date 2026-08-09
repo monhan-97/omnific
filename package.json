@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "build": "pnpm run --filter=\"./packages/**/*\" build",
-    "typecheck": "pnpm run --filter=\"./packages/**/*\" typecheck",
-    "lint:fix": "eslint . --fix --ignore-pattern \"**/dist/**\"",
+    "typecheck": "pnpm build && pnpm run --filter=\"./packages/**/*\" typecheck",
+    "lint:fix": "eslint . --fix --ignore-pattern \"**/dist/**\" --ignore-pattern \"**/build/**\"",
     "test": "vitest run",
     "test:watch": "vitest",
     "upgrade-workspace": "pnpm --filter=\"./packages/**/*\" update --interactive --latest"
