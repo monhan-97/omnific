@@ -1,0 +1,14 @@
+{
+  "extends": "@omnific/tsconfig/bundler.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "jsx": "react-jsx",
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
+    "paths": {
+      "@omnific/icons": ["../../packages/icons/main.ts"]
+    }
+  },
+  "include": ["react-scripts.config.ts", "vitest.config.mts", "src/**/*"],
+  "exclude": ["build", "node_modules"]
+}
