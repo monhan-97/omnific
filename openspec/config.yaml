@@ -1,0 +1,32 @@
+schema: spec-driven
+
+context: |
+  这是 Omnific pnpm workspace 项目，主要使用 TypeScript 和 React。
+  OpenSpec 产物用于定义可实施、可验证且范围明确的代码变更。
+  `openspec/**/*.md` 中所有面向读者的标题和正文必须使用简体中文，包括活动变更、归档变更和正式规范。
+  OpenSpec 固定结构关键词（Why、What Changes、Purpose、Requirements、ADDED Requirements、Requirement、Scenario、WHEN、THEN、MUST、SHOULD、MAY）、
+  文件路径、命令、包名、API、类型、属性和代码标识保持原文。
+
+rules:
+  markdown:
+    - '`openspec/**/*.md` 必须使用简体中文；仅固定结构关键词和需要保持准确的技术标识保留原文。'
+    - '新建、更新、同步或归档 OpenSpec 产物时，必须同时检查生成的 Markdown，不得保留英文占位文本或英文自然语言正文。'
+  proposal:
+    - '先说明当前问题和变更必要性，再列出具体变更、明确不做的事项和影响范围。'
+    - '准确列出受影响的 capability、package、公开 API、依赖和用户可观察行为。'
+    - '破坏性变更必须显式标记为 BREAKING，并说明迁移要求；没有破坏性变更时不得虚构迁移工作。'
+    - '只描述当前需求所需的最小范围，不加入推测性功能、兼容层或无关重构。'
+  specs:
+    - '使用 `### Requirement: <中文名称>` 和 `#### Scenario: <中文名称>`，不得翻译 Requirement 或 Scenario。'
+    - '每条 Requirement 必须使用 MUST、SHOULD 或 MAY 表达约束级别，并且能够通过测试或明确检查进行验证。'
+    - '每条 Requirement 至少包含一个 Scenario；Scenario 使用 `- **WHEN**` 和 `- **THEN**` 描述单一行为及可观察结果。'
+    - '覆盖正常路径以及与需求直接相关的边界、错误或兼容场景，不罗列无关组合。'
+    - '引用第三方行为或源码时，记录仓库地址、不可变 commit SHA、源文件路径和许可证要求。'
+  design:
+    - '仅在跨模块变更、引入新模式、存在重要技术取舍或需要迁移方案时创建设计文档。'
+    - '说明上下文、目标、非目标、关键决策、备选方案、风险和迁移方式，避免重复 proposal 与 specs。'
+    - '优先复用仓库现有模式和已安装依赖；新增抽象或依赖必须说明现有方案无法满足的原因。'
+  tasks:
+    - '使用 Markdown 复选框，按依赖顺序分组并连续编号；每项任务应当可以独立判断是否完成。'
+    - '任务必须覆盖实现、公开导出、文档、许可证、测试和迁移中实际受影响的部分，不生成占位任务。'
+    - '验证任务必须使用仓库已存在的命令，并覆盖受影响 package 的 typecheck、lint、test 和 build；不得臆造脚本。'
