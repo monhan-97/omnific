@@ -72,5 +72,6 @@ typings/
 
 /**/node_modules
 /**/dist
+/docs/icons/build/
 
 graphify-out/

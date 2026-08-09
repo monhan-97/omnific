@@ -1,5 +1,11 @@
 # @omnific/request
 
+## 0.2.2
+
+### Patch Changes
+
+- Prioritize explicit content type detection when transforming request bodies.
+
 ## 0.2.1
 
 ### Patch Changes

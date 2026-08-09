@@ -1,5 +1,11 @@
 # @omnific/react-scripts
 
+## 0.4.0
+
+### Minor Changes
+
+- Load Sass and Tailwind integrations only when their optional dependencies are installed.
+
 ## 0.3.0
 
 ### Minor Changes

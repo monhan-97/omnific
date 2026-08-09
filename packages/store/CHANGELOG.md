@@ -1,5 +1,11 @@
 # @omnific/store
 
+## 0.3.0
+
+### Minor Changes
+
+- Replace Immer with Mutative for immutable store updates.
+
 ## 0.2.1
 
 ### Patch Changes
