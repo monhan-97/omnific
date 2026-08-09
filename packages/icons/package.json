@@ -1,0 +1,65 @@
+{
+  "name": "@omnific/icons",
+  "version": "0.0.0",
+  "description": "React icon components for Omnific",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "react",
+    "icons",
+    "svg"
+  ],
+  "author": "monhan-97",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monhan-97/omnific.git",
+    "directory": "packages/icons"
+  },
+  "bugs": {
+    "url": "https://github.com/monhan-97/omnific.git/issues"
+  },
+  "main": "./dist/main.js",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "default": "./dist/main.js"
+    },
+    "./EyeIcon": {
+      "types": "./dist/EyeIcon.d.ts",
+      "import": "./dist/EyeIcon.js",
+      "default": "./dist/EyeIcon.js"
+    },
+    "./EyeOffIcon": {
+      "types": "./dist/EyeOffIcon.d.ts",
+      "import": "./dist/EyeOffIcon.js",
+      "default": "./dist/EyeOffIcon.js"
+    },
+    "./LoadingIcon": {
+      "types": "./dist/LoadingIcon.d.ts",
+      "import": "./dist/LoadingIcon.js",
+      "default": "./dist/LoadingIcon.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsdown -c tsdown.config.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@omnific/tsconfig": "workspace:*",
+    "@types/react": "^19.2.18",
+    "react": "^19.2.8",
+    "vitest": "^4.1.10"
+  }
+}
