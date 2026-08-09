@@ -37,7 +37,7 @@ const transformRequest = <T extends RequestConfig>(config: T) => {
   if (isURLSearchParameters(data)) {
     setHeaderValue(headers, 'content-type', 'application/x-www-form-urlencoded;charset=utf-8');
     data = data.toString();
-  } else if (isPlainObject(data) || hasJSONContentType) {
+  } else if (hasJSONContentType || isPlainObject(data)) {
     setHeaderValue(headers, 'content-type', 'application/json');
     data = JSON.stringify(data);
   }
