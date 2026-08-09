@@ -38,6 +38,7 @@
   "scripts": {
     "build": "tsdown -c tsdown.config.mjs",
     "release": "pnpm publish --access public",
+    "test": "vitest run --root ../.. packages/react-scripts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "engines": {
@@ -46,24 +47,41 @@
   "dependencies": {
     "@omnific/types": "workspace:*",
     "@omnific/utils": "workspace:*",
-    "@rspack/cli": "^2.1.3",
-    "@rspack/core": "^2.1.3",
-    "@rspack/dev-server": "^2.1.0",
+    "@rspack/core": "^2.1.8",
+    "@rspack/dev-server": "^2.2.0",
     "@rspack/plugin-react-refresh": "^2.0.2",
-    "@tailwindcss/postcss": "^4.3.2",
     "get-port": "^7.2.0",
-    "postcss": "^8.5.16",
+    "postcss": "^8.5.26",
     "postcss-loader": "^8.2.0",
-    "pretty-bytes": "^7.1.0",
-    "prompts": "^2.4.2",
     "react-refresh": "^0.18.0",
     "rspack-merge": "^1.0.1",
+    "ts-checker-rspack-plugin": "^1.6.0"
+  },
+  "peerDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
     "sass-embedded": "^1.100.0",
     "sass-loader": "^17.0.0",
-    "ts-checker-rspack-plugin": "^1.5.2"
+    "tailwindcss": "^4.3.3"
+  },
+  "peerDependenciesMeta": {
+    "@tailwindcss/postcss": {
+      "optional": true
+    },
+    "tailwindcss": {
+      "optional": true
+    },
+    "sass-embedded": {
+      "optional": true
+    },
+    "sass-loader": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@omnific/tsconfig": "workspace:*",
-    "@types/prompts": "^2.4.9"
+    "@tailwindcss/postcss": "^4.3.3",
+    "sass-embedded": "^1.100.0",
+    "sass-loader": "^17.0.0",
+    "tailwindcss": "^4.3.3"
   }
 }

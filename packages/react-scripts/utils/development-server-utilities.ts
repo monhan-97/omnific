@@ -2,7 +2,6 @@ import url from 'node:url';
 import { exit } from 'node:process';
 import { styleText } from 'node:util';
 
-import promptUser from 'prompts';
 import type { Compiler, Configuration } from '@rspack/core';
 import { rspack } from '@rspack/core';
 import type { Options } from 'get-port';
@@ -12,6 +11,7 @@ import { isArrayEmpty } from '@omnific/utils';
 import { ip } from './address';
 import isRoot from './is-root';
 import clearConsole from './clear-console';
+import { confirm } from './confirm';
 
 //检测是不是在终端执行命令
 const isInteractive = process.stdout.isTTY;
@@ -121,15 +121,13 @@ export async function choosePort(options: Options) {
 
     if (isInteractive) {
       clearConsole();
-      const answer = await promptUser({
-        type: 'confirm',
-        name: 'shouldChangePort',
+      const shouldChangePort = await confirm({
         message:
           styleText('yellow', message) +
           '\n\nWould you like to run the app on another port instead',
-        initial: true,
       });
-      return answer.shouldChangePort ? port : undefined;
+
+      return shouldChangePort ? port : undefined;
     }
     console.log(styleText('red', message));
     return;

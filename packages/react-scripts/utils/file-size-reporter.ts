@@ -2,13 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { styleText } from 'node:util';
 
-import prettyBytes from 'pretty-bytes';
 import type { Stats } from '@rspack/core';
 import type { AwaitedType } from '@omnific/types';
 import { hasValue } from '@omnific/utils';
 
 import { gzipSync } from './gzip-size';
 import { readdir } from './fs-extra';
+import { formatBytes } from './format-bytes';
 import stripAnsi from './strip-ansi';
 
 import paths from '../paths';
@@ -52,7 +52,7 @@ function getDifferenceLabel(currentSize: number, previousSize?: number) {
   if (hasValue(previousSize) && previousSize > 0) {
     const FIFTY_KILOBYTES = 1024 * 50;
     const difference = currentSize - previousSize;
-    const fileSize = Number.isNaN(difference) ? '0' : prettyBytes(difference);
+    const fileSize = Number.isNaN(difference) ? '0 B' : formatBytes(difference);
     if (difference >= FIFTY_KILOBYTES) return styleText('red', '+' + fileSize);
     if (difference > 0) return styleText('yellow', '+' + fileSize);
     return difference < 0 ? styleText('green', fileSize) : '';
@@ -123,9 +123,9 @@ export function printFileSizesAfterBuild(
 
       const difference = getDifferenceLabel(asset.size, previousSize);
 
-      const sizeLabel = prettyBytes(asset.size) + (difference ? ' (' + difference + ')' : '');
+      const sizeLabel = formatBytes(asset.size) + (difference ? ' (' + difference + ')' : '');
 
-      const gzipLabel = 'gzip : ' + prettyBytes(gzipSync(fileContents));
+      const gzipLabel = 'gzip : ' + formatBytes(gzipSync(fileContents));
 
       const sizeLabelLength = stripAnsi(sizeLabel).length;
 

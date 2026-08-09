@@ -2,18 +2,34 @@ import { createRequire } from 'node:module';
 import path from 'node:path';
 
 import { TsCheckerRspackPlugin } from 'ts-checker-rspack-plugin';
-import type { Configuration, Mode, RuleSetUseItem, SwcLoaderOptions } from '@rspack/core';
+import type {
+  Configuration,
+  Mode,
+  RuleSetRule,
+  RuleSetUseItem,
+  SwcLoaderOptions,
+} from '@rspack/core';
 import { rspack } from '@rspack/core';
 import { ReactRefreshRspackPlugin } from '@rspack/plugin-react-refresh';
+import { hasValue } from '@omnific/utils';
 
 import paths from './paths';
-import { detectPackage } from './utils/detect-package';
+import { detectPackage, resolvePackage, resolveRequiredPackage } from './utils/detect-package';
 import { alias, moduleFileExtensions } from './alias';
 import { getEnvironment, isDevelopment, isProduction } from './utils/environment';
 
-const hasJsxRuntime = detectPackage('react/jsx-runtime');
+const appPackageOptions = { from: paths.appPackageJson };
 
-const hasTailwind = detectPackage('tailwindcss');
+const hasJsxRuntime = detectPackage('react/jsx-runtime', appPackageOptions);
+
+const hasTailwind = detectPackage('tailwindcss', appPackageOptions);
+
+const tailwindPostcssPluginPath = hasTailwind
+  ? resolveRequiredPackage('@tailwindcss/postcss', {
+      ...appPackageOptions,
+      installCommand: 'pnpm add -D tailwindcss @tailwindcss/postcss',
+    })
+  : undefined;
 
 const hasSwcHelper = detectPackage('@swc/helpers');
 
@@ -24,10 +40,6 @@ const cssRegex = /\.css$/;
 const imageInlineSizeLimit = 10_000;
 
 const require = createRequire(import.meta.url);
-
-function resolvePackage(packageName: string) {
-  return require.resolve(packageName);
-}
 
 /**
  * 创建开发和生产构建共用的基础 Rspack 配置。
@@ -47,7 +59,9 @@ function createRspackConfig() {
       },
       {
         loader: 'builtin:lightningcss-loader',
-        /** @type {import('@rspack/core').LightningcssLoaderOptions} */
+        /**
+        @type {import('@rspack/core').LightningcssLoaderOptions}
+        */
         options: {
           minify: isEnvironmentProduction,
         },
@@ -59,7 +73,9 @@ function createRspackConfig() {
               postcssOptions: {
                 ident: 'postcss',
                 config: false,
-                plugins: [require('@tailwindcss/postcss')],
+                plugins: hasValue(tailwindPostcssPluginPath)
+                  ? [require(tailwindPostcssPluginPath)]
+                  : [],
               },
             }
           : undefined,
@@ -72,6 +88,26 @@ function createRspackConfig() {
 
     return loaders;
   }
+
+  const sassRule: RuleSetRule = {
+    test: sassRegex,
+    use: () =>
+      getStyleLoaders({
+        loader: resolveRequiredPackage('sass-loader', {
+          ...appPackageOptions,
+          installCommand: 'pnpm add -D sass-loader sass-embedded',
+        }),
+        options: {
+          api: 'modern-compiler',
+          implementation: resolveRequiredPackage('sass-embedded', {
+            ...appPackageOptions,
+            installCommand: 'pnpm add -D sass-loader sass-embedded',
+          }),
+        },
+      }),
+    sideEffects: true,
+    type: 'css/auto',
+  };
 
   const config: Configuration = {
     target: ['browserslist'],
@@ -193,18 +229,7 @@ function createRspackConfig() {
                 } satisfies SwcLoaderOptions,
               },
             },
-            {
-              test: sassRegex,
-              use: getStyleLoaders({
-                loader: resolvePackage('sass-loader'),
-                options: {
-                  api: 'modern-compiler',
-                  implementation: resolvePackage('sass-embedded'),
-                },
-              }),
-              sideEffects: true,
-              type: 'css/auto',
-            },
+            sassRule,
             {
               test: cssRegex,
               use: getStyleLoaders(),
@@ -215,7 +240,7 @@ function createRspackConfig() {
               exclude: [/^$/, /\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
               type: 'asset/resource',
             },
-          ],
+          ].filter(Boolean) as RuleSetRule[],
         },
       ],
       parser: {

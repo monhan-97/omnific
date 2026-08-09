@@ -50,7 +50,7 @@ export class Service {
   async run(name: string) {
     const command = this.commands[name as keyof typeof this.commands];
 
-    if (isUndefined(command) && name) {
+    if (name && isUndefined(command)) {
       throw new Error(`command "${name}" does not exist.`);
     }
 
