@@ -2,9 +2,13 @@ name: Icons preview
 
 on:
   pull_request:
+    paths:
+      - packages/icons/**
   push:
     branches:
       - main
+    paths:
+      - packages/icons/**
 
 permissions:
   contents: read
