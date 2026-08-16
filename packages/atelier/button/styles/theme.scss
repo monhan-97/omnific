@@ -1,0 +1,104 @@
+@use '../../styles/functions' as *;
+
+$prefix-cls: component-prefixes(button);
+
+:root {
+  --button-text: #172033;
+  --button-background: #ffffff;
+  --button-border: #d0d5dd;
+  --button-hover: #f2f4f7;
+  --button-primary-text: #ffffff;
+  --button-primary-background: #1570ef;
+  --button-primary-hover: #175cd3;
+  --button-outline-text: #1570ef;
+  --button-danger-text: #ffffff;
+  --button-danger-background: #d92d20;
+  --button-danger-hover: #b42318;
+  --button-focus: rgb(21 112 239 / 25%);
+}
+
+.#{$prefix-cls} {
+  --btn-color: var(--button-text);
+  --btn-background: var(--button-background);
+  --btn-border: var(--button-border);
+  --btn-hover: var(--button-hover);
+
+  font: inherit;
+  color: var(--btn-color);
+  cursor: pointer;
+  background: var(--btn-background);
+  border: 1px solid var(--btn-border);
+  border-radius: 6px;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+
+  &:hover:not(:disabled) {
+    background: var(--btn-hover);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--button-focus);
+    outline-offset: 2px;
+  }
+
+  &:disabled,
+  &-loading {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  &-size-small {
+    font-size: 12px;
+  }
+
+  &-size-large {
+    font-size: 16px;
+  }
+
+  &-shape-round {
+    border-radius: 999px;
+  }
+
+  &-shape-circle,
+  &-icon-only,
+  &-loading-icon {
+    border-radius: 50%;
+  }
+
+  &-primary {
+    --btn-color: var(--button-primary-text);
+    --btn-background: var(--button-primary-background);
+    --btn-border: var(--button-primary-background);
+    --btn-hover: var(--button-primary-hover);
+  }
+
+  &-dashed {
+    border-style: dashed;
+  }
+
+  &-outline {
+    --btn-color: var(--button-outline-text);
+    --btn-border: var(--button-outline-text);
+  }
+
+  &-status-danger {
+    --btn-color: var(--button-danger-text);
+    --btn-background: var(--button-danger-background);
+    --btn-border: var(--button-danger-background);
+    --btn-hover: var(--button-danger-hover);
+  }
+
+  &-loading-icon {
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    animation: #{$prefix-cls}-spin 0.7s linear infinite;
+  }
+}
+
+@keyframes #{$prefix-cls}-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "name": "@omnific/atelier",
+  "version": "0.1.0",
+  "description": "A refined React component library for Omnific",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "react",
+    "components",
+    "ui"
+  ],
+  "author": "monhan-97",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monhan-97/omnific.git",
+    "directory": "packages/atelier"
+  },
+  "bugs": {
+    "url": "https://github.com/monhan-97/omnific.git/issues"
+  },
+  "main": "./dist/main.js",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "default": "./dist/main.js"
+    },
+    "./button": {
+      "types": "./dist/button/index.d.ts",
+      "import": "./dist/button/index.js",
+      "default": "./dist/button/index.js"
+    },
+    "./transition": {
+      "types": "./dist/transition/index.d.ts",
+      "import": "./dist/transition/index.js",
+      "default": "./dist/transition/index.js"
+    },
+    "./styles.css": {
+      "default": "./dist/styles.css"
+    }
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsdown -c tsdown.config.mjs && pnpm build:styles",
+    "build:styles": "sass --style=expanded --no-source-map styles.scss dist/styles.css",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@omnific/hooks": "workspace:*",
+    "@omnific/icons": "workspace:*",
+    "@omnific/utils": "workspace:*",
+    "clsx": "^2.1.1"
+  },
+  "peerDependencies": {
+    "motion": "^13.1.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@omnific/tsconfig": "workspace:*",
+    "@testing-library/dom": "^10.4.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.2",
+    "jsdom": "^30.0.1",
+    "motion": "^13.1.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sass-embedded": "1.100.0",
+    "vitest": "^4.1.10"
+  }
+}

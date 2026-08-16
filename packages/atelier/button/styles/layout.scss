@@ -1,0 +1,48 @@
+@use '../../styles/functions' as *;
+
+$prefix-cls: component-prefixes(button);
+
+.#{$prefix-cls} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 15px;
+  line-height: 1;
+  white-space: nowrap;
+
+  &-size-small {
+    height: 28px;
+    padding: 0 9px;
+  }
+
+  &-size-large {
+    height: 44px;
+    padding: 0 19px;
+  }
+
+  &-shape-circle,
+  &-icon-only {
+    width: 36px;
+    padding: 0;
+  }
+
+  &-block {
+    display: flex;
+    width: 100%;
+  }
+
+  &-loading-icon {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+.#{$prefix-cls}-size-small.#{$prefix-cls}-icon-only {
+  width: 28px;
+}
+
+.#{$prefix-cls}-size-large.#{$prefix-cls}-icon-only {
+  width: 44px;
+}

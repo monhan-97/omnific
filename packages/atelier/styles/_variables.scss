@@ -1,0 +1,5 @@
+$root-prefix-cls: 'atelier';
+
+$component-prefixes: (
+  button: '#{$root-prefix-cls}-button',
+);

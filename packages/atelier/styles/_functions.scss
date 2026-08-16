@@ -1,0 +1,13 @@
+@use 'sass:map';
+
+@use './variables';
+
+@function component-prefixes($component) {
+  $prefix: map.get(variables.$component-prefixes, $component);
+
+  @if $prefix == null {
+    @error 'Unknown Atelier component prefix: #{$component}';
+  }
+
+  @return $prefix;
+}
