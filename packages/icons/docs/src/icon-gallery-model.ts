@@ -1,64 +1,64 @@
 import type { IconEntry } from './icon-entries';
 
 /**
-Code example variants supported by the details panel.
-*/
+ * Code example variants supported by the details panel.
+ */
 export type IconExampleKind = 'svg' | 'jsx';
 
 /**
-Category summary rendered in the sidebar.
-*/
+ * Category summary rendered in the sidebar.
+ */
 export type IconCategory = {
   /**
-  Category label stored by icon entries.
-  */
+   * Category label stored by icon entries.
+   */
   name: string;
   /**
-  Number of icons assigned to the category.
-  */
+   * Number of icons assigned to the category.
+   */
   count: number;
 };
 
 /**
-Clipboard write contract used by the browser and tests.
-*/
+ * Clipboard write contract used by the browser and tests.
+ */
 export type ClipboardWriter = {
   /**
-  Writes text into the system clipboard.
-  */
+   * Writes text into the system clipboard.
+   */
   writeText(content: string): Promise<void>;
 };
 
 /**
-Outcome rendered after a copy attempt.
-*/
+ * Outcome rendered after a copy attempt.
+ */
 export type CopyStatus = `${IconExampleKind}-${'success' | 'failed'}`;
 
 /**
-Customizer values applied to preview icons and generated JSX.
-*/
+ * Customizer values applied to preview icons and generated JSX.
+ */
 export type IconCustomizerSettings = {
   /**
-  SVG stroke color used by every preview icon.
-  */
+   * SVG stroke color used by every preview icon.
+   */
   color: string;
   /**
-  Icon width and height in pixels.
-  */
+   * Icon width and height in pixels.
+   */
   size: number;
   /**
-  SVG stroke width used by every preview icon.
-  */
+   * SVG stroke width used by every preview icon.
+   */
   strokeWidth: number;
   /**
-  Keeps the apparent stroke width stable when the icon size changes.
-  */
+   * Keeps the apparent stroke width stable when the icon size changes.
+   */
   absoluteStrokeWidth: boolean;
 };
 
 /**
-Default icon appearance for the preview browser.
-*/
+ * Default icon appearance for the preview browser.
+ */
 export const defaultIconCustomizerSettings: IconCustomizerSettings = {
   color: '#000000',
   size: 24,
@@ -66,8 +66,8 @@ export const defaultIconCustomizerSettings: IconCustomizerSettings = {
   absoluteStrokeWidth: false,
 };
 /**
-Filters icon entries by component name and category.
-*/
+ * Filters icon entries by component name and category.
+ */
 export function filterIcons(
   icons: readonly IconEntry[],
   query: string,
@@ -85,8 +85,8 @@ export function filterIcons(
 }
 
 /**
-Creates the non-empty category navigation shown beside the gallery.
-*/
+ * Creates the non-empty category navigation shown beside the gallery.
+ */
 export function createIconCategories(icons: readonly IconEntry[]): IconCategory[] {
   const counts = new Map<string, number>();
 
@@ -102,15 +102,15 @@ export function createIconCategories(icons: readonly IconEntry[]): IconCategory[
 }
 
 /**
-Creates the named import example shown in the details panel.
-*/
+ * Creates the named import example shown in the details panel.
+ */
 export function createImportExample(iconName: string) {
   return `import { ${iconName} } from '@omnific/icons';`;
 }
 
 /**
-Creates the JSX usage example shown in the details panel.
-*/
+ * Creates the JSX usage example shown in the details panel.
+ */
 export function createJsxExample(iconName: string, settings: IconCustomizerSettings) {
   const absoluteStrokeWidth = settings.absoluteStrokeWidth ? ' absoluteStrokeWidth' : '';
 
@@ -118,8 +118,8 @@ export function createJsxExample(iconName: string, settings: IconCustomizerSetti
 }
 
 /**
-Creates all code examples for one icon name.
-*/
+ * Creates all code examples for one icon name.
+ */
 export function createIconExamples(iconName: string, settings: IconCustomizerSettings) {
   return {
     svg: '',
@@ -128,8 +128,8 @@ export function createIconExamples(iconName: string, settings: IconCustomizerSet
 }
 
 /**
-Writes example content to the Clipboard API and returns a renderable status.
-*/
+ * Writes example content to the Clipboard API and returns a renderable status.
+ */
 export async function copyExampleToClipboard(options: {
   clipboard: ClipboardWriter | undefined;
   content: string;
@@ -150,8 +150,8 @@ export async function copyExampleToClipboard(options: {
 }
 
 /**
-Returns the short feedback text for a copy status.
-*/
+ * Returns the short feedback text for a copy status.
+ */
 export function getCopyStatusLabel(status: CopyStatus | undefined, kind: IconExampleKind) {
   if (status === `${kind}-success`) {
     return 'Copied!';

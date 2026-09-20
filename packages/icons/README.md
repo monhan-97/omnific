@@ -10,10 +10,9 @@ import { LoadingIcon } from '@omnific/icons';
 
 ## Icon preview
 
-The React preview app lives in `docs/icons` and is deployed to GitHub Pages from `main`:
+The React preview app lives alongside the package in `packages/icons/docs` and is deployed to GitHub Pages from `main`:
 
-- Local dev: `pnpm --dir docs/icons dev`
-- Production build: `pnpm --dir docs/icons build`
-- Local production preview: `pnpm --dir docs/icons preview`
-- Pages artifact check: `pnpm --dir docs/icons verify:pages`
+- Local dev: `pnpm --dir packages/icons docs:dev`
+- Production build: `pnpm --dir packages/icons docs:build`
+- Local production preview: `pnpm --dir packages/icons docs:preview`
 - Online preview: https://monhan-97.github.io/omnific/

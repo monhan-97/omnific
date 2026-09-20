@@ -13,7 +13,7 @@ export default defineConfig({
         ...config.resolve,
         alias: {
           ...config.resolve?.alias,
-          '@omnific/icons': path.resolve('../../packages/icons/main.ts'),
+          '@omnific/icons': path.resolve('../main.ts'),
         },
       },
     };

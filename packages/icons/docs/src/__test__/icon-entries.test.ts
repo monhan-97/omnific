@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import * as iconExports from '@omnific/icons';
 import { isFunction } from '@omnific/utils';
+
+import * as iconExports from '@omnific/icons';
 
 import { iconEntries } from '../icon-entries';
 

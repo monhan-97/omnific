@@ -51,15 +51,33 @@
   "scripts": {
     "build": "tsdown -c tsdown.config.mjs",
     "test": "vitest run",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "docs:dev": "cd docs && react-scripts dev",
+    "docs:build": "cd docs && react-scripts build",
+    "docs:preview": "cd docs && react-scripts dev",
+    "docs:typecheck": "pnpm typecheck",
+    "docs:lint": "eslint docs/react-scripts.config.ts docs/src",
+    "docs:test": "vitest run --root ../.. packages/icons/docs/src"
   },
   "peerDependencies": {
     "react": "^19.0.0"
   },
   "devDependencies": {
+    "@omnific/react-scripts": "workspace:*",
     "@omnific/tsconfig": "workspace:*",
-    "@types/react": "^19.2.18",
-    "react": "^19.2.8",
-    "vitest": "^4.1.10"
-  }
+    "@omnific/utils": "workspace:*",
+    "@swc/helpers": "0.5.23",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "19.3.0",
+    "clsx": "2.1.1",
+    "lucide-react": "1.47.0",
+    "react": "^19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "not dead"
+  ]
 }
