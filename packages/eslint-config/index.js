@@ -109,6 +109,7 @@ const commonConfig = {
     'import-x/no-rename-default': 'off',
     'preserve-caught-error': 'off',
     ...eslintPluginUnicorn.configs.recommended.rules,
+    'unicorn/no-null': 'off',
     'unicorn/better-regex': 'warn',
     'unicorn/no-array-reduce': 'warn',
     'unicorn/no-for-loop': 'warn',
