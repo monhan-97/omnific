@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 40" role="img" aria-labelledby="title">
+  <title id="title">Atelier</title>
+  <rect width="40" height="40" rx="6" fill="#171717" />
+  <path fill="#f4f0e8" d="M20 7 7 33h7l2-5h8l2 5h7L20 7Zm0 11 2 5h-4l2-5Z" />
+  <text x="52" y="28" fill="#171717" font-family="Georgia, serif" font-size="24">Atelier</text>
+</svg>

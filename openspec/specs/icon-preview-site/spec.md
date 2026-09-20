@@ -2,22 +2,22 @@
 
 ## Purpose
 
-为 `@omnific/icons` 提供位于 `docs/icons`、可搜索、可访问、与公开导出同步且可部署到 GitHub Pages 的浏览器预览体验。
+为 `@omnific/icons` 提供位于 `packages/icons/docs`、可搜索、可访问、与公开导出同步且可部署到 GitHub Pages 的浏览器预览体验。
 
 ## Requirements
 ### Requirement: React scripts 应用壳
 
-预览站点 MUST 是位于 `docs/icons` 的 React 单页应用，并 MUST 使用本地 workspace 包 `@omnific/react-scripts` 执行开发和生产构建。站点 MUST NOT 依赖或调用 Docusaurus。
+预览站点 MUST 是位于 `packages/icons/docs` 的 React 单页应用，并 MUST 使用本地 workspace 包 `@omnific/react-scripts` 执行开发和生产构建。站点 MUST NOT 依赖或调用 Docusaurus。
 
 #### Scenario: 本地开发
 
-- **WHEN** 维护者在 `docs/icons` 运行开发命令
+- **WHEN** 维护者运行 `pnpm --dir packages/icons docs:dev`
 - **THEN** 应用通过 `react-scripts dev` 启动，并渲染自定义 React 图标浏览器
 
 #### Scenario: 生产构建
 
-- **WHEN** CI 或维护者运行 `pnpm --dir docs/icons build`
-- **THEN** `react-scripts build` 生成 `docs/icons/build` 静态产物，且产物不包含 Docusaurus runtime、navbar 或主题 shell
+- **WHEN** CI 或维护者运行 `pnpm --dir packages/icons docs:build`
+- **THEN** `react-scripts build` 生成 `packages/icons/docs/build` 静态产物，且产物不包含 Docusaurus runtime、navbar 或主题 shell
 
 ### Requirement: Lucide 风格主体且无导航栏
 

@@ -13,6 +13,15 @@
 - **WHEN** 维护者检查 Button 的样式实现
 - **THEN** `button/styles/layout.scss` 和 `button/styles/theme.scss` 分别提供布局与主题样式，`button/styles/index.scss` 负责合并，根共享 `styles` 目录中不存在 Button 样式源码
 
+### Requirement: 语义 token 集中声明
+
+共享样式入口 MUST 先加载 `packages/atelier/styles/_tokens.scss`。该文件 MUST 在 `:root` 声明跨组件语义 CSS 变量（颜色、字体、圆角、控件高度、焦点环、阴影）。组件 layout 与 theme MUST 通过这些变量取值；组件样式 MUST NOT 再声明一份 `:root` 色板，也 MUST NOT 硬编码与语义 token 重复的色值。默认态 MUST 直接使用语义 token，MUST NOT 在组件根上把语义 token 再赋给一组默认 `--btn-*`。变体选择器 MUST 只改组件局部变量（如 `--btn-*`），不得为每个变体重写一套完整的 `color` / `background` 声明。
+
+#### Scenario: Button 主题消费共享 token
+
+- **WHEN** 维护者检查 `button/styles/theme.scss` 与 `button/styles/layout.scss`
+- **THEN** 两文件均不包含 `:root` 色板；默认态直接使用 `var(--color-*)` 等共享变量；primary、danger 仅改 `--btn-*` 插槽；disabled 和焦点环通过 `var(--color-*)`、`var(--focus-ring)` 取值；高度与圆角通过 `var(--control-height-*)` 与 `var(--radius-*)` 取值
+
 ### Requirement: 通过映射解析组件前缀
 
 共享变量文件 MUST 定义 `$component-prefixes` 映射，共享函数文件 MUST 定义 `component-prefixes($component)`。组件样式 MUST 仅通过该函数获得组件类名前缀，不得直接读取映射或硬编码完整组件前缀。
@@ -47,12 +56,12 @@
 
 ### Requirement: 构建并发布 CSS 产物
 
-Atelier build MUST 使用 package 自有的 Sass 编译依赖，将只负责聚合组件样式的根 `styles.scss` 编译为单一 `dist/styles.css`。组件目录 MUST NOT 生成或维护 CSS 文件。package MUST 继续通过 `@omnific/atelier/styles.css` 发布编译结果，且消费方 MUST NOT 因导入该入口而需要安装 Sass。
+Atelier build MUST 使用 package 自有的 Sass 编译依赖，将只负责聚合组件样式的 `styles/index.scss` 编译为单一 `dist/styles.css`。组件目录 MUST NOT 生成或维护 CSS 文件。package MUST 继续通过 `@omnific/atelier/styles.css` 发布编译结果，且消费方 MUST NOT 因导入该入口而需要安装 Sass。
 
 #### Scenario: 构建 Atelier package
 
 - **WHEN** 维护者运行 Atelier build
-- **THEN** 构建成功生成包含 Button 布局与主题样式的单一 `dist/styles.css`，源码树只保留根 `styles.scss` 和组件 SCSS
+- **THEN** 构建成功生成包含 Button 布局与主题样式的单一 `dist/styles.css`，源码树只保留 `styles/index.scss` 和组件 SCSS
 
 #### Scenario: 消费编译后的样式
 

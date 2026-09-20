@@ -72,6 +72,8 @@ typings/
 
 /**/node_modules
 /**/dist
-/docs/icons/build/
+/packages/icons/docs/build/
+/packages/atelier/storybook-static/
+/pages-artifact/
 
 graphify-out/

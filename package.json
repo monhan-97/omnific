@@ -9,9 +9,11 @@
   ],
   "scripts": {
     "build": "pnpm run --filter=\"./packages/**/*\" build",
-    "typecheck": "pnpm build && pnpm run --filter=\"./packages/**/*\" typecheck",
-    "lint:fix": "eslint . --fix --ignore-pattern \"**/dist/**\" --ignore-pattern \"**/build/**\"",
+    "build:storybook": "pnpm --filter @omnific/atelier build && storybook build --output-dir packages/atelier/storybook-static",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint:fix": "eslint . --fix",
     "test": "vitest run",
+    "storybook": "pnpm --filter @omnific/atelier build && storybook dev -p 6006",
     "test:watch": "vitest",
     "upgrade-workspace": "pnpm --filter=\"./packages/**/*\" update --interactive --latest"
   },
@@ -19,16 +21,27 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@changesets/cli": "^3.0.0",
+    "@changesets/cli": "^3.0.3",
+    "@omnific/atelier": "workspace:*",
     "@omnific/eslint-config": "workspace:*",
+    "@omnific/eslint-config-react": "workspace:*",
+    "@omnific/icons": "workspace:*",
     "@omnific/prettier-config": "workspace:*",
     "@omnific/tsconfig": "workspace:*",
     "@omnific/types": "workspace:*",
-    "@types/node": "^26.2.0",
-    "eslint": "^10.8.1",
-    "prettier": "^3.9.6",
-    "tsdown": "^0.22.14",
+    "@storybook/addon-a11y": "10.6.0",
+    "@storybook/react-vite": "10.6.0",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.7",
+    "@types/node": "^26.6.2",
+    "eslint": "^10.11.0",
+    "jsdom": "30.1.0",
+    "prettier": "^3.9.8",
+    "storybook": "10.6.0",
+    "tsdown": "^0.23.0",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.10"
+    "vitest": "^5.0.1"
   }
 }

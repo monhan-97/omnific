@@ -1,5 +1,17 @@
 {
-  "extends": "@omnific/tsconfig/node.json",
-  "include": ["packages/**/*.ts"],
+  "extends": "@omnific/tsconfig/bundler.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "types": ["node"],
+    "paths": {
+      "@omnific/*": ["./packages/*/main.ts", "./packages/*/index.ts", "./packages/*/index.d.ts"]
+    }
+  },
+  "include": [
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
+    "./packages/**/*.ts",
+    "./packages/**/*.tsx"
+  ],
   "exclude": ["node_modules"]
 }

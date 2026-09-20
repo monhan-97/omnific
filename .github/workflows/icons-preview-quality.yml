@@ -1,20 +1,30 @@
-name: Icons preview
+name: Docs preview
 
 on:
   pull_request:
     paths:
       - packages/icons/**
+      - packages/atelier/**
+      - .storybook/**
+      - package.json
+      - pnpm-lock.yaml
+      - .github/workflows/icons-preview-quality.yml
   push:
     branches:
       - main
     paths:
       - packages/icons/**
+      - packages/atelier/**
+      - .storybook/**
+      - package.json
+      - pnpm-lock.yaml
+      - .github/workflows/icons-preview-quality.yml
 
 permissions:
   contents: read
 
 concurrency:
-  group: icons-preview-${{ github.workflow }}-${{ github.ref }}
+  group: docs-preview-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -46,30 +56,45 @@ jobs:
       - name: Test packages
         run: pnpm test
 
-      - name: Typecheck icons preview
-        run: pnpm --dir docs/icons typecheck
-
       - name: Test icons preview
-        run: pnpm --dir docs/icons test
+        run: pnpm --dir packages/icons docs:test
 
       - name: Lint icons preview
-        run: pnpm --dir docs/icons lint
+        run: pnpm --dir packages/icons docs:lint
 
       - name: Configure GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v6
 
       - name: Build icons preview
-        run: pnpm --dir docs/icons build
+        run: pnpm --dir packages/icons docs:build
 
-      - name: Verify GitHub Pages artifact paths
-        run: pnpm --dir docs/icons verify:pages
+      - name: Build Atelier Storybook
+        run: pnpm build:storybook
 
+      - name: Assemble Pages artifact
+        run: |
+          rm -rf pages-artifact
+          mkdir -p pages-artifact/atelier
+          cp -R packages/icons/docs/build/. pages-artifact/
+          cp -R packages/atelier/storybook-static/. pages-artifact/atelier/
+
+      - name: Verify Pages artifact
+        run: |
+          set -euo pipefail
+          test -f pages-artifact/index.html
+          test -f pages-artifact/atelier/index.html
+          # 禁止指向站点根的绝对静态资源（相对路径或 /omnific/ 子路径才可在 Pages 下解析）
+          if grep -E '(href|src)="/' pages-artifact/index.html pages-artifact/atelier/index.html | grep -v '/omnific/'; then
+            echo 'Absolute root asset references are not portable on GitHub Pages.'
+            exit 1
+          fi
+          echo 'Verified Pages artifact: icons + atelier entries.'
       - name: Upload GitHub Pages artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v5
         with:
-          path: docs/icons/build
+          path: pages-artifact
 
   deploy:
     name: Deploy to GitHub Pages
