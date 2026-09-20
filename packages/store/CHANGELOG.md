@@ -1,5 +1,19 @@
 # @omnific/store
 
+## 0.4.0
+
+### Minor Changes
+
+- Raise the `jotai` peer dependency to v3.
+
+  Consumers must upgrade to `jotai@^3`.
+
+### Patch Changes
+
+- Updated dependencies
+  - @omnific/utils@0.3.1
+  - @omnific/hooks@0.2.1
+
 ## 0.3.0
 
 ### Minor Changes

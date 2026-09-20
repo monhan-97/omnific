@@ -1,9 +1,8 @@
 import { useEventCallback } from '@omnific/hooks';
 import { get, hasValue, isArray, isFunction, isString } from '@omnific/utils';
-import { useAtomValue } from 'jotai';
+import { type WritableAtom, useAtomValue } from 'jotai';
 import { selectAtom } from 'jotai/utils';
 import { useMemo } from 'react';
-import type { WritableAtom } from 'jotai';
 
 import type { AtomSetterArguments } from './createAtom';
 
