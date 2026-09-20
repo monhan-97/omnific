@@ -1,6 +1,6 @@
 {
   "name": "@omnific/hooks",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Shared React hooks for Omnific packages",
   "license": "MIT",
   "type": "module",
@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@omnific/tsconfig": "workspace:*",
-    "@types/react": "^19.2.18",
-    "react": "^19.2.8"
+    "@types/react": "^19.3.0",
+    "react": "^19.3.0"
   }
 }

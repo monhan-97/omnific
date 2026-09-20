@@ -1,5 +1,5 @@
  
-/* eslint-disable unicorn/no-null -- React ref 的空值语义是 null。 */
+ 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { setRef as setReference, useForkRef as useForkReference } from '../useForkRef';
