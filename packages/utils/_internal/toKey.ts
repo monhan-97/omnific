@@ -16,8 +16,5 @@ export function normalizeKey(path: unknown) {
  * @returns {string|symbol} Returns the key.
  */
 export function toKey(value: any) {
-  if (isString(value) || isSymbol(value)) {
-    return value;
-  }
-  return normalizeKey(value);
+  return isString(value) || isSymbol(value) ? value : normalizeKey(value);
 }

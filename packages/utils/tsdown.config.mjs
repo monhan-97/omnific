@@ -1,5 +1,4 @@
 import { defineConfig } from 'tsdown';
-import { createRequire } from 'node:module';
 
 export default defineConfig({
   entry: [{ main: './main.ts' }, { '*': ['./*.ts', '!./main.ts'] }],

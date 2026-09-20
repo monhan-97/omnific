@@ -496,11 +496,7 @@ export function get(
     return getDirect(object, toKey(path), defaultValue);
   }
 
-  if (isSymbol(path)) {
-    return getDirect(object, path, defaultValue);
-  }
-
-  return getDirect(object, normalizeKey(path), defaultValue);
+  return isSymbol(path) ? getDirect(object, path, defaultValue) : getDirect(object, normalizeKey(path), defaultValue);
 }
 
 function getWithPath(object: any, path: readonly PropertyKey[], defaultValue?: any): any {

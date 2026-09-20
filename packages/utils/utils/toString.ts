@@ -27,9 +27,5 @@ export function toString(value: any): string {
     return value;
   }
 
-  if (Array.isArray(value)) {
-    return value.map(item => toString(item)).join(',');
-  }
-
-  return normalizeKey(value);
+  return Array.isArray(value) ? value.map(item => toString(item)).join(',') : normalizeKey(value);
 }

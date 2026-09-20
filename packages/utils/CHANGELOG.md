@@ -1,5 +1,11 @@
 # @omnific/utils
 
+## 0.3.1
+
+### Patch Changes
+
+- Narrow `isStringEmpty` to include empty strings and guard `createChainedFunction` when only one callback remains.
+
 ## 0.3.0
 
 ### Minor Changes

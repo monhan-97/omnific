@@ -21,6 +21,5 @@
  *
  */
 export function isNumber(value: unknown): value is number {
-  if (Number.isNaN(value)) return false;
-  return typeof value === 'number';
+  return typeof value === 'number' && !Number.isNaN(value);
 }

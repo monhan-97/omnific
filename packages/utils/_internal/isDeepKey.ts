@@ -18,8 +18,5 @@ import { isString } from '../isString';
  * isDeepKey('a[b][c]') // true
  */
 export function isDeepKey(key: PropertyKey): boolean {
-  if (isString(key)) {
-    return key.includes('.') || key.includes('[') || key.includes(']');
-  }
-  return false;
+  return isString(key) ? key.includes('.') || key.includes('[') || key.includes(']') : false;
 }

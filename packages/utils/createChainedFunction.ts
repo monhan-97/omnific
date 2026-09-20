@@ -1,4 +1,5 @@
 import { isArrayEmpty } from './isArrayEmpty';
+import { hasValue } from './hasValue';
 import { isFunction } from './isFunction';
 
 /**
@@ -29,7 +30,8 @@ export function createChainedFunction<TArguments extends any[], TThis>(
   }
 
   if (validFuncs.length === 1) {
-    return validFuncs[0];
+    const [onlyFunction] = validFuncs;
+    if (hasValue(onlyFunction)) return onlyFunction;
   }
 
   return function (this: TThis, ...arguments_: TArguments) {

@@ -17,11 +17,7 @@ export function resolveValue<TValue, TArguments extends any[]>(
   value: TValue | ((...arguments_: TArguments) => TValue),
   ...arguments_: TArguments
 ): TValue {
-  if (isFunction(value)) {
-    return value(...arguments_);
-  }
-
-  return value;
+  return isFunction(value) ? value(...arguments_) : value;
 }
 
 export default resolveValue;
