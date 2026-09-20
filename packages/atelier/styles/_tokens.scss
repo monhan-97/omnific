@@ -1,0 +1,29 @@
+:root {
+  --color-text: rgb(0 0 0 / 88%);
+  --color-bg: #ffffff;
+  --color-border: #d9d9d9;
+  --color-primary: #1677ff;
+  --color-primary-hover: #4096ff;
+  --color-primary-active: #0958d9;
+  --color-primary-fg: #ffffff;
+  --color-danger: #ff4d4f;
+  --color-danger-hover: #ff7875;
+  --color-danger-active: #d9363e;
+  --color-danger-fg: #ffffff;
+  --color-disabled-text: rgb(0 0 0 / 25%);
+  --color-disabled-bg: rgb(239 239 239);
+  --focus-ring: rgb(21 112 239 / 25%);
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --control-height-sm: 24px;
+  --control-height-md: 32px;
+  --control-height-lg: 40px;
+  --shadow-control: 0 2px 0 rgb(0 0 0 / 2%);
+  --shadow-primary: 0 2px 0 rgb(5 145 255 / 10%);
+}

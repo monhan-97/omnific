@@ -6,25 +6,28 @@ $prefix-cls: component-prefixes(button);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  height: 36px;
+  height: var(--btn-size, var(--control-height-md));
   padding: 0 15px;
-  line-height: 1;
+  line-height: 1.5715;
   white-space: nowrap;
 
+  // 用 margin 而非 gap，便于 LoadingIcon 退出时把间距一并收掉
+  > :first-child:not(:only-child) {
+    margin-right: 8px;
+  }
+
   &-size-small {
-    height: 28px;
-    padding: 0 9px;
+    --btn-size: var(--control-height-sm);
+    padding: 0 7px;
   }
 
   &-size-large {
-    height: 44px;
-    padding: 0 19px;
+    --btn-size: var(--control-height-lg);
   }
 
   &-shape-circle,
   &-icon-only {
-    width: 36px;
+    width: var(--btn-size, var(--control-height-md));
     padding: 0;
   }
 
@@ -34,15 +37,8 @@ $prefix-cls: component-prefixes(button);
   }
 
   &-loading-icon {
-    width: 1em;
+    flex: 0 0 auto;
     height: 1em;
+    overflow: hidden;
   }
-}
-
-.#{$prefix-cls}-size-small.#{$prefix-cls}-icon-only {
-  width: 28px;
-}
-
-.#{$prefix-cls}-size-large.#{$prefix-cls}-icon-only {
-  width: 44px;
 }

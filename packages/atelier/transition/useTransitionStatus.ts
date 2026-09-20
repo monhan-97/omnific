@@ -6,7 +6,9 @@ import { useEffectEvent, useLayoutEffect, useState } from 'react';
 import { ENTERED, ENTERING, EXITED, EXITING, UNMOUNTED } from './types';
 import type { TransitionOptions, TransitionResult, TransitionStatus } from './types';
 
-/** 管理元素进入、退出、挂载状态及对应 Motion 动画。 */
+/**
+ * 管理元素进入、退出、挂载状态及对应 Motion 动画。
+ */
 export const useTransitionStatus = <Custom = unknown>(
   options: TransitionOptions<Custom>,
 ): TransitionResult => {
@@ -24,6 +26,7 @@ export const useTransitionStatus = <Custom = unknown>(
     ref,
     unmountOnExit = false,
   } = options;
+
   const [scope, animate] = useAnimate<HTMLElement>();
 
   const [status, setStatus] = useState<TransitionStatus>(() => {
@@ -54,9 +57,8 @@ export const useTransitionStatus = <Custom = unknown>(
     setStatus(EXITING);
     onExit?.(scope.current);
     await animate(scope.current, resolveValue(exit, custom, scope.current), { duration });
-    setStatus(EXITED);
     onExited?.(scope.current);
-    if (unmountOnExit) setStatus(UNMOUNTED);
+    setStatus(unmountOnExit ? UNMOUNTED : EXITED);
   });
 
   useLayoutEffect(() => {

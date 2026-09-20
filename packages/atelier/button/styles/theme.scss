@@ -2,63 +2,77 @@
 
 $prefix-cls: component-prefixes(button);
 
-:root {
-  --button-text: #172033;
-  --button-background: #ffffff;
-  --button-border: #d0d5dd;
-  --button-hover: #f2f4f7;
-  --button-primary-text: #ffffff;
-  --button-primary-background: #1570ef;
-  --button-primary-hover: #175cd3;
-  --button-outline-text: #1570ef;
-  --button-danger-text: #ffffff;
-  --button-danger-background: #d92d20;
-  --button-danger-hover: #b42318;
-  --button-focus: rgb(21 112 239 / 25%);
-}
-
 .#{$prefix-cls} {
-  --btn-color: var(--button-text);
-  --btn-background: var(--button-background);
-  --btn-border: var(--button-border);
-  --btn-hover: var(--button-hover);
-
+  appearance: none;
   font: inherit;
-  color: var(--btn-color);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: var(--btn-color, var(--color-text));
+  user-select: none;
   cursor: pointer;
-  background: var(--btn-background);
-  border: 1px solid var(--btn-border);
-  border-radius: 6px;
+  background: var(--btn-background, var(--color-bg));
+  border: 1px solid var(--btn-border, var(--color-border));
+  border-radius: var(--radius-md);
+  box-shadow: var(--btn-shadow, var(--shadow-control));
   transition:
     background-color 0.2s,
     border-color 0.2s,
+    box-shadow 0.2s,
     color 0.2s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  &:hover:not(:disabled) {
-    background: var(--btn-hover);
+  &:not(.#{$prefix-cls}-loading):hover:not(:disabled) {
+    color: var(--btn-hover-color, var(--color-primary-hover));
+    background: var(--btn-hover, var(--color-bg));
+    border-color: var(--btn-hover-border, var(--color-primary-hover));
+  }
+
+  &:not(.#{$prefix-cls}-loading):active:not(:disabled) {
+    color: var(--btn-active-color, var(--color-primary-active));
+    background: var(--btn-active, var(--color-bg));
+    border-color: var(--btn-active-border, var(--color-primary-active));
   }
 
   &:focus-visible {
-    outline: 3px solid var(--button-focus);
+    outline: 3px solid var(--focus-ring);
     outline-offset: 2px;
   }
 
   &:disabled,
   &-loading {
+    box-shadow: none;
+  }
+
+  &:disabled {
+    color: var(--color-disabled-text);
     cursor: not-allowed;
-    opacity: 0.55;
+    background: var(--color-disabled-bg);
+    border-color: var(--color-border);
+  }
+
+  &-loading {
+    cursor: default;
+    opacity: 0.65;
+    pointer-events: none;
   }
 
   &-size-small {
-    font-size: 12px;
+    font-size: var(--font-size-md);
+    border-radius: var(--radius-sm);
+  }
+
+  &-size-default {
+    font-size: var(--font-size-md);
+    border-radius: var(--radius-md);
   }
 
   &-size-large {
-    font-size: 16px;
+    font-size: var(--font-size-lg);
+    border-radius: var(--radius-lg);
   }
 
   &-shape-round {
-    border-radius: 999px;
+    border-radius: var(--btn-size, var(--control-height-md));
   }
 
   &-shape-circle,
@@ -67,11 +81,21 @@ $prefix-cls: component-prefixes(button);
     border-radius: 50%;
   }
 
+  &>span {
+    display: inline-block;
+  }
+
   &-primary {
-    --btn-color: var(--button-primary-text);
-    --btn-background: var(--button-primary-background);
-    --btn-border: var(--button-primary-background);
-    --btn-hover: var(--button-primary-hover);
+    --btn-color: var(--color-primary-fg);
+    --btn-background: var(--color-primary);
+    --btn-border: transparent;
+    --btn-hover: var(--color-primary-hover);
+    --btn-active: var(--color-primary-active);
+    --btn-hover-color: var(--color-primary-fg);
+    --btn-active-color: var(--color-primary-fg);
+    --btn-hover-border: transparent;
+    --btn-active-border: transparent;
+    --btn-shadow: var(--shadow-primary);
   }
 
   &-dashed {
@@ -79,21 +103,35 @@ $prefix-cls: component-prefixes(button);
   }
 
   &-outline {
-    --btn-color: var(--button-outline-text);
-    --btn-border: var(--button-outline-text);
+    --btn-color: var(--color-primary);
+    --btn-background: transparent;
+    --btn-border: var(--color-primary);
+    --btn-hover: transparent;
+    --btn-active: transparent;
+    --btn-hover-color: var(--color-primary-hover);
+    --btn-active-color: var(--color-primary-active);
+    --btn-hover-border: var(--color-primary-hover);
+    --btn-active-border: var(--color-primary-active);
+    --btn-shadow: none;
   }
 
-  &-status-danger {
-    --btn-color: var(--button-danger-text);
-    --btn-background: var(--button-danger-background);
-    --btn-border: var(--button-danger-background);
-    --btn-hover: var(--button-danger-hover);
+  &-danger {
+    --btn-color: var(--color-danger-fg);
+    --btn-background: var(--color-danger);
+    --btn-border: transparent;
+    --btn-hover: var(--color-danger-hover);
+    --btn-active: var(--color-danger-active);
+    --btn-hover-color: var(--color-danger-fg);
+    --btn-active-color: var(--color-danger-fg);
+    --btn-hover-border: transparent;
+    --btn-active-border: transparent;
+    --btn-shadow: var(--shadow-primary);
   }
 
   &-loading-icon {
-    border: 2px solid currentColor;
-    border-right-color: transparent;
-    animation: #{$prefix-cls}-spin 0.7s linear infinite;
+    >svg {
+      animation: #{$prefix-cls}-spin 0.7s linear infinite;
+    }
   }
 }
 
