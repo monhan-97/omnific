@@ -1,5 +1,11 @@
 # @omnific/eslint-config-react
 
+## 1.0.6
+
+### Patch Changes
+
+- Update `@eslint-react/eslint-plugin` to v5.20.
+
 ## 1.0.5
 
 ### Patch Changes
