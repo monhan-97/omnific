@@ -38,9 +38,7 @@ export async function confirm(options: ConfirmOptions) {
     const rawAnswer = await readline.question(message + suffix);
     const answer = rawAnswer.trim().toLowerCase();
 
-    if (!answer) return shouldConfirmByDefault;
-
-    return answer === 'y' || answer === 'yes';
+    return answer ? answer === 'y' || answer === 'yes' : shouldConfirmByDefault;
   } finally {
     readline.close();
   }

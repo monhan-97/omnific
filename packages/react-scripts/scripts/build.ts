@@ -62,11 +62,7 @@ async function build(rspackConfig: ScriptContext['rspackConfig']) {
 
   return new Promise<Stats | undefined>((resolve, reject) => {
     compiler.run((error, stats) => {
-      if (error) {
-        return reject(error);
-      }
-
-      return resolve(stats);
+      return error ? reject(error) : resolve(stats);
     });
   });
 }

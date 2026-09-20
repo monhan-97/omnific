@@ -1,5 +1,5 @@
 import type { Configuration, Mode } from '@rspack/core';
-import { isFunction, isUndefined } from '@omnific/utils';
+import { isFunction, isNil, isUndefined } from '@omnific/utils';
 import { merge } from 'rspack-merge';
 
 import { startBuild } from './scripts/build';
@@ -68,10 +68,10 @@ export class Service {
   async loaderUserConfig() {
     const configPath = findEntryFile(paths.config);
 
-    if (configPath) {
-      const userConfigModule = await import(configPath);
-      this.handleLoadedUserConfig(userConfigModule.default);
-    }
+    if (isNil(configPath)) return;
+
+    const userConfigModule = await import(configPath);
+    this.handleLoadedUserConfig(userConfigModule.default);
   }
 
   resolveRspackConfig() {

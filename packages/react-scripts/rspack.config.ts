@@ -1,5 +1,7 @@
 import { createRequire } from 'node:module';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { TsCheckerRspackPlugin } from 'ts-checker-rspack-plugin';
 import type {
@@ -17,6 +19,7 @@ import paths from './paths';
 import { detectPackage, resolvePackage, resolveRequiredPackage } from './utils/detect-package';
 import { alias, moduleFileExtensions } from './alias';
 import { getEnvironment, isDevelopment, isProduction } from './utils/environment';
+import { findEntryFile } from './utils/find-entry-file';
 
 const appPackageOptions = { from: paths.appPackageJson };
 
@@ -37,9 +40,22 @@ const sassRegex = /\.(scss|sass)$/;
 
 const cssRegex = /\.css$/;
 
-const imageInlineSizeLimit = 10_000;
+const imageInlineSizeLimit = 4096;
 
 const require = createRequire(import.meta.url);
+
+function getCacheBuildDependencies() {
+  const filePaths = [
+    paths.appPackageJson,
+    paths.appTsConfig,
+    findEntryFile(paths.config),
+    fileURLToPath(import.meta.url),
+  ];
+
+  return filePaths.filter(
+    (filePath): filePath is string => hasValue(filePath) && existsSync(filePath),
+  );
+}
 
 /**
  * 创建开发和生产构建共用的基础 Rspack 配置。
@@ -59,26 +75,18 @@ function createRspackConfig() {
       },
       {
         loader: 'builtin:lightningcss-loader',
-        /**
-        @type {import('@rspack/core').LightningcssLoaderOptions}
-        */
-        options: {
-          minify: isEnvironmentProduction,
-        },
       },
-      {
+      hasTailwind && {
         loader: resolvePackage('postcss-loader'),
-        options: hasTailwind
-          ? {
-              postcssOptions: {
-                ident: 'postcss',
-                config: false,
-                plugins: hasValue(tailwindPostcssPluginPath)
-                  ? [require(tailwindPostcssPluginPath)]
-                  : [],
-              },
-            }
-          : undefined,
+        options: {
+          postcssOptions: {
+            ident: 'postcss',
+            config: false,
+            plugins: hasValue(tailwindPostcssPluginPath)
+              ? [require(tailwindPostcssPluginPath)]
+              : [],
+          },
+        },
       },
     ].filter(Boolean) as RuleSetUseItem[];
 
@@ -114,6 +122,16 @@ function createRspackConfig() {
     stats: 'errors-warnings',
     mode: getEnvironment() as Mode,
     bail: isEnvironmentProduction,
+    cache: {
+      type: 'persistent',
+      buildDependencies: getCacheBuildDependencies(),
+    },
+    lazyCompilation: isEnvironmentDevelopment
+      ? {
+          entries: false,
+          imports: true,
+        }
+      : false,
     devtool: isEnvironmentDevelopment && 'cheap-module-source-map',
     entry: paths.appIndexJs,
     output: {
@@ -125,6 +143,12 @@ function createRspackConfig() {
       chunkFilename: isEnvironmentProduction
         ? 'static/js/[name].[contenthash:8].chunk.js'
         : 'static/js/[name].chunk.js',
+      cssFilename: isEnvironmentProduction
+        ? 'static/css/[name].[contenthash:8].css'
+        : 'static/css/[name].css',
+      cssChunkFilename: isEnvironmentProduction
+        ? 'static/css/[name].[contenthash:8].chunk.css'
+        : 'static/css/[name].chunk.css',
       assetModuleFilename: 'static/media/[name].[hash][ext]',
       publicPath: paths.publicUrlOrPath,
       devtoolModuleFilenameTemplate: isEnvironmentProduction
@@ -134,46 +158,53 @@ function createRspackConfig() {
     infrastructureLogging: {
       level: 'none',
     },
-    optimization: {
-      runtimeChunk: 'single',
-      splitChunks: {
-        chunks: 'async',
-        minChunks: 1,
-        minSize: 20_000,
-        maxAsyncRequests: 30,
-        maxInitialRequests: 30,
-        cacheGroups: {
-          vendors: {
-            test: /[/\\]node_modules[/\\]/,
-            name: 'chunk-vendors',
-            priority: -10,
-            reuseExistingChunk: true,
-          },
-          default: {
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true,
-          },
-        },
-      },
-      minimizer: [
-        new rspack.LightningCssMinimizerRspackPlugin(),
-        new rspack.SwcJsMinimizerRspackPlugin({
-          extractComments: false,
-          minimizerOptions: {
-            minify: true,
-            mangle: true,
-            ecma: 5,
-            compress: {
-              passes: 2,
-            },
-            format: {
-              comments: false,
+    optimization: isEnvironmentProduction
+      ? {
+          moduleIds: 'compact-hashed',
+          chunkIds: 'compact-hashed',
+          runtimeChunk: 'single',
+          splitChunks: {
+            chunks: 'all',
+            minChunks: 1,
+            minSize: 20_000,
+            maxAsyncRequests: 30,
+            maxInitialRequests: 30,
+            cacheGroups: {
+              vendors: {
+                test: /[/\\]node_modules[/\\]/,
+                name: 'chunk-vendors',
+                minChunks: 2,
+                minSize: 0,
+                priority: -10,
+                reuseExistingChunk: true,
+              },
+              default: {
+                name: 'chunk-common',
+                minChunks: 2,
+                minSize: 0,
+                priority: -20,
+                reuseExistingChunk: true,
+              },
             },
           },
-        }),
-      ],
-    },
+          minimizer: [
+            new rspack.LightningCssMinimizerRspackPlugin(),
+            new rspack.SwcJsMinimizerRspackPlugin({
+              extractComments: false,
+              minimizerOptions: {
+                minify: true,
+                mangle: true,
+                compress: {
+                  passes: 2,
+                },
+                format: {
+                  comments: false,
+                },
+              },
+            }),
+          ],
+        }
+      : undefined,
     resolve: {
       extensions: moduleFileExtensions,
       alias: alias,

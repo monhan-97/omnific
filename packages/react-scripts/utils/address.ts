@@ -20,10 +20,7 @@ function matchName(actualFamily: string | number, expectedFamily: string | numbe
   if (expectedFamily === 'IPv4') {
     return actualFamily === 'IPv4' || actualFamily === 4;
   }
-  if (expectedFamily === 'IPv6') {
-    return actualFamily === 'IPv6' || actualFamily === 6;
-  }
-  return actualFamily === expectedFamily;
+  return expectedFamily === 'IPv6' ? actualFamily === 'IPv6' || actualFamily === 6 : actualFamily === expectedFamily;
 }
 
 function findAddressFromInterface(
@@ -60,11 +57,11 @@ export function getInterfaceAddress(family?: string, name?: string) {
     for (let index = -1; index < 8; index++) {
       const interfaceName = name + (index >= 0 ? index : ''); // support 'lo' and 'lo0'
       const items = interfaces[interfaceName];
-      if (items) {
-        const item = findAddressFromInterface(items, family);
-        if (item) {
-          return item;
-        }
+      if (!items) continue;
+
+      const item = findAddressFromInterface(items, family);
+      if (item) {
+        return item;
       }
     }
   }
@@ -73,12 +70,12 @@ export function getInterfaceAddress(family?: string, name?: string) {
     // filter all loopback or local addresses
     for (const k in interfaces) {
       const items = interfaces[k];
-      if (items) {
-        // all 127 addresses are local and should be ignored
-        const item = findAddressFromInterface(items, family, true);
-        if (item) {
-          return item;
-        }
+      if (!items) continue;
+
+      // all 127 addresses are local and should be ignored
+      const item = findAddressFromInterface(items, family, true);
+      if (item) {
+        return item;
       }
     }
   }

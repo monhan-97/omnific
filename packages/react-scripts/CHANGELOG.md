@@ -1,5 +1,16 @@
 # @omnific/react-scripts
 
+## 0.5.0
+
+### Minor Changes
+
+- Enable persistent cache and lazy compilation in development, tighten production chunk splitting and CSS filenames, and update Rspack dependencies.
+
+### Patch Changes
+
+- Updated dependencies
+  - @omnific/utils@0.3.1
+
 ## 0.4.0
 
 ### Minor Changes

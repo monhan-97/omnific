@@ -34,9 +34,11 @@ type PrintAsset = {
  * @returns
  */
 function canReadAsset(asset: string) {
-  if (/service-worker\.js/.test(asset)) return false;
-  if (/precache-manifest\.[\da-f]+\.js/.test(asset)) return false;
-  return /\.(js|css)$/.test(asset);
+  return (
+    !/service-worker\.js/.test(asset) &&
+    !/precache-manifest\.[\da-f]+\.js/.test(asset) &&
+    /\.(js|css)$/.test(asset)
+  );
 }
 
 function removeFileNameHash(buildFolder: string, fileName: string) {
@@ -188,11 +190,13 @@ export function printFileSizesAfterBuild(
     }
   }
 
-  if (isSuggestBundleSplitting) {
-    console.log();
-    console.log(styleText('yellow', 'The bundle size is significantly larger than recommended.'));
-    console.log(
-      styleText('yellow', 'You can also analyze the project dependencies: https://goo.gl/LeUzfb'),
-    );
+  if (!isSuggestBundleSplitting) {
+    return;
   }
+
+  console.log();
+  console.log(styleText('yellow', 'The bundle size is significantly larger than recommended.'));
+  console.log(
+    styleText('yellow', 'You can also analyze the project dependencies: https://goo.gl/LeUzfb'),
+  );
 }

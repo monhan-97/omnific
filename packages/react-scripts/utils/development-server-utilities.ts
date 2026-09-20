@@ -219,23 +219,25 @@ export function createCompiler(options: {
     }
 
     // Show warnings if no errors were found.
-    if (warnings.length > 0) {
-      console.log(styleText('yellow', 'Compiled with warnings.\n'));
-      console.log(warnings.join('\n\n'));
-
-      // Teach some ESLint tricks.
-      console.log(
-        '\nSearch for the ' +
-          styleText('underline', styleText('yellow', 'keywords')) +
-          ' to learn more about each warning.',
-      );
-
-      console.log(
-        'To ignore, add ' +
-          styleText('cyan', '// eslint-disable-next-line') +
-          ' to the line before.\n',
-      );
+    if (warnings.length === 0) {
+      return;
     }
+
+    console.log(styleText('yellow', 'Compiled with warnings.\n'));
+    console.log(warnings.join('\n\n'));
+
+    // Teach some ESLint tricks.
+    console.log(
+      '\nSearch for the ' +
+        styleText('underline', styleText('yellow', 'keywords')) +
+        ' to learn more about each warning.',
+    );
+
+    console.log(
+      'To ignore, add ' +
+        styleText('cyan', '// eslint-disable-next-line') +
+        ' to the line before.\n',
+    );
   });
 
   return compiler;

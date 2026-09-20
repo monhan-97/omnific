@@ -27,11 +27,7 @@ export interface ResolveRequiredPackageOptions extends DetectPackageOptions {
 function createPackageRequire(options: DetectPackageOptions) {
   const { from } = options;
 
-  if (hasValue(from)) {
-    return createRequire(from);
-  }
-
-  return defaultRequire;
+  return hasValue(from) ? createRequire(from) : defaultRequire;
 }
 
 /**
