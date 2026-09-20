@@ -1,8 +1,15 @@
 {
   "name": "@omnific/prettier-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared Prettier configuration",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ],
   "license": "MIT",
   "type": "module",
   "keywords": [
