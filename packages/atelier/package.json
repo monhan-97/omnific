@@ -27,6 +27,11 @@
       "import": "./dist/main.js",
       "default": "./dist/main.js"
     },
+    "./box": {
+      "types": "./dist/box/index.d.ts",
+      "import": "./dist/box/index.js",
+      "default": "./dist/box/index.js"
+    },
     "./button": {
       "types": "./dist/button/index.d.ts",
       "import": "./dist/button/index.js",
@@ -36,6 +41,11 @@
       "types": "./dist/transition/index.d.ts",
       "import": "./dist/transition/index.js",
       "default": "./dist/transition/index.js"
+    },
+    "./system": {
+      "types": "./dist/system/index.d.ts",
+      "import": "./dist/system/index.js",
+      "default": "./dist/system/index.js"
     },
     "./styles.css": {
       "default": "./dist/styles.css"
@@ -71,9 +81,9 @@
     "@omnific/tsconfig": "workspace:*",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "motion": "^13.4.0",
+    "motion": "^13.4.4",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "sass-embedded": "1.104.1"
+    "sass-embedded": "1.105.0"
   }
 }

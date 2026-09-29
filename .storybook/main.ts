@@ -17,6 +17,10 @@ const developmentAliases = [
     find: '@omnific/atelier/styles.css',
     replacement: workspaceSource('../packages/atelier/styles/index.scss'),
   },
+  {
+    find: '@omnific/atelier/system',
+    replacement: workspaceSource('../packages/atelier/system/index.ts'),
+  },
   { find: '@omnific/atelier', replacement: workspaceSource('../packages/atelier/main.ts') },
   { find: '@omnific/icons', replacement: workspaceSource('../packages/icons/main.ts') },
   { find: '@omnific/hooks', replacement: workspaceSource('../packages/hooks/main.ts') },
@@ -41,21 +45,17 @@ const config: StorybookConfig = {
       shouldExtractLiteralValuesFromEnum: true,
       shouldRemoveUndefinedFromOptional: true,
       // 官方默认：过滤 node_modules 里的原生/第三方 props，减少 Controls 噪音
-      propFilter: prop => !prop.parent || !/node_modules/.test(prop.parent.fileName),
+      propFilter: (prop) => !prop.parent || !/node_modules/.test(prop.parent.fileName),
       // Vite docgen 用 include∩tsconfig 建 program；默认 **/*.tsx 的 glob 不进 .storybook，
       // 但 createFilter 仍会处理 preview，从而误报 “not included in the active TypeScript project”
       include: ['packages/atelier/**/*.tsx'],
-      exclude: [
-        '**/*.stories.tsx',
-        '**/*.test.tsx',
-        'packages/atelier/**/examples/**',
-      ],
+      exclude: ['**/*.stories.tsx', '**/*.test.tsx', 'packages/atelier/**/examples/**'],
       tsconfigPath: './tsconfig.json',
     },
   },
-  viteFinal: (config, { configType }) => {
+  viteFinal: (viteConfig, { configType }) => {
     const nextConfig = {
-      ...config,
+      ...viteConfig,
       // Pages 挂在 /omnific/atelier/ 下，生产构建用相对路径避免根路径资源 404
       base: configType === 'PRODUCTION' ? './' : '/',
     };

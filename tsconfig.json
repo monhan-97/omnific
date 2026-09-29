@@ -4,6 +4,7 @@
     "jsx": "react-jsx",
     "types": ["node"],
     "paths": {
+      "@omnific/atelier/system": ["./packages/atelier/system/index.ts"],
       "@omnific/*": ["./packages/*/main.ts", "./packages/*/index.ts", "./packages/*/index.d.ts"]
     }
   },

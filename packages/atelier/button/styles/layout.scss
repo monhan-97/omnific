@@ -6,7 +6,7 @@ $prefix-cls: component-prefixes(button);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: var(--btn-size, var(--control-height-md));
+  height: var(--control-height-md);
   padding: 0 15px;
   line-height: 1.5715;
   white-space: nowrap;
@@ -17,18 +17,28 @@ $prefix-cls: component-prefixes(button);
   }
 
   &-size-small {
-    --btn-size: var(--control-height-sm);
+    height: var(--control-height-sm);
     padding: 0 7px;
   }
 
   &-size-large {
-    --btn-size: var(--control-height-lg);
+    height: var(--control-height-lg);
   }
 
   &-shape-circle,
   &-icon-only {
-    width: var(--btn-size, var(--control-height-md));
+    width: var(--control-height-md);
     padding: 0;
+  }
+
+  &-size-small.#{$prefix-cls}-shape-circle,
+  &-size-small.#{$prefix-cls}-icon-only {
+    width: var(--control-height-sm);
+  }
+
+  &-size-large.#{$prefix-cls}-shape-circle,
+  &-size-large.#{$prefix-cls}-icon-only {
+    width: var(--control-height-lg);
   }
 
   &-block {

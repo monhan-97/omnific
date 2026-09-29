@@ -1,0 +1,9 @@
+@use '../../styles/functions' as *;
+
+$prefix-cls: component-prefixes(box);
+
+.#{$prefix-cls} {
+  &-border {
+    border: 1px solid var(--color-border);
+  }
+}

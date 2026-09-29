@@ -1,3 +1,6 @@
+export { Box } from './box';
+export type { BoxProps } from './box/types';
+
 export { Button } from './button';
 export type { ButtonProps } from './button/types';
 

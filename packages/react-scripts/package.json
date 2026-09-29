@@ -48,7 +48,7 @@
   "dependencies": {
     "@omnific/types": "workspace:*",
     "@omnific/utils": "workspace:*",
-    "@rspack/core": "^2.2.6",
+    "@rspack/core": "^2.2.8",
     "@rspack/dev-server": "^2.2.1",
     "@rspack/plugin-react-refresh": "^2.0.2",
     "get-port": "^7.2.0",
@@ -81,7 +81,7 @@
   "devDependencies": {
     "@omnific/tsconfig": "workspace:*",
     "@tailwindcss/postcss": "^4.3.3",
-    "sass-embedded": "^1.104.1",
+    "sass-embedded": "^1.105.0",
     "sass-loader": "^17.0.1",
     "tailwindcss": "^4.3.3"
   }
