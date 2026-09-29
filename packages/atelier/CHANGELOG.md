@@ -1,5 +1,11 @@
 # @omnific/atelier
 
+## 0.2.0
+
+### Minor Changes
+
+- Add a runtime theme system with token merging, CSS variable injection, theme hooks, and the `Box` component.
+
 ## 0.1.0
 
 ### Minor Changes
