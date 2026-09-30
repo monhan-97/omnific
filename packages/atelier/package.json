@@ -70,10 +70,10 @@
     "@omnific/icons": "workspace:*",
     "@omnific/types": "workspace:*",
     "@omnific/utils": "workspace:*",
-    "clsx": "^2.1.1"
+    "clsx": "^2.1.1",
+    "motion": "^13.4.4"
   },
   "peerDependencies": {
-    "motion": "^13.1.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
@@ -81,9 +81,8 @@
     "@omnific/tsconfig": "workspace:*",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "motion": "^13.4.4",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "sass-embedded": "1.105.0"
+    "sass-embedded": "^1.105.0"
   }
 }
