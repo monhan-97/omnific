@@ -3,27 +3,25 @@ import { useState } from 'react';
 import { Box, Button } from '@omnific/atelier';
 import {
   createSystem,
-  defaultConfig,
-  defineTokens,
+  defaultColors,
+  defineColors,
   useTheme,
 } from '@omnific/atelier/system';
 
 const sharedSystem = createSystem(
   'shared-panel',
-  defaultConfig,
-  defineTokens({
-    colors: {
-      bg: { value: '#1e1b4b' },
-      'bg.muted': { value: '#312e81' },
-      'bg.panel': { value: '#1e1b4b' },
-      fg: { value: '#e0e7ff' },
-      'fg.muted': { value: '#a5b4fc' },
-      border: { value: '#4338ca' },
-      'blue.solid': { value: '#818cf8' },
-      'blue.hover': { value: '#a5b4fc' },
-      'blue.active': { value: '#6366f1' },
-      'blue.contrast': { value: '#1e1b4b' },
-    },
+  defaultColors,
+  defineColors({
+    bg: { value: '#1e1b4b' },
+    'bg-muted': { value: '#312e81' },
+    'bg-panel': { value: '#1e1b4b' },
+    fg: { value: '#e0e7ff' },
+    'fg-muted': { value: '#a5b4fc' },
+    border: { value: '#4338ca' },
+    'accent-solid': { value: '#818cf8' },
+    'accent-hover': { value: '#a5b4fc' },
+    'accent-active': { value: '#6366f1' },
+    'accent-contrast': { value: '#1e1b4b' },
   }),
 );
 
@@ -42,11 +40,8 @@ const SharedPanel = (props: SharedPanelProps) => {
   const themeRef = useTheme<HTMLDivElement>(sharedSystem);
 
   return (
-    <div
-      ref={themeRef}
-      style={{ color: 'var(--color-fg)', minWidth: 200 }}
-    >
-      <Box bg='bg.muted' border p={4} rounded='md'>
+    <div ref={themeRef} style={{ color: 'var(--color-fg)', minWidth: 200 }}>
+      <Box bg='bg-muted' border p='4' radius='md'>
         <div style={{ marginBottom: 8, fontSize: 14, fontWeight: 600 }}>{title}</div>
         <div style={{ marginBottom: 12, fontSize: 13, color: 'var(--color-fg-muted)' }}>
           name: {sharedSystem.name}

@@ -3,7 +3,7 @@
 import { cleanup, render } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { createSystem, defineTokens, useTheme } from '../index';
+import { createSystem, defineColors, useTheme } from '../index';
 
 afterEach(() => {
   cleanup();
@@ -14,13 +14,11 @@ afterEach(() => {
 });
 
 describe('useTheme', () => {
-  it('registers css vars on documentElement when ref is not bound', () => {
+  it('registers colors on documentElement when ref is not bound', () => {
     const system = createSystem(
       'root-probe',
-      defineTokens({
-        colors: {
-          bg: { value: '#ffffff' },
-        },
+      defineColors({
+        bg: { value: '#ffffff' },
       }),
     );
 
@@ -35,22 +33,23 @@ describe('useTheme', () => {
     expect(getComputedStyle(document.documentElement).getPropertyValue('--color-bg').trim()).toBe(
       '#ffffff',
     );
+    expect(
+      getComputedStyle(document.documentElement).getPropertyValue('--space-4').trim(),
+    ).toBe('');
     expect(document.querySelectorAll('head > style[data-atelier-css-vars]')).toHaveLength(1);
   });
 
-  it('scopes css vars to the bound element via attribute selector', () => {
+  it('scopes colors to the bound element via attribute selector', () => {
     const system = createSystem(
       'scoped-probe',
-      defineTokens({
-        colors: {
-          bg: { value: '#111111' },
-        },
+      defineColors({
+        bg: { value: '#111111' },
       }),
     );
 
     const Probe = () => {
       const themeRef = useTheme<HTMLDivElement>(system);
-      return <div data-testid="host" ref={themeRef} />;
+      return <div data-testid='host' ref={themeRef} />;
     };
 
     const { getByTestId } = render(<Probe />);

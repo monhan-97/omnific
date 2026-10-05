@@ -1,0 +1,9 @@
+@use '../variables' as *;
+
+$display-values: none, inline, inline-block, block, flex, inline-flex, contents;
+
+@each $value in $display-values {
+  .#{$root-prefix-cls}-display-#{$value} {
+    display: $value;
+  }
+}

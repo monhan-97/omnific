@@ -6,48 +6,44 @@ import { describe, expect, expectTypeOf, it } from 'vitest';
 import {
   applyCssVars,
   createSystem,
-  defaultConfig,
-  defineTokens,
-  styleFromTokens,
+  defaultColors,
+  defineColors,
+  mergeColors,
 } from '../index';
-import type { ColorToken, SpacingToken } from '../defaults';
 
 describe('createSystem', () => {
-  it('merges token sets with later tokens winning', () => {
+  it('merges color sets with later colors winning', () => {
     const system = createSystem(
       'merge',
-      defineTokens({
-        colors: {
-          bg: { value: '#fff' },
-          'blue.solid': { value: '#111' },
-        },
+      defineColors({
+        bg: { value: '#fff' },
+        'accent-solid': { value: '#111' },
       }),
-      defineTokens({
-        colors: {
-          'blue.solid': { value: '#2563eb' },
-          'bg.muted': { value: '#f4f4f5' },
-        },
+      defineColors({
+        'accent-solid': { value: '#2563eb' },
+        'bg-muted': { value: '#f4f4f5' },
       }),
     );
 
     expect(system.name).toBe('merge');
+    expect(system.colors).toEqual({
+      bg: { value: '#fff' },
+      'accent-solid': { value: '#2563eb' },
+      'bg-muted': { value: '#f4f4f5' },
+    });
     expect(system.cssVars['--color-bg']).toBe('#fff');
-    expect(system.cssVars['--color-blue-solid']).toBe('#2563eb');
+    expect(system.cssVars['--color-accent-solid']).toBe('#2563eb');
     expect(system.cssVars['--color-bg-muted']).toBe('#f4f4f5');
   });
 
-  it('uses tokens as the first argument with later tokens winning', () => {
+  it('uses colors as the first argument with later colors winning', () => {
     const system = createSystem(
-      defineTokens({
-        colors: {
-          bg: { value: '#fff' },
-          fg: { value: '#111' },
-        },
+      defineColors({
+        bg: { value: '#fff' },
+        fg: { value: '#111' },
       }),
-      defineTokens({
-        colors: {
-          bg: { value: '#000' },
-        },
+      defineColors({
+        bg: { value: '#000' },
       }),
     );
 
@@ -56,31 +52,30 @@ describe('createSystem', () => {
     expect(system.cssVars['--color-fg']).toBe('#111');
   });
 
-  it('exposes flat css vars as a cached property', () => {
-    const system = createSystem('default-check', defaultConfig);
+  it('only exposes color css vars from defaultColors', () => {
+    const system = createSystem('default-check', defaultColors);
 
     const { cssVars } = system;
 
     expect(cssVars['--color-bg']).toBe('#ffffff');
     expect(cssVars['--color-fg']).toBe('rgb(0 0 0 / 88%)');
-    expect(cssVars['--color-blue-solid']).toBe('#1677ff');
-    expect(cssVars['--color-red-solid']).toBe('#ff4d4f');
+    expect(cssVars['--color-accent-solid']).toBe('#1677ff');
+    expect(cssVars['--color-danger-solid']).toBe('#ff4d4f');
     expect(cssVars['--color-border']).toBe('#d9d9d9');
-    expect(cssVars['--space-4']).toBe('16px');
-    expect(cssVars['--radius-md']).toBe('6px');
-    expect(cssVars['--shadow-sm']).toBe(
-      '0px 2px 4px rgb(24 24 27 / 0.1), 0px 0px 1px rgb(24 24 27 / 0.3)',
-    );
-    expect(cssVars['--focus-ring-default']).toBe('rgb(21 112 239 / 25%)');
-    expect(cssVars['--font-size-md']).toBe('14px');
-    expect(cssVars['--control-height-md']).toBe('32px');
+    expect(cssVars).not.toHaveProperty('--space-4');
+    expect(cssVars).not.toHaveProperty('--radius-md');
+    expect(cssVars).not.toHaveProperty('--shadow-sm');
+    expect(cssVars).not.toHaveProperty('--font-size-md');
+    expect(cssVars).not.toHaveProperty('--control-height-md');
+    expect(cssVars).not.toHaveProperty('--focus-ring-default');
     expect(cssVars).not.toHaveProperty('--color-primary');
     expect(cssVars).not.toHaveProperty('--atelier-colors-bg');
   });
 
   it('does not expose get methods or css/cva/sva style engine apis', () => {
-    const system = createSystem('api-check', defaultConfig);
+    const system = createSystem('api-check', defaultColors);
 
+    expect(system).not.toHaveProperty('_config');
     expect(system).not.toHaveProperty('token');
     expect(system).not.toHaveProperty('getTokenCss');
     expect(system).not.toHaveProperty('tokens');
@@ -92,44 +87,24 @@ describe('createSystem', () => {
     expect(system).not.toHaveProperty('sva');
     expect(system).not.toHaveProperty('$$atelier');
     expect(system.name).toBe('api-check');
-    expect(system._config).toEqual(defaultConfig);
+    expect(system.colors).toEqual(defaultColors);
   });
 
-  it('exports category key unions from default tokens', () => {
-    expectTypeOf<'bg.muted'>().toMatchTypeOf<ColorToken>();
-    expectTypeOf<'blue.solid'>().toMatchTypeOf<ColorToken>();
-    expectTypeOf<4>().toMatchTypeOf<SpacingToken>();
-    expectTypeOf<0.5>().toMatchTypeOf<SpacingToken>();
+  it('infers color keys from defaultColors', () => {
+    expectTypeOf<'bg-muted'>().toMatchTypeOf<keyof typeof defaultColors>();
+    expectTypeOf<'accent-solid'>().toMatchTypeOf<keyof typeof defaultColors>();
   });
 });
 
-describe('styleFromTokens', () => {
-  it('maps present tokens to css var styles and skips empty values', () => {
-    expect(
-      styleFromTokens([
-        ['padding', 4],
-        ['background', 'bg.muted'],
-        ['borderRadius', undefined],
-      ]),
-    ).toEqual({
-      padding: 'var(--space-4)',
-      background: 'var(--color-bg-muted)',
-    });
-  });
-
-  it('merges the style argument after token styles', () => {
-    expect(
-      styleFromTokens(
-        [
-          ['padding', 4],
-          ['background', 'bg.muted'],
-        ],
-        { color: 'red', background: 'blue' },
-      ),
-    ).toEqual({
-      padding: 'var(--space-4)',
-      background: 'blue',
-      color: 'red',
+describe('mergeColors', () => {
+  it('returns flat colors and color css vars', () => {
+    expect(mergeColors({ bg: { value: '#abcdef' } })).toEqual({
+      colors: {
+        bg: { value: '#abcdef' },
+      },
+      cssVars: {
+        '--color-bg': '#abcdef',
+      },
     });
   });
 });
@@ -138,22 +113,23 @@ describe('applyCssVars', () => {
   it('reuses one style tag per system name and refcounts mounts', () => {
     const system = createSystem(
       'shared',
-      defineTokens({
-        colors: {
-          bg: { value: '#abcdef' },
-          fg: { value: '#123456' },
-        },
+      defineColors({
+        bg: { value: '#abcdef' },
+        fg: { value: '#123456' },
       }),
     );
 
     const dispose = applyCssVars(system, document.documentElement);
 
-    const style = document.querySelector('head > style[data-atelier-css-vars]') as HTMLStyleElement | null;
+    const style = document.querySelector(
+      'head > style[data-atelier-css-vars]',
+    ) as HTMLStyleElement | null;
     expect(style?.parentElement).toBe(document.head);
     expect(style?.dataset.atelierSystem).toBe('shared');
     expect(style?.textContent).toContain('[data-atelier-theme="shared"]');
     expect(style?.textContent).toContain('--color-bg: #abcdef;');
     expect(style?.textContent).toContain('--color-fg: #123456;');
+    expect(style?.textContent).not.toContain('--space-');
     expect(document.documentElement.dataset.atelierTheme).toBe('shared');
     expect(document.querySelectorAll('style[data-atelier-css-vars]')).toHaveLength(1);
 
@@ -172,10 +148,8 @@ describe('applyCssVars', () => {
   it('shares one style when multiple containers use the same system name', () => {
     const system = createSystem(
       'multi-host',
-      defineTokens({
-        colors: {
-          bg: { value: '#112233' },
-        },
+      defineColors({
+        bg: { value: '#112233' },
       }),
     );
     const hostA = document.createElement('div');
@@ -206,18 +180,14 @@ describe('applyCssVars', () => {
   it('scopes a different system name on its own style tag', () => {
     const rootSystem = createSystem(
       'root-theme',
-      defineTokens({
-        colors: {
-          bg: { value: '#112233' },
-        },
+      defineColors({
+        bg: { value: '#112233' },
       }),
     );
     const localSystem = createSystem(
       'local-theme',
-      defineTokens({
-        colors: {
-          bg: { value: '#445566' },
-        },
+      defineColors({
+        bg: { value: '#445566' },
       }),
     );
     const host = document.createElement('div');

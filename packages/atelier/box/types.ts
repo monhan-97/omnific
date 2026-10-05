@@ -1,43 +1,20 @@
 import type { ComponentPropsWithRef } from 'react';
 
-import type { ColorToken, RadiiToken, ShadowToken, SpacingToken } from '../system';
+import type { AtelierProps } from '../props';
+import type { ScalingValue } from '../props/scaling.props';
 
 /**
- * Box 自有样式属性。
+ * Box 组件自有样式属性。
  */
-export type BoxOwnProps = {
-  /**
-   * 内边距，对应 `padding`。
-   */
-  p?: SpacingToken;
-  /**
-   * 水平内边距，对应 `padding-inline`。
-   */
-  px?: SpacingToken;
-  /**
-   * 垂直内边距，对应 `padding-block`。
-   */
-  py?: SpacingToken;
-  /**
-   * 背景色语义 token。
-   */
-  bg?: ColorToken;
-  /**
-   * 圆角预设。
-   */
-  rounded?: RadiiToken;
+export type BoxOwnProps = AtelierProps & {
   /**
    * 是否显示默认 1px solid 边框。
    */
   border?: boolean;
   /**
-   * 边框颜色语义 token。
+   * 调整结构 token 的缩放比例。
    */
-  borderColor?: ColorToken;
-  /**
-   * 阴影预设。
-   */
-  shadow?: ShadowToken;
+  scaling?: ScalingValue;
 };
 
 /**

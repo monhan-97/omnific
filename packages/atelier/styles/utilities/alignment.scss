@@ -1,0 +1,83 @@
+@use '../variables' as *;
+
+$alignment-properties: (
+  align-items: (
+    start,
+    center,
+    end,
+    baseline,
+    stretch,
+  ),
+  align-self: (
+    start,
+    center,
+    end,
+    baseline,
+    stretch,
+  ),
+  justify-items: (
+    start,
+    center,
+    end,
+    stretch,
+  ),
+  justify-self: (
+    start,
+    center,
+    end,
+    baseline,
+    stretch,
+  ),
+  place-items: (
+    start,
+    center,
+    end,
+    stretch,
+  ),
+);
+
+@each $name, $values in $alignment-properties {
+  @each $value in $values {
+    .#{$root-prefix-cls}-#{$name}-#{$value} {
+      #{$name}: $value;
+    }
+  }
+}
+
+$content-distribution-properties: (
+  align-content: (
+    start,
+    center,
+    end,
+    space-between,
+    space-around,
+    space-evenly,
+    stretch,
+  ),
+  justify-content: (
+    start,
+    center,
+    end,
+    space-between,
+    space-around,
+    space-evenly,
+    stretch,
+  ),
+  place-content: (
+    start,
+    center,
+    end,
+    space-between,
+    space-around,
+    space-evenly,
+    stretch,
+  ),
+);
+
+@each $name, $values in $content-distribution-properties {
+  @each $value in $values {
+    .#{$root-prefix-cls}-#{$name}-#{$value} {
+      #{$name}: $value;
+    }
+  }
+}

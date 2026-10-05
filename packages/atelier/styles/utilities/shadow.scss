@@ -1,0 +1,9 @@
+@use '../variables' as *;
+
+$shadow-suffixes: xs, sm, md, lg, xl, 2xl, inner, inset;
+
+@each $suffix in $shadow-suffixes {
+  .#{$root-prefix-cls}-shadow-#{$suffix} {
+    box-shadow: var(--shadow-#{$suffix});
+  }
+}

@@ -4,10 +4,10 @@ A refined React component library for Omnific.
 
 ```tsx
 import { Button } from '@omnific/atelier';
-import { createSystem, defaultConfig, useTheme } from '@omnific/atelier/system';
+import { createSystem, defaultColors, useTheme } from '@omnific/atelier/system';
 import '@omnific/atelier/styles.css';
 
-const system = createSystem('app', defaultConfig);
+const system = createSystem('app', defaultColors);
 
 function App() {
   useTheme(system); // injects CSS variables onto :root
@@ -15,8 +15,8 @@ function App() {
 }
 ```
 
-Token values come from `createSystem` and are injected at runtime by `useTheme`.
-Component layout/theme CSS still ships via `@omnific/atelier/styles.css`.
+Color values come from `createSystem` and are injected at runtime by `useTheme`.
+Spacing, radii, fonts, control heights, shadows and component styles ship via `@omnific/atelier/styles.css`.
 
 ## Storybook
 

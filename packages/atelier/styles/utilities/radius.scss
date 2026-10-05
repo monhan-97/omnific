@@ -1,0 +1,9 @@
+@use '../variables' as *;
+
+$radius-suffixes: none, 2xs, xs, sm, md, lg, xl, 2xl, 3xl, 4xl, full;
+
+@each $suffix in $radius-suffixes {
+  .#{$root-prefix-cls}-radius-#{$suffix} {
+    border-radius: var(--radius-#{$suffix});
+  }
+}

@@ -1,0 +1,9 @@
+@use '../variables' as *;
+
+$position-values: static, relative, absolute, fixed, sticky;
+
+@each $value in $position-values {
+  .#{$root-prefix-cls}-position-#{$value} {
+    position: $value;
+  }
+}

@@ -20,19 +20,19 @@ $prefix-cls: component-prefixes(button);
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 
   &:not(.#{$prefix-cls}-loading):hover:not(:disabled) {
-    color: var(--color-blue-hover);
+    color: var(--color-accent-hover);
     background: var(--color-bg);
-    border-color: var(--color-blue-hover);
+    border-color: var(--color-accent-hover);
   }
 
   &:not(.#{$prefix-cls}-loading):active:not(:disabled) {
-    color: var(--color-blue-active);
+    color: var(--color-accent-active);
     background: var(--color-bg);
-    border-color: var(--color-blue-active);
+    border-color: var(--color-accent-active);
   }
 
   &:focus-visible {
-    outline: 3px solid var(--focus-ring-default);
+    outline: 3px solid var(--color-accent-focus-ring);
     outline-offset: 2px;
   }
 
@@ -87,19 +87,19 @@ $prefix-cls: component-prefixes(button);
   }
 
   &-primary {
-    color: var(--color-blue-contrast);
-    background: var(--color-blue-solid);
+    color: var(--color-accent-contrast);
+    background: var(--color-accent-solid);
     border-color: transparent;
 
     &:not(.#{$prefix-cls}-loading):hover:not(:disabled) {
-      color: var(--color-blue-contrast);
-      background: var(--color-blue-hover);
+      color: var(--color-accent-contrast);
+      background: var(--color-accent-hover);
       border-color: transparent;
     }
 
     &:not(.#{$prefix-cls}-loading):active:not(:disabled) {
-      color: var(--color-blue-contrast);
-      background: var(--color-blue-active);
+      color: var(--color-accent-contrast);
+      background: var(--color-accent-active);
       border-color: transparent;
     }
   }
@@ -109,37 +109,37 @@ $prefix-cls: component-prefixes(button);
   }
 
   &-outline {
-    color: var(--color-blue-solid);
+    color: var(--color-accent-solid);
     background: transparent;
-    border-color: var(--color-blue-solid);
+    border-color: var(--color-accent-solid);
 
     &:not(.#{$prefix-cls}-loading):hover:not(:disabled) {
-      color: var(--color-blue-hover);
+      color: var(--color-accent-hover);
       background: transparent;
-      border-color: var(--color-blue-hover);
+      border-color: var(--color-accent-hover);
     }
 
     &:not(.#{$prefix-cls}-loading):active:not(:disabled) {
-      color: var(--color-blue-active);
+      color: var(--color-accent-active);
       background: transparent;
-      border-color: var(--color-blue-active);
+      border-color: var(--color-accent-active);
     }
   }
 
   &-danger {
-    color: var(--color-red-contrast);
-    background: var(--color-red-solid);
+    color: var(--color-danger-contrast);
+    background: var(--color-danger-solid);
     border-color: transparent;
 
     &:not(.#{$prefix-cls}-loading):hover:not(:disabled) {
-      color: var(--color-red-contrast);
-      background: var(--color-red-hover);
+      color: var(--color-danger-contrast);
+      background: var(--color-danger-hover);
       border-color: transparent;
     }
 
     &:not(.#{$prefix-cls}-loading):active:not(:disabled) {
-      color: var(--color-red-contrast);
-      background: var(--color-red-active);
+      color: var(--color-danger-contrast);
+      background: var(--color-danger-active);
       border-color: transparent;
     }
   }

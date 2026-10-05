@@ -1,0 +1,17 @@
+@use '../variables' as *;
+
+$overflow-properties: (
+  overflow: overflow,
+  overflow-x: overflow-x,
+  overflow-y: overflow-y,
+);
+
+$overflow-values: visible, hidden, clip, scroll, auto;
+
+@each $name, $property in $overflow-properties {
+  @each $value in $overflow-values {
+    .#{$root-prefix-cls}-#{$name}-#{$value} {
+      #{$property}: $value;
+    }
+  }
+}
