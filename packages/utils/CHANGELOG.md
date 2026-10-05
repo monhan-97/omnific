@@ -1,5 +1,11 @@
 # @omnific/utils
 
+## 0.4.0
+
+### Minor Changes
+
+- Add `kebabCase` for converting strings to kebab-case.
+
 ## 0.3.1
 
 ### Patch Changes

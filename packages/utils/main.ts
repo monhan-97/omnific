@@ -20,6 +20,7 @@ export { isArrayBuffer } from './isArrayBuffer';
 export { isURLSearchParameters } from './isURLSearchParameters';
 export { parseJson } from './parseJson';
 export { get } from './get';
+export { kebabCase } from './kebabCase';
 export { isSymbol } from './isSymbol';
 export { throttle } from './throttle';
 export { resolveValue } from './resolveValue';
