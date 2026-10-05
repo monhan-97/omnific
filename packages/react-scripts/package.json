@@ -1,6 +1,6 @@
 {
   "name": "@omnific/react-scripts",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "React app scripts based on Rspack",
   "license": "MIT",
   "type": "module",

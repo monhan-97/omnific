@@ -1,5 +1,12 @@
 # @omnific/react-scripts
 
+## 0.5.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @omnific/utils@0.4.0
+
 ## 0.5.0
 
 ### Minor Changes
