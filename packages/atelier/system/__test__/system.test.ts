@@ -1,49 +1,68 @@
 /**
  * @vitest-environment jsdom
  */
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import { describe, expect, expectTypeOf, it } from 'vitest';
 
 import {
   applyCssVars,
   createSystem,
   defaultColors,
+  defaultSystem,
   defineColors,
+  flattenColors,
   mergeColors,
 } from '../index';
+import type { DefaultColorKey } from '../index';
 
 describe('createSystem', () => {
-  it('merges color sets with later colors winning', () => {
+  it('merges nested color sets with later colors winning', () => {
     const system = createSystem(
       'merge',
       defineColors({
-        bg: { value: '#fff' },
-        'accent-solid': { value: '#111' },
+        bg: {
+          base: '#fff',
+          muted: '#f4f4f5',
+        },
+        accent: {
+          solid: '#111',
+        },
       }),
       defineColors({
-        'accent-solid': { value: '#2563eb' },
-        'bg-muted': { value: '#f4f4f5' },
+        accent: {
+          solid: '#2563eb',
+        },
       }),
     );
 
     expect(system.name).toBe('merge');
     expect(system.colors).toEqual({
-      bg: { value: '#fff' },
-      'accent-solid': { value: '#2563eb' },
-      'bg-muted': { value: '#f4f4f5' },
+      bg: '#fff',
+      'bg-muted': '#f4f4f5',
+      'accent-solid': '#2563eb',
     });
     expect(system.cssVars['--color-bg']).toBe('#fff');
-    expect(system.cssVars['--color-accent-solid']).toBe('#2563eb');
     expect(system.cssVars['--color-bg-muted']).toBe('#f4f4f5');
+    expect(system.cssVars['--color-accent-solid']).toBe('#2563eb');
   });
 
   it('uses colors as the first argument with later colors winning', () => {
     const system = createSystem(
       defineColors({
-        bg: { value: '#fff' },
-        fg: { value: '#111' },
+        bg: {
+          base: '#fff',
+        },
+        fg: {
+          base: '#111',
+        },
       }),
       defineColors({
-        bg: { value: '#000' },
+        bg: {
+          base: '#000',
+        },
       }),
     );
 
@@ -53,9 +72,7 @@ describe('createSystem', () => {
   });
 
   it('only exposes color css vars from defaultColors', () => {
-    const system = createSystem('default-check', defaultColors);
-
-    const { cssVars } = system;
+    const { cssVars } = createSystem('default-check', defaultColors);
 
     expect(cssVars['--color-bg']).toBe('#ffffff');
     expect(cssVars['--color-fg']).toBe('rgb(0 0 0 / 88%)');
@@ -87,20 +104,37 @@ describe('createSystem', () => {
     expect(system).not.toHaveProperty('sva');
     expect(system).not.toHaveProperty('$$atelier');
     expect(system.name).toBe('api-check');
-    expect(system.colors).toEqual(defaultColors);
+    expect(system.colors).toEqual(flattenColors(defaultColors));
   });
 
-  it('infers color keys from defaultColors', () => {
-    expectTypeOf<'bg-muted'>().toMatchTypeOf<keyof typeof defaultColors>();
-    expectTypeOf<'accent-solid'>().toMatchTypeOf<keyof typeof defaultColors>();
+  it('keeps generated color keys in sync with defaultSystem', () => {
+    const currentDir = path.dirname(fileURLToPath(import.meta.url));
+    const generatedPath = path.resolve(currentDir, '../defaults/color-keys.gen.ts');
+    const generated = readFileSync(generatedPath, 'utf8');
+    const colorKeys = Object.keys(defaultSystem.colors);
+
+    for (const key of colorKeys) {
+      expect(generated).toContain(`| '${key}'`);
+    }
+  });
+
+  it('infers color keys from generated defaultColorKeys', () => {
+    expectTypeOf<'bg-muted'>().toMatchTypeOf<DefaultColorKey>();
+    expectTypeOf<'accent-solid'>().toMatchTypeOf<DefaultColorKey>();
   });
 });
 
 describe('mergeColors', () => {
   it('returns flat colors and color css vars', () => {
-    expect(mergeColors({ bg: { value: '#abcdef' } })).toEqual({
+    expect(
+      mergeColors({
+        bg: {
+          base: '#abcdef',
+        },
+      }),
+    ).toEqual({
       colors: {
-        bg: { value: '#abcdef' },
+        bg: '#abcdef',
       },
       cssVars: {
         '--color-bg': '#abcdef',
@@ -114,8 +148,12 @@ describe('applyCssVars', () => {
     const system = createSystem(
       'shared',
       defineColors({
-        bg: { value: '#abcdef' },
-        fg: { value: '#123456' },
+        bg: {
+          base: '#abcdef',
+        },
+        fg: {
+          base: '#123456',
+        },
       }),
     );
 
@@ -149,7 +187,9 @@ describe('applyCssVars', () => {
     const system = createSystem(
       'multi-host',
       defineColors({
-        bg: { value: '#112233' },
+        bg: {
+          base: '#112233',
+        },
       }),
     );
     const hostA = document.createElement('div');
@@ -181,13 +221,17 @@ describe('applyCssVars', () => {
     const rootSystem = createSystem(
       'root-theme',
       defineColors({
-        bg: { value: '#112233' },
+        bg: {
+          base: '#112233',
+        },
       }),
     );
     const localSystem = createSystem(
       'local-theme',
       defineColors({
-        bg: { value: '#445566' },
+        bg: {
+          base: '#445566',
+        },
       }),
     );
     const host = document.createElement('div');
@@ -201,7 +245,7 @@ describe('applyCssVars', () => {
     expect(host.dataset.atelierTheme).toBe('local-theme');
     expect(host.getAttribute('style')).toBeNull();
     expect(
-      [...document.querySelectorAll('style[data-atelier-css-vars]')].some((node) =>
+      [...document.querySelectorAll('style[data-atelier-css-vars]')].some(node =>
         node.textContent?.includes('[data-atelier-theme="local-theme"]'),
       ),
     ).toBe(true);

@@ -1,22 +1,35 @@
 import { isNil } from '@omnific/utils';
 
 import { toColorVarName } from './css-vars';
-import type { ColorSet } from './types';
+import { flattenColors } from './flatten-colors';
+import type { ColorSet, FlatColorSet } from './types';
 
 /**
- * 按传入顺序浅合并扁平颜色表，后写入覆盖同名键，并生成颜色 CSS 变量。
+ * 展开并合并嵌套颜色表，输出扁平颜色和 CSS 变量。
+ *
+ * 后传入的颜色覆盖前面同名 key。
  */
 export const mergeColors = (...colorSets: ColorSet[]) => {
-  const colors: ColorSet = {};
+  const colors: FlatColorSet = {};
+
+  for (const colorSet of colorSets) {
+    if (isNil(colorSet)) continue;
+
+    Object.assign(colors, flattenColors(colorSet));
+  }
+
+  const colorKeys = Object.keys(colors);
+
   const cssVars: Record<string, string> = {};
 
-  for (const next of colorSets) {
-    for (const [key, node] of Object.entries(next)) {
-      if (isNil(node)) continue;
+  for (const key of colorKeys) {
+    if (isNil(key)) continue;
 
-      colors[key] = node;
-      cssVars[toColorVarName(key)] = node.value;
-    }
+    const value = colors[key];
+
+    if (isNil(value)) continue;
+
+    cssVars[toColorVarName(key)] = value;
   }
 
   return {

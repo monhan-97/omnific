@@ -8,7 +8,6 @@ $prefix-cls: component-prefixes(button);
   justify-content: center;
   height: var(--control-height-md);
   padding: 0 15px;
-  line-height: 1.5715;
   white-space: nowrap;
 
   // 用 margin 而非 gap，便于 LoadingIcon 退出时把间距一并收掉

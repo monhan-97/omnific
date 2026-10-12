@@ -14,6 +14,7 @@ export const Button = (props: ButtonProps) => {
     block = false,
     children,
     className,
+    color = 'default',
     disabled,
     icon,
     loading = false,
@@ -22,7 +23,7 @@ export const Button = (props: ButtonProps) => {
     shape = 'default',
     size = 'default',
     type = 'button',
-    variant = 'secondary',
+    variant = 'outlined',
     ...rest
   } = props;
 
@@ -32,7 +33,7 @@ export const Button = (props: ButtonProps) => {
 
   const classes = clsx(
     buttonPrefixCls,
-    `${buttonPrefixCls}-${variant}`,
+    `${buttonPrefixCls}-variant-${variant}`,
     `${buttonPrefixCls}-size-${size}`,
     {
       [`${buttonPrefixCls}-shape-${shape}`]: shape !== 'default',
@@ -59,6 +60,7 @@ export const Button = (props: ButtonProps) => {
       {...rest}
       aria-busy={loading || undefined}
       className={classes}
+      data-color={color}
       disabled={disabled}
       onClick={handleClick}
       ref={ref}

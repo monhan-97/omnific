@@ -18,7 +18,7 @@ describe('useTheme', () => {
     const system = createSystem(
       'root-probe',
       defineColors({
-        bg: { value: '#ffffff' },
+        bg: { base: '#ffffff' },
       }),
     );
 
@@ -43,7 +43,7 @@ describe('useTheme', () => {
     const system = createSystem(
       'scoped-probe',
       defineColors({
-        bg: { value: '#111111' },
+        bg: { base: '#111111' },
       }),
     );
 

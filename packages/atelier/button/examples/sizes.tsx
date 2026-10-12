@@ -5,8 +5,14 @@ import { Button } from '@omnific/atelier';
  */
 export const ButtonSizesExample = () => (
   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-    <Button size='small' variant='primary'>小号按钮</Button>
-    <Button size='default' variant='primary'>默认按钮</Button>
-    <Button size='large' variant='primary'>大号按钮</Button>
+    <Button color='primary' size='small' variant='solid'>
+      小号按钮
+    </Button>
+    <Button color='primary' size='default' variant='solid'>
+      默认按钮
+    </Button>
+    <Button color='primary' size='large' variant='solid'>
+      大号按钮
+    </Button>
   </div>
 );

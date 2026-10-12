@@ -13,16 +13,24 @@ const darkSystem = createSystem(
   'dark',
   defaultColors,
   defineColors({
-    bg: { value: '#18181b' },
-    'bg-muted': { value: '#27272a' },
-    'bg-panel': { value: '#18181b' },
-    fg: { value: '#fafafa' },
-    'fg-muted': { value: '#a1a1aa' },
-    border: { value: '#3f3f46' },
-    'accent-solid': { value: '#3b82f6' },
-    'accent-hover': { value: '#60a5fa' },
-    'accent-active': { value: '#2563eb' },
-    'accent-contrast': { value: '#ffffff' },
+    bg: {
+      base: '#18181b',
+      muted: '#27272a',
+      panel: '#18181b',
+    },
+    fg: {
+      base: '#fafafa',
+      muted: '#a1a1aa',
+    },
+    border: {
+      base: '#3f3f46',
+    },
+    accent: {
+      solid: '#3b82f6',
+      hover: '#60a5fa',
+      active: '#2563eb',
+      contrast: '#ffffff',
+    },
   }),
 );
 
@@ -30,16 +38,24 @@ const warmSystem = createSystem(
   'warm',
   defaultColors,
   defineColors({
-    bg: { value: '#fff7ed' },
-    'bg-muted': { value: '#ffedd5' },
-    'bg-panel': { value: '#fff7ed' },
-    fg: { value: '#7c2d12' },
-    'fg-muted': { value: '#9a3412' },
-    border: { value: '#fdba74' },
-    'accent-solid': { value: '#ea580c' },
-    'accent-hover': { value: '#f97316' },
-    'accent-active': { value: '#c2410c' },
-    'accent-contrast': { value: '#ffffff' },
+    bg: {
+      base: '#fff7ed',
+      muted: '#ffedd5',
+      panel: '#fff7ed',
+    },
+    fg: {
+      base: '#7c2d12',
+      muted: '#9a3412',
+    },
+    border: {
+      base: '#fdba74',
+    },
+    accent: {
+      solid: '#ea580c',
+      hover: '#f97316',
+      active: '#c2410c',
+      contrast: '#ffffff',
+    },
   }),
 );
 
@@ -50,16 +66,24 @@ const privateSystem = createSystem(
   'private',
   defaultColors,
   defineColors({
-    bg: { value: '#0f172a' },
-    'bg-muted': { value: '#1e293b' },
-    'bg-panel': { value: '#0f172a' },
-    fg: { value: '#e2e8f0' },
-    'fg-muted': { value: '#94a3b8' },
-    border: { value: '#334155' },
-    'accent-solid': { value: '#14b8a6' },
-    'accent-hover': { value: '#2dd4bf' },
-    'accent-active': { value: '#0f766e' },
-    'accent-contrast': { value: '#042f2e' },
+    bg: {
+      base: '#0f172a',
+      muted: '#1e293b',
+      panel: '#0f172a',
+    },
+    fg: {
+      base: '#e2e8f0',
+      muted: '#94a3b8',
+    },
+    border: {
+      base: '#334155',
+    },
+    accent: {
+      solid: '#14b8a6',
+      hover: '#2dd4bf',
+      active: '#0f766e',
+      contrast: '#042f2e',
+    },
   }),
 );
 
@@ -89,10 +113,11 @@ export const SystemSwitchThemeExample = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-        {GLOBAL_THEME_NAMES.map((name) => (
+        {GLOBAL_THEME_NAMES.map(name => (
           <Button
             key={name}
-            variant={globalTheme === name ? 'primary' : 'secondary'}
+            color={globalTheme === name ? 'primary' : 'default'}
+            variant={globalTheme === name ? 'solid' : 'outlined'}
             onClick={() => {
               setGlobalTheme(name);
             }}
@@ -116,18 +141,20 @@ export const SystemSwitchThemeExample = () => {
           <div style={{ marginBottom: 12, fontSize: 13, color: 'var(--color-fg-muted)' }}>
             当前：{GLOBAL_THEME_LABELS[globalTheme]}。未挂 ref，写入 documentElement。
           </div>
-          <Button variant='primary'>Primary</Button>
+          <Button color='primary' variant='solid'>
+            Primary
+          </Button>
         </Box>
 
         <div ref={privateThemeRef} style={{ color: 'var(--color-fg)', minWidth: 220 }}>
           <Box bg='bg-muted' border p='4' radius='md'>
-            <div style={{ marginBottom: 8, fontSize: 14, fontWeight: 600 }}>
-              私有主题（容器）
-            </div>
+            <div style={{ marginBottom: 8, fontSize: 14, fontWeight: 600 }}>私有主题（容器）</div>
             <div style={{ marginBottom: 12, fontSize: 13, color: 'var(--color-fg-muted)' }}>
               独立 `system` + ref；切换全局时保持不变。
             </div>
-            <Button variant='primary'>Primary</Button>
+            <Button color='primary' variant='solid'>
+              Primary
+            </Button>
           </Box>
         </div>
       </div>

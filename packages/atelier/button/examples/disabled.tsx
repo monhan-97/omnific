@@ -5,8 +5,10 @@ import { Button } from '@omnific/atelier';
  */
 export const ButtonDisabledExample = () => (
   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-    <Button variant='primary'>可提交</Button>
-    <Button disabled variant='primary'>
+    <Button color='primary' variant='solid'>
+      可提交
+    </Button>
+    <Button color='primary' disabled variant='solid'>
       无法提交
     </Button>
   </div>

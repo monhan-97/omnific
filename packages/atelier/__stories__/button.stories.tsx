@@ -5,6 +5,7 @@ import { Button } from '@omnific/atelier';
 import {
   ButtonBasicExample,
   ButtonBlockExample,
+  ButtonColorsExample,
   ButtonDangerExample,
   ButtonDisabledExample,
   ButtonIconExample,
@@ -35,12 +36,11 @@ export const Basic: ButtonStory = {
   name: '基础按钮',
   args: {
     children: '确认',
-    variant: 'primary',
   },
   parameters: {
     docs: {
       description: {
-        story: '展示 Button 的默认用法。',
+        story: '展示 Button 默认的 default + outlined 用法。',
       },
     },
   },
@@ -52,7 +52,8 @@ export const Block: ButtonStory = {
   args: {
     block: true,
     children: '继续',
-    variant: 'primary',
+    color: 'primary',
+    variant: 'solid',
   },
   parameters: {
     docs: {
@@ -64,19 +65,34 @@ export const Block: ButtonStory = {
   render: ButtonBlockExample,
 };
 
+export const Colors: ButtonStory = {
+  name: '颜色角色',
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'default 使用 outlined，primary 和 danger 使用 solid，与旧 Button 的默认、主按钮和危险按钮视觉对应。',
+      },
+    },
+  },
+  render: ButtonColorsExample,
+};
+
 export const Danger: ButtonStory = {
   name: '危险按钮',
   args: {
     children: '删除',
-    variant: 'danger',
+    color: 'danger',
+    variant: 'solid',
   },
   parameters: {
     coverageNotes: [
-      'danger 是独立 variant，不再与 dashed 叠加；Variants 矩阵已包含该取值，这里只展示单独使用场景。',
+      'danger 现在是独立 color，不再与 variant 叠加；Colors 矩阵已包含该取值，这里只展示单独使用场景。',
     ],
     docs: {
       description: {
-        story: '展示 Button 的 danger 变体。',
+        story: '展示 danger 颜色角色。',
       },
     },
   },
@@ -100,7 +116,8 @@ export const Icon: ButtonStory = {
   name: '带图标按钮',
   args: {
     children: '查看详情',
-    variant: 'primary',
+    color: 'primary',
+    variant: 'solid',
   },
   parameters: {
     docs: {
@@ -115,7 +132,8 @@ export const Icon: ButtonStory = {
 export const IconOnly: ButtonStory = {
   name: '纯图标按钮',
   args: {
-    variant: 'primary',
+    color: 'primary',
+    variant: 'solid',
   },
   parameters: {
     docs: {
@@ -170,12 +188,12 @@ export const Sizes: ButtonStory = {
 };
 
 export const Variants: ButtonStory = {
-  name: '视觉变体矩阵',
+  name: '视觉组合矩阵',
   parameters: {
     controls: { disable: true },
     docs: {
       description: {
-        story: '展示 Button 的 primary、secondary、dashed、outline 和 danger 变体。',
+        story: '展示旧 Button 五种视觉组合在 color / variant API 下的映射。',
       },
     },
   },

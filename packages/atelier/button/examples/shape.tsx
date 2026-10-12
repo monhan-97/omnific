@@ -7,8 +7,18 @@ import { Button } from '@omnific/atelier';
  */
 export const ButtonShapeExample = () => (
   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-    <Button variant='primary'>默认按钮</Button>
-    <Button aria-label='圆形按钮' icon={<EyeIcon />} shape='circle' variant='primary' />
-    <Button shape='round' variant='primary'>圆角按钮</Button>
+    <Button color='primary' variant='solid'>
+      默认按钮
+    </Button>
+    <Button
+      aria-label='圆形按钮'
+      color='primary'
+      icon={<EyeIcon />}
+      shape='circle'
+      variant='solid'
+    />
+    <Button color='primary' shape='round' variant='solid'>
+      圆角按钮
+    </Button>
   </div>
 );

@@ -1,27 +1,30 @@
 import { useState } from 'react';
 
 import { Box, Button } from '@omnific/atelier';
-import {
-  createSystem,
-  defaultColors,
-  defineColors,
-  useTheme,
-} from '@omnific/atelier/system';
+import { createSystem, defaultColors, defineColors, useTheme } from '@omnific/atelier/system';
 
 const sharedSystem = createSystem(
   'shared-panel',
   defaultColors,
   defineColors({
-    bg: { value: '#1e1b4b' },
-    'bg-muted': { value: '#312e81' },
-    'bg-panel': { value: '#1e1b4b' },
-    fg: { value: '#e0e7ff' },
-    'fg-muted': { value: '#a5b4fc' },
-    border: { value: '#4338ca' },
-    'accent-solid': { value: '#818cf8' },
-    'accent-hover': { value: '#a5b4fc' },
-    'accent-active': { value: '#6366f1' },
-    'accent-contrast': { value: '#1e1b4b' },
+    bg: {
+      base: '#1e1b4b',
+      muted: '#312e81',
+      panel: '#1e1b4b',
+    },
+    fg: {
+      base: '#e0e7ff',
+      muted: '#a5b4fc',
+    },
+    border: {
+      base: '#4338ca',
+    },
+    accent: {
+      solid: '#818cf8',
+      hover: '#a5b4fc',
+      active: '#6366f1',
+      contrast: '#1e1b4b',
+    },
   }),
 );
 
@@ -46,7 +49,9 @@ const SharedPanel = (props: SharedPanelProps) => {
         <div style={{ marginBottom: 12, fontSize: 13, color: 'var(--color-fg-muted)' }}>
           name: {sharedSystem.name}
         </div>
-        <Button variant='primary'>Primary</Button>
+        <Button color='primary' variant='solid'>
+          Primary
+        </Button>
       </Box>
     </div>
   );
@@ -62,9 +67,10 @@ export const SystemSharedThemeExample = () => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
         <Button
-          variant={showThird ? 'secondary' : 'primary'}
+          color={showThird ? 'default' : 'primary'}
+          variant={showThird ? 'outlined' : 'solid'}
           onClick={() => {
-            setShowThird((prev) => !prev);
+            setShowThird(prev => !prev);
           }}
         >
           {showThird ? '卸载面板 C' : '挂载面板 C'}

@@ -1,0 +1,43 @@
+@mixin color-role($token) {
+  --color-role-contrast: var(--color-#{$token}-contrast);
+  --color-role-fg: var(--color-#{$token}-fg);
+  --color-role-bg: transparent;
+  --color-role-subtle: var(--color-#{$token}-subtle);
+  --color-role-muted: var(--color-#{$token}-muted);
+  --color-role-emphasized: var(--color-#{$token}-emphasized);
+  --color-role-solid: var(--color-#{$token}-solid);
+  --color-role-solid-hover: var(--color-#{$token}-hover);
+  --color-role-solid-active: var(--color-#{$token}-active);
+  --color-role-hover: var(--color-#{$token}-hover);
+  --color-role-active: var(--color-#{$token}-active);
+  --color-role-focus-ring: var(--color-#{$token}-focus-ring);
+  --color-role-border: var(--color-#{$token}-border);
+}
+
+@mixin default-color-role {
+  --color-role-contrast: var(--color-fg);
+  --color-role-fg: var(--color-fg);
+  --color-role-bg: var(--color-bg);
+  --color-role-subtle: var(--color-bg-muted);
+  --color-role-muted: var(--color-bg-emphasized);
+  --color-role-emphasized: var(--color-border-emphasized);
+  --color-role-solid: var(--color-bg-muted);
+  --color-role-solid-hover: var(--color-bg-emphasized);
+  --color-role-solid-active: var(--color-border-emphasized);
+  --color-role-hover: var(--color-accent-hover);
+  --color-role-active: var(--color-accent-active);
+  --color-role-focus-ring: var(--color-accent-focus-ring);
+  --color-role-border: var(--color-border);
+}
+
+:where([data-color='default']) {
+  @include default-color-role;
+}
+
+:where([data-color='primary']) {
+  @include color-role(accent);
+}
+
+:where([data-color='danger']) {
+  @include color-role(danger);
+}

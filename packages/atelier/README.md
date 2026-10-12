@@ -11,12 +11,16 @@ const system = createSystem('app', defaultColors);
 
 function App() {
   useTheme(system); // injects CSS variables onto :root
-  return <Button variant='primary'>Continue</Button>;
+  return (
+    <Button color='primary' variant='solid'>
+      Continue
+    </Button>
+  );
 }
 ```
 
 Color values come from `createSystem` and are injected at runtime by `useTheme`.
-Spacing, radii, fonts, control heights, shadows and component styles ship via `@omnific/atelier/styles.css`.
+Spacing, radii, fonts, control heights, shadows, body defaults, border-box sizing and component styles ship via `@omnific/atelier/styles.css`.
 
 ## Storybook
 

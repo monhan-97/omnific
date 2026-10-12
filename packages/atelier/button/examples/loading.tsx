@@ -19,17 +19,17 @@ export const ButtonLoadingExample = () => {
 
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Button loading variant='primary'>
+      <Button color='primary' loading variant='solid'>
         提交中
       </Button>
 
-      <Button aria-label='加载中' icon={<EyeIcon />} loading variant='primary' />
+      <Button aria-label='加载中' color='primary' icon={<EyeIcon />} loading variant='solid' />
 
-      <Button loading={loading} variant='primary'>
+      <Button color='primary' loading={loading} variant='solid'>
         提交
       </Button>
 
-      <Button variant='secondary' onClick={toggleLoading}>
+      <Button color='default' onClick={toggleLoading} variant='outlined'>
         {loading ? '停止加载' : '开始加载'}
       </Button>
     </div>

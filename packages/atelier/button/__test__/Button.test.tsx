@@ -3,15 +3,16 @@
 import '@testing-library/jest-dom/vitest';
 
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, expectTypeOf, it, vi } from 'vitest';
 
 import { buttonPrefixCls } from '../constants';
 import { Button } from '../Button';
+import type { ButtonProps } from '../types';
 
 afterEach(cleanup);
 
 describe('Button', () => {
-  it('renders a native button with type and disabled', () => {
+  it('renders a native button with default color and variant', () => {
     render(
       <Button disabled type='submit'>
         Save
@@ -22,7 +23,8 @@ describe('Button', () => {
 
     expect(button).toHaveAttribute('type', 'submit');
     expect(button).toBeDisabled();
-    expect(button).toHaveClass(buttonPrefixCls);
+    expect(button).toHaveClass(buttonPrefixCls, `${buttonPrefixCls}-variant-outlined`);
+    expect(button).toHaveAttribute('data-color', 'default');
   });
 
   it.each([
@@ -30,40 +32,45 @@ describe('Button', () => {
     ['default', `${buttonPrefixCls}-size-default`],
     ['large', `${buttonPrefixCls}-size-large`],
   ] as const)('applies the %s size class', (size, expectedClass) => {
-    render(
-      <Button size={size}>
-        Size
-      </Button>,
-    );
+    render(<Button size={size}>Size</Button>);
 
     expect(screen.getByRole('button', { name: 'Size' })).toHaveClass(expectedClass);
   });
 
   it.each([
-    ['primary', `${buttonPrefixCls}-primary`],
-    ['secondary', `${buttonPrefixCls}-secondary`],
-    ['dashed', `${buttonPrefixCls}-dashed`],
-    ['outline', `${buttonPrefixCls}-outline`],
-    ['danger', `${buttonPrefixCls}-danger`],
+    ['solid', `${buttonPrefixCls}-variant-solid`],
+    ['outlined', `${buttonPrefixCls}-variant-outlined`],
+    ['dashed', `${buttonPrefixCls}-variant-dashed`],
   ] as const)('applies the %s variant class', (variant, expectedClass) => {
+    render(<Button variant={variant}>Variant</Button>);
+
+    expect(screen.getByRole('button', { name: 'Variant' })).toHaveClass(expectedClass);
+  });
+
+  it.each(['default', 'primary', 'danger'] as const)('applies the %s color role', color => {
+    render(<Button color={color}>Color</Button>);
+
+    expect(screen.getByRole('button', { name: 'Color' })).toHaveAttribute('data-color', color);
+  });
+
+  it('applies color and variant independently', () => {
     render(
-      <Button variant={variant}>
-        Variant
+      <Button color='danger' variant='solid'>
+        Delete
       </Button>,
     );
 
-    expect(screen.getByRole('button', { name: 'Variant' })).toHaveClass(expectedClass);
+    const button = screen.getByRole('button', { name: 'Delete' });
+
+    expect(button).toHaveAttribute('data-color', 'danger');
+    expect(button).toHaveClass(`${buttonPrefixCls}-variant-solid`);
   });
 
   it.each([
     ['circle', `${buttonPrefixCls}-shape-circle`],
     ['round', `${buttonPrefixCls}-shape-round`],
   ] as const)('applies the %s shape class', (shape, expectedClass) => {
-    render(
-      <Button shape={shape}>
-        Shape
-      </Button>,
-    );
+    render(<Button shape={shape}>Shape</Button>);
 
     expect(screen.getByRole('button', { name: 'Shape' })).toHaveClass(expectedClass);
   });
@@ -93,14 +100,17 @@ describe('Button', () => {
     expect(container.querySelector(`.${buttonPrefixCls}-loading-icon`)).toBeInTheDocument();
   });
 
-  it('keeps the variant class while disabled', () => {
+  it('keeps color and variant while disabled', () => {
     render(
-      <Button disabled variant='danger'>
+      <Button color='danger' disabled variant='solid'>
         Delete
       </Button>,
     );
 
-    expect(screen.getByRole('button', { name: 'Delete' })).toHaveClass(`${buttonPrefixCls}-danger`);
+    const button = screen.getByRole('button', { name: 'Delete' });
+
+    expect(button).toHaveAttribute('data-color', 'danger');
+    expect(button).toHaveClass(`${buttonPrefixCls}-variant-solid`);
   });
 
   it('marks icon-only without forcing shape-circle', () => {
@@ -110,5 +120,14 @@ describe('Button', () => {
 
     expect(button).toHaveClass(`${buttonPrefixCls}-icon-only`);
     expect(button).not.toHaveClass(`${buttonPrefixCls}-shape-circle`);
+  });
+
+  it('infers color and variant values from props', () => {
+    expectTypeOf<ButtonProps['color']>().toEqualTypeOf<
+      'default' | 'primary' | 'danger' | undefined
+    >();
+    expectTypeOf<ButtonProps['variant']>().toEqualTypeOf<
+      'solid' | 'outlined' | 'dashed' | undefined
+    >();
   });
 });

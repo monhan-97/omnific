@@ -1,5 +1,6 @@
 export { ButtonBasicExample } from './basic';
 export { ButtonBlockExample } from './block';
+export { ButtonColorsExample } from './colors';
 export { ButtonDangerExample } from './danger';
 export { ButtonDisabledExample } from './disabled';
 export { ButtonIconExample } from './icon';

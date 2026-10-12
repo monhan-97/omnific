@@ -1,37 +1,36 @@
 /**
- * 单个颜色值节点。
+ * 颜色叶子值。
  */
-export type ColorValue = {
-  /**
-   * CSS 颜色值。
-   */
-  value: string;
+export type ColorValue = string;
+
+/**
+ * 嵌套颜色配置。
+ *
+ * base 是保留键，表示当前分组自己的颜色。
+ */
+export type ColorSet = {
+  [key: string]: ColorValue | ColorSet;
 };
 
 /**
- * 扁平语义颜色表。
- *
- * 只约束值的结构，不枚举颜色键。
- * 具体颜色键由 `defineColors` 或 `defaultColors` 自动推导。
+ * 展开后的扁平颜色表。
  */
-export type ColorSet = Record<string, ColorValue>;
+export type FlatColorSet = Record<string, string>;
 
 /**
  * applyCssVars / useTheme 的参数契约。
- *
- * 不是 createSystem 的返回值类型来源；返回值仍由 createSystem 自动推导。
  */
 export type SystemContext = {
   /**
-   * 主题名称；同名 system 在注入时复用同一张 `<style>`。
+   * 主题名称。
    */
   name: string;
   /**
-   * 合并后的扁平颜色表。
+   * 展开后的扁平颜色表。
    */
-  colors: ColorSet;
+  colors: FlatColorSet;
   /**
-   * 已缓存的颜色 CSS 变量表。
+   * 扁平颜色 CSS 变量表。
    */
   cssVars: Readonly<Record<string, string>>;
 };

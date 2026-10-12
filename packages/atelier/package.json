@@ -59,9 +59,7 @@
     "README.md"
   ],
   "scripts": {
-    "dev": "pnpm --dir ../.. storybook",
-    "build": "tsdown -c tsdown.config.mjs && pnpm build:styles",
-    "build:styles": "sass --style=expanded --no-source-map styles/index.scss dist/styles.css",
+    "build": "tsx ../../scripts/build/atelier.ts",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
@@ -71,7 +69,7 @@
     "@omnific/types": "workspace:*",
     "@omnific/utils": "workspace:*",
     "clsx": "^2.1.1",
-    "motion": "^13.4.4"
+    "motion": "^14.1.0"
   },
   "peerDependencies": {
     "react": "^19.2.8",
@@ -82,7 +80,6 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0",
-    "sass-embedded": "^1.105.0"
+    "react-dom": "^19.3.0"
   }
 }

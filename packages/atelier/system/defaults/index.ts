@@ -1,2 +1,2 @@
-export { defaultColors, defaultColorKeys } from './colors';
-export type { DefaultColorKey } from './colors';
+export { defaultColors } from './colors';
+export type { DefaultColorKey } from './color-keys.gen';

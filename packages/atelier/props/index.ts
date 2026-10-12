@@ -52,7 +52,7 @@ import type { ShadowValue } from './shadow.props';
 import { widthValues } from './width.props';
 import type { WidthValue } from './width.props';
 
-import type { DefaultColorKey } from '../system/defaults/colors';
+import type { DefaultColorKey } from '../system/defaults';
 import { toColorVarName } from '../system/css-vars';
 import { getPrefixCls } from '../utils/getPrefixCls';
 

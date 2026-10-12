@@ -3,14 +3,19 @@ import type { CSSProperties, ComponentPropsWithRef, ReactNode } from 'react';
 import type { ComponentSize } from '../types';
 
 /**
+ * 按钮颜色角色。
+ */
+export type ButtonColor = 'default' | 'primary' | 'danger';
+
+/**
+ * 按钮形态。
+ */
+export type ButtonVariant = 'solid' | 'outlined' | 'dashed';
+
+/**
  * 按钮形状。
  */
 export type ButtonShape = 'default' | 'circle' | 'round';
-
-/**
- * 按钮视觉变体。危险操作用 `danger`，不再与其他变体叠加。
- */
-export type ButtonVariant = 'primary' | 'secondary' | 'dashed' | 'outline' | 'danger';
 
 /**
  * 按钮属性。
@@ -18,6 +23,12 @@ export type ButtonVariant = 'primary' | 'secondary' | 'dashed' | 'outline' | 'da
  * 使用 `interface` 扩展原生 button props，便于 Storybook Docgen 推断 Controls。
  */
 export interface ButtonProps extends ComponentPropsWithRef<'button'> {
+  /**
+   * 设置按钮颜色角色。
+   *
+   * 省略时使用 `default`。
+   */
+  color?: ButtonColor;
   /**
    * 将按钮宽度调整为父容器宽度。
    */
@@ -39,7 +50,7 @@ export interface ButtonProps extends ComponentPropsWithRef<'button'> {
    */
   size?: ComponentSize;
   /**
-   * 设置按钮视觉变体。
+   * 设置按钮形态。
    */
   variant?: ButtonVariant;
 }
