@@ -17,7 +17,7 @@ import { hasValue } from '@omnific/utils';
 
 import paths from './paths';
 import { detectPackage, resolvePackage, resolveRequiredPackage } from './utils/detect-package';
-import { alias, moduleFileExtensions } from './alias';
+import { getAlias, moduleFileExtensions } from './alias';
 import { getEnvironment, isDevelopment, isProduction } from './utils/environment';
 import { findEntryFile } from './utils/find-entry-file';
 
@@ -207,7 +207,7 @@ function createRspackConfig() {
       : undefined,
     resolve: {
       extensions: moduleFileExtensions,
-      alias: alias,
+      alias: getAlias(),
     },
     module: {
       rules: [

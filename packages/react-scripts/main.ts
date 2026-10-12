@@ -9,6 +9,17 @@ export type ConfigureRspack = (config: Configuration) => Configuration;
  * react-scripts 接受的用户配置。
  */
 export type ReactScriptsConfig = {
+  /**
+   * 应用源码目录。默认是 `src`。
+   */
+  src?: string;
+  /**
+   * 静态资源目录。默认是 `public`。
+   */
+  public?: string;
+  /**
+   * 用于自定义生成后 Rspack 配置的钩子函数。
+   */
   configureRspack?: ConfigureRspack;
 };
 

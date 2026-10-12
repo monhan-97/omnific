@@ -1,12 +1,12 @@
 import type { Configuration, Mode } from '@rspack/core';
-import { isFunction, isNil, isUndefined } from '@omnific/utils';
+import { hasValue, isFunction, isNil, isUndefined } from '@omnific/utils';
 import { merge } from 'rspack-merge';
 
 import { startBuild } from './scripts/build';
 import { startDevelopment } from './scripts/development';
 import { DEVELOPMENT, PRODUCTION } from './utils/environment';
 import { findEntryFile } from './utils/find-entry-file';
-import paths from './paths';
+import paths, { setPublicDirectory, setSourceDirectory } from './paths';
 import createRspackConfig from './rspack.config';
 import type { ConfigureRspack, ReactScriptsConfig } from './main';
 
@@ -96,6 +96,15 @@ export class Service {
 
   handleLoadedUserConfig(data: ReactScriptsConfig) {
     this.projectOptions = data;
+
+    if (hasValue(data.src)) {
+      setSourceDirectory(data.src);
+    }
+
+    if (hasValue(data.public)) {
+      setPublicDirectory(data.public);
+    }
+
     if (data.configureRspack) {
       this.webpackRawConfigFns.push(data.configureRspack);
     }

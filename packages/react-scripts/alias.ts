@@ -14,9 +14,11 @@ export const aliasSymbol = {
 };
 
 /**
-Rspack 别名与实际目录的映射。
-*/
-export const alias = {
-  [aliasSymbol.src]: paths.appSrc,
-  [aliasSymbol.root]: paths.appPath,
-} as Record<string, string>;
+ * 按当前 paths 生成 Rspack 别名映射。
+ */
+export function getAlias() {
+  return {
+    [aliasSymbol.src]: paths.appSrc,
+    [aliasSymbol.root]: paths.appPath,
+  } as Record<string, string>;
+}

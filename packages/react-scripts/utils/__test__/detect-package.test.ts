@@ -8,7 +8,8 @@ import { detectPackage, resolvePackage, resolveRequiredPackage } from '../detect
 
 const fixturePaths: string[] = [];
 
-function createPackageFixture(packageName: string) {
+function createPackageFixture() {
+  const packageName = 'fixture-package';
   const directoryPath = fs.mkdtempSync(path.join(os.tmpdir(), 'react-scripts-detect-package-'));
   const packageJsonPath = path.join(directoryPath, 'package.json');
   const packageDirectoryPath = path.join(directoryPath, 'node_modules', packageName);
@@ -34,7 +35,7 @@ afterEach(() => {
 
 describe('detectPackage', () => {
   it('resolves packages from a custom package.json context', () => {
-    const fixture = createPackageFixture('fixture-package');
+    const fixture = createPackageFixture();
 
     expect(detectPackage('fixture-package', { from: fixture.packageJsonPath })).toBe(true);
     expect(resolvePackage('fixture-package', { from: fixture.packageJsonPath })).toContain(
@@ -43,13 +44,13 @@ describe('detectPackage', () => {
   });
 
   it('returns false when a package cannot be resolved from the context', () => {
-    const fixture = createPackageFixture('fixture-package');
+    const fixture = createPackageFixture();
 
     expect(detectPackage('missing-package', { from: fixture.packageJsonPath })).toBe(false);
   });
 
   it('throws install guidance for required optional packages', () => {
-    const fixture = createPackageFixture('fixture-package');
+    const fixture = createPackageFixture();
 
     expect(() =>
       resolveRequiredPackage('missing-sass-package', {
