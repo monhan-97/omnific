@@ -21,6 +21,8 @@ export default defineConfig({
 });
 ```
 
+When `.gitignore` exists in `process.cwd()` and contains patterns, it is applied as ESLint global ignores; otherwise the built-in default ignore list is used.
+
 ## React projects
 
 React rules are published separately in `@omnific/eslint-config-react`, so non-React projects do not install React-specific plugins.

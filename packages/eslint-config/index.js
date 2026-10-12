@@ -1,7 +1,10 @@
+import { existsSync } from 'node:fs';
+import path from 'node:path';
+
 import js from '@eslint/js';
 import tsEslintPlugin from '@typescript-eslint/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores, includeIgnoreFile } from 'eslint/config';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import { createNodeResolver, flatConfigs as importXFlatConfigs } from 'eslint-plugin-import-x';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
@@ -11,25 +14,50 @@ const sourceFiles = ['**/*.{js,jsx,ts,tsx}'];
 
 const typeScriptFiles = ['**/*.{ts,tsx}'];
 
+const defaultIgnores = [
+  '.vscode/',
+  '.idea/',
+  '.git/',
+  '.yarn/',
+  '.next/',
+  '.husky/',
+  '.local/',
+  'tmp/',
+  'bin/',
+  'dist/',
+  'node_modules/',
+  '**/*.md',
+  '**/*.woff',
+  '**/*.ttf',
+];
+
+/**
+ * Prefer `.gitignore` in `process.cwd()`; fall back to defaults when missing or empty.
+ *
+ * @returns {import('eslint/config').ConfigObject}
+ */
+function createIgnoreConfig() {
+  const gitignorePath = path.join(process.cwd(), '.gitignore');
+
+  if (existsSync(gitignorePath)) {
+    /**
+      @type {import('eslint/config').ConfigObject}
+    */
+    const { ignores, name } = includeIgnoreFile(gitignorePath, { gitignoreResolution: true });
+
+    if (ignores?.length) {
+      // `extends` forbids `basePath`; keep converted patterns only
+      return globalIgnores(ignores, name);
+    }
+  }
+
+  return globalIgnores(defaultIgnores);
+}
+
+const ignoreConfig = createIgnoreConfig();
+
 const commonConfig = {
   files: sourceFiles,
-  ignores: [
-    '.vscode/',
-    '.idea/',
-    '.git/',
-    '.yarn/',
-    '.next/',
-    '.husky/',
-    '.local/',
-    'tmp/',
-    'bin/',
-    'build/',
-    'dist/',
-    'node_modules/',
-    '**/*.md',
-    '**/*.woff',
-    '**/*.ttf',
-  ],
   plugins: {
     unicorn: eslintPluginUnicorn,
   },
@@ -109,6 +137,7 @@ const commonConfig = {
     'import-x/no-rename-default': 'off',
     'preserve-caught-error': 'off',
     ...eslintPluginUnicorn.configs.recommended.rules,
+    'unicorn/no-asterisk-prefix-in-documentation-comments': 'off',
     'unicorn/no-null': 'off',
     'unicorn/better-regex': 'warn',
     'unicorn/no-array-reduce': 'warn',
@@ -131,6 +160,9 @@ const commonConfig = {
   },
 };
 
+/**
+ @type {import('eslint').Linter.Config[]}
+*/
 const typeScriptRecommendedConfigs = tsEslintPlugin.configs['flat/recommended'].map(config => ({
   ...config,
   files: typeScriptFiles,
@@ -167,7 +199,8 @@ const typeScriptConfig = {
   },
 };
 
-export default defineConfig([
+const config = defineConfig([
+  ignoreConfig,
   { ...js.configs.recommended, files: sourceFiles },
   importXFlatConfigs.warnings,
   importXFlatConfigs.errors,
@@ -177,3 +210,5 @@ export default defineConfig([
   typeScriptConfig,
   eslintConfigPrettier,
 ]);
+
+export default config;
