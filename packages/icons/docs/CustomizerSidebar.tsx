@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
-import { PanelLeftClose, RotateCw } from 'lucide-react';
 import { clsx } from 'clsx';
+
+import { PanelLeftClose, RotateCw } from '@omnific/icons';
 
 import type { IconCategory, IconCustomizerSettings } from './icon-gallery-model';
 

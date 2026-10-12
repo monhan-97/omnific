@@ -1,17 +1,14 @@
 import type { CSSProperties } from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Search, SlidersHorizontal, X } from 'lucide-react';
 import { clsx } from 'clsx';
+
+import { Search, SlidersHorizontal, X } from '@omnific/icons';
 
 import CustomizerSidebar from './CustomizerSidebar';
 import IconCell from './IconCell';
 import IconDetailsDrawer from './IconDetailsDrawer';
 import type { IconEntry } from './icon-entries';
-import type {
-  CopyStatus,
-  IconCustomizerSettings,
-  IconExampleKind,
-} from './icon-gallery-model';
+import type { CopyStatus, IconCustomizerSettings, IconExampleKind } from './icon-gallery-model';
 import {
   copyExampleToClipboard,
   createIconCategories,
@@ -152,7 +149,7 @@ export function IconGallery(props: IconGalleryProps) {
         onClose={() => setCustomizerOpen(false)}
         onReset={() => setCustomizer(defaultIconCustomizerSettings)}
         onSelectCategory={category => {
-          setSelectedCategory(currentCategory => currentCategory === category ? 'All' : category);
+          setSelectedCategory(currentCategory => (currentCategory === category ? 'All' : category));
           setSelectedIconName('');
         }}
         onUpdate={updateCustomizer}

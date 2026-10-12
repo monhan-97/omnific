@@ -39,7 +39,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
         with:
-          version: 11.20.0
+          version: 12.11.2
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -79,7 +79,7 @@ jobs:
         run: |
           rm -rf pages-artifact
           mkdir -p pages-artifact/atelier
-          cp -R packages/icons/docs/build/. pages-artifact/
+          cp -R packages/icons/build/. pages-artifact/
           cp -R packages/atelier/storybook-static/. pages-artifact/atelier/
 
       - name: Verify Pages artifact

@@ -1,3 +1,9 @@
+export { ChevronUp, type ChevronUpProps } from './ChevronUp';
 export { EyeIcon, type EyeIconProps } from './EyeIcon';
 export { EyeOffIcon, type EyeOffIconProps } from './EyeOffIcon';
 export { LoadingIcon, type LoadingIconProps } from './LoadingIcon';
+export { PanelLeftClose, type PanelLeftCloseProps } from './PanelLeftClose';
+export { RotateCw, type RotateCwProps } from './RotateCw';
+export { Search, type SearchProps } from './Search';
+export { SlidersHorizontal, type SlidersHorizontalProps } from './SlidersHorizontal';
+export { X, type XProps } from './X';

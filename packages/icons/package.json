@@ -27,6 +27,11 @@
       "import": "./dist/main.js",
       "default": "./dist/main.js"
     },
+    "./ChevronUp": {
+      "types": "./dist/ChevronUp.d.ts",
+      "import": "./dist/ChevronUp.js",
+      "default": "./dist/ChevronUp.js"
+    },
     "./EyeIcon": {
       "types": "./dist/EyeIcon.d.ts",
       "import": "./dist/EyeIcon.js",
@@ -41,6 +46,31 @@
       "types": "./dist/LoadingIcon.d.ts",
       "import": "./dist/LoadingIcon.js",
       "default": "./dist/LoadingIcon.js"
+    },
+    "./PanelLeftClose": {
+      "types": "./dist/PanelLeftClose.d.ts",
+      "import": "./dist/PanelLeftClose.js",
+      "default": "./dist/PanelLeftClose.js"
+    },
+    "./RotateCw": {
+      "types": "./dist/RotateCw.d.ts",
+      "import": "./dist/RotateCw.js",
+      "default": "./dist/RotateCw.js"
+    },
+    "./Search": {
+      "types": "./dist/Search.d.ts",
+      "import": "./dist/Search.js",
+      "default": "./dist/Search.js"
+    },
+    "./SlidersHorizontal": {
+      "types": "./dist/SlidersHorizontal.d.ts",
+      "import": "./dist/SlidersHorizontal.js",
+      "default": "./dist/SlidersHorizontal.js"
+    },
+    "./X": {
+      "types": "./dist/X.d.ts",
+      "import": "./dist/X.js",
+      "default": "./dist/X.js"
     }
   },
   "sideEffects": false,
@@ -52,12 +82,12 @@
     "build": "tsdown -c tsdown.config.mjs",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "docs:dev": "cd docs && react-scripts dev",
-    "docs:build": "cd docs && react-scripts build",
-    "docs:preview": "cd docs && react-scripts dev",
+    "docs:dev": "react-scripts dev",
+    "docs:build": "react-scripts build",
+    "docs:preview": "react-scripts dev",
     "docs:typecheck": "pnpm typecheck",
-    "docs:lint": "eslint docs/react-scripts.config.ts docs/src",
-    "docs:test": "vitest run --root ../.. packages/icons/docs/src"
+    "docs:lint": "eslint react-scripts.config.ts docs",
+    "docs:test": "vitest run --root ../.. packages/icons/docs"
   },
   "peerDependencies": {
     "react": "^19.0.0"
@@ -70,7 +100,6 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "19.3.0",
     "clsx": "2.1.1",
-    "lucide-react": "1.48.0",
     "react": "^19.3.0",
     "react-dom": "19.3.0"
   },

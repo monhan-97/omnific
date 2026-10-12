@@ -11,7 +11,7 @@ const iconExportMap: Record<string, unknown> = iconExports;
 describe('iconEntries', () => {
   it('stays synchronized with public runtime icon exports', () => {
     const exportedIconNames = Object.entries(iconExports)
-      .filter(([name, value]) => name.endsWith('Icon') && isFunction(value))
+      .filter(([, value]) => isFunction(value))
       .map(([name]) => name)
       .sort(compareNames);
 

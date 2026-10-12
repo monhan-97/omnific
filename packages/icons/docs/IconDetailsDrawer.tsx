@@ -1,7 +1,8 @@
 import type { KeyboardEvent as ReactKeyboardEvent, RefObject } from 'react';
 import { useEffect, useRef, useState } from 'react';
-import { ChevronUp, X } from 'lucide-react';
 import { clsx } from 'clsx';
+
+import { ChevronUp, X } from '@omnific/icons';
 
 import type { IconEntry } from './icon-entries';
 import type { CopyStatus, IconExampleKind } from './icon-gallery-model';

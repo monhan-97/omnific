@@ -2,7 +2,7 @@
 
 ## Purpose
 
-通过 GitHub Actions 对 `packages/icons/docs` 图标预览站与 Atelier Storybook 执行可重复的质量检查，并将通过检查的组合静态产物部署到 GitHub Pages。
+通过 GitHub Actions 对 `packages/icons` 图标预览站与 Atelier Storybook 执行可重复的质量检查，并将通过检查的组合静态产物部署到 GitHub Pages。
 
 ## Requirements
 
@@ -40,7 +40,7 @@
 
 ### Requirement: 组合多个静态文档产物
 
-Pages workflow MUST 将现有 `packages/icons/docs` 构建产物与由 stories 和 examples 编译生成的 `packages/atelier/storybook-static` 组装为单一 artifact，并 MUST 通过同一个 deploy job 发布。Atelier Storybook MUST 位于固定的 `atelier` 子目录并可通过 `/omnific/atelier/` 访问，图标预览站 MUST 保持独立入口和资源路径。
+Pages workflow MUST 将现有 `packages/icons` 预览站构建产物与由 stories 和 examples 编译生成的 `packages/atelier/storybook-static` 组装为单一 artifact，并 MUST 通过同一个 deploy job 发布。Atelier Storybook MUST 位于固定的 `atelier` 子目录并可通过 `/omnific/atelier/` 访问，图标预览站 MUST 保持独立入口和资源路径。
 
 #### Scenario: 组装完整 Pages artifact
 
@@ -54,7 +54,7 @@ Pages workflow MUST 将现有 `packages/icons/docs` 构建产物与由 stories �
 
 ### Requirement: React scripts artifact
 
-Pages workflow MUST 将 `packages/icons/docs/build` 作为组合 artifact 的根内容上传，不得单独覆盖已包含 Atelier Storybook 的 Pages 部署。
+Pages workflow MUST 将 `packages/icons/build` 作为组合 artifact 的根内容上传，不得单独覆盖已包含 Atelier Storybook 的 Pages 部署。
 
 #### Scenario: 上传 artifact
 

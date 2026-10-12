@@ -35,7 +35,7 @@ describe('IconGallery', () => {
     expect(screen.getByRole('main', { name: 'Icons' })).toBeInTheDocument();
     expect(screen.getByRole('region', { name: 'Customizer' })).toBeInTheDocument();
     expect(screen.getByRole('region', { name: 'Icon browser' })).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Search 3 icons…')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Search 9 icons…')).toBeInTheDocument();
   });
 
   it('uses accessible icon buttons and opens details on demand', async () => {
@@ -206,12 +206,13 @@ describe('IconGallery', () => {
     await user.click(screen.getByRole('button', { name: /^Status/ }));
 
     expect(screen.getByRole('button', { name: 'LoadingIcon' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'RotateCw' })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: 'EyeIcon' })).not.toBeInTheDocument();
-    expect(screen.getByLabelText('1 matching icons')).toBeInTheDocument();
+    expect(screen.getByLabelText('2 matching icons')).toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: /^Status/ }));
     expect(screen.getByRole('button', { name: 'EyeIcon' })).toBeInTheDocument();
-    expect(screen.getByLabelText('3 matching icons')).toBeInTheDocument();
+    expect(screen.getByLabelText('9 matching icons')).toBeInTheDocument();
   });
 
   it('opens and closes the mobile customizer controls', async () => {
