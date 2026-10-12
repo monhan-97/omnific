@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitest/config';
 
-export default defineConfig({
+const config = defineConfig({
   resolve: {
     alias: {
       '@omnific/hooks': new URL('packages/hooks/main.ts', import.meta.url).pathname,
@@ -17,3 +17,5 @@ export default defineConfig({
     passWithNoTests: true,
   },
 });
+
+export default config;

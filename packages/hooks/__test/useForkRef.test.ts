@@ -1,5 +1,3 @@
- 
- 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { setRef as setReference, useForkRef as useForkReference } from '../useForkRef';

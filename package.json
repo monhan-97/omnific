@@ -4,9 +4,6 @@
   "type": "module",
   "description": "",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "build": "pnpm run --filter=\"./packages/**/*\" build",
     "build:storybook": "pnpm --filter @omnific/atelier build && storybook build --output-dir packages/atelier/storybook-static",
@@ -29,23 +26,25 @@
     "@omnific/prettier-config": "workspace:*",
     "@omnific/tsconfig": "workspace:*",
     "@omnific/types": "workspace:*",
-    "@storybook/addon-a11y": "10.6.0",
-    "@storybook/react-vite": "10.6.0",
+    "@storybook/addon-a11y": "10.6.1",
+    "@storybook/react-vite": "10.6.1",
     "@testing-library/dom": "10.4.2",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
     "@testing-library/user-event": "14.6.7",
-    "@types/node": "^26.6.3",
+    "@types/node": "^26.6.5",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "eslint": "^10.11.0",
-    "jsdom": "30.1.1",
-    "prettier": "^3.9.9",
+    "jsdom": "30.1.2",
+    "prettier": "^3.9.10",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "storybook": "10.6.0",
-    "tsdown": "^0.23.0",
+    "sass-embedded": "^1.105.1",
+    "storybook": "10.6.1",
+    "tsdown": "^0.23.1",
+    "tsx": "^4.23.15",
     "typescript": "^6.0.3",
-    "vitest": "^5.0.2"
+    "vitest": "^5.0.4"
   }
 }
