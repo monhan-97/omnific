@@ -1,5 +1,13 @@
 # @omnific/eslint-config-react
 
+## 2.0.0
+
+### Major Changes
+
+- Replace `eslint-plugin-jsx-a11y` with `eslint-plugin-jsx-a11y-x` and raise `@eslint-react/eslint-plugin`.
+
+  Migration: rename custom rule overrides and settings from `jsx-a11y/*` / `jsx-a11y` to `jsx-a11y-x/*` / `jsx-a11y-x`.
+
 ## 1.0.6
 
 ### Patch Changes
