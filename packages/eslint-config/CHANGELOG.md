@@ -1,5 +1,11 @@
 # @omnific/eslint-config
 
+## 2.1.0
+
+### Minor Changes
+
+- Prefer generating global ignores from the project `.gitignore` when present, and refresh TypeScript ESLint, Unicorn, globals, and the ESLint peer range.
+
 ## 2.0.6
 
 ### Patch Changes
