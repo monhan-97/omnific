@@ -28,5 +28,7 @@ export const useForkRef = <T>(
         setRef(reference, instance);
       }
     };
+    // 依赖列表必须逐个展开 refs：ref 变化时要返回新的回调，React 才会先用 null 卸载旧 ref、再用新 ref 挂载实例。
+    // eslint-disable-next-line @eslint-react/exhaustive-deps
   }, references);
 };
