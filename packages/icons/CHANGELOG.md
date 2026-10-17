@@ -1,5 +1,11 @@
 # @omnific/icons
 
+## 0.1.2
+
+### Patch Changes
+
+- Republish so `@omnific/utils` resolves to a concrete version instead of the `workspace:*` protocol leaked by `npm publish`.
+
 ## 0.1.1
 
 ### Patch Changes
