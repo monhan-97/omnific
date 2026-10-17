@@ -89,13 +89,15 @@
     "docs:lint": "eslint react-scripts.config.ts docs",
     "docs:test": "vitest run --root ../.. packages/icons/docs"
   },
+  "dependencies": {
+    "@omnific/utils": "workspace:*"
+  },
   "peerDependencies": {
     "react": "^19.0.0"
   },
   "devDependencies": {
     "@omnific/react-scripts": "workspace:*",
     "@omnific/tsconfig": "workspace:*",
-    "@omnific/utils": "workspace:*",
     "@swc/helpers": "0.5.23",
     "@types/react": "^19.3.0",
     "@types/react-dom": "19.3.0",
