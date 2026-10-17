@@ -54,7 +54,7 @@
   "devDependencies": {
     "@omnific/tsconfig": "workspace:*",
     "@types/react": "^19.3.0",
-    "jotai": "^3.0.0",
+    "jotai": "^3.0.1",
     "react": "^19.3.0"
   }
 }
