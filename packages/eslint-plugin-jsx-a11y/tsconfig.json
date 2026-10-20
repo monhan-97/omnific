@@ -1,0 +1,5 @@
+{
+  "extends": "@omnific/tsconfig/node.json",
+  "include": ["./src", "./__test__"],
+  "exclude": ["./dist", "node_modules"]
+}

@@ -1,0 +1,7152 @@
+[
+  {
+    "autocomplete": "",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "on",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "on",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "on",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "on",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "on",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "on",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "on",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "on",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "on",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "on",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "on",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "off",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "off",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "off",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "off",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "off",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "off",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "off",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "off",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "off",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "off",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "off",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "none",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "none",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "none",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "none",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "none",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "none",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "none",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "none",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "none",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "none",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "none",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "false",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "false",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "false",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "false",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "false",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "false",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "false",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "false",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "false",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "false",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "false",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "true",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "true",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "true",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "true",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "true",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "true",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "true",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "true",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "true",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "true",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "true",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "disabled",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "disabled",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "disabled",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "disabled",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "disabled",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "disabled",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "disabled",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "disabled",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "disabled",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "disabled",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "disabled",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "enabled",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "enabled",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "enabled",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "enabled",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "enabled",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "enabled",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "enabled",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "enabled",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "enabled",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "enabled",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "enabled",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "undefined",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "undefined",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "undefined",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "undefined",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "undefined",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "undefined",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "undefined",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "undefined",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "undefined",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "undefined",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "undefined",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "null",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "null",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "null",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "null",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "null",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "null",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "null",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "null",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "null",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "null",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "null",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "xoff",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "xoff",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "xoff",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "xoff",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "xoff",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "xoff",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "xoff",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "xoff",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "xoff",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "xoff",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "xoff",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "xon",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "xon",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "xon",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "xon",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "xon",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "xon",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "xon",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "xon",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "xon",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "xon",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "xon",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-prefix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-prefix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-prefix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-prefix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-prefix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-prefix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-prefix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-prefix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-prefix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-prefix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-prefix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "given-name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "given-name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "given-name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "given-name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "given-name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "given-name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "given-name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "given-name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "given-name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "given-name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "given-name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "additional-name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "additional-name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "additional-name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "additional-name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "additional-name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "additional-name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "additional-name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "additional-name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "additional-name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "additional-name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "additional-name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "family-name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "family-name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "family-name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "family-name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "family-name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "family-name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "family-name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "family-name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "family-name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "family-name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "family-name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-suffix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-suffix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-suffix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-suffix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-suffix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-suffix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-suffix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-suffix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-suffix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-suffix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "honorific-suffix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "nickname",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "nickname",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "nickname",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "nickname",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "nickname",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "nickname",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "nickname",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "nickname",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "nickname",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "nickname",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "nickname",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "username",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "username",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "username",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "username",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "username",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "username",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "username",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "username",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "username",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "username",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "username",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "new-password",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "new-password",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "new-password",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "new-password",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "new-password",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "new-password",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "new-password",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "new-password",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "new-password",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "new-password",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "new-password",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "current-password",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "current-password",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "current-password",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "current-password",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "current-password",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "current-password",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "current-password",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "current-password",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "current-password",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "current-password",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "current-password",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization-title",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "organization-title",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization-title",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization-title",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization-title",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization-title",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization-title",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization-title",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization-title",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization-title",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization-title",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "organization",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "organization",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "street-address",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "street-address",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "street-address",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "street-address",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "street-address",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "street-address",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "street-address",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "street-address",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "street-address",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "street-address",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "street-address",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line1",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line1",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line1",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line1",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line1",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line1",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line1",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line1",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line1",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line1",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line1",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line2",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line2",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line2",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line2",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line2",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line2",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line2",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line2",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line2",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line2",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line2",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line3",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line3",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line3",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line3",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line3",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line3",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line3",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line3",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line3",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line3",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-line3",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level4",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level4",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level4",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level4",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level4",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level4",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level4",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level4",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level4",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level4",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level4",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level3",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level3",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level3",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level3",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level3",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level3",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level3",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level3",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level3",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level3",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level3",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level2",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level2",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level2",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level2",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level2",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level2",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level2",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level2",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level2",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level2",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level2",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level1",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level1",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level1",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level1",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level1",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level1",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level1",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level1",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level1",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level1",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "address-level1",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "country",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "country",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "country",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "country",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "country",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "country",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "country",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "country",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "country",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "country",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "country",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "country-name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "country-name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "country-name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "country-name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "country-name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "country-name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "country-name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "country-name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "country-name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "country-name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "country-name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "postal-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "postal-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "postal-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "postal-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "postal-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "postal-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "postal-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "postal-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "postal-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "postal-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "postal-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-given-name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-given-name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-given-name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-given-name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-given-name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-given-name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-given-name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-given-name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-given-name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-given-name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-given-name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-additional-name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-additional-name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-additional-name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-additional-name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-additional-name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-additional-name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-additional-name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-additional-name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-additional-name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-additional-name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-additional-name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-family-name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-family-name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-family-name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-family-name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-family-name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-family-name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-family-name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-family-name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-family-name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-family-name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-family-name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-number",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-number",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-number",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-number",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-number",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-number",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-number",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-number",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-number",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-number",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-number",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-month",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-month",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-month",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-month",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-month",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-month",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-month",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-month",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-month",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-month",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-month",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-year",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-year",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-year",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-year",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-year",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-year",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-year",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-year",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-year",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-year",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-exp-year",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-csc",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-csc",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-csc",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-csc",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-csc",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-csc",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-csc",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-csc",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-csc",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-csc",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-csc",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-type",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-type",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-type",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-type",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-type",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-type",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-type",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-type",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-type",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-type",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "cc-type",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-currency",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-currency",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-currency",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-currency",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-currency",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-currency",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-currency",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-currency",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-currency",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-currency",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-currency",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-amount",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-amount",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-amount",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-amount",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-amount",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-amount",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-amount",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-amount",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-amount",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-amount",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "transaction-amount",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "language",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "language",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "language",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "language",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "language",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "language",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "language",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "language",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "language",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "language",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "language",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "bday",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-day",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-day",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-day",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-day",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-day",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-day",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-day",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-day",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-day",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-day",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-day",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-month",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-month",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-month",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-month",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-month",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-month",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-month",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-month",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-month",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-month",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-month",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-year",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-year",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-year",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-year",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-year",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-year",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-year",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-year",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-year",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-year",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "bday-year",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "sex",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "sex",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "sex",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "sex",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "sex",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "sex",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "sex",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "sex",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "sex",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "sex",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "sex",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "url",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "url",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "url",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "url",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "url",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "url",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "url",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "url",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "url",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "url",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "url",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "photo",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "photo",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "photo",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "photo",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "photo",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "photo",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "photo",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "photo",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "photo",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "photo",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "photo",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "one-time-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "one-time-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "one-time-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "one-time-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "one-time-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "one-time-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "one-time-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "one-time-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "one-time-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "one-time-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "one-time-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "text",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "text",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "text",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "text",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "text",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "text",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "text",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "text",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "text",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "text",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "text",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "pronouns",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "pronouns",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "pronouns",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "pronouns",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "pronouns",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "pronouns",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "pronouns",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "pronouns",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "pronouns",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "pronouns",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "pronouns",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "gender",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "gender",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "gender",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "gender",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "gender",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "gender",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "gender",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "gender",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "gender",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "gender",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "gender",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "message",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "message",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "message",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "message",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "message",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "message",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "message",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "message",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "message",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "message",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "message",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "content",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "content",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "content",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "content",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "content",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "content",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "content",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "content",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "content",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "content",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "content",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "billing name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-country-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-country-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-country-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-country-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-country-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-country-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-country-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-country-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-country-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-country-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-country-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-national",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-national",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-national",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-national",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-national",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-national",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-national",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-national",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-national",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-national",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-national",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-area-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-area-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-area-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-area-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-area-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-area-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-area-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-area-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-area-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-area-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-area-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-prefix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-prefix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-prefix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-prefix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-prefix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-prefix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-prefix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-prefix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-prefix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-prefix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-prefix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-suffix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-suffix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-suffix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-suffix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-suffix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-suffix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-suffix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-suffix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-suffix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-suffix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-local-suffix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-extension",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-extension",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-extension",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-extension",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-extension",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-extension",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-extension",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-extension",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-extension",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-extension",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "home tel-extension",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home email",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "home email",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "home email",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "home email",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "home email",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "home email",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "home email",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "home email",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "home email",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "home email",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "home email",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home impp",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "home impp",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "home impp",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "home impp",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "home impp",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "home impp",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "home impp",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "home impp",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "home impp",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "home impp",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "home impp",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-country-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-country-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-country-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-country-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-country-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-country-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-country-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-country-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-country-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-country-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-country-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-national",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-national",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-national",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-national",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-national",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-national",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-national",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-national",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-national",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-national",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-national",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-area-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-area-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-area-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-area-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-area-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-area-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-area-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-area-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-area-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-area-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-area-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-prefix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-prefix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-prefix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-prefix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-prefix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-prefix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-prefix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-prefix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-prefix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-prefix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-prefix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-suffix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-suffix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-suffix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-suffix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-suffix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-suffix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-suffix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-suffix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-suffix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-suffix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-local-suffix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-extension",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-extension",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-extension",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-extension",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-extension",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-extension",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-extension",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-extension",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-extension",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-extension",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "work tel-extension",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "work email",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "work email",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "work email",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "work email",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "work email",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "work email",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "work email",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "work email",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "work email",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "work email",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "work email",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "work impp",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "work impp",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "work impp",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "work impp",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "work impp",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "work impp",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "work impp",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "work impp",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "work impp",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "work impp",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "work impp",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-country-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-country-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-country-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-country-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-country-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-country-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-country-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-country-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-country-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-country-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-country-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-national",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-national",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-national",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-national",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-national",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-national",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-national",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-national",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-national",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-national",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-national",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-area-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-area-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-area-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-area-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-area-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-area-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-area-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-area-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-area-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-area-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-area-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-prefix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-prefix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-prefix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-prefix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-prefix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-prefix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-prefix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-prefix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-prefix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-prefix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-prefix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-suffix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-suffix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-suffix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-suffix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-suffix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-suffix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-suffix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-suffix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-suffix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-suffix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-local-suffix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-extension",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-extension",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-extension",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-extension",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-extension",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-extension",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-extension",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-extension",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-extension",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-extension",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile tel-extension",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile email",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile email",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile email",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile email",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile email",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile email",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile email",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile email",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile email",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile email",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile email",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile impp",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile impp",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile impp",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile impp",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile impp",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile impp",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile impp",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile impp",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile impp",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile impp",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "mobile impp",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-country-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-country-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-country-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-country-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-country-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-country-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-country-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-country-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-country-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-country-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-country-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-national",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-national",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-national",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-national",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-national",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-national",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-national",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-national",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-national",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-national",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-national",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-area-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-area-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-area-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-area-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-area-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-area-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-area-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-area-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-area-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-area-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-area-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-prefix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-prefix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-prefix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-prefix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-prefix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-prefix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-prefix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-prefix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-prefix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-prefix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-prefix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-suffix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-suffix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-suffix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-suffix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-suffix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-suffix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-suffix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-suffix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-suffix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-suffix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-local-suffix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-extension",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-extension",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-extension",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-extension",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-extension",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-extension",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-extension",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-extension",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-extension",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-extension",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax tel-extension",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax email",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "fax email",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax email",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax email",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax email",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax email",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax email",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax email",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax email",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax email",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax email",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax impp",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "fax impp",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax impp",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax impp",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax impp",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax impp",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax impp",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax impp",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax impp",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax impp",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "fax impp",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-country-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-country-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-country-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-country-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-country-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-country-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-country-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-country-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-country-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-country-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-country-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-national",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-national",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-national",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-national",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-national",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-national",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-national",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-national",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-national",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-national",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-national",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-area-code",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-area-code",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-area-code",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-area-code",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-area-code",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-area-code",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-area-code",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-area-code",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-area-code",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-area-code",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-area-code",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-prefix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-prefix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-prefix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-prefix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-prefix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-prefix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-prefix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-prefix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-prefix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-prefix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-prefix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-suffix",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-suffix",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-suffix",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-suffix",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-suffix",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-suffix",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-suffix",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-suffix",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-suffix",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-suffix",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-local-suffix",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-extension",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-extension",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-extension",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-extension",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-extension",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-extension",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-extension",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-extension",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-extension",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-extension",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager tel-extension",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager email",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "pager email",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager email",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager email",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager email",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager email",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager email",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager email",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager email",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager email",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager email",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager impp",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "pager impp",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager impp",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager impp",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager impp",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager impp",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager impp",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager impp",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager impp",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager impp",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "pager impp",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-login name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "section-login name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-login name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-login name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-login name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-login name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-login name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-login name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-login name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-login name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-login name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-blue shipping street-address",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "section-blue shipping street-address",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-blue shipping street-address",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-blue shipping street-address",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-blue shipping street-address",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-blue shipping street-address",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-blue shipping street-address",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-blue shipping street-address",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-blue shipping street-address",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-blue shipping street-address",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-blue shipping street-address",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-somewhere shipping work email",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "section-somewhere shipping work email",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-somewhere shipping work email",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-somewhere shipping work email",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-somewhere shipping work email",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-somewhere shipping work email",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-somewhere shipping work email",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-somewhere shipping work email",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-somewhere shipping work email",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-somewhere shipping work email",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-somewhere shipping work email",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing family-name",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "billing family-name",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing family-name",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing family-name",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing family-name",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing family-name",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing family-name",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing family-name",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing family-name",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing family-name",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "billing family-name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "name webauthn",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "name webauthn",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "name webauthn",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "name webauthn",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "name webauthn",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "name webauthn",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "name webauthn",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "name webauthn",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "name webauthn",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "name webauthn",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "name webauthn",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "webauthn",
+    "inputType": null,
+    "valid": false
+  },
+  {
+    "autocomplete": "webauthn",
+    "inputType": "text",
+    "valid": false
+  },
+  {
+    "autocomplete": "webauthn",
+    "inputType": "email",
+    "valid": false
+  },
+  {
+    "autocomplete": "webauthn",
+    "inputType": "password",
+    "valid": false
+  },
+  {
+    "autocomplete": "webauthn",
+    "inputType": "search",
+    "valid": false
+  },
+  {
+    "autocomplete": "webauthn",
+    "inputType": "tel",
+    "valid": false
+  },
+  {
+    "autocomplete": "webauthn",
+    "inputType": "url",
+    "valid": false
+  },
+  {
+    "autocomplete": "webauthn",
+    "inputType": "number",
+    "valid": false
+  },
+  {
+    "autocomplete": "webauthn",
+    "inputType": "date",
+    "valid": false
+  },
+  {
+    "autocomplete": "webauthn",
+    "inputType": "month",
+    "valid": false
+  },
+  {
+    "autocomplete": "webauthn",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "foo",
+    "inputType": null,
+    "valid": false
+  },
+  {
+    "autocomplete": "foo",
+    "inputType": "text",
+    "valid": false
+  },
+  {
+    "autocomplete": "foo",
+    "inputType": "email",
+    "valid": false
+  },
+  {
+    "autocomplete": "foo",
+    "inputType": "password",
+    "valid": false
+  },
+  {
+    "autocomplete": "foo",
+    "inputType": "search",
+    "valid": false
+  },
+  {
+    "autocomplete": "foo",
+    "inputType": "tel",
+    "valid": false
+  },
+  {
+    "autocomplete": "foo",
+    "inputType": "url",
+    "valid": false
+  },
+  {
+    "autocomplete": "foo",
+    "inputType": "number",
+    "valid": false
+  },
+  {
+    "autocomplete": "foo",
+    "inputType": "date",
+    "valid": false
+  },
+  {
+    "autocomplete": "foo",
+    "inputType": "month",
+    "valid": false
+  },
+  {
+    "autocomplete": "foo",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "name invalid",
+    "inputType": null,
+    "valid": false
+  },
+  {
+    "autocomplete": "name invalid",
+    "inputType": "text",
+    "valid": false
+  },
+  {
+    "autocomplete": "name invalid",
+    "inputType": "email",
+    "valid": false
+  },
+  {
+    "autocomplete": "name invalid",
+    "inputType": "password",
+    "valid": false
+  },
+  {
+    "autocomplete": "name invalid",
+    "inputType": "search",
+    "valid": false
+  },
+  {
+    "autocomplete": "name invalid",
+    "inputType": "tel",
+    "valid": false
+  },
+  {
+    "autocomplete": "name invalid",
+    "inputType": "url",
+    "valid": false
+  },
+  {
+    "autocomplete": "name invalid",
+    "inputType": "number",
+    "valid": false
+  },
+  {
+    "autocomplete": "name invalid",
+    "inputType": "date",
+    "valid": false
+  },
+  {
+    "autocomplete": "name invalid",
+    "inputType": "month",
+    "valid": false
+  },
+  {
+    "autocomplete": "name invalid",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "invalid name",
+    "inputType": null,
+    "valid": false
+  },
+  {
+    "autocomplete": "invalid name",
+    "inputType": "text",
+    "valid": false
+  },
+  {
+    "autocomplete": "invalid name",
+    "inputType": "email",
+    "valid": false
+  },
+  {
+    "autocomplete": "invalid name",
+    "inputType": "password",
+    "valid": false
+  },
+  {
+    "autocomplete": "invalid name",
+    "inputType": "search",
+    "valid": false
+  },
+  {
+    "autocomplete": "invalid name",
+    "inputType": "tel",
+    "valid": false
+  },
+  {
+    "autocomplete": "invalid name",
+    "inputType": "url",
+    "valid": false
+  },
+  {
+    "autocomplete": "invalid name",
+    "inputType": "number",
+    "valid": false
+  },
+  {
+    "autocomplete": "invalid name",
+    "inputType": "date",
+    "valid": false
+  },
+  {
+    "autocomplete": "invalid name",
+    "inputType": "month",
+    "valid": false
+  },
+  {
+    "autocomplete": "invalid name",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home url",
+    "inputType": null,
+    "valid": false
+  },
+  {
+    "autocomplete": "home url",
+    "inputType": "text",
+    "valid": false
+  },
+  {
+    "autocomplete": "home url",
+    "inputType": "email",
+    "valid": false
+  },
+  {
+    "autocomplete": "home url",
+    "inputType": "password",
+    "valid": false
+  },
+  {
+    "autocomplete": "home url",
+    "inputType": "search",
+    "valid": false
+  },
+  {
+    "autocomplete": "home url",
+    "inputType": "tel",
+    "valid": false
+  },
+  {
+    "autocomplete": "home url",
+    "inputType": "url",
+    "valid": false
+  },
+  {
+    "autocomplete": "home url",
+    "inputType": "number",
+    "valid": false
+  },
+  {
+    "autocomplete": "home url",
+    "inputType": "date",
+    "valid": false
+  },
+  {
+    "autocomplete": "home url",
+    "inputType": "month",
+    "valid": false
+  },
+  {
+    "autocomplete": "home url",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-",
+    "inputType": null,
+    "valid": false
+  },
+  {
+    "autocomplete": "section-",
+    "inputType": "text",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-",
+    "inputType": "email",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-",
+    "inputType": "password",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-",
+    "inputType": "search",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-",
+    "inputType": "tel",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-",
+    "inputType": "url",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-",
+    "inputType": "number",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-",
+    "inputType": "date",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-",
+    "inputType": "month",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "section-x",
+    "inputType": null,
+    "valid": false
+  },
+  {
+    "autocomplete": "section-x",
+    "inputType": "text",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-x",
+    "inputType": "email",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-x",
+    "inputType": "password",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-x",
+    "inputType": "search",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-x",
+    "inputType": "tel",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-x",
+    "inputType": "url",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-x",
+    "inputType": "number",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-x",
+    "inputType": "date",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-x",
+    "inputType": "month",
+    "valid": false
+  },
+  {
+    "autocomplete": "section-x",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "  name  ",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "  name  ",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "  name  ",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "  name  ",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "  name  ",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "  name  ",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "  name  ",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "  name  ",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "  name  ",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "  name  ",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "  name  ",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "NAME",
+    "inputType": null,
+    "valid": true
+  },
+  {
+    "autocomplete": "NAME",
+    "inputType": "text",
+    "valid": true
+  },
+  {
+    "autocomplete": "NAME",
+    "inputType": "email",
+    "valid": true
+  },
+  {
+    "autocomplete": "NAME",
+    "inputType": "password",
+    "valid": true
+  },
+  {
+    "autocomplete": "NAME",
+    "inputType": "search",
+    "valid": true
+  },
+  {
+    "autocomplete": "NAME",
+    "inputType": "tel",
+    "valid": true
+  },
+  {
+    "autocomplete": "NAME",
+    "inputType": "url",
+    "valid": true
+  },
+  {
+    "autocomplete": "NAME",
+    "inputType": "number",
+    "valid": true
+  },
+  {
+    "autocomplete": "NAME",
+    "inputType": "date",
+    "valid": true
+  },
+  {
+    "autocomplete": "NAME",
+    "inputType": "month",
+    "valid": true
+  },
+  {
+    "autocomplete": "NAME",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "shipping",
+    "inputType": null,
+    "valid": false
+  },
+  {
+    "autocomplete": "shipping",
+    "inputType": "text",
+    "valid": false
+  },
+  {
+    "autocomplete": "shipping",
+    "inputType": "email",
+    "valid": false
+  },
+  {
+    "autocomplete": "shipping",
+    "inputType": "password",
+    "valid": false
+  },
+  {
+    "autocomplete": "shipping",
+    "inputType": "search",
+    "valid": false
+  },
+  {
+    "autocomplete": "shipping",
+    "inputType": "tel",
+    "valid": false
+  },
+  {
+    "autocomplete": "shipping",
+    "inputType": "url",
+    "valid": false
+  },
+  {
+    "autocomplete": "shipping",
+    "inputType": "number",
+    "valid": false
+  },
+  {
+    "autocomplete": "shipping",
+    "inputType": "date",
+    "valid": false
+  },
+  {
+    "autocomplete": "shipping",
+    "inputType": "month",
+    "valid": false
+  },
+  {
+    "autocomplete": "shipping",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "home",
+    "inputType": null,
+    "valid": false
+  },
+  {
+    "autocomplete": "home",
+    "inputType": "text",
+    "valid": false
+  },
+  {
+    "autocomplete": "home",
+    "inputType": "email",
+    "valid": false
+  },
+  {
+    "autocomplete": "home",
+    "inputType": "password",
+    "valid": false
+  },
+  {
+    "autocomplete": "home",
+    "inputType": "search",
+    "valid": false
+  },
+  {
+    "autocomplete": "home",
+    "inputType": "tel",
+    "valid": false
+  },
+  {
+    "autocomplete": "home",
+    "inputType": "url",
+    "valid": false
+  },
+  {
+    "autocomplete": "home",
+    "inputType": "number",
+    "valid": false
+  },
+  {
+    "autocomplete": "home",
+    "inputType": "date",
+    "valid": false
+  },
+  {
+    "autocomplete": "home",
+    "inputType": "month",
+    "valid": false
+  },
+  {
+    "autocomplete": "home",
+    "inputType": "hidden",
+    "valid": true
+  },
+  {
+    "autocomplete": "email email",
+    "inputType": null,
+    "valid": false
+  },
+  {
+    "autocomplete": "email email",
+    "inputType": "text",
+    "valid": false
+  },
+  {
+    "autocomplete": "email email",
+    "inputType": "email",
+    "valid": false
+  },
+  {
+    "autocomplete": "email email",
+    "inputType": "password",
+    "valid": false
+  },
+  {
+    "autocomplete": "email email",
+    "inputType": "search",
+    "valid": false
+  },
+  {
+    "autocomplete": "email email",
+    "inputType": "tel",
+    "valid": false
+  },
+  {
+    "autocomplete": "email email",
+    "inputType": "url",
+    "valid": false
+  },
+  {
+    "autocomplete": "email email",
+    "inputType": "number",
+    "valid": false
+  },
+  {
+    "autocomplete": "email email",
+    "inputType": "date",
+    "valid": false
+  },
+  {
+    "autocomplete": "email email",
+    "inputType": "month",
+    "valid": false
+  },
+  {
+    "autocomplete": "email email",
+    "inputType": "hidden",
+    "valid": true
+  }
+]
