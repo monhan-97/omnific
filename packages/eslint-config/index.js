@@ -137,6 +137,8 @@ const commonConfig = {
     'import-x/no-rename-default': 'off',
     'preserve-caught-error': 'off',
     ...eslintPluginUnicorn.configs.recommended.rules,
+    'unicorn/consistent-boolean-name': 'off',
+    'unicorn/single-line-block-comment-style': 'off',
     'unicorn/no-asterisk-prefix-in-documentation-comments': 'off',
     'unicorn/no-null': 'off',
     'unicorn/better-regex': 'warn',

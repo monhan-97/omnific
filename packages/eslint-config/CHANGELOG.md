@@ -5,6 +5,7 @@
 ### Minor Changes
 
 - Prefer generating global ignores from the project `.gitignore` when present, and refresh TypeScript ESLint, Unicorn, globals, and the ESLint peer range.
+- Disable `unicorn/consistent-boolean-name` and `unicorn/single-line-block-comment-style`.
 
 ## 2.0.6
 
