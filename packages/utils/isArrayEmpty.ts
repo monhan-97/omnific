@@ -8,5 +8,5 @@ import { isNil } from './isNil';
 export function isArrayEmpty<T>(
   value: readonly T[] | null | undefined,
 ): value is null | undefined | readonly [] {
-  return isNil(value) ? true : value.length === 0;
+  return isNil(value) || value.length === 0;
 }

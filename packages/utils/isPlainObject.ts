@@ -50,5 +50,5 @@ export function isPlainObject(value: unknown): value is Record<PropertyKey, any>
   const hasObjectPrototype =
     isNull(prototype) || prototype === Object.prototype || isNull(Object.getPrototypeOf(prototype));
 
-  return hasObjectPrototype ? Object.prototype.toString.call(value) === '[object Object]' : false;
+  return hasObjectPrototype && Object.prototype.toString.call(value) === '[object Object]';
 }
