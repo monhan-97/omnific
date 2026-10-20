@@ -2,9 +2,14 @@
 
 React ESLint flat config.
 
-## Breaking (2.0.0)
+## Breaking
 
-Accessibility rules now come from `eslint-plugin-jsx-a11y-x`. Rename custom overrides and settings from `jsx-a11y/*` / `jsx-a11y` to `jsx-a11y-x/*` / `jsx-a11y-x`.
+Accessibility rules come from `@omnific/eslint-plugin-jsx-a11y`.
+
+- Rule ids use the `jsx-a11y/*` prefix (not `jsx-a11y-x/*`).
+- Settings key is `jsx-a11y` (not `jsx-a11y-x`).
+
+Rename any custom overrides accordingly.
 
 ## Install
 
