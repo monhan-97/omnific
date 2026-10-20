@@ -50,6 +50,6 @@
   "devDependencies": {
     "@omnific/tsconfig": "workspace:*",
     "@types/react": "^19.3.0",
-    "react": "^19.3.0"
+    "react": "^19.3.1"
   }
 }

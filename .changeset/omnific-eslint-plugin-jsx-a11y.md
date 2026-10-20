@@ -1,0 +1,10 @@
+---
+'@omnific/eslint-plugin-jsx-a11y': minor
+'@omnific/eslint-config-react': major
+---
+
+Add `@omnific/eslint-plugin-jsx-a11y` (TypeScript rewrite of `eslint-plugin-jsx-a11y-x@0.2.0`) and switch `@omnific/eslint-config-react` to it.
+
+**BREAKING** (`@omnific/eslint-config-react`): rename rule overrides and settings from `jsx-a11y-x/*` / `jsx-a11y-x` to `jsx-a11y/*` / `jsx-a11y`. No compatibility aliases.
+
+Runtime footprint drops axe-core and minimatch in favor of a local WHATWG autocomplete check and picomatch.
