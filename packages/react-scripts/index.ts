@@ -24,10 +24,6 @@ try {
 }
 
 function consoleError(value: any) {
-  if (value instanceof Error) {
-    console.log(styleText('red', value.message));
-  } else {
-    console.log(styleText('red', String(value)));
-  }
+  console.log(styleText('red', value instanceof Error ? value.message : String(value)));
   process.exit(1);
 }
