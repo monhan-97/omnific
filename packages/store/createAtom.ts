@@ -1,8 +1,16 @@
 import { atom } from 'jotai';
-import { create } from 'mutative';
+import { makeCreator } from 'mutative';
 import { isFunction } from '@omnific/utils';
 import type { WritableAtom } from 'jotai';
 import type { Draft } from 'mutative';
+
+/**
+ * Mutative creator：开发环境开启 strict，尽早发现未正确 draft 的读取；
+ * 作为库默认关闭 autoFreeze，避免 `Immutable<T>` 回灌 jotai 状态类型，并保留生产性能。
+ */
+const create = makeCreator({
+  strict: process.env.NODE_ENV !== 'production',
+});
 
 /**
  * 用于更新 atom 值的 draft。
