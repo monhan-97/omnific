@@ -55,11 +55,14 @@
   - `CI=true pnpm test`
   - `pnpm build`
 - 先按包分别提交变更，再单独提交共享发布或工具链变更。
-- 使用以下命令逐个发布已变更的包：
+- 使用以下命令逐个发布已变更的包（MUST 用 pnpm，禁止 `npm publish`，否则 `workspace:` 不会被改写进 registry）：
   - `pnpm publish --access public --no-git-checks`
-- 如果 npm 需要认证，而非交互式 OTP 不可用，使用交互式浏览器或二维码流程。
-- 使用以下命令确认已发布版本：
+  - 需要 OTP 时：`pnpm publish --access public --no-git-checks --otp=<code>`
+- 如果 npm 需要认证，而非交互式 OTP 不可用，使用交互式浏览器或二维码流程；登录后仍用 `pnpm publish`，不要改回 `npm publish`。
+- 使用以下命令确认已发布版本，并检查依赖字段不含 `workspace:`：
   - `pnpm view <package> version`
+  - `pnpm view <package>@<version> dependencies`
+- 详细约束见 `openspec/specs/package-publish/spec.md`。
 
 ## 提交消息快捷方式
 
