@@ -2,6 +2,13 @@
 
 ## 0.5.0
 
+
+## 0.5.1
+
+### Patch Changes
+
+- Republish with resolved workspace dependency versions (fix accidental `workspace:*` on npm).
+
 ### Minor Changes
 
 - Adapt draft updates to `mutative@2` via `makeCreator` (strict in development).
