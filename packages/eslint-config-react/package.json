@@ -1,7 +1,7 @@
 {
   "name": "@omnific/eslint-config-react",
   "description": "Shared React eslint config for your project",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "license": "MIT",
   "type": "module",
   "keywords": [
