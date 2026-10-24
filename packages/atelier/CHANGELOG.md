@@ -2,6 +2,13 @@
 
 ## 0.4.0
 
+
+## 0.4.1
+
+### Patch Changes
+
+- Republish with resolved workspace dependency versions (fix accidental `workspace:*` on npm).
+
 ### Minor Changes
 
 - 56fdacc: Ship default body typography and colors with open-source Chinese and English font defaults, plus border-box sizing from `styles.css`.
