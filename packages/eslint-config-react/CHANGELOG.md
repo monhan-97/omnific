@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+
+## 3.0.1
+
+### Patch Changes
+
+- Republish with resolved workspace dependency versions (fix accidental `workspace:*` on npm).
+
 ### Major Changes
 
 - Replace `eslint-plugin-jsx-a11y-x` with `@omnific/eslint-plugin-jsx-a11y`.
