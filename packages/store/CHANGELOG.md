@@ -1,5 +1,11 @@
 # @omnific/store
 
+## 0.5.0
+
+### Minor Changes
+
+- Adapt draft updates to `mutative@2` via `makeCreator` (strict in development).
+
 ## 0.4.1
 
 ### Patch Changes
