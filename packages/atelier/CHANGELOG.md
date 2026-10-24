@@ -1,5 +1,12 @@
 # @omnific/atelier
 
+## 0.4.0
+
+### Minor Changes
+
+- 56fdacc: Ship default body typography and colors with open-source Chinese and English font defaults, plus border-box sizing from `styles.css`.
+- 56fdacc: Split Button styling into independent `color` and `variant` props, replacing the previous single `variant` union with Ant Design-inspired values.
+
 ## 0.3.0
 
 ### Minor Changes
