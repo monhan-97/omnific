@@ -81,7 +81,7 @@ export type RuleName =
 
 const meta = {
   name: '@omnific/eslint-plugin-jsx-a11y',
-  version: '0.2.0',
+  version: '0.2.1',
 } as const;
 
 /**

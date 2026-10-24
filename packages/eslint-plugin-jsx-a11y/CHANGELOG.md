@@ -2,6 +2,13 @@
 
 ## 0.2.0
 
+
+## 0.2.1
+
+### Patch Changes
+
+- Republish with resolved workspace dependency versions (fix accidental `workspace:*` on npm).
+
 ### Minor Changes
 
 - 787fc26: Add `@omnific/eslint-plugin-jsx-a11y` (TypeScript rewrite of `eslint-plugin-jsx-a11y-x@0.2.0`) and switch `@omnific/eslint-config-react` to it.
