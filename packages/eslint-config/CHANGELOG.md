@@ -5,6 +5,9 @@
 ### Patch Changes
 
 - Disable `unicorn/prefer-smaller-scope` so type declarations can stay at module scope when that reads better.
+- Enable `unicorn/no-unnecessary-boolean-comparison` to reject redundant comparisons against boolean literals.
+- Enable `unicorn/no-declarations-before-early-exit` as a warning to encourage guard-clause early exits.
+- Remove obsolete `unicorn/better-regex` and `unicorn/prevent-abbreviations` config entries.
 
 ## 2.1.1
 
