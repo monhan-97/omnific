@@ -1,5 +1,11 @@
 # @omnific/eslint-config
 
+## 2.1.2
+
+### Patch Changes
+
+- Disable `unicorn/prefer-smaller-scope` so type declarations can stay at module scope when that reads better.
+
 ## 2.1.1
 
 ### Patch Changes

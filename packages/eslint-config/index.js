@@ -156,6 +156,7 @@ const commonConfig = {
     'unicorn/prefer-await': 'off',
     'unicorn/prefer-minimal-ternary': 'off',
     'unicorn/prefer-private-class-fields': 'off',
+    'unicorn/prefer-smaller-scope': 'off',
     'unicorn/no-unnecessary-boolean-comparison': 'off',
     'unicorn/name-replacements': 'off',
     'sort-imports': ['error', { ignoreDeclarationSort: true }],
