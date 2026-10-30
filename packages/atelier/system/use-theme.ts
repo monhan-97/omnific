@@ -9,10 +9,13 @@ import type { SystemContext } from './types';
  * 返回对象 ref：
  * - 挂到元素上时，给该节点打上 `data-atelier-theme={system.name}`；
  * - 未挂载时，变量写在 `document.documentElement`。
+ *
+ * `createTheme` 产出的 `cssVars` 只包含传入配置解析出的颜色变量；
+ * 未声明的变量由 `:root` 默认值或祖先作用域逐层继承。
+ *
+ * @param system 要应用的 system。
  */
-export const useTheme = <TElement extends HTMLElement = HTMLElement>(
-  system: SystemContext,
-) => {
+export const useTheme = <TElement extends HTMLElement = HTMLElement>(system: SystemContext) => {
   const ref = useRef<TElement | null>(null);
 
   useLayoutEffect(() => {

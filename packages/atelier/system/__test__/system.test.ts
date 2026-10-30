@@ -7,38 +7,130 @@ import { fileURLToPath } from 'node:url';
 
 import { describe, expect, expectTypeOf, it } from 'vitest';
 
+import * as systemApi from '../index';
 import {
   applyCssVars,
-  createSystem,
+  createTheme,
   defaultColors,
   defaultSystem,
-  defineColors,
-  flattenColors,
-  mergeColors,
+  defaultTheme,
+  defaultTokens,
 } from '../index';
 import type { DefaultColorKey } from '../index';
+import { createSystem } from '../create-system';
+
+describe('public API', () => {
+  it('does not export internal system builders', () => {
+    expect(systemApi).not.toHaveProperty('createSystem');
+    expect(systemApi).not.toHaveProperty('extendTheme');
+  });
+});
+
+const createInvalidSystems = () => {
+  // @ts-expect-error ThemeConfig does not accept mode
+  createSystem({ mode: 'dark' });
+  // @ts-expect-error ThemeConfig does not accept colorMode
+  createSystem({ colorMode: 'dark' });
+  // @ts-expect-error ThemeConfig does not accept themes
+  createSystem({ themes: {} });
+  // @ts-expect-error ThemeConfig does not accept currentTheme
+  createSystem({ currentTheme: 'light' });
+  // @ts-expect-error ThemeConfig does not accept setTheme
+  createSystem({ setTheme: () => {} });
+};
 
 describe('createSystem', () => {
-  it('merges nested color sets with later colors winning', () => {
+  it('rejects theme switching state in ThemeConfig types', () => {
+    expect(createInvalidSystems).toBeTypeOf('function');
+  });
+
+  it('keeps the defaultColors property set unchanged', () => {
+    expect(Object.keys(defaultColors)).toEqual([
+      'bg',
+      'fg',
+      'border',
+      'accent',
+      'danger',
+      'warning',
+      'success',
+      'info',
+    ]);
+
+    expect(Object.keys(defaultColors.bg)).toEqual([
+      'base',
+      'subtle',
+      'muted',
+      'emphasized',
+      'inverted',
+      'panel',
+      'disabled',
+      'danger',
+      'warning',
+      'success',
+      'info',
+    ]);
+
+    expect(Object.keys(defaultColors.fg)).toEqual([
+      'base',
+      'muted',
+      'subtle',
+      'inverted',
+      'disabled',
+      'danger',
+      'warning',
+      'success',
+      'info',
+    ]);
+
+    expect(Object.keys(defaultColors.border)).toEqual([
+      'base',
+      'muted',
+      'subtle',
+      'emphasized',
+      'inverted',
+      'danger',
+      'warning',
+      'success',
+      'info',
+    ]);
+
+    const paletteKeys = [
+      'contrast',
+      'fg',
+      'subtle',
+      'muted',
+      'emphasized',
+      'solid',
+      'hover',
+      'active',
+      'focus-ring',
+      'border',
+    ];
+
+    for (const palette of ['accent', 'danger', 'warning', 'success', 'info'] as const) {
+      expect(Object.keys(defaultColors[palette])).toEqual(paletteKeys);
+    }
+  });
+
+  it('merges nested semantic color configs with later colors winning', () => {
     const system = createSystem(
-      'merge',
-      defineColors({
-        bg: {
-          base: '#fff',
-          muted: '#f4f4f5',
+      {
+        semanticTokens: {
+          colors: {
+            bg: { base: '#fff', muted: '#f4f4f5' },
+            accent: { solid: '#111' },
+          },
         },
-        accent: {
-          solid: '#111',
+      },
+      {
+        semanticTokens: {
+          colors: {
+            accent: { solid: '#2563eb' },
+          },
         },
-      }),
-      defineColors({
-        accent: {
-          solid: '#2563eb',
-        },
-      }),
+      },
     );
 
-    expect(system.name).toBe('merge');
     expect(system.colors).toEqual({
       bg: '#fff',
       'bg-muted': '#f4f4f5',
@@ -49,30 +141,84 @@ describe('createSystem', () => {
     expect(system.cssVars['--color-accent-solid']).toBe('#2563eb');
   });
 
-  it('uses colors as the first argument with later colors winning', () => {
-    const system = createSystem(
-      defineColors({
-        bg: {
-          base: '#fff',
+  it('merges nested token groups before resolving colors', () => {
+    const system = createSystem({
+        tokens: {
+          colors: {
+            accent: {
+              500: '#111111',
+              600: '#222222',
+            },
+          },
         },
-        fg: {
-          base: '#111',
+        semanticTokens: {
+          colors: {
+            accent: {
+              solid: '{colors.accent.500}',
+              active: '{colors.accent.600}',
+            },
+          },
         },
-      }),
-      defineColors({
-        bg: {
-          base: '#000',
+      },
+      {
+        tokens: {
+          colors: {
+            accent: {
+              500: '#333333',
+            },
+          },
         },
-      }),
+      },
     );
 
-    expect(system.name).toBe('default');
-    expect(system.cssVars['--color-bg']).toBe('#000');
-    expect(system.cssVars['--color-fg']).toBe('#111');
+    expect(system.colors['accent-solid']).toBe('#333333');
+    expect(system.colors['accent-active']).toBe('#222222');
   });
 
-  it('only exposes color css vars from defaultColors', () => {
-    const { cssVars } = createSystem('default-check', defaultColors);
+  it('resolves primitive token references', () => {
+    const system = createSystem({
+      tokens: {
+        colors: {
+          white: '#ffffff',
+          gray: {
+            100: '#f4f4f5',
+          },
+        },
+      },
+      semanticTokens: {
+        colors: {
+          bg: {
+            base: '{colors.white}',
+            muted: '{colors.gray.100}',
+          },
+        },
+      },
+    });
+
+    expect(system.colors).toEqual({
+      bg: '#ffffff',
+      'bg-muted': '#f4f4f5',
+    });
+    expect(system.cssVars['--color-bg']).toBe('#ffffff');
+    expect(system.cssVars['--color-bg-muted']).toBe('#f4f4f5');
+  });
+
+  it('throws for unknown primitive token references', () => {
+    expect(() => {
+      createSystem({
+        semanticTokens: {
+          colors: {
+            bg: {
+              base: '{colors.missing.500}',
+            },
+          },
+        },
+      });
+    }).toThrow('Unknown color token reference');
+  });
+
+  it('only exposes color css vars from defaultTheme', () => {
+    const { cssVars } = createSystem(defaultTheme);
 
     expect(cssVars['--color-bg']).toBe('#ffffff');
     expect(cssVars['--color-fg']).toBe('rgb(0 0 0 / 88%)');
@@ -89,13 +235,27 @@ describe('createSystem', () => {
     expect(cssVars).not.toHaveProperty('--atelier-colors-bg');
   });
 
+  it('keeps info palette independent from accent overrides', () => {
+    const system = createSystem(defaultTheme, {
+      tokens: {
+        colors: {
+          accent: {
+            500: '#7c3aed',
+          },
+        },
+      },
+    });
+
+    expect(system.colors['accent-solid']).toBe('#7c3aed');
+    expect(system.colors['info-solid']).toBe('#1677ff');
+  });
+
   it('does not expose get methods or css/cva/sva style engine apis', () => {
-    const system = createSystem('api-check', defaultColors);
+    const system = createSystem(defaultTheme);
 
     expect(system).not.toHaveProperty('_config');
     expect(system).not.toHaveProperty('token');
     expect(system).not.toHaveProperty('getTokenCss');
-    expect(system).not.toHaveProperty('tokens');
     expect(system).not.toHaveProperty('utility');
     expect(system).not.toHaveProperty('getCssVars');
     expect(system).not.toHaveProperty('getUtilityCss');
@@ -103,8 +263,17 @@ describe('createSystem', () => {
     expect(system).not.toHaveProperty('cva');
     expect(system).not.toHaveProperty('sva');
     expect(system).not.toHaveProperty('$$atelier');
-    expect(system.name).toBe('api-check');
-    expect(system.colors).toEqual(flattenColors(defaultColors));
+    expect(system).not.toHaveProperty('tokens');
+    expect(system.colors.bg).toBe('#ffffff');
+    expect(system.colors['accent-solid']).toBe('#1677ff');
+  });
+
+  it('keeps theme switching outside ThemeConfig', () => {
+    expect(Object.hasOwn(defaultTheme, 'mode')).toBe(false);
+    expect(Object.hasOwn(defaultTheme, 'colorMode')).toBe(false);
+    expect(Object.hasOwn(defaultTheme, 'themes')).toBe(false);
+    expect(Object.hasOwn(defaultTheme, 'currentTheme')).toBe(false);
+    expect(Object.hasOwn(defaultTheme, 'setTheme')).toBe(false);
   });
 
   it('keeps generated color keys in sync with defaultSystem', () => {
@@ -118,44 +287,88 @@ describe('createSystem', () => {
     }
   });
 
-  it('infers color keys from generated defaultColorKeys', () => {
+  it('preserves the existing resolved default colors', () => {
+    expect(defaultSystem.colors['bg-danger']).toBe('#fef2f2');
+    expect(defaultSystem.colors['danger-subtle']).toBe('#fff1f0');
+    expect(defaultSystem.colors['accent-emphasized']).toBe('#69b1ff');
+    expect(defaultSystem.colors['info-emphasized']).toBe('#69b1ff');
+  });
+
+  it('only keeps primitive tokens used by the default semantic palette', () => {
+    expect(Object.hasOwn(defaultTokens, 'current')).toBe(false);
+    expect(Object.hasOwn(defaultTokens.gray, '900')).toBe(false);
+    expect(Object.hasOwn(defaultTokens, 'transparent')).toBe(false);
+    expect(defaultTokens.gray[100]).toBe('#f4f4f5');
+    expect(defaultTokens.accent[200]).toBe('#69b1ff');
+    expect(defaultTokens.danger[25]).toBe('#fef2f2');
+    expect(defaultTokens.danger[50]).toBe('#fff1f0');
+    expect(defaultTokens.info[200]).toBe('#69b1ff');
+  });
+
+  it('infers generated color keys', () => {
     expectTypeOf<'bg-muted'>().toMatchTypeOf<DefaultColorKey>();
     expectTypeOf<'accent-solid'>().toMatchTypeOf<DefaultColorKey>();
   });
 });
 
-describe('mergeColors', () => {
-  it('returns flat colors and color css vars', () => {
-    expect(
-      mergeColors({
-        bg: {
-          base: '#abcdef',
+describe('defaultSystem', () => {
+  it('resolves the default theme into flat colors and css vars', () => {
+    expect(defaultSystem.colors.bg).toBe('#ffffff');
+    expect(defaultSystem.colors['bg-muted']).toBe('#f4f4f5');
+    expect(defaultSystem.colors['accent-solid']).toBe('#1677ff');
+    expect(defaultSystem.cssVars['--color-bg']).toBe('#ffffff');
+  });
+});
+
+describe('createTheme', () => {
+  it('records only the provided vars', () => {
+    const system = createTheme('app', {
+      semanticTokens: {
+        colors: {
+          accent: {
+            solid: '#7c3aed',
+          },
         },
-      }),
-    ).toEqual({
-      colors: {
-        bg: '#abcdef',
-      },
-      cssVars: {
-        '--color-bg': '#abcdef',
       },
     });
+
+    expect(system.name).toBe('app');
+    expect(system.cssVars['--color-accent-solid']).toBe('#7c3aed');
+    expect(system.cssVars).not.toHaveProperty('--color-bg');
+  });
+
+  it('keeps explicitly configured vars even when they equal the default value', () => {
+    const system = createTheme('pinned', {
+      semanticTokens: {
+        colors: {
+          bg: { base: '#ffffff' },
+        },
+      },
+    });
+
+    expect(system.cssVars['--color-bg']).toBe('#ffffff');
+  });
+
+  it('produces empty cssVars when no override is provided', () => {
+    const system = createTheme('light');
+
+    expect(system.cssVars).toEqual({});
   });
 });
 
 describe('applyCssVars', () => {
   it('reuses one style tag per system name and refcounts mounts', () => {
-    const system = createSystem(
-      'shared',
-      defineColors({
-        bg: {
-          base: '#abcdef',
-        },
-        fg: {
-          base: '#123456',
+    const system = {
+      name: 'shared',
+      ...createSystem({
+        semanticTokens: {
+          colors: {
+            bg: { base: '#abcdef' },
+            fg: { base: '#123456' },
+          },
         },
       }),
-    );
+    };
 
     const dispose = applyCssVars(system, document.documentElement);
 
@@ -168,6 +381,9 @@ describe('applyCssVars', () => {
     expect(style?.textContent).toContain('--color-bg: #abcdef;');
     expect(style?.textContent).toContain('--color-fg: #123456;');
     expect(style?.textContent).not.toContain('--space-');
+    expect(style?.textContent).not.toContain('--radius-');
+    expect(style?.textContent).not.toContain('--control-height-');
+    expect(style?.textContent).not.toContain('--shadow-');
     expect(document.documentElement.dataset.atelierTheme).toBe('shared');
     expect(document.querySelectorAll('style[data-atelier-css-vars]')).toHaveLength(1);
 
@@ -184,14 +400,16 @@ describe('applyCssVars', () => {
   });
 
   it('shares one style when multiple containers use the same system name', () => {
-    const system = createSystem(
-      'multi-host',
-      defineColors({
-        bg: {
-          base: '#112233',
+    const system = {
+      name: 'multi-host',
+      ...createSystem({
+        semanticTokens: {
+          colors: {
+            bg: { base: '#112233' },
+          },
         },
       }),
-    );
+    };
     const hostA = document.createElement('div');
     const hostB = document.createElement('div');
     document.body.append(hostA, hostB);
@@ -218,22 +436,26 @@ describe('applyCssVars', () => {
   });
 
   it('scopes a different system name on its own style tag', () => {
-    const rootSystem = createSystem(
-      'root-theme',
-      defineColors({
-        bg: {
-          base: '#112233',
+    const rootSystem = {
+      name: 'root-theme',
+      ...createSystem({
+        semanticTokens: {
+          colors: {
+            bg: { base: '#112233' },
+          },
         },
       }),
-    );
-    const localSystem = createSystem(
-      'local-theme',
-      defineColors({
-        bg: {
-          base: '#445566',
+    };
+    const localSystem = {
+      name: 'local-theme',
+      ...createSystem({
+        semanticTokens: {
+          colors: {
+            bg: { base: '#445566' },
+          },
         },
       }),
-    );
+    };
     const host = document.createElement('div');
     document.body.append(host);
 
@@ -257,6 +479,77 @@ describe('applyCssVars', () => {
 
     disposeRoot();
     expect(document.querySelector('style[data-atelier-css-vars]')).toBeNull();
+    host.remove();
+  });
+
+  it('emits system css vars for root-level themes', () => {
+    const system = createTheme('override-root', {
+      semanticTokens: {
+        colors: {
+          bg: { base: '#000000' },
+        },
+      },
+    });
+
+    const dispose = applyCssVars(system, document.documentElement);
+    const themeStyle = document.querySelector<HTMLStyleElement>(
+      'style[data-atelier-system="override-root"]',
+    );
+
+    expect(document.querySelectorAll('style[data-atelier-css-vars]')).toHaveLength(1);
+    expect(themeStyle?.textContent).toContain('[data-atelier-theme="override-root"]');
+    expect(themeStyle?.textContent).toContain('--color-bg: #000000;');
+    expect(themeStyle?.textContent).not.toContain('--color-fg:');
+
+    dispose();
+    expect(document.querySelectorAll('style[data-atelier-css-vars]')).toHaveLength(0);
+  });
+
+  it('emits only configured variables for local themed elements', () => {
+    const system = createTheme('full-local', {
+      semanticTokens: {
+        colors: {
+          bg: { base: '#000000' },
+        },
+      },
+    });
+    const host = document.createElement('div');
+    document.body.append(host);
+
+    const dispose = applyCssVars(system, host);
+    const style = document.querySelector('style[data-atelier-system="full-local"]');
+
+    expect(style?.textContent).toContain('--color-bg: #000000;');
+    expect(style?.textContent).not.toContain('--color-fg:');
+
+    dispose();
+    host.remove();
+  });
+
+  it('escapes system names in the generated attribute selector', () => {
+    const name = 'quoted "theme"';
+    const system = {
+      name,
+      ...createSystem({
+        semanticTokens: {
+          colors: {
+            bg: { base: '#000000' },
+          },
+        },
+      }),
+    };
+    const host = document.createElement('div');
+    document.body.append(host);
+
+    const dispose = applyCssVars(system, host);
+    const style = [
+      ...document.querySelectorAll<HTMLStyleElement>('style[data-atelier-css-vars]'),
+    ].find(node => node.dataset.atelierSystem === name);
+
+    expect(style?.textContent).toContain(`[data-atelier-theme="${CSS.escape(name)}"]`);
+    expect(style?.textContent).not.toContain(`[data-atelier-theme="${name}"]`);
+
+    dispose();
     host.remove();
   });
 });

@@ -1,30 +1,38 @@
 import { Box, Button } from '@omnific/atelier';
-import { createSystem, defaultColors, defineColors, useTheme } from '@omnific/atelier/system';
+import { createTheme, useTheme } from '@omnific/atelier/system';
 
-const localSystem = createSystem(
-  'local-amber',
-  defaultColors,
-  defineColors({
-    bg: {
-      base: '#18181b',
-      muted: '#27272a',
-      panel: '#18181b',
+const localTheme = {
+  semanticTokens: {
+    colors: {
+      bg: {
+        base: '#18181b',
+        muted: '#27272a',
+        panel: '#18181b',
+      },
+      fg: {
+        base: '#fafafa',
+        muted: '#a1a1aa',
+      },
+      border: {
+        base: '#3f3f46',
+      },
+      accent: {
+        fg: '#fbbf24',
+        subtle: '#451a03',
+        muted: '#78350f',
+        emphasized: '#b45309',
+        solid: '#f59e0b',
+        hover: '#fbbf24',
+        active: '#d97706',
+        contrast: '#18181b',
+        'focus-ring': 'rgb(245 158 11 / 30%)',
+        border: '#f59e0b',
+      },
     },
-    fg: {
-      base: '#fafafa',
-      muted: '#a1a1aa',
-    },
-    border: {
-      base: '#3f3f46',
-    },
-    accent: {
-      solid: '#f59e0b',
-      hover: '#fbbf24',
-      active: '#d97706',
-      contrast: '#18181b',
-    },
-  }),
-);
+  },
+};
+
+const localSystem = createTheme('local-amber', localTheme);
 
 /**
  * 对比全局主题与容器局部主题（`useTheme` 挂到局部节点）。

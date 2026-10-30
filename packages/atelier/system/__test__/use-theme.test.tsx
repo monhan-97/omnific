@@ -3,7 +3,8 @@
 import { cleanup, render } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { createSystem, defineColors, useTheme } from '../index';
+import { useTheme } from '../index';
+import { createSystem } from '../create-system';
 
 afterEach(() => {
   cleanup();
@@ -15,12 +16,16 @@ afterEach(() => {
 
 describe('useTheme', () => {
   it('registers colors on documentElement when ref is not bound', () => {
-    const system = createSystem(
-      'root-probe',
-      defineColors({
-        bg: { base: '#ffffff' },
+    const system = {
+      name: 'root-probe',
+      ...createSystem({
+        semanticTokens: {
+          colors: {
+            bg: { base: '#ffffff' },
+          },
+        },
       }),
-    );
+    };
 
     const Probe = () => {
       useTheme(system);
@@ -30,22 +35,27 @@ describe('useTheme', () => {
     render(<Probe />);
 
     expect(document.documentElement.dataset.atelierTheme).toBe('root-probe');
+    expect(document.documentElement.dataset.atelierColorMode).toBeUndefined();
     expect(getComputedStyle(document.documentElement).getPropertyValue('--color-bg').trim()).toBe(
       '#ffffff',
     );
-    expect(
-      getComputedStyle(document.documentElement).getPropertyValue('--space-4').trim(),
-    ).toBe('');
+    expect(getComputedStyle(document.documentElement).getPropertyValue('--space-4').trim()).toBe(
+      '',
+    );
     expect(document.querySelectorAll('head > style[data-atelier-css-vars]')).toHaveLength(1);
   });
 
   it('scopes colors to the bound element via attribute selector', () => {
-    const system = createSystem(
-      'scoped-probe',
-      defineColors({
-        bg: { base: '#111111' },
+    const system = {
+      name: 'scoped-probe',
+      ...createSystem({
+        semanticTokens: {
+          colors: {
+            bg: { base: '#111111' },
+          },
+        },
       }),
-    );
+    };
 
     const Probe = () => {
       const themeRef = useTheme<HTMLDivElement>(system);
@@ -56,6 +66,8 @@ describe('useTheme', () => {
     const host = getByTestId('host');
 
     expect(host.dataset.atelierTheme).toBe('scoped-probe');
+    expect(host.dataset.atelierColorMode).toBeUndefined();
+    expect(document.documentElement.dataset.atelierColorMode).toBeUndefined();
     expect(host.getAttribute('style')).toBeNull();
     expect(document.querySelector('style[data-atelier-css-vars]')?.textContent).toContain(
       'data-atelier-theme',

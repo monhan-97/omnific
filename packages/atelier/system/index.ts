@@ -1,10 +1,17 @@
 export { applyCssVars, toColorVarName } from './css-vars';
-export { createSystem } from './create-system';
+export { createTheme } from './create-theme';
 export { defaultSystem } from './default-system';
-export { defaultColors } from './defaults';
-export { defineColors } from './define-colors';
-export { flattenColors } from './flatten-colors';
-export { mergeColors } from './merge-colors';
+export { defaultTheme } from './default-theme';
+export { defaultColors, defaultTokens } from './defaults';
 export { useTheme } from './use-theme';
-export type { ColorSet, ColorValue, FlatColorSet, SystemContext } from './types';
+export type {
+  ColorDefinition,
+  ColorGroup,
+  ColorValue,
+  SystemContext,
+  ThemeConfig,
+  TokenDefinition,
+  TokenGroup,
+  TokenValue,
+} from './types';
 export type { DefaultColorKey } from './defaults';

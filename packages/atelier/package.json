@@ -69,7 +69,7 @@
     "@omnific/types": "workspace:*",
     "@omnific/utils": "workspace:*",
     "clsx": "^2.1.1",
-    "motion": "^14.4.0"
+    "motion": "^14.9.0"
   },
   "peerDependencies": {
     "react": "^19.2.8",

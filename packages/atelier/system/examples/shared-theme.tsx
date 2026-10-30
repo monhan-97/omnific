@@ -1,32 +1,40 @@
 import { useState } from 'react';
 
 import { Box, Button } from '@omnific/atelier';
-import { createSystem, defaultColors, defineColors, useTheme } from '@omnific/atelier/system';
+import { createTheme, useTheme } from '@omnific/atelier/system';
 
-const sharedSystem = createSystem(
-  'shared-panel',
-  defaultColors,
-  defineColors({
-    bg: {
-      base: '#1e1b4b',
-      muted: '#312e81',
-      panel: '#1e1b4b',
+const sharedTheme = {
+  semanticTokens: {
+    colors: {
+      bg: {
+        base: '#1e1b4b',
+        muted: '#312e81',
+        panel: '#1e1b4b',
+      },
+      fg: {
+        base: '#e0e7ff',
+        muted: '#a5b4fc',
+      },
+      border: {
+        base: '#4338ca',
+      },
+      accent: {
+        fg: '#a5b4fc',
+        subtle: '#1e1b4b',
+        muted: '#312e81',
+        emphasized: '#4338ca',
+        solid: '#818cf8',
+        hover: '#a5b4fc',
+        active: '#6366f1',
+        contrast: '#1e1b4b',
+        'focus-ring': 'rgb(129 140 248 / 30%)',
+        border: '#818cf8',
+      },
     },
-    fg: {
-      base: '#e0e7ff',
-      muted: '#a5b4fc',
-    },
-    border: {
-      base: '#4338ca',
-    },
-    accent: {
-      solid: '#818cf8',
-      hover: '#a5b4fc',
-      active: '#6366f1',
-      contrast: '#1e1b4b',
-    },
-  }),
-);
+  },
+};
+
+const sharedSystem = createTheme('shared-panel', sharedTheme);
 
 type SharedPanelProps = {
   /**
