@@ -69,12 +69,12 @@
     "@omnific/tsconfig": "workspace:*",
     "@types/aria-query": "^5.0.4",
     "@types/damerau-levenshtein": "^1.0.2",
-    "@types/estree": "^1.0.9",
+    "@types/estree": "^1.0.10",
     "@types/estree-jsx": "^1.0.5",
     "@types/jsx-ast-utils": "^3.3.1",
     "@types/language-tags": "^1.0.4",
     "@types/picomatch": "^4.0.3",
-    "@typescript-eslint/parser": "^8.72.0"
+    "@typescript-eslint/parser": "^8.72.1"
   },
   "peerDependencies": {
     "eslint": "^10.4.0"
