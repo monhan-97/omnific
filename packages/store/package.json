@@ -45,7 +45,7 @@
   "dependencies": {
     "@omnific/hooks": "workspace:*",
     "@omnific/utils": "workspace:*",
-    "mutative": "2.0.0"
+    "mutative": "2.0.1"
   },
   "peerDependencies": {
     "jotai": "^3.0.0",
