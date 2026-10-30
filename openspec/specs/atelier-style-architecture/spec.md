@@ -121,13 +121,13 @@ Atelier 组件主题样式 MUST 使用语义颜色 token，例如 `--color-accen
 
 ### Requirement: 结构属性使用静态 class
 
-组件的尺寸、间距、圆角、阴影和形状 MUST 使用静态 class 或静态 CSS 选择器实现。主题枚举和组件结构枚举 MUST NOT 通过 `createSystem` 返回值、`useTheme` 或新的颜色变量改变结构值。`Box` 的 `p`、`px`、`py`、`rounded`、`shadow` MUST 映射到 `box/styles` 中定义的静态 class；`bg`、`borderColor` 可以继续解析为 `--color-*` 引用。
+组件的尺寸、间距、圆角、阴影和形状 MUST 使用静态 class 或静态 CSS 选择器实现。主题枚举和组件结构枚举 MUST NOT 通过 `createTheme` 返回值、`useTheme` 或新的颜色变量改变结构值。`Box` 的 `p`、`px`、`py`、`rounded`、`shadow` MUST 映射到 `box/styles` 中定义的静态 class；`bg`、`borderColor` 可以继续解析为 `--color-*` 引用。
 
 #### Scenario: Button 尺寸使用静态 class
 
 - **WHEN** 使用方传入 `size="large"` 或 `shape="round"`
 - **THEN** 组件输出对应静态 class
-- **AND** `createSystem` 返回对象的 `cssVars` 不发生变化
+- **AND** `createTheme` 返回对象的 `cssVars` 不发生变化
 
 #### Scenario: Box 结构属性输出静态 class
 
