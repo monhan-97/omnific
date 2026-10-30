@@ -1,6 +1,6 @@
 {
   "name": "@omnific/atelier",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "A refined React component library for Omnific",
   "license": "MIT",
   "type": "module",
