@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import { exit } from 'node:process';
 import { styleText } from 'node:util';
 
-import type { Stats } from '@rspack/core';
+import type { Compiler, Stats } from '@rspack/core';
 import { rspack } from '@rspack/core';
 
 import type { ScriptContext } from '../Service';
@@ -51,6 +51,32 @@ function copyPublicFolder() {
   });
 }
 
+function runCompiler(compiler: Compiler) {
+  return new Promise<Stats | undefined>((resolve, reject) => {
+    compiler.run((error, stats) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+
+      resolve(stats);
+    });
+  });
+}
+
+function closeCompiler(compiler: Compiler) {
+  return new Promise<void>((resolve, reject) => {
+    compiler.close(error => {
+      if (error) {
+        reject(error);
+        return;
+      }
+
+      resolve();
+    });
+  });
+}
+
 /**
  * Create the production build and print the deployment instructions.
  * @returns
@@ -60,9 +86,9 @@ async function build(rspackConfig: ScriptContext['rspackConfig']) {
 
   const compiler = rspack(rspackConfig);
 
-  return new Promise<Stats | undefined>((resolve, reject) => {
-    compiler.run((error, stats) => {
-      return error ? reject(error) : resolve(stats);
-    });
-  });
+  try {
+    return await runCompiler(compiler);
+  } finally {
+    await closeCompiler(compiler);
+  }
 }

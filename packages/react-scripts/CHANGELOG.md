@@ -1,5 +1,11 @@
 # @omnific/react-scripts
 
+## 0.5.2
+
+### Patch Changes
+
+- Close the Rspack compiler after production builds so the CLI exits cleanly once compilation completes.
+
 ## 0.5.1
 
 ### Patch Changes
