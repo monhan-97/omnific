@@ -1,0 +1,53 @@
+{
+  "name": "@omnific/react-router",
+  "version": "0.1.0",
+  "description": "React Router route definition and navigation helpers for Omnific applications",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "react",
+    "router",
+    "react-router"
+  ],
+  "author": "monhan-97",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monhan-97/omnific.git",
+    "directory": "packages/react-router"
+  },
+  "bugs": {
+    "url": "https://github.com/monhan-97/omnific.git/issues"
+  },
+  "main": "./dist/main.js",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "default": "./dist/main.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsdown -c tsdown.config.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-router": "^8.0.0"
+  },
+  "dependencies": {
+    "@omnific/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@omnific/tsconfig": "workspace:*",
+    "@types/react": "^19.3.0",
+    "react": "^19.3.1",
+    "react-router": "^8.5.1"
+  }
+}
