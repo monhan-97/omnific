@@ -1,6 +1,6 @@
 {
   "name": "@omnific/store",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Jotai store helpers for Omnific applications",
   "license": "MIT",
   "type": "module",
