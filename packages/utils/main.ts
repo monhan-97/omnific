@@ -1,4 +1,5 @@
 export { isArray } from './isArray';
+export { buildURL } from './buildURL';
 export { isArrayEmpty } from './isArrayEmpty';
 export { isBoolean } from './isBoolean';
 export { isBlob } from './isBlob';
@@ -26,6 +27,7 @@ export { throttle } from './throttle';
 export { resolveValue } from './resolveValue';
 export { uniqueId } from './uniqueId';
 
+export type { QueryInput, QueryParameters, QueryValue } from './buildURL';
 export type { ChainedFunction } from './createChainedFunction';
 export type { DebouncedFunction, DebounceOptions } from './debounce';
 export type { ThrottledFunction, ThrottleOptions } from './throttle';

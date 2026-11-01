@@ -1,13 +1,14 @@
 {
   "name": "@omnific/utils",
-  "version": "0.4.0",
-  "description": "Shared utility predicates for Omnific packages",
+  "version": "0.5.0",
+  "description": "Shared utilities for Omnific packages",
   "license": "MIT",
   "type": "module",
   "keywords": [
     "utils",
     "type-guards",
-    "predicates"
+    "predicates",
+    "url"
   ],
   "author": "monhan-97",
   "repository": {
