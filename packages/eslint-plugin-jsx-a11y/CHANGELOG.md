@@ -1,7 +1,13 @@
 # @omnific/eslint-plugin-jsx-a11y
 
-## 0.2.0
+## 0.2.2
 
+### Patch Changes
+
+- Updated dependencies
+  - @omnific/utils@0.5.0
+
+## 0.2.0
 
 ## 0.2.1
 
