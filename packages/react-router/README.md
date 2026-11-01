@@ -35,6 +35,20 @@ const router = defineRoutes(
 
 `defineRoutes` applies the shared route options to every route, creates the router, caches it, and returns it.
 
+### Optional route options
+
+`route`, `index`, and `layout` also accept an optional options object when a route needs its own configuration:
+
+```ts
+layout(AppLayout, { id: 'root' }, [
+  index(Home, { id: 'home' }),
+  route('users/:id', UserDetail, {
+    id: 'userDetail',
+    caseSensitive: true,
+  }),
+]);
+```
+
 ## Navigate
 
 ```ts
@@ -43,7 +57,10 @@ import { createRouteNavigator } from '@omnific/react-router';
 
 export const navigateTo = createRouteNavigator(ROUTE_PATH);
 
-navigateTo('userDetail', { id: '42' });
+navigateTo('userDetail', {
+  params: { id: '42' },
+  search: { tab: 'profile' },
+});
 ```
 
 `navigateTo` uses the router cached by `defineRoutes`, so callers do not need to pass `navigate` or `router`.

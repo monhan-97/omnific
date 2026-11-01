@@ -6,6 +6,7 @@ import { clearRouter } from '../routerCache';
 
 const Page = () => null;
 const ErrorBoundary = () => null;
+const LocalErrorBoundary = () => null;
 
 describe('defineRoutes', () => {
   beforeEach(() => {
@@ -37,6 +38,55 @@ describe('defineRoutes', () => {
     });
 
     expect(userRoute).not.toHaveProperty('createRouter');
+  });
+
+  it('supports options for route, index and layout helpers', () => {
+    const indexRoute = index(Page, { id: 'home' });
+    const userRoute = route(
+      '/users/:id',
+      Page,
+      {
+        id: 'userDetail',
+        caseSensitive: true,
+      },
+      [],
+    );
+    const layoutRoute = layout(Page, { id: 'root' }, [indexRoute, userRoute]);
+
+    expect(indexRoute).toMatchObject({ index: true, id: 'home' });
+    expect(userRoute).toMatchObject({
+      path: '/users/:id',
+      id: 'userDetail',
+      caseSensitive: true,
+      children: [],
+    });
+    expect(layoutRoute).toMatchObject({
+      id: 'root',
+      children: [indexRoute, userRoute],
+    });
+  });
+
+  it('keeps a route-level ErrorBoundary ahead of the global option', () => {
+    const overriddenRoute = route('/overridden', Page, {
+      ErrorBoundary: LocalErrorBoundary,
+    });
+    const inheritedRoute = route('/inherited', Page);
+
+    defineRoutes([overriddenRoute, inheritedRoute], {
+      createRouter: createMemoryRouter,
+      ErrorBoundary,
+    });
+
+    expect(overriddenRoute.ErrorBoundary).toBe(LocalErrorBoundary);
+    expect(inheritedRoute.ErrorBoundary).toBe(ErrorBoundary);
+  });
+
+  it('accepts route children as the third argument and normalizes null paths', () => {
+    const childRoute = route('child', Page);
+    const parentRoute = route(null, Page, [childRoute]);
+
+    expect(parentRoute.path).toBeUndefined();
+    expect(parentRoute.children).toEqual([childRoute]);
   });
 });
 

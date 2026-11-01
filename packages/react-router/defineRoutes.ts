@@ -1,4 +1,4 @@
-import { isString } from '@omnific/utils';
+import { hasValue, isArray, isNil, isString } from '@omnific/utils';
 import type { ComponentType } from 'react';
 import type { DataRouter, IndexRouteObject, NonIndexRouteObject, RouteObject } from 'react-router';
 
@@ -8,6 +8,27 @@ import { setRouter } from './routerCache';
  * 路由公共选项，当前只需要透传错误边界。
  */
 type SharedRouteOptions = Pick<NonIndexRouteObject, 'ErrorBoundary'>;
+
+/**
+ * 普通路由和布局路由的扩展选项。
+ */
+type RouteHelperOptions = Omit<
+  NonIndexRouteObject,
+  'path' | 'Component' | 'children' | 'index'
+>;
+
+/**
+ * index 路由的扩展选项。
+ */
+type IndexHelperOptions = Omit<
+  IndexRouteObject,
+  'path' | 'Component' | 'children' | 'index'
+>;
+
+/**
+ * 布局路由的扩展选项。
+ */
+type LayoutHelperOptions = RouteHelperOptions;
 
 /**
  * defineRoutes 的选项。
@@ -20,11 +41,13 @@ export type DefineRoutesOptions = SharedRouteOptions & {
 };
 
 /**
- * 把路由公共选项复制到每个路由，包含嵌套的 children。
+ * 把路由公共选项复制到尚未配置对应选项的路由，包含嵌套的 children。
  */
 function applyOptions(routes: RouteObject[], options: SharedRouteOptions): void {
   for (const item of routes) {
-    Object.assign(item, options);
+    if (isNil(item.ErrorBoundary) && hasValue(options.ErrorBoundary)) {
+      item.ErrorBoundary = options.ErrorBoundary;
+    }
 
     if (item.children) {
       applyOptions(item.children, options);
@@ -54,25 +77,88 @@ export function defineRoutes(
  * 创建普通路由：path 由调用方提供，渲染组件直接传入。
  */
 export function route(
-  path: string | undefined,
+  path: string | null | undefined,
   Component: ComponentType,
   children?: RouteObject[],
+): NonIndexRouteObject;
+
+export function route(
+  path: string | null | undefined,
+  Component: ComponentType,
+  options: RouteHelperOptions,
+  children?: RouteObject[],
+): NonIndexRouteObject;
+
+export function route(
+  path: string | null | undefined,
+  Component: ComponentType,
+  optionsOrChildren?: RouteHelperOptions | RouteObject[],
+  children?: RouteObject[],
 ): NonIndexRouteObject {
-  return { path, Component, children };
+  let options: RouteHelperOptions = {};
+  let routeChildren = children;
+
+  if (isArray<RouteObject>(optionsOrChildren)) {
+    routeChildren = optionsOrChildren;
+  } else if (hasValue(optionsOrChildren)) {
+    options = optionsOrChildren;
+  }
+
+  return {
+    path: path ?? undefined,
+    Component,
+    ...options,
+    children: routeChildren,
+  };
 }
 
 /**
  * 创建 index 路由：自动补上 index 标记，且不接收 children。
  */
-export function index(Component: ComponentType): IndexRouteObject {
-  return { index: true, Component };
+export function index(
+  Component: ComponentType,
+  options: IndexHelperOptions = {},
+): IndexRouteObject {
+  return {
+    index: true,
+    Component,
+    ...options,
+  };
 }
 
 /**
  * 创建布局路由：没有 path，只负责渲染嵌套的 children。
  */
-export function layout(Component: ComponentType, children?: RouteObject[]): NonIndexRouteObject {
-  return { Component, children };
+export function layout(
+  Component: ComponentType,
+  children?: RouteObject[],
+): NonIndexRouteObject;
+
+export function layout(
+  Component: ComponentType,
+  options: LayoutHelperOptions,
+  children?: RouteObject[],
+): NonIndexRouteObject;
+
+export function layout(
+  Component: ComponentType,
+  optionsOrChildren?: LayoutHelperOptions | RouteObject[],
+  children?: RouteObject[],
+): NonIndexRouteObject {
+  let options: LayoutHelperOptions = {};
+  let routeChildren = children;
+
+  if (isArray<RouteObject>(optionsOrChildren)) {
+    routeChildren = optionsOrChildren;
+  } else if (hasValue(optionsOrChildren)) {
+    options = optionsOrChildren;
+  }
+
+  return {
+    Component,
+    ...options,
+    children: routeChildren,
+  };
 }
 
 function joinRoutePaths(prefixPath: string, path: string): string {

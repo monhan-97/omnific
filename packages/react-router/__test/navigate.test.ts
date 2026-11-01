@@ -22,9 +22,16 @@ describe('createRouteNavigator', () => {
     });
     const navigateTo = createRouteNavigator(paths);
 
-    await navigateTo('userDetail', { id: '42' });
+    await navigateTo('userDetail', {
+      params: { id: '42' },
+      search: {
+        tab: 'profile',
+        tag: ['admin', 'owner'],
+      },
+    });
 
     expect(router.state.location.pathname).toBe('/users/42');
+    expect(router.state.location.search).toBe('?tab=profile&tag=admin&tag=owner');
   });
 
   it('throws when navigateTo is called before router initialization', () => {
