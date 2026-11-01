@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 3.0.2
+
+### Patch Changes
+
+- @omnific/eslint-plugin-jsx-a11y@0.2.2
 
 ## 3.0.1
 
