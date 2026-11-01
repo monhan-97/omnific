@@ -1,6 +1,6 @@
 {
   "name": "@omnific/hooks",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Shared React hooks for Omnific packages",
   "license": "MIT",
   "type": "module",
