@@ -1,5 +1,6 @@
 import type { ESLint, Linter, Rule } from 'eslint';
 
+
 import flatConfigBase from './configs/flat-config-base';
 import altText from './rules/alt-text';
 import anchorAmbiguousText from './rules/anchor-ambiguous-text';
@@ -37,6 +38,8 @@ import roleHasRequiredAriaProps from './rules/role-has-required-aria-props';
 import roleSupportsAriaProps from './rules/role-supports-aria-props';
 import scope from './rules/scope';
 import tabindexNoPositive from './rules/tabindex-no-positive';
+
+import packageJson from '../package.json' with { type: 'json' };
 
 /**
  * Rule names exported by this plugin.
@@ -80,8 +83,8 @@ export type RuleName =
   | 'tabindex-no-positive';
 
 const meta = {
-  name: '@omnific/eslint-plugin-jsx-a11y',
-  version: '0.2.1',
+  name: packageJson.name,
+  version: packageJson.version,
 } as const;
 
 /**
