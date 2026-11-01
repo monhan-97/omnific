@@ -1,6 +1,4 @@
-import { isNil } from '@omnific/utils';
-
-import buildURL from './buildURL';
+import { buildURL, isNil } from '@omnific/utils';
 
 import FetchError from '../core/FetchError';
 import type { RequestConfig } from '../types';

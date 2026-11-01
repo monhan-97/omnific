@@ -1,3 +1,5 @@
+import type { QueryParameters } from '@omnific/utils';
+
 import type { UploadProgressEvent } from '../utils/progressEventReducer';
 
 /**
@@ -14,16 +16,6 @@ export type Method =
   | 'LINK'
   | 'UNLINK'
   | 'OPTIONS';
-
-/**
- * 查询参数序列化时接受的基础值类型。
- */
-export type QueryValue = string | number | boolean | null | undefined;
-
-/**
- * 请求配置接受的查询参数映射。
- */
-export type QueryParameters = Record<string, QueryValue | QueryValue[]>;
 
 /**
  * 请求传输层返回的标准化响应结构。
