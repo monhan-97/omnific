@@ -1,5 +1,12 @@
 # @omnific/react-router
 
+## 0.3.0
+
+### Minor Changes
+
+- 1053e8a: Add `lazyRoute` for route-level lazy component modules and `bindRouteProgress`
+  for an optional navigation progress indicator, plus a `useRouteProgress` hook.
+
 ## 0.2.0
 
 ### Minor Changes
