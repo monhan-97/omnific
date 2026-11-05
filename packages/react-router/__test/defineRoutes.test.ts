@@ -1,7 +1,8 @@
+import { isFunction } from '@omnific/utils';
 import { createMemoryRouter } from 'react-router';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { defineRoutes, index, layout, prefix, route } from '../defineRoutes';
+import { defineRoutes, index, layout, lazyRoute, prefix, route } from '../defineRoutes';
 import { clearRouter } from '../routerCache';
 
 const Page = () => null;
@@ -87,6 +88,33 @@ describe('defineRoutes', () => {
 
     expect(parentRoute.path).toBeUndefined();
     expect(parentRoute.children).toEqual([childRoute]);
+  });
+
+  it('creates a lazy route from a default-exported component module', async () => {
+    const lazyPageRoute = lazyRoute('/dashboard', async () => ({ default: Page }));
+
+    expect(lazyPageRoute).toMatchObject({ path: '/dashboard' });
+    expect(isFunction(lazyPageRoute.lazy)).toBe(true);
+
+    if (isFunction(lazyPageRoute.lazy)) {
+      await expect(lazyPageRoute.lazy()).resolves.toEqual({ Component: Page });
+    }
+  });
+
+  it('supports options and children on lazy routes', () => {
+    const childRoute = route('child', Page);
+    const lazyPageRoute = lazyRoute(
+      '/dashboard',
+      async () => ({ default: Page }),
+      { id: 'dashboard' },
+      [childRoute],
+    );
+
+    expect(lazyPageRoute).toMatchObject({
+      path: '/dashboard',
+      id: 'dashboard',
+      children: [childRoute],
+    });
   });
 });
 

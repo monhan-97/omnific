@@ -49,6 +49,54 @@ layout(AppLayout, { id: 'root' }, [
 ]);
 ```
 
+### Lazy routes
+
+Use `lazyRoute` for page modules with a default export. React Router handles the
+route-level lazy loading, so navigation state and error boundaries cover the
+module loading phase.
+
+```ts
+import { lazyRoute, layout } from '@omnific/react-router';
+
+layout(AppLayout, [
+  lazyRoute('dashboard', () => import('./pages/dashboard/Page')),
+  lazyRoute('users/:id', () => import('./pages/users/Page'), {
+    id: 'userDetail',
+  }),
+]);
+```
+
+## Route progress
+
+Bind the optional route progress indicator once after creating the router:
+
+```ts
+import { bindRouteProgress } from '@omnific/react-router';
+
+const dispose = bindRouteProgress(router, {
+  color: 'var(--color-accent-solid, #1677ff)',
+});
+
+dispose();
+```
+
+The progress element is created only while navigation is active and is removed
+after the navigation completes. No global CSS import is required.
+
+Inside React, use the hook instead of binding manually:
+
+```tsx
+import { useRouteProgress } from '@omnific/react-router';
+
+function App() {
+  useRouteProgress(router, {
+    color: 'var(--color-accent-solid, #1677ff)',
+  });
+
+  return <RouterProvider router={router} />;
+}
+```
+
 ## Navigate
 
 ```ts

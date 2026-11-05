@@ -10,20 +10,22 @@ import { setRouter } from './routerCache';
 type SharedRouteOptions = Pick<NonIndexRouteObject, 'ErrorBoundary'>;
 
 /**
- * 普通路由和布局路由的扩展选项。
+ * 统一的路由扩展选项：移除由 helper 自行管理的字段。
  */
-type RouteHelperOptions = Omit<
-  NonIndexRouteObject,
-  'path' | 'Component' | 'children' | 'index'
+type HelperOptions<TRoute extends RouteObject> = Omit<
+  TRoute,
+  'path' | 'Component' | 'children' | 'index' | 'lazy'
 >;
+
+/**
+ * 普通路由、布局路由和懒加载路由共用的扩展选项。
+ */
+export type RouteHelperOptions = HelperOptions<NonIndexRouteObject>;
 
 /**
  * index 路由的扩展选项。
  */
-type IndexHelperOptions = Omit<
-  IndexRouteObject,
-  'path' | 'Component' | 'children' | 'index'
->;
+type IndexHelperOptions = HelperOptions<IndexRouteObject>;
 
 /**
  * 布局路由的扩展选项。
@@ -74,6 +76,24 @@ export function defineRoutes(
 }
 
 /**
+ * 解析 route helper 的 options / children 参数形式。
+ */
+function resolveRouteArguments<TOptions>(
+  optionsOrChildren: TOptions | RouteObject[] | undefined,
+  children: RouteObject[] | undefined,
+): { options?: TOptions; children?: RouteObject[] } {
+  if (isArray<RouteObject>(optionsOrChildren)) {
+    return { children: optionsOrChildren };
+  }
+
+  if (hasValue(optionsOrChildren)) {
+    return { options: optionsOrChildren, children };
+  }
+
+  return { children };
+}
+
+/**
  * 创建普通路由：path 由调用方提供，渲染组件直接传入。
  */
 export function route(
@@ -95,14 +115,10 @@ export function route(
   optionsOrChildren?: RouteHelperOptions | RouteObject[],
   children?: RouteObject[],
 ): NonIndexRouteObject {
-  let options: RouteHelperOptions = {};
-  let routeChildren = children;
-
-  if (isArray<RouteObject>(optionsOrChildren)) {
-    routeChildren = optionsOrChildren;
-  } else if (hasValue(optionsOrChildren)) {
-    options = optionsOrChildren;
-  }
+  const { options, children: routeChildren } = resolveRouteArguments<RouteHelperOptions>(
+    optionsOrChildren,
+    children,
+  );
 
   return {
     path: path ?? undefined,
@@ -145,18 +161,63 @@ export function layout(
   optionsOrChildren?: LayoutHelperOptions | RouteObject[],
   children?: RouteObject[],
 ): NonIndexRouteObject {
-  let options: LayoutHelperOptions = {};
-  let routeChildren = children;
-
-  if (isArray<RouteObject>(optionsOrChildren)) {
-    routeChildren = optionsOrChildren;
-  } else if (hasValue(optionsOrChildren)) {
-    options = optionsOrChildren;
-  }
+  const { options, children: routeChildren } = resolveRouteArguments<LayoutHelperOptions>(
+    optionsOrChildren,
+    children,
+  );
 
   return {
     Component,
     ...options,
+    children: routeChildren,
+  };
+}
+
+/**
+ * 懒加载页面模块的默认导出组件。
+ */
+export type LazyComponentLoader = () => Promise<{ default: ComponentType }>;
+
+/**
+ * 创建懒加载页面路由。
+ *
+ * `load` 约定返回带有默认导出组件的模块，由 React Router 的 `lazy`
+ * 接管模块加载状态。
+ */
+export function lazyRoute(
+  path: string,
+  load: LazyComponentLoader,
+  children?: RouteObject[],
+): NonIndexRouteObject;
+
+/**
+ * 创建带路由选项的懒加载页面路由。
+ */
+export function lazyRoute(
+  path: string,
+  load: LazyComponentLoader,
+  options: RouteHelperOptions,
+  children?: RouteObject[],
+): NonIndexRouteObject;
+
+export function lazyRoute(
+  path: string,
+  load: LazyComponentLoader,
+  optionsOrChildren?: RouteHelperOptions | RouteObject[],
+  children?: RouteObject[],
+): NonIndexRouteObject {
+  const { options, children: routeChildren } = resolveRouteArguments<RouteHelperOptions>(
+    optionsOrChildren,
+    children,
+  );
+
+  return {
+    path,
+    ...options,
+    lazy: async () => {
+      const { default: Component } = await load();
+      return { Component };
+    },
     children: routeChildren,
   };
 }
