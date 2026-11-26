@@ -109,7 +109,7 @@ $prefix-cls: component-prefixes(button);
     border-radius: 50%;
   }
 
-  & > span {
+  & > span:not(.#{$prefix-cls}-loading-icon) {
     display: inline-block;
   }
 

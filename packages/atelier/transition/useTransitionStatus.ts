@@ -42,36 +42,38 @@ export const useTransitionStatus = <Custom = unknown>(
       return;
     }
 
-    if (isNil(enter) || isNil(scope.current)) return;
+    const element = scope.current;
+    if (isNil(enter) || isNil(element)) return;
 
     setStatus(ENTERING);
-    onEnter?.(scope.current);
+    onEnter?.(element);
 
     try {
-      await animate(scope.current, resolveValue(enter, custom, scope.current), { duration });
+      await animate(element, resolveValue(enter, custom, element), { duration });
     } catch (error) {
       if (isAnimationAbortError(error)) return;
       throw error;
     }
 
     setStatus(ENTERED);
-    onEntered?.(scope.current);
+    onEntered?.(element);
   });
 
   const handleExitMotion = useEffectEvent(async () => {
-    if (isNil(exit) || isNil(scope.current)) return;
+    const element = scope.current;
+    if (isNil(exit) || isNil(element)) return;
 
     setStatus(EXITING);
-    onExit?.(scope.current);
+    onExit?.(element);
 
     try {
-      await animate(scope.current, resolveValue(exit, custom, scope.current), { duration });
+      await animate(element, resolveValue(exit, custom, element), { duration });
     } catch (error) {
       if (isAnimationAbortError(error)) return;
       throw error;
     }
 
-    onExited?.(scope.current);
+    onExited?.(element);
     setStatus(unmountOnExit ? UNMOUNTED : EXITED);
   });
 

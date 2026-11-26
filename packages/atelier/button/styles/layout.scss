@@ -46,6 +46,7 @@ $prefix-cls: component-prefixes(button);
   }
 
   &-loading-icon {
+    display: inline-flex;
     flex: 0 0 auto;
     height: 1em;
     overflow: hidden;
