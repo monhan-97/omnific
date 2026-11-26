@@ -4,17 +4,20 @@ import type { Easing } from './easings';
  * 单个关键帧取值。
  *
  * - `number`：数值（长度类属性会补 `px`）
+ * - `string`：原样交给 WAAPI（如 `%`、`auto`、带单位值）
  * - `null`：用当前计算样式补齐
  */
-export type ValueKeyframe = number | null;
+export type ValueKeyframe = string | number | null;
 
 /**
- * 规范化后的关键帧取值（含 CSS 单位字符串）。
+ * 规范化后的关键帧取值（无 `null`）。
  */
-export type ResolvedValueKeyframe = string | number;
+export type ResolvedValueKeyframe = Exclude<ValueKeyframe, null>;
 
 /**
  * DOM / CSS 关键帧定义（单值终点，首帧由当前计算样式补齐）。
+ *
+ * 暂不支持 CSS 自定义属性（`--*`）。
  */
 export type DOMKeyframesDefinition = {
   [key: string]: ValueKeyframe | undefined;
@@ -78,7 +81,11 @@ export type AnimationPlaybackControlsWithThen = AnimationPlaybackControls & Prom
  */
 export type AnimationScope<T = Element> = {
   /**
-   * 绑定的 DOM 元素。
+   * 绑定的 DOM 元素；挂载前为 `null`。
    */
-  current: T;
+  current: T | null;
+  /**
+   * 当前作用域内仍在运行的动画控件。
+   */
+  animations: AnimationPlaybackControls[];
 };

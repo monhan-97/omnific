@@ -1,47 +1,36 @@
-import { hasValue, isNil, isNull, isNumber } from '@omnific/utils';
+import { hasValue, isNil, isNull, isNumber, kebabCase } from '@omnific/utils';
 
-import type {
-  AnimationPlaybackControls,
-  ResolvedValueKeyframe,
-  ValueKeyframe,
-} from './types';
+import type { AnimationPlaybackControls, ResolvedValueKeyframe, ValueKeyframe } from './types';
 
 const animationMaps = new WeakMap<Element, AnimationPlaybackControls[]>();
 
-const pxValues = new Set([
-  'borderWidth',
-  'borderTopWidth',
-  'borderRightWidth',
-  'borderBottomWidth',
-  'borderLeftWidth',
-  'borderRadius',
-  'borderTopLeftRadius',
-  'borderTopRightRadius',
-  'borderBottomRightRadius',
-  'borderBottomLeftRadius',
-  'width',
-  'maxWidth',
-  'height',
-  'maxHeight',
-  'top',
-  'right',
-  'bottom',
-  'left',
-  'inset',
-  'padding',
-  'paddingTop',
-  'paddingRight',
-  'paddingBottom',
-  'paddingLeft',
-  'margin',
-  'marginTop',
-  'marginRight',
-  'marginBottom',
-  'marginLeft',
-  'fontSize',
-  'backgroundPositionX',
-  'backgroundPositionY',
-]);
+const pxPropertyCache = new Map<string, boolean>();
+
+/**
+ * 判断数值型关键帧是否需要补 `px`。
+ *
+ * 优先保留无单位语义，避免把 `lineHeight` 等合法数值错误转换为长度。
+ */
+const shouldAppendPx = (name: string) => {
+  const cached = pxPropertyCache.get(name);
+  if (hasValue(cached)) return cached;
+
+  const property = kebabCase(name);
+  const supportsPx = globalThis.CSS.supports(property, '1px');
+  if (!supportsPx) {
+    pxPropertyCache.set(name, false);
+    return false;
+  }
+
+  const supportsUnitless = globalThis.CSS.supports(property, '1');
+  if (supportsUnitless) {
+    pxPropertyCache.set(name, false);
+    return false;
+  }
+
+  pxPropertyCache.set(name, true);
+  return true;
+};
 
 /**
  * 中断元素上正在播放的全部动画。
@@ -90,5 +79,6 @@ export const normalizeKeyframes = (
 ): ResolvedValueKeyframe[] => {
   const from = (computedStyle as any)[name] as string;
   if (isNull(raw)) return [from, from];
-  return pxValues.has(name) && isNumber(raw) ? [from, `${raw}px`] : [from, raw];
+  if (isNumber(raw) && shouldAppendPx(name)) return [from, `${raw}px`];
+  return [from, raw];
 };

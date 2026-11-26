@@ -1,5 +1,7 @@
 import { vi } from 'vitest';
 
+type MockEventListener = () => void;
+
 /**
  * jsdom 无 WAAPI，测试用 mock。
  */
@@ -7,20 +9,42 @@ export type MockAnimation = {
   playState: AnimationPlayState;
   currentTime: number;
   onfinish: ((this: Animation, event: AnimationPlaybackEvent) => void) | null;
+  addEventListener: ReturnType<typeof vi.fn>;
+  removeEventListener: ReturnType<typeof vi.fn>;
   play: ReturnType<typeof vi.fn>;
   pause: ReturnType<typeof vi.fn>;
   cancel: ReturnType<typeof vi.fn>;
   finish: ReturnType<typeof vi.fn>;
   commitStyles: ReturnType<typeof vi.fn>;
   triggerFinish: () => void;
+  triggerCancel: () => void;
+  triggerRemove: () => void;
 };
 
 /**
- * 创建可手动触发 finish 的 Animation mock。
+ * 创建可手动触发 finish / cancel / remove 的 Animation mock。
  */
 export const createMockAnimation = (): MockAnimation => {
   let onfinish: MockAnimation['onfinish'] = null;
   let playState: AnimationPlayState = 'running';
+  const listeners = new Map<string, Set<MockEventListener>>();
+
+  const addEventListener = vi.fn((type: string, listener: MockEventListener) => {
+    const listenersForType = listeners.get(type) ?? new Set<MockEventListener>();
+    listenersForType.add(listener);
+    listeners.set(type, listenersForType);
+  });
+
+  const removeEventListener = vi.fn((type: string, listener: MockEventListener) => {
+    listeners.get(type)?.delete(listener);
+  });
+
+  const dispatch = (type: string) => {
+    const listenersForType = listeners.get(type) ?? new Set<MockEventListener>();
+    for (const listener of listenersForType) {
+      listener();
+    }
+  };
 
   const animation: MockAnimation = {
     get playState() {
@@ -33,6 +57,8 @@ export const createMockAnimation = (): MockAnimation => {
     set onfinish(handler) {
       onfinish = handler;
     },
+    addEventListener,
+    removeEventListener,
     play: vi.fn(() => {
       playState = 'running';
     }),
@@ -42,6 +68,7 @@ export const createMockAnimation = (): MockAnimation => {
     cancel: vi.fn(() => {
       playState = 'idle';
       onfinish = null;
+      listeners.clear();
     }),
     finish: vi.fn(() => {
       onfinish?.call(animation as unknown as Animation, {} as AnimationPlaybackEvent);
@@ -49,6 +76,13 @@ export const createMockAnimation = (): MockAnimation => {
     commitStyles: vi.fn(),
     triggerFinish() {
       onfinish?.call(animation as unknown as Animation, {} as AnimationPlaybackEvent);
+    },
+    triggerCancel() {
+      playState = 'idle';
+      dispatch('cancel');
+    },
+    triggerRemove() {
+      dispatch('remove');
     },
   };
 

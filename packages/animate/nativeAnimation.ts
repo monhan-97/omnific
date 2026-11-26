@@ -1,9 +1,10 @@
-import { hasValue, isNil, noop } from '@omnific/utils';
+import { hasValue, isNil, isObject, noop } from '@omnific/utils';
 
 import { type Easing, supportedWaapiEasing } from './easings';
 import { clearActiveAnimation, setActiveAnimation } from './helpers';
 import type {
   AnimationPlaybackControlsWithThen,
+  AnimationScope,
   ResolvedValueKeyframe,
 } from './types';
 
@@ -11,7 +12,7 @@ import type {
  * 是否为动画打断导致的 AbortError。
  */
 export const isAnimationAbortError = (error: unknown): error is DOMException =>
-  error instanceof DOMException && error.name === 'AbortError';
+  isObject(error) && (error as { name?: unknown }).name === 'AbortError';
 
 /**
  * 多属性合并后的 WAAPI 输入。
@@ -26,10 +27,6 @@ export type ElementAnimationInput = {
    */
   keyframes: Record<string, ResolvedValueKeyframe[]>;
   /**
-   * 结束时写入的语义样式；缺省用关键帧最后一帧。
-   */
-  commitStyles?: Record<string, ResolvedValueKeyframe>;
-  /**
    * 延迟，单位毫秒。
    */
   delay?: number;
@@ -41,6 +38,10 @@ export type ElementAnimationInput = {
    * 命名缓动。
    */
   ease?: Easing;
+  /**
+   * 动画作用域；传入后会把本次动画登记到作用域中。
+   */
+  scope?: AnimationScope;
 };
 
 /**
@@ -51,7 +52,8 @@ export type ElementAnimationInput = {
 export const createElementAnimation = (
   input: ElementAnimationInput,
 ): AnimationPlaybackControlsWithThen => {
-  const { element, keyframes, commitStyles, delay = 0, duration = 300, ease = 'easeOut' } = input;
+  const { element, keyframes, delay = 0, duration = 300, ease = 'easeOut', scope } = input;
+
   const style = (element as HTMLElement | SVGElement).style;
 
   const animation = element.animate(keyframes as PropertyIndexedKeyframes, {
@@ -61,28 +63,39 @@ export const createElementAnimation = (
     fill: 'both',
   });
 
+  const { promise: finished, resolve: resolveFinished, reject: rejectFinished } =
+    Promise.withResolvers<void>();
+
   let isStopped = false;
   let isSettled = false;
-  let abortError: DOMException | undefined;
-  let resolveFinished: (() => void) | undefined;
-  let rejectFinished: ((reason: DOMException) => void) | undefined;
-  let finishedPromise: Promise<void> | undefined;
 
   const settleResolved = () => {
     if (isSettled) return;
     isSettled = true;
-    resolveFinished?.();
+    resolveFinished();
   };
 
   const settleAborted = () => {
     if (isSettled) return;
     isSettled = true;
-    abortError = new DOMException('Animation aborted', 'AbortError');
-    rejectFinished?.(abortError);
+    rejectFinished(new DOMException('Animation aborted', 'AbortError'));
+  };
+
+  const onCancel = () => {
+    animation.onfinish = null;
+    animation.removeEventListener('cancel', onCancel);
+    animation.removeEventListener('remove', onCancel);
+    settleAborted();
+  };
+
+  const detachHandlers = () => {
+    animation.onfinish = null;
+    animation.removeEventListener('cancel', onCancel);
+    animation.removeEventListener('remove', onCancel);
   };
 
   const cancelAnimation = () => {
-    animation.onfinish = null;
+    detachHandlers();
     try {
       animation.cancel();
     } catch {
@@ -91,44 +104,55 @@ export const createElementAnimation = (
   };
 
   const commitFinalStyles = () => {
-    for (const name in keyframes) {
-      const frames = keyframes[name];
-      if (isNil(frames)) continue;
-      const finalKeyframe = commitStyles?.[name] ?? frames.findLast(hasValue);
-      if (hasValue(finalKeyframe)) (style as any)[name] = finalKeyframe;
+    for (const [name, frames] of Object.entries(keyframes)) {
+      const finalKeyframe = frames.at(-1);
+      if (isNil(finalKeyframe)) continue;
+
+      (style as any)[name] = finalKeyframe;
     }
   };
 
   const onFinish = () => {
-    animation.onfinish = null;
-    commitFinalStyles();
-    cancelAnimation();
-    settleResolved();
+    try {
+      commitFinalStyles();
+    } catch {
+      // ignore
+    } finally {
+      cancelAnimation();
+      settleResolved();
+    }
   };
 
   animation.onfinish = onFinish;
+  animation.addEventListener('cancel', onCancel);
+  animation.addEventListener('remove', onCancel);
 
   const controls: AnimationPlaybackControlsWithThen = {
     stop() {
-      if (isStopped) return;
+      if (isStopped || isSettled) return;
       isStopped = true;
-      if (isSettled) return;
-      if (element.isConnected && animation.playState !== 'idle') {
-        animation.commitStyles?.();
+      try {
+        if (element.isConnected && animation.playState !== 'idle') {
+          animation.commitStyles?.();
+        }
+      } catch {
+        // ignore
+      } finally {
+        cancelAnimation();
+        settleAborted();
       }
-      cancelAnimation();
-      settleAborted();
     },
     play() {
-      if (isStopped) return;
+      if (isStopped || isSettled) return;
       animation.onfinish = onFinish;
       animation.play();
     },
     pause() {
+      if (isStopped || isSettled) return;
       animation.pause();
     },
     cancel() {
-      if (isStopped && isSettled) {
+      if (isSettled) {
         cancelAnimation();
         return;
       }
@@ -137,31 +161,30 @@ export const createElementAnimation = (
       settleAborted();
     },
     complete() {
-      if (isStopped) return;
+      if (isStopped || isSettled) return;
       animation.onfinish = onFinish;
       animation.finish?.();
     },
-    get finished() {
-      if (hasValue(finishedPromise)) return finishedPromise;
-      if (isSettled) {
-        finishedPromise = hasValue(abortError) ? Promise.reject(abortError) : Promise.resolve();
-        return finishedPromise;
-      }
-      const { promise, resolve, reject } = Promise.withResolvers<void>();
-      finishedPromise = promise;
-      resolveFinished = resolve;
-      rejectFinished = reject;
-      return finishedPromise;
-    },
+    finished,
     // eslint-disable-next-line unicorn/no-thenable -- await-compatible controls
     then(onfulfilled, onrejected) {
       // eslint-disable-next-line unicorn/prefer-then-catch -- PromiseLike signature
-      return controls.finished.then(onfulfilled, onrejected);
+      return finished.then(onfulfilled, onrejected);
     },
   };
 
   setActiveAnimation(element, controls);
-  controls.finished.finally(() => clearActiveAnimation(element, controls)).catch(noop);
+  if (hasValue(scope)) scope.animations.push(controls);
+
+  finished
+    .finally(() => {
+      clearActiveAnimation(element, controls);
+      if (isNil(scope)) return;
+      const index = scope.animations.indexOf(controls);
+      if (index === -1) return;
+      scope.animations.splice(index, 1);
+    })
+    .catch(noop);
 
   return controls;
 };

@@ -1,20 +1,24 @@
 import { useUnmount } from '@omnific/hooks';
-import { hasValue } from '@omnific/utils';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 
-import { animateElement } from './animateElement';
-import { stopActiveAnimation } from './helpers';
+import { createScopedAnimate } from './animateElement';
 import type { AnimationScope } from './types';
 
 /**
  * 返回作用域 ref 与基于 WAAPI 的 `animate`（仅支持单个元素）。
  */
 export function useAnimate<T extends Element = Element>() {
-  const scopeRef = useRef<T>(null!) as AnimationScope<T>;
+  const scope = useRef<AnimationScope<T>>({
+    current: null,
+    animations: [],
+  }).current;
+
+  const animate = useMemo(() => createScopedAnimate(scope), [scope]);
 
   useUnmount(() => {
-    if (hasValue(scopeRef.current)) stopActiveAnimation(scopeRef.current);
+    for (const animation of scope.animations) animation.stop();
+    scope.animations.length = 0;
   });
 
-  return [scopeRef, animateElement] as const;
+  return [scope, animate] as const;
 }

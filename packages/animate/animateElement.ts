@@ -1,10 +1,11 @@
-import { isNumber, isUndefined, noop } from '@omnific/utils';
+import { isFunction, isNumber, isUndefined, noop } from '@omnific/utils';
 
 import { normalizeKeyframes, stopActiveAnimation } from './helpers';
 import { createElementAnimation } from './nativeAnimation';
 import type {
   AnimationOptions,
   AnimationPlaybackControlsWithThen,
+  AnimationScope,
   DOMKeyframesDefinition,
   ResolvedValueKeyframe,
 } from './types';
@@ -25,21 +26,21 @@ const noopControls: AnimationPlaybackControlsWithThen = {
   },
 };
 
-/**
- * 为单个元素创建 WAAPI 动画；多属性合并为一次 `element.animate()`。
- */
-export const animateElement = (
+const animateElementWithScope = (
   element: Element,
   keyframes: DOMKeyframesDefinition,
-  options?: AnimationOptions,
+  options: AnimationOptions | undefined,
+  scope: AnimationScope | undefined,
 ) => {
   const propertyNames: string[] = [];
-  for (const name in keyframes) {
+
+  for (const [name, value] of Object.entries(keyframes)) {
     // `null` 表示沿用当前值，不能用 isNil 跳过
-    if (isUndefined(keyframes[name])) continue;
+    if (isUndefined(value)) continue;
     propertyNames.push(name);
   }
-  if (propertyNames.length === 0) return noopControls;
+
+  if (propertyNames.length === 0 || !isFunction(element.animate)) return noopControls;
 
   stopActiveAnimation(element);
 
@@ -55,5 +56,25 @@ export const animateElement = (
     delay: isNumber(options?.delay) ? options.delay * 1000 : undefined,
     duration: isNumber(options?.duration) ? options.duration * 1000 : undefined,
     ease: options?.ease,
+    scope,
   });
+};
+
+/**
+ * 为单个元素创建 WAAPI 动画；多属性合并为一次 `element.animate()`。
+ */
+export const animateElement = (
+  element: Element,
+  keyframes: DOMKeyframesDefinition,
+  options?: AnimationOptions,
+) => animateElementWithScope(element, keyframes, options, undefined);
+
+/**
+ * 创建绑定到作用域的 `animate`。
+ *
+ * scope 会记录该函数创建的动画，便于在卸载时统一停止。
+ */
+export const createScopedAnimate = (scope: AnimationScope) => {
+  return (element: Element, keyframes: DOMKeyframesDefinition, options?: AnimationOptions) =>
+    animateElementWithScope(element, keyframes, options, scope);
 };
