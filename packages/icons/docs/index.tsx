@@ -1,13 +1,13 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { hasValue } from '@omnific/utils';
+import { isNil } from '@omnific/utils';
 
 import { IconGallery } from './IconGallery';
 import { iconEntries } from './icon-entries';
 
 const rootElement = document.querySelector('#root');
 
-if (!hasValue(rootElement)) {
+if (isNil(rootElement)) {
   throw new Error('Missing #root element.');
 }
 
