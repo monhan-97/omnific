@@ -1,5 +1,23 @@
 # @omnific/atelier
 
+## 0.6.0
+
+### Minor Changes
+
+- 3dc86d5: Add `MenuItem`, `MenuList`, `ListItemIcon`, `ListItemText`, `useListNavigation`, and `useTypeahead`, including controlled single selection, roving tabindex navigation, typeahead search, list-level size propagation, and Ant Design light/dark system presets.
+
+### Patch Changes
+
+- 3dc86d5: Extract and slim WAAPI `useAnimate` into `@omnific/animate`. Add an ahooks-style `useUnmount` to `@omnific/hooks`, and switch atelier transitions off `motion`.
+- Updated dependencies [3dc86d5]
+- Updated dependencies [3dc86d5]
+- Updated dependencies [3dc86d5]
+- Updated dependencies [3dc86d5]
+  - @omnific/animate@0.2.0
+  - @omnific/hooks@0.3.0
+  - @omnific/icons@0.1.4
+  - @omnific/utils@0.6.0
+
 ## 0.5.1
 
 ### Patch Changes
