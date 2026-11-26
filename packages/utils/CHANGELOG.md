@@ -1,5 +1,11 @@
 # @omnific/utils
 
+## 0.6.0
+
+### Minor Changes
+
+- 3dc86d5: Add a generic `createEmitter` for reusable single-channel subscription and notification.
+
 ## 0.5.0
 
 ### Minor Changes
