@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 3.0.3
+
+### Patch Changes
+
+- 3dc86d5: Update `@eslint-react/eslint-plugin` to `^5.30.6`.
+- Updated dependencies [3dc86d5]
+  - @omnific/eslint-plugin-jsx-a11y@0.2.3
+
 ## 3.0.2
 
 ### Patch Changes
