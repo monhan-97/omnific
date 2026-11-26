@@ -1,5 +1,16 @@
 # @omnific/store
 
+## 0.5.3
+
+### Patch Changes
+
+- 3dc86d5: Update `mutative` to `2.0.2` and the `jotai` development dependency to `^3.0.2`.
+- Updated dependencies [3dc86d5]
+- Updated dependencies [3dc86d5]
+- Updated dependencies [3dc86d5]
+  - @omnific/hooks@0.3.0
+  - @omnific/utils@0.6.0
+
 ## 0.5.2
 
 ### Patch Changes
