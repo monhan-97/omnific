@@ -1,5 +1,17 @@
 # @omnific/hooks
 
+## 0.3.0
+
+### Minor Changes
+
+- 3dc86d5: Extract and slim WAAPI `useAnimate` into `@omnific/animate`. Add an ahooks-style `useUnmount` to `@omnific/hooks`, and switch atelier transitions off `motion`.
+- 3dc86d5: Add `useMergedState` for combining a controlled `value` with uncontrolled internal state, and `useUpdateEffect` for effects that skip the initial render.
+
+### Patch Changes
+
+- Updated dependencies [3dc86d5]
+  - @omnific/utils@0.6.0
+
 ## 0.2.3
 
 ### Patch Changes
