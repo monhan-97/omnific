@@ -74,7 +74,7 @@
     "@types/jsx-ast-utils": "^3.3.1",
     "@types/language-tags": "^1.0.4",
     "@types/picomatch": "^4.0.3",
-    "@typescript-eslint/parser": "^8.72.1"
+    "@typescript-eslint/parser": "^8.73.0"
   },
   "peerDependencies": {
     "eslint": "^10.4.0"

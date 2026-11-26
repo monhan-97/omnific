@@ -45,7 +45,7 @@
   "dependencies": {
     "@omnific/hooks": "workspace:*",
     "@omnific/utils": "workspace:*",
-    "mutative": "2.0.1"
+    "mutative": "2.0.2"
   },
   "peerDependencies": {
     "jotai": "^3.0.0",
@@ -54,7 +54,7 @@
   "devDependencies": {
     "@omnific/tsconfig": "workspace:*",
     "@types/react": "^19.3.0",
-    "jotai": "^3.0.1",
+    "jotai": "^3.0.2",
     "react": "^19.3.1"
   }
 }

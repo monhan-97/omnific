@@ -3,4 +3,8 @@ $root-prefix-cls: 'atelier';
 $component-prefixes: (
   button: '#{$root-prefix-cls}-button',
   box: '#{$root-prefix-cls}-box',
+  menu-item: '#{$root-prefix-cls}-menu-item',
+  menu-list: '#{$root-prefix-cls}-menu-list',
+  list-item-icon: '#{$root-prefix-cls}-list-item-icon',
+  list-item-text: '#{$root-prefix-cls}-list-item-text',
 );

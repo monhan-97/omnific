@@ -47,21 +47,19 @@ const toCssRule = (selector: string, cssVars: Readonly<Record<string, string>>) 
   return `${selector} {\n${lines.join('\n')}\n}`;
 };
 
+const buildDefaultThemeScss = () => {
+  const scss = `${toCssRule(':where(:root)', defaultSystem.cssVars)}\n`;
+
+  writeFileSync(path.resolve(atelierDir, 'styles/default-theme.scss'), scss);
+};
+
 const buildStyles = () => {
   const result = compile(path.resolve(atelierDir, 'styles/index.scss'), {
     style: 'expanded',
     sourceMap: false,
   });
 
-  const defaultThemeCss = toCssRule(':where(:root)', defaultSystem.cssVars);
-
-  const css = [
-    '/* Atelier default theme colors. Generated from defaultSystem. */',
-    defaultThemeCss,
-    result.css,
-  ].join('\n\n');
-
-  writeFileSync(path.resolve(atelierDir, 'dist/styles.css'), css);
+  writeFileSync(path.resolve(atelierDir, 'dist/styles.css'), result.css);
 };
 
 const steps: BuildStep[] = [
@@ -72,6 +70,10 @@ const steps: BuildStep[] = [
   {
     title: 'Build JavaScript',
     run: buildJavaScript,
+  },
+  {
+    title: 'Generate default theme SCSS',
+    run: buildDefaultThemeScss,
   },
   {
     title: 'Build styles',

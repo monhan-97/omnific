@@ -18,7 +18,7 @@ const LoadingIcon: FC<LoadingIconProps> = props => {
     enter: {
       opacity: 1,
       scale: 1,
-      width: 'auto',
+      width: 16,
       marginRight: iconOnly ? 0 : 8,
     },
     exit: {

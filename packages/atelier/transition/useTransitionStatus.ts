@@ -1,13 +1,13 @@
+import { isAnimationAbortError, useAnimate } from '@omnific/animate';
 import { useForkRef } from '@omnific/hooks';
 import { isNil, resolveValue } from '@omnific/utils';
-import { useAnimate } from 'motion/react';
 import { useEffectEvent, useLayoutEffect, useState } from 'react';
 
 import { ENTERED, ENTERING, EXITED, EXITING, UNMOUNTED } from './types';
 import type { TransitionOptions, TransitionResult, TransitionStatus } from './types';
 
 /**
- * 管理元素进入、退出、挂载状态及对应 Motion 动画。
+ * 管理元素进入、退出、挂载状态及对应动画。
  */
 export const useTransitionStatus = <Custom = unknown>(
   options: TransitionOptions<Custom>,
@@ -46,7 +46,14 @@ export const useTransitionStatus = <Custom = unknown>(
 
     setStatus(ENTERING);
     onEnter?.(scope.current);
-    await animate(scope.current, resolveValue(enter, custom, scope.current), { duration });
+
+    try {
+      await animate(scope.current, resolveValue(enter, custom, scope.current), { duration });
+    } catch (error) {
+      if (isAnimationAbortError(error)) return;
+      throw error;
+    }
+
     setStatus(ENTERED);
     onEntered?.(scope.current);
   });
@@ -56,21 +63,27 @@ export const useTransitionStatus = <Custom = unknown>(
 
     setStatus(EXITING);
     onExit?.(scope.current);
-    await animate(scope.current, resolveValue(exit, custom, scope.current), { duration });
+
+    try {
+      await animate(scope.current, resolveValue(exit, custom, scope.current), { duration });
+    } catch (error) {
+      if (isAnimationAbortError(error)) return;
+      throw error;
+    }
+
     onExited?.(scope.current);
     setStatus(unmountOnExit ? UNMOUNTED : EXITED);
   });
 
   useLayoutEffect(() => {
-    const canEnter = status === EXITED || status === UNMOUNTED;
-    const canExit = status === ENTERING || status === ENTERED;
-
     if (isOpen) {
-      if (canEnter) void handleEnterMotion();
+      const canEnter = status === EXITED || status === UNMOUNTED;
+      if (canEnter) handleEnterMotion();
       return;
     }
 
-    if (canExit) void handleExitMotion();
+    const canExit = status === ENTERING || status === ENTERED;
+    if (canExit) handleExitMotion();
   }, [isOpen, status]);
 
   return { handleRef, isMounted: status !== UNMOUNTED, status };

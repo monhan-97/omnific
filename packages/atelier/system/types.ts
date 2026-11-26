@@ -33,7 +33,7 @@ export type ColorDefinition = Record<string, ColorGroup>;
 /**
  * 一个主题的配置。
  *
- * tokens 与 semanticTokens 都使用嵌套结构，只描述当前主题。
+ * tokens 与 semanticTokens 都使用嵌套结构，只描述当前主题的颜色。
  */
 export type ThemeConfig = {
   tokens?: {

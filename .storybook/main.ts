@@ -21,7 +21,16 @@ const developmentAliases = [
     find: '@omnific/atelier/system',
     replacement: workspaceSource('../packages/atelier/system/index.ts'),
   },
+  {
+    find: '@omnific/atelier/list',
+    replacement: workspaceSource('../packages/atelier/list/index.ts'),
+  },
+  {
+    find: '@omnific/atelier/menu',
+    replacement: workspaceSource('../packages/atelier/menu/index.ts'),
+  },
   { find: '@omnific/atelier', replacement: workspaceSource('../packages/atelier/main.ts') },
+  { find: '@omnific/animate', replacement: workspaceSource('../packages/animate/main.ts') },
   { find: '@omnific/icons', replacement: workspaceSource('../packages/icons/main.ts') },
   { find: '@omnific/hooks', replacement: workspaceSource('../packages/hooks/main.ts') },
   { find: '@omnific/utils', replacement: workspaceSource('../packages/utils/main.ts') },

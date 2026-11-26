@@ -1,0 +1,7 @@
+@use '../../styles/functions' as *;
+
+$prefix-icon: component-prefixes(list-item-icon);
+
+.#{$prefix-icon} {
+  color: var(--color-fg-muted);
+}

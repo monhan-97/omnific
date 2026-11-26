@@ -15,3 +15,4 @@ export type {
   TokenValue,
 } from './types';
 export type { DefaultColorKey } from './defaults';
+export { antdDarkSystem, antdDarkTheme, antdLightSystem, antdLightTheme } from './themes/antd';

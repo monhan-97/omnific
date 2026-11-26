@@ -1,0 +1,58 @@
+{
+  "name": "@omnific/animate",
+  "version": "0.1.0",
+  "description": "WAAPI-based animate utilities for Omnific packages",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "react",
+    "animation",
+    "waapi",
+    "hooks"
+  ],
+  "author": "monhan-97",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monhan-97/omnific.git",
+    "directory": "packages/animate"
+  },
+  "bugs": {
+    "url": "https://github.com/monhan-97/omnific.git/issues"
+  },
+  "main": "./dist/main.js",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "default": "./dist/main.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "default": "./dist/*.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsdown -c tsdown.config.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "dependencies": {
+    "@omnific/hooks": "workspace:*",
+    "@omnific/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@omnific/tsconfig": "workspace:*",
+    "@types/react": "^19.3.0",
+    "react": "^19.3.1"
+  }
+}

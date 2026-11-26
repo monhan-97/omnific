@@ -1,0 +1,63 @@
+@use '../../styles/functions' as *;
+
+$prefix-menu-list: component-prefixes(menu-list);
+$prefix-cls: component-prefixes(menu-item);
+$prefix-list-icon: component-prefixes(list-item-icon);
+$prefix-list-text: component-prefixes(list-item-text);
+
+.#{$prefix-cls} {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--menu-item-height, var(--control-height-md));
+  margin: 4px 0;
+  padding: 0 var(--menu-item-padding-inline, 16px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  text-overflow: ellipsis;
+
+  &-size-small {
+    --menu-item-height: var(--control-height-sm);
+    --menu-item-padding-inline: 12px;
+  }
+
+  &-size-large {
+    --menu-item-height: var(--control-height-lg);
+    --menu-item-padding-inline: 20px;
+  }
+
+  > .#{$prefix-list-icon} {
+    min-width: 14px;
+    margin-right: 10px;
+    font-size: 14px;
+
+    svg {
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+  > .#{$prefix-list-text} {
+    margin: 0;
+  }
+}
+
+.#{$prefix-menu-list} {
+  --menu-item-height: var(--control-height-md);
+  --menu-item-padding-inline: 16px;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &[data-size='small'] {
+    --menu-item-height: var(--control-height-sm);
+    --menu-item-padding-inline: 12px;
+  }
+
+  &[data-size='large'] {
+    --menu-item-height: var(--control-height-lg);
+    --menu-item-padding-inline: 20px;
+  }
+}

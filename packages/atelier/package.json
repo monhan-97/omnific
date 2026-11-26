@@ -37,6 +37,21 @@
       "import": "./dist/button/index.js",
       "default": "./dist/button/index.js"
     },
+    "./list": {
+      "types": "./dist/list/index.d.ts",
+      "import": "./dist/list/index.js",
+      "default": "./dist/list/index.js"
+    },
+    "./menu": {
+      "types": "./dist/menu/index.d.ts",
+      "import": "./dist/menu/index.js",
+      "default": "./dist/menu/index.js"
+    },
+    "./navigation": {
+      "types": "./dist/navigation/index.d.ts",
+      "import": "./dist/navigation/index.js",
+      "default": "./dist/navigation/index.js"
+    },
     "./transition": {
       "types": "./dist/transition/index.d.ts",
       "import": "./dist/transition/index.js",
@@ -64,12 +79,12 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@omnific/animate": "workspace:*",
     "@omnific/hooks": "workspace:*",
     "@omnific/icons": "workspace:*",
     "@omnific/types": "workspace:*",
     "@omnific/utils": "workspace:*",
-    "clsx": "^2.1.1",
-    "motion": "^14.9.0"
+    "clsx": "^2.1.1"
   },
   "peerDependencies": {
     "react": "^19.2.8",

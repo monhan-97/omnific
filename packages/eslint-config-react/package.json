@@ -30,7 +30,7 @@
     "url": "https://github.com/monhan-97/omnific.git/issues"
   },
   "dependencies": {
-    "@eslint-react/eslint-plugin": "^5.28.3",
+    "@eslint-react/eslint-plugin": "^5.30.6",
     "@omnific/eslint-plugin-jsx-a11y": "workspace:*"
   },
   "peerDependencies": {

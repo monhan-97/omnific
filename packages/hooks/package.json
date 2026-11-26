@@ -47,6 +47,7 @@
   "dependencies": {
     "@omnific/utils": "workspace:*"
   },
+
   "devDependencies": {
     "@omnific/tsconfig": "workspace:*",
     "@types/react": "^19.3.0",

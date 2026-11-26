@@ -1,4 +1,4 @@
-import type { DOMKeyframesDefinition } from 'motion';
+import type { DOMKeyframesDefinition } from '@omnific/animate';
 import type { CSSProperties, ReactElement, Ref, RefCallback } from 'react';
 
 /**
@@ -72,7 +72,7 @@ export type TransitionStyles = Partial<Record<TransitionStatus, CSSProperties>>;
  */
 export type TransitionResult = {
   /**
-   * 同步 Motion 与外部元素引用的回调。
+   * 同步动画作用域与外部元素引用的回调。
    */
   handleRef: RefCallback<HTMLElement> | undefined;
   /**
