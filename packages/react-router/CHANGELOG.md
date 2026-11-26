@@ -1,5 +1,13 @@
 # @omnific/react-router
 
+## 0.3.1
+
+### Patch Changes
+
+- 3dc86d5: Update the `react-router` development dependency to `^8.5.2`.
+- Updated dependencies [3dc86d5]
+  - @omnific/utils@0.6.0
+
 ## 0.3.0
 
 ### Minor Changes
