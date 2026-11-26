@@ -1,5 +1,11 @@
 # @omnific/eslint-config
 
+## 2.1.3
+
+### Patch Changes
+
+- 3dc86d5: Update TypeScript ESLint, import, Unicorn, and globals dependencies to their latest compatible versions.
+
 ## 2.1.2
 
 ### Patch Changes
