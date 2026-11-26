@@ -1,5 +1,13 @@
 # @omnific/icons
 
+## 0.1.4
+
+### Patch Changes
+
+- 3dc86d5: Update `@swc/helpers` to `0.5.24`.
+- Updated dependencies [3dc86d5]
+  - @omnific/utils@0.6.0
+
 ## 0.1.3
 
 ### Patch Changes
