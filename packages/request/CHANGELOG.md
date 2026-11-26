@@ -1,5 +1,12 @@
 # @omnific/request
 
+## 0.2.6
+
+### Patch Changes
+
+- Updated dependencies [3dc86d5]
+  - @omnific/utils@0.6.0
+
 ## 0.2.5
 
 ### Patch Changes
