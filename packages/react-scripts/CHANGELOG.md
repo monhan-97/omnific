@@ -1,5 +1,13 @@
 # @omnific/react-scripts
 
+## 0.5.4
+
+### Patch Changes
+
+- 3dc86d5: Update Rspack, PostCSS, Tailwind CSS, Sass loader, and TypeScript checker tooling dependencies.
+- Updated dependencies [3dc86d5]
+  - @omnific/utils@0.6.0
+
 ## 0.5.3
 
 ### Patch Changes
