@@ -1,5 +1,13 @@
 # @omnific/eslint-plugin-jsx-a11y
 
+## 0.2.3
+
+### Patch Changes
+
+- 3dc86d5: Update the TypeScript ESLint parser used for development.
+- Updated dependencies [3dc86d5]
+  - @omnific/utils@0.6.0
+
 ## 0.2.2
 
 ### Patch Changes
